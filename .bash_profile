@@ -1,10 +1,5 @@
 # .bash_profile
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
 # User specific environment and startup programs
 export SYSTEM=`uname`
 
@@ -21,26 +16,29 @@ if [[ $SYSTEM == 'Darwin' ]]; then
 fi
 
 # Add some custom search path:
-export PATH=${TOOLBOX_PATH}/bin:$PATH
-
 export PATH=/usr/local/MATLAB/R2012b/bin:$PATH
-export PATH=$DEVELOP_PATH/server/node-opensees-server/bin:$PATH
-export PATH=$DEVELOP_PATH/gmsh/build:$PATH
-export PATH=$DEVELOP_PATH/OpenSees/BUILD/debug/bin:$PATH
 export PATH=/opt/ParaView-3.98.0-Linux-64bit/bin:$PATH
-export PATH=~/GiDx64/11.1.2d:$PATH
 export PATH=/opt/mongodb-linux-x86_64-2.2.2/bin:$PATH
 export PATH=/opt/redis-2.6.9/src:$PATH
 export PATH=/opt/nomad.3.5.1:$PATH
 export PATH=/opt/apache-maven-3.0.4/bin:$PATH
+export PATH=/opt/cisco/vpn/bin:$PATH
+
+export PATH=~/GiDx64/11.1.2d:$PATH
+export PATH=~/Develop/server/node-opensees-server/bin:$PATH
+export PATH=~/Develop/gmsh/build:$PATH
+export PATH=~/Develop/OpenSees/BUILD/debug/bin:$PATH
 export PATH=~/Develop/eclipse/elasticsearch/target/releases/elasticsearch-0.21.0.Beta1-SNAPSHOT/bin:$PATH
 export PATH=~/Develop/Android/adt-bundle-linux-x86_64-20130219/eclipse:$PATH
 export PATH=~/Develop/Android/adt-bundle-linux-x86_64-20130219/sdk/tools:$PATH
 export PATH=~/Develop/Android/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:$PATH
 export PATH=~/Develop/Android/android-ndk-r8d:$PATH
-export ANT_HOME=~/local/apache-ant-1.8.4/bin
-export PATH=/opt/cisco/vpn/bin:$PATH
+export PATH=~/Develop/js/sencha/Sencha/Cmd/3.1.0.239:$PATH
+export PATH=~/Dropbox/toolbox/bin:$PATH
 
+export ANT_HOME=~/local/apache-ant-1.8.4/bin
+export SENCHA_TOUCH_SDK="~/Develop/js/sencha/touch-2.1.1"
+export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
 
 # export PATH=~/bin/eclipse:$PATH
 # export PATH=~/bin/AptanaStudio3:$PATH
@@ -62,18 +60,14 @@ export PATH=/opt/cisco/vpn/bin:$PATH
 
 # nvm settings:
 export USE_NODE_VERSION="v0.8.18"
-if [[ ${SYSTEM} == 'Darwin' ]]; then
-    export NVM_DIR=~/.nvm
-else 
-    export NVM_DIR=~/nvm
-fi
 
-if [[ -e $NVM_DIR ]]; then
-    . $NVM_DIR/nvm.sh
-    [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+if [[ -r ~/nvm/nvm.sh ]]; then
+    . ~/nvm/nvm.sh
+    [[ -r ~/nvm/bash_completion ]] && . ~/nvm/bash_completion
     nvm use $USE_NODE_VERSION > /dev/null 2>&1
 fi
 
-export SENCHA_TOUCH_SDK= "~/Develop/js/sencha/touch-2.1.1"
-export PATH=~/Develop/js/sencha/Sencha/Cmd/3.1.0.239:$PATH
-export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi

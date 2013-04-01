@@ -15,20 +15,6 @@ export GIT_GH="git@github.com:lge88"
 export GIT_ME="git@lige.me:GL"
 export GIT_VIS="git@vision2.ucsd.edu:GL"
 
-# nvm settings:
-# export USE_NODE_VERSION="v0.8.18"
-# if [[ ${SYSTEM} == 'Darwin' ]]; then
-#     export NVM_DIR=~/.nvm
-# else 
-#     export NVM_DIR=~/nvm
-# fi
-
-# if [[ -e $NVM_DIR ]]; then
-#     . $NVM_DIR/nvm.sh
-#     [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-#     nvm use $USE_NODE_VERSION > /dev/null 2>&1
-# fi
-
 # alias:
 # User specific aliases and functions
 if [[ ${SYSTEM} == 'Linux' ]]; then
@@ -105,8 +91,8 @@ alias ..3="cd ../../.."
 alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-alias tmp="mdcd ${DEVELOP_PATH}/tmp/`date +%Y/%b/%d`"
-alias t="mdcd ${DROPBOX_PATH}/notes/`date +%Y/%b/%d`"
+alias t="mdcd ${DEVELOP_PATH}/tmp/`date +%Y/%b/%d`"
+alias tt="mdcd ${DROPBOX_PATH}/notes/`date +%Y/%b/%d`"
 
 # set auto complete for following commands:
 complete -cf sudo
