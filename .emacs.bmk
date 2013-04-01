@@ -2,31 +2,31 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Toolbox"
+(("Research"
+ (filename . "~/Dropbox/research/")
+ (front-context-string . "sketchit_paper\n ")
+ (rear-context-string . "0K Jan  1 14:02 ")
+ (position . 785))
+("GL@lige.me"
+ (filename . "/scpc:GL@lige.me:/home/GL/")
+ (front-context-string . ".GiDPostPreferen")
+ (rear-context-string . "0K Mar 29 20:30 ")
+ (position . 186))
+(".dotfiles"
+ (filename . "~/.dotfiles/")
+ (front-context-string . ".bash_profile\n  ")
+ (rear-context-string . "95 Apr  1 01:19 ")
+ (position . 202))
+("Toolbox"
  (filename . "~/Dropbox/toolbox/")
  (front-context-string . "elisp\n  drwxrwxr")
  (rear-context-string . "0K Jan 26 04:25 ")
  (position . 208))
-("routes"
- (filename . "~/Develop/server/direct-fea/server/routes/")
- (front-context-string . "..\n  -rw-rw-r--.")
- (rear-context-string . "0K Dec  5 01:23 ")
- (position . 186))
 ("JS"
  (filename . "~/Develop/js/")
  (front-context-string . "tests\n  drwxrwxr")
  (rear-context-string . "0K Nov  2 14:46 ")
  (position . 211))
-("Servers"
- (filename . "~/Develop/server/")
- (front-context-string . "node-gmsh-server")
- (rear-context-string . "0K Nov 29 21:20 ")
- (position . 454))
-("node-gmsh-server"
- (filename . "~/Develop/server/node-gmsh-server/")
- (front-context-string . "demos\n  drwxrwxr")
- (rear-context-string . "0K Nov  9 01:57 ")
- (position . 221))
 ("etc"
  (filename . "/sudo:root@localhost:/etc/")
  (front-context-string . "hp\n  drwxr-xr-x.")
@@ -37,21 +37,6 @@
  (front-context-string . ".git\n  -rw-rw-r-")
  (rear-context-string . "0K Nov  8 19:14 ")
  (position . 223))
-(".bashrc"
- (filename . "~/.bashrc")
- (front-context-string)
- (rear-context-string . "bash_aliases\nfi\n")
- (position . 301))
-("Dot_bashrc"
- (filename . "~/Dropbox/toolbox/bash/dot_bashrc")
- (front-context-string . "# .bashrc\n\n# exp")
- (rear-context-string)
- (position . 1))
-("Web-development"
- (filename . "~/Develop/web/")
- (front-context-string)
- (rear-context-string . "0K Oct 22 07:14 ")
- (position . 201))
 ("GL@vision2.ucsd.edu"
  (filename . "/scpc:GL@vision2.ucsd.edu:/home/GL/")
  (front-context-string . "Develop\n  drwxrw")
@@ -82,11 +67,6 @@
  (front-context-string . "analyzeAndStream")
  (rear-context-string . "7K Aug 29 15:26 ")
  (position . 219))
-("server"
- (filename . "~/Develop/server/")
- (front-context-string . "node-opensees-se")
- (rear-context-string . "0K Aug 30 22:07 ")
- (position . 203))
 ("OpenSees"
  (filename . "~/Develop/OpenSees/")
  (front-context-string . "Makefile\n  drwxr")
@@ -97,11 +77,6 @@
  (front-context-string . "#    CustomLog l")
  (rear-context-string . "e.com-error_log\n")
  (position . 33732))
-("elpa"
- (filename . "~/.emacs.d/elpa/")
- (front-context-string . "archives\n  drwxr")
- (rear-context-string . "0K Jul 18 12:04 ")
- (position . 203))
 ("Develop"
  (filename . "~/Develop/")
  (front-context-string . "OpenSees\n  drwxr")
@@ -122,61 +97,16 @@
  (front-context-string . "00155943.pdf\n  -")
  (rear-context-string . "9M Nov  9  2011 ")
  (position . 202))
-("projects"
- (filename . "~/Dropbox/projects/")
- (front-context-string . "..\n  drwxrwxr-x ")
- (rear-context-string . "96 Jul  3 10:01 ")
- (position . 162))
 ("gdkkeysyms.h"
  (filename . "/usr/include/gtk-2.0/gdk/gdkkeysyms.h")
  (front-context-string . " */\n\n#ifndef __G")
  (rear-context-string . "k.org/pub/gtk/.\n")
  (position . 1280))
-(".bash_profile"
- (filename . "~/.bash_profile")
- (front-context-string)
- (rear-context-string . "1/app-defaults\"\n")
- (position . 611))
-(".bash_aliases"
- (filename . "~/.bash_aliases")
- (front-context-string . "# set auto compl")
- (rear-context-string . "AptanaStudio3'\n\n")
- (position . 1797))
-(".emacs.bmk"
- (filename . "~/.emacs.bmk")
- (front-context-string . ";;;; Emacs Bookm")
- (rear-context-string)
- (position . 1))
-(".emacs.d"
- (filename . "~/.emacs.d/")
- (front-context-string . "auto-save-list\n ")
- (rear-context-string . "96 Jul 11 10:37 ")
- (position . 193))
-(".emacs_bash"
- (filename . "~/.emacs_bash")
- (front-context-string . "#! /bin/sh\nexpor")
- (rear-context-string)
- (position . 1))
-(".emacs"
- (filename . "~/.emacs")
- (front-context-string . "(menu-bar-mode -")
- (rear-context-string . "macro desc))))\n\n")
- (position . 911))
-("Elisp"
- (filename . "~/Dropbox/toolbox/elisp/")
- (front-context-string . "..\n  -rw-rw-r-- ")
- (rear-context-string . "96 Jul 10 21:57 ")
- (position . 167))
 ("elisp"
  (filename . "~/Dropbox/scripts/emacs/elisp/")
  (front-context-string . "autopair.el\n  dr")
  (rear-context-string . "75 Jul 10 15:05 ")
  (position . 219))
-("sketchit_paper"
- (filename . "~/Dropbox/research/sketchit_paper/")
- (front-context-string . "bare_conf.tex\n  ")
- (rear-context-string . "89 Jan 11  2007 ")
- (position . 230))
 ("defaults.list"
  (filename . "~/.local/share/applications/defaults.list")
  (front-context-string . "[Default Applica")
@@ -187,11 +117,6 @@
  (front-context-string . "closure-compiler")
  (rear-context-string . "96 Jun 20 18:45 ")
  (position . 214))
-("bash_folder"
- (filename . "~/Dropbox/scripts/bash/")
- (front-context-string . "bash_profile_mac")
- (rear-context-string . "90 Jun 24 17:42 ")
- (position . 264))
 ("Dropbox"
  (filename . "~/Dropbox/")
  (front-context-string . "252c\n  drwxrwxr-")
