@@ -5,13 +5,8 @@ export SYSTEM=`uname`
 # set up my paths
 export DEVELOP_PATH=~/Develop
 export DROPBOX_PATH=~/Dropbox
-
-export TOOLBOX_PATH=$DROPBOX_PATH/toolbox
+export TOOLBOX_PATH=~/Dropbox/toolbox
 export TB=${TOOLBOX_PATH}
-export BASH_FOLDER=$TOOLBOX_PATH/bash
-export JS_FOLDER=$TOOLBOX_PATH/js
-# This file location
-export DOT_BASHRC=${BASH_FOLDER}/dot_bashrc
 
 export GIT_BB="ssh://git@bitbucket.org/lge"
 export GIT_GH="git@github.com:lge88"
@@ -20,82 +15,36 @@ export GIT_GH="git@github.com:lge88"
 export GIT_ME="git@lige.me:GL"
 export GIT_VIS="git@vision2.ucsd.edu:GL"
 
-# Language settings:
-if [[ $SYSTEM == 'Linux' ]]; then
-    export LANG="en_US.utf8"
-    export LC_ALL="en_US.utf8"
-    export LC_CTYPE="en_US.utf8"    
+# nvm settings:
+# export USE_NODE_VERSION="v0.8.18"
+# if [[ ${SYSTEM} == 'Darwin' ]]; then
+#     export NVM_DIR=~/.nvm
+# else 
+#     export NVM_DIR=~/nvm
+# fi
+
+# if [[ -e $NVM_DIR ]]; then
+#     . $NVM_DIR/nvm.sh
+#     [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+#     nvm use $USE_NODE_VERSION > /dev/null 2>&1
+# fi
+
+# alias:
+# User specific aliases and functions
+if [[ ${SYSTEM} == 'Linux' ]]; then
+    alias open='gnome-open'
 fi
-
-if [[ $SYSTEM == 'Darwin' ]]; then
-    export PATH=$HOME/bin:/opt/local/bin:$PATH
-    export LD_LIBRARY_PATH=/opt/local/lib
-fi
-
-# Add some custom search path:
-export PATH=${TOOLBOX_PATH}/bin:$PATH
-
-export PATH=/usr/local/MATLAB/R2012b/bin:$PATH
-export PATH=$DEVELOP_PATH/server/node-opensees-server/bin:$PATH
-export PATH=$DEVELOP_PATH/gmsh/build:$PATH
-export PATH=$DEVELOP_PATH/OpenSees/BUILD/debug/bin:$PATH
-export PATH=/opt/ParaView-3.98.0-Linux-64bit/bin:$PATH
-export PATH=~/GiDx64/11.1.2d:$PATH
-export PATH=/opt/mongodb-linux-x86_64-2.2.2/bin:$PATH
-export PATH=/opt/redis-2.6.9/src:$PATH
-export PATH=/opt/nomad.3.5.1:$PATH
-export PATH=/opt/apache-maven-3.0.4/bin:$PATH
-export PATH=~/Develop/eclipse/elasticsearch/target/releases/elasticsearch-0.21.0.Beta1-SNAPSHOT/bin:$PATH
-export PATH=~/Develop/Android/adt-bundle-linux-x86_64-20130219/eclipse:$PATH
-export PATH=~/Develop/Android/adt-bundle-linux-x86_64-20130219/sdk/tools:$PATH
-export PATH=~/Develop/Android/adt-bundle-linux-x86_64-20130219/sdk/platform-tools:$PATH
-export PATH=~/Develop/Android/android-ndk-r8d:$PATH
+alias o='open'
+alias o.='open .'
 
 alias ladder="cd ${DEVELOP_PATH}/tamudrg/ && ./GUILD.sh"
-alias cpnt='component'
-
+alias comp='component'
 # alias sencha="sencha -sdk ~/Develop/js/sencha/touch-2.1.1"
-export ANT_HOME=~/local/apache-ant-1.8.4/bin
-
-export PATH=/opt/cisco/vpn/bin:$PATH
-
-# export PATH=~/bin/eclipse:$PATH
-# export PATH=~/bin/AptanaStudio3:$PATH
-
-# Compiled Matlab code settings:
-# export LD_LIBRARY_PATH=/usr/local/lib
-# export LD_LIBRARY_PATH=/usr/local/MATLAB/R2012b/runtime/glnxa64:${LD_LIBRARY_PATH}
-# export LD_LIBRARY_PATH=/usr/local/MATLAB/R2012b/bin/glnxa64:${LD_LIBRARY_PATH}
-# export LD_LIBRARY_PATH=/usr/local/MATLAB/R2012b/sys/os/glnxa64:${LD_LIBRARY_PATH}
-# export LD_LIBRARY_PATH=/usr/local/MATLAB/R2012b/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:${LD_LIBRARY_PATH}
-# export LD_LIBRARY_PATH=/usr/local/MATLAB/R2012b/sys/java/jre/glnxa64/jre/lib/amd64/server:${LD_LIBRARY_PATH}
-# export LD_LIBRARY_PATH=/usr/local/MATLAB/R2012b/sys/java/jre/glnxa64/jre/lib/amd64:${LD_LIBRARY_PATH}
-# export XAPPLRESDIR=/usr/local/MATLAB/R2012b/X11/app-defaults
-
-# osg settings:
-# export PATH=$PATH:~/Develop/osg/debug/bin
-# export LD_LIBRARY_PATH=~/Develop/osg/debug/lib:$LD_LIBRARY_PATH
-# export OSG_FILE_PATH=~/Develop/OpenSceneGraph-Data-3.0.0
-
-# nvm settings:
-
-if [[ ${SYSTEM} == 'Darwin' ]]; then
-    export NVM_DIR=~/.nvm
-else 
-    export NVM_DIR=~/nvm
-fi
-
-. $NVM_DIR/nvm.sh
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-nvm use v0.8.18 > /dev/null 2>&1
-
 eval "$(hub alias -s)"
 alias ndb='node-inspector --web-port=8888 > /dev/null 2>&1 & sleep 0.5 && google-chrome http://localhost:8888/debug?port=5858'
 alias solr='cd ~/Develop/eclipse/lucene-solr/solr/example && java -jar start.jar'
 alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.2.2/bin/mongod --fork --logpath /var/log/mongodb.log'
 
-# alias:
-# User specific aliases and functions
 alias now="date +%Y%m%d'_'%H%M%S"
 alias perm='stat -c "%a %n" $*'
 alias pd='pushd .'
@@ -133,17 +82,19 @@ emacs-pipe () {
 }
 alias ep=emacs-pipe
 alias rq='repoquery -lq'
+
 alias vislab='ssh GL@vision2.ucsd.edu'
 alias ligeme='ssh GL@lige.me'
 alias linode='ssh root@192.155.82.21'
 alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-west-2.compute.amazonaws.com"
-alias .rc="e $DOT_BASHRC"
+
+alias .rc="e ~/.bashrc"
 alias i="xtitle `pwd` @ ipython && ipython"
 alias eyum="e /sudo:root@localhost:/etc/yum.repos.d"
 alias c=cheat
 alias gg='google-chrome'
 
-# short cuts to folders, begin with g
+# short cuts to folders
 alias tl="cd ${TOOLBOX_PATH}"
 alias js="cd ${DEVELOP_PATH}/js"
 alias ios="cd ${DEVELOP_PATH}/ios"
@@ -164,10 +115,11 @@ complete -cf which
 complete -cf type
 complete -cf gdb
 
-# git autocomplete
-if [ -f ~/.git-completion.sh ]; then
+### -begin-git-autocomplete
+if [[ -f ~/.git-completion.sh ]]; then
     . ~/.git-completion.sh
 fi
+### -end-git-autocomplete
 
 ###-begin-npm-completion-###
 #
@@ -223,20 +175,7 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-npm-completion-###
 
-if [[ ${SYSTEM} == 'Linux' ]]; then
-    alias open='gnome-open'
-fi
-alias o='open'
-alias o.='open .'
-
-
-# From abs.bashrc
-[ -z "$PS1" ] && return
-
-# if [ -f /etc/bashrc ]; then
-#       . /etc/bashrc
-# fi
-
+###-begin-abs.bashrc
 #-------------------------------------------------------------
 # Some settings from abs
 #-------------------------------------------------------------
@@ -996,7 +935,4 @@ _killall()
 }
 
 complete -F _killall killall killps
-
-export PATH=/home/GL/Develop/js/sencha/Sencha/Cmd/3.1.0.239:$PATH
-
-export SENCHA_CMD_3_0_0="/home/GL/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
+###-end-abs.bashrc
