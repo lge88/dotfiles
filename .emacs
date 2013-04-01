@@ -52,6 +52,9 @@
 (setq x-select-enable-clipboard t)
 (setq frame-title-format '("" "%b @ Emacs " emacs-version))
 
+(require 'js-mode)
+(setq js-indent-level 2)
+
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 

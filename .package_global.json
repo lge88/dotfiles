@@ -1,0 +1,29 @@
+{
+  "stable": {
+    "bower": "latest",
+    "coffee-script": "latest",
+    "commander": "latest",
+    "component-builder": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "forever": "latest",
+    "gm": "latest",
+    "jade": "latest",
+    "mkdirp": "latest",
+    "node-inspector": "latest",
+    "nodemon": "latest",
+    "q": "latest",
+    "redis": "latest",
+    "stylus": "latest",
+    "uglify-js": "latest",
+    "underscore": "latest",
+    "volo": "latest"
+  },
+  "dev": {
+    "socketstream": "~/Develop/js/socketstream",
+    "shelljs": "~/Develop/js/shelljs",
+    "component": "~/Develop/js/component"
+  }
+}
+
+
