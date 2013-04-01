@@ -3,3 +3,5 @@
 	email = lge@ucsd.edu
 [core]
 	excludesfile = ~/.gitignore_global
+[push]
+	default = simple
