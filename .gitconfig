@@ -1,0 +1,5 @@
+[user]
+	name = Li Ge
+	email = lge@ucsd.edu
+[core]
+	excludesfile = ~/.gitignore_global

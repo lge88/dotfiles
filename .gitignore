@@ -1,0 +1,8 @@
+*~
+[#]*[#]
+.#*
+*.elc
+.emacs.d/auto-save-list
+.emacs.d/autosaves
+.emacs.d/backups
+.emacs.d/session.10364ba6f24c2155be13598518497347500000035230062 .emacs.d/session.10a2c1cb1796be7928136166103298563800000034170034
