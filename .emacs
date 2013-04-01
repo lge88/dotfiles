@@ -2,6 +2,7 @@
 
 (setq home-directory (getenv "HOME"))
 (setq dot-emacs-file (substitute-in-file-name "$HOME/.emacs"))
+(setq dot-files-directory (substitute-in-file-name "$HOME/.dotfiles"))
 (setq dropbox-directory
       (concat home-directory "/Dropbox"))
 (setq develop-directory
@@ -235,6 +236,7 @@
      (global-set-key (kbd "C-x r C-l") 'list-registers)
      (set-register ?a `(file . ,js-app-directory))
      (set-register ?b `(file . ,dot-bashrc-file))
+     (set-register ?c `(file . ,dot-files-directory))
      (set-register ?d `(file . ,develop-directory))
      (set-register ?e `(file . ,elisp-directory))
      (set-register ?i `(file . ,dot-emacs-file))
