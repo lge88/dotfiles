@@ -35,6 +35,7 @@ alias now="date +%Y%m%d'_'%H%M%S"
 alias perm='stat -c "%a %n" $*'
 alias pd='pushd .'
 alias ?='echo $?'
+alias nst='netstat -tlnp'
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then

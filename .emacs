@@ -118,8 +118,8 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-(global-auto-complete-mode 1)
-(setq ac-auto-start 3)
+;; (global-auto-complete-mode 1)
+(setq ac-auto-start nil)
 (define-key ac-mode-map (kbd "S-SPC") 'auto-complete)
 (define-key ac-completing-map (kbd "<escape> <tab>") 'ac-stop)
 (setq ac-dwim t)
@@ -130,7 +130,7 @@
                 ac-source-words-in-buffer
                 ac-source-files-in-current-dir
                 ac-source-filename
-                ac-source-words-in-all-buffer
+                ;; ac-source-words-in-all-buffer
                 ac-source-dictionary
                 ))
 

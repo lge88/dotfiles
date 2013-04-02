@@ -1,4 +1,15 @@
 {
+  "dev": {
+    "confirm-execute": "~/Develop/js/confirm-execute",
+    "dot-file-manager": "~/Develop/js/dot-file-manager"
+    "opensees": "~/Develop/js/node-opensees",
+    "gmsh": "~/Develop/js/node-gmsh"
+  },
+  "forked": {
+    "socketstream": "~/Develop/js/socketstream",
+    "shelljs": "~/Develop/js/shelljs",
+    "component": "~/Develop/js/component"    
+  },
   "stable": {
     "bower": "latest",
     "coffee-script": "latest",
@@ -18,12 +29,5 @@
     "uglify-js": "latest",
     "underscore": "latest",
     "volo": "latest"
-  },
-  "dev": {
-    "socketstream": "~/Develop/js/socketstream",
-    "shelljs": "~/Develop/js/shelljs",
-    "component": "~/Develop/js/component"
   }
 }
-
-
