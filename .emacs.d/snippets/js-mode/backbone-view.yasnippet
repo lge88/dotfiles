@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: backbone-view
+# key: bbv
+# --
+var ${1:New_View} = Backbone.View.extend({
+    el : 'body',
+    initialize: function() {
+        $0
+    },
+    render : function() {
+        $(this.el).html(this.template(this.model.toJSON()));
+        return this;
+    }
+});
+
+module.exports = $1;

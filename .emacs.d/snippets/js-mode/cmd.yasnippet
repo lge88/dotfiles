@@ -1,0 +1,33 @@
+# -*- mode: snippet -*-
+# name: cmd
+# key: cmd
+# --
+#!/usr/bin/env node
+var prog = require('commander');
+require('shelljs/global');
+var utils = require('${1:./}utils');
+var fatal = utils.fatal;
+var error = utils.error;
+var log = utils.log;
+var warn = utils.warn;
+
+prog
+  .version('0.0.1')
+  .usage('[options] arg1 arg2')        
+  .option('-f, --flag', 'flag')
+  .option('-a, --required_a <a>', 'required option a')
+  .option(
+    '-d, --directory [DIR]',
+    [
+      'Working directory',
+      'default is .'
+    ].join(', '),
+    pwd()
+  );
+
+prog.parse(process.argv);
+var args = program.args;
+
+if (!args[0]) {
+fatal('Missing required argument arg1!');
+}

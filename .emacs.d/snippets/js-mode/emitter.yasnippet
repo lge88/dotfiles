@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: event emitter
+# key: emitter
+# --
+var events = require('events');
+var util = require('util');
+util.inherits(${1:Emitter}, events.EventEmitter);
+function $1() {
+events.EventEmitter.call(this);
+$0
+};

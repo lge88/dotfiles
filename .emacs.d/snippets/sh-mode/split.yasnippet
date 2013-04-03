@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name : split
+# key: split
+# --
+IFS="${3:,}" read -ra ${1:array} <<< "\$${2:str}"
+for i in "\${$1[@]}"; do
+    echo "\$i"
+done

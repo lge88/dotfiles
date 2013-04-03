@@ -1,0 +1,49 @@
+# -*- mode: snippet -*-
+#name : getopts
+# key: getopts
+# --
+NO_ARGS=0 
+E_OPTERROR=85
+
+function usage() {
+cat << EOF
+usage: \$0 options
+OPTIONS:
+   -h      Show this help message
+   -t      Test type, can be ‘test1′ or ‘test2′
+   -r      Server address
+   -p      Server root password
+   -v      Verbose flag
+EOF
+}
+
+if [ $# -eq "$NO_ARGS" ]; then
+  usage && exit $E_OPTERROR
+fi  
+
+declare -A OPTS
+while getopts “:ht:r:p:v” OPTION; do
+     case $OPTION in
+         h) usage && exit 1;;
+         t) OPTS[TEST]=$OPTARG;;
+         r) OPTS[SERVER]=$OPTARG;;
+         p) OPTS[PASSWD]=$OPTARG;;
+         v) OPTS[VERBOSE]=1;;
+         \?) echo "Unknown option $OPTION" && usage && exit $E_OPTERROR;;
+         *) echo "Unknown option $OPTION" && usage && exit $E_OPTERROR;;
+     esac
+done
+shift $(($OPTIND - 1))
+
+echo options:
+for i in "\${!OPTS[@]}"; do
+    echo "$i = \${OPTS[$i]}"
+done
+
+echo non-option argumentss:
+j=1
+for i in "$@"; do
+    echo "\\$$j: $i" && j=j+1
+done
+
+read -n 1 -p "debugger..."

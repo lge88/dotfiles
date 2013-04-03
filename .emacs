@@ -79,6 +79,12 @@
 (setq dired-auto-revert-buffer t)
 (setq wdired-allow-to-change-permissions t)
 
+(require 'python-mode)
+(defvar py-mode-map python-mode-map)
+
+(require 'evil)
+(evil-mode 1)
+
 ;; ibuffer settings:
 (require 'ibuffer)
 
@@ -108,9 +114,12 @@
 (add-to-list 'load-path (concat vendor-directory "/yasnippet"))
 (require 'yasnippet)
 (yas--initialize)
+
 (setq yas/snippet-dirs
-      `(,(concat vendor-directory "/yasnippet/snippets")
-        ,custom-snippet-directory))
+      `(
+        ,(concat vendor-directory "/yasnippet/snippets")
+        ,(substitute-in-file-name "$HOME/.emacs.d/snippets")
+        ))
 (yas/reload-all)
 (yas/global-mode 1)
 
@@ -130,7 +139,7 @@
                 ac-source-words-in-buffer
                 ac-source-files-in-current-dir
                 ac-source-filename
-                ;; ac-source-words-in-all-buffer
+                ac-source-words-in-all-buffer
                 ac-source-dictionary
                 ))
 
@@ -144,12 +153,12 @@
                   (auto-complete-mode 1)
                   )))
  '(
-   "js2-mode" "lisp-mode" "sgml-mode" "conf-space-mode"
+   "js2-mode" "js-mode" "lisp-mode" "sgml-mode" "conf-space-mode"
    "tcl-mode" "c++mode" "c-mode" "sh-mode" "make-mode"
    "cmake-mode" "python-mode" "makefile-gmake-mode"
    ))
 
-(load-library "lge-js2.el")
+;; (load-library "lge-js2.el")
 
 (require 'register-list)
 (require 'register)

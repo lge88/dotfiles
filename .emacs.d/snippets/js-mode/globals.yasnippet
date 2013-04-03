@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: globals
+# key: glb
+# --
+var redis = require('redis');
+var db = redis.createClient();
+var store = require('${1:..}/store');
+var ctx = require('$1/ctx');

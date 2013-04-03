@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: static analysis
+# key: static-analysis
+# --
+constraints Plain
+set lf1 1;
+integrator LoadControl $lf1;
+test NormUnbalance 1.0e-6 30 1;
+algorithm Newton;
+numberer RCM;
+system UmfPack;
+analysis Static;

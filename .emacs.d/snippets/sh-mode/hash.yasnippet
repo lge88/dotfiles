@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#name : hash
+# key: hash
+# --
+${1:hash}="${2:foo}:${3:bar}" 
+key=\${$1%:*}
+value=\${$1#*:}

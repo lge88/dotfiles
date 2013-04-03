@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: backbone-collection
+# key: bbc
+# --
+var ${1:New_Collection} = Backbone.Collection.extend({
+    model : ${2:Model},
+    initialize: function() {
+        $0
+    }
+});
+
+module.exports = $1;
