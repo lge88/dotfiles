@@ -84,6 +84,17 @@
 
 (require 'evil)
 (evil-mode 1)
+(global-set-key (kbd "C-SPC") 'evil-normal-state)
+(global-set-key (kbd "C-@") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-SPC") 'evil-normal-state)
+(define-key evil-emacs-state-map (kbd "C-SPC") 'evil-normal-state)
+(define-key evil-normal-state-map (kbd "C-SPC") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-@") 'evil-normal-state)
+(define-key evil-emacs-state-map (kbd "C-@") 'evil-normal-state)
+(define-key evil-normal-state-map (kbd "C-@") 'evil-normal-state)
+(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
+
 
 ;; ibuffer settings:
 (require 'ibuffer)
