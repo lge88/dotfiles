@@ -94,6 +94,8 @@
 (define-key evil-normal-state-map (kbd "C-@") 'evil-normal-state)
 (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
 (define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-normal-state-map "go" 'other-window)
+
 
 
 ;; ibuffer settings:
