@@ -70,6 +70,10 @@
   (require 'magit-svn)
   (define-key lge-keys-minor-mode-map (key "C-x g") 'magit-status)
 
+  (require 'yasnippet)
+  (define-key lge-keys-minor-mode-map (key "C-x y") 'yas-insert-snippet)
+  (define-key lge-keys-minor-mode-map (key "C-x C-y") 'yas-describe-tables)
+  
   (require 'undo-tree)
   (define-key lge-keys-minor-mode-map (key "C-c u") 'undo-tree-visualize)
   
@@ -101,11 +105,12 @@
 
   (define-key lge-keys-minor-mode-map (key "<f9>") 'open-file-browser-here)
 
-  ;; (require 'js2-mode)
   (require 'sgml-mode)
   (require 'lisp-mode)
-  ;; (define-key js2-mode-map (key "<return>") 'newline-and-indent)
-  ;; (define-key js-mode-map (key "<return>") 'newline-and-indent)
+  (require 'js2-mode)  
+  (require 'js-mode)
+  (define-key js2-mode-map (key "<return>") 'newline-and-indent)
+  (define-key js-mode-map (key "<return>") 'newline-and-indent)
 
   (define-key emacs-lisp-mode-map (key "<return>") 'newline-and-indent)
   (define-key sgml-mode-map (key "<return>") 'newline-and-indent)
@@ -179,6 +184,7 @@
 
   (require 'ibuffer)
   (global-set-key (key  "C-x C-b") 'ibuffer)
+  
 
   ;; TODO:
   (require 'sh-script)
@@ -233,18 +239,35 @@
   ;; (define-key lge-keys-minor-mode-map (kbd "s-j") 'my-mark-word-backward)
 
   (defun toggle-fullscreen (&optional f)
-  (interactive)
-  (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-      (if (equal 'fullboth current-value)
-        (if (boundp 'old-fullscreen) old-fullscreen nil)
-        (progn (setq old-fullscreen current-value)
-          'fullboth)))))
+    (interactive)
+    (let ((current-value (frame-parameter nil 'fullscreen)))
+      (set-frame-parameter nil 'fullscreen
+                           (if (equal 'fullboth current-value)
+                               (if (boundp 'old-fullscreen) old-fullscreen nil)
+                             (progn (setq old-fullscreen current-value)
+                                    'fullboth)))))
 
   ;; Shortcuts
   (defalias 'nf 'new-frame)
-  (defalias 'of 'other-frame)
-  (defun goto-scratch ()
+  
+  (defun lge-ls ()
+    "list current directory in dired"
+    (interactive)
+    (dired default-directory))
+  
+  (defalias 'ls 'lge-ls)
+  (defalias 'b 'ibuffer)
+  (defalias 'lr 'list-registers)
+  (defalias 'rj 'jump-to-register)
+  (defalias 'rl 'bookmark-bmenu-list)
+
+  (defun lge-goto-scatch ()
+    "DOCSTRING"
+    (interactive)
+    (switch-to-buffer "*scratch*"))
+  (defalias 'gs 'lge-goto-scatch)
+  
+  (defun lge-goto-scratch-and-paste ()
     "go to scratch buffer"
     (interactive)
     (if mark-active
@@ -253,11 +276,10 @@
           (switch-to-buffer "*scratch*")
           (end-of-buffer)
           (newline)
-          (yank)
-          )
-      (switch-to-buffer "*scratch*")
-      )
-    )
+          (yank))
+      (switch-to-buffer "*scratch*")))
+  (defalias 'gsp 'lge-goto-scratch-and-paste)
+  
 
   (define-minor-mode lge-keys-minor-mode
     "A minor mode to apply my key maps"
