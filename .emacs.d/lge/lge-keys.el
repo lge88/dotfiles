@@ -108,7 +108,7 @@
   (require 'sgml-mode)
   (require 'lisp-mode)
   (require 'js2-mode)  
-  (require 'js-mode)
+  (require 'js)
   (define-key js2-mode-map (key "<return>") 'newline-and-indent)
   (define-key js-mode-map (key "<return>") 'newline-and-indent)
 

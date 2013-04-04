@@ -3,31 +3,21 @@
 (setq home-directory (getenv "HOME"))
 (setq dot-emacs-file (substitute-in-file-name "$HOME/.emacs"))
 (setq dot-files-directory (substitute-in-file-name "$HOME/.dotfiles"))
-(setq dropbox-directory
-      (concat home-directory "/Dropbox"))
-(setq develop-directory
-      (concat home-directory "/Develop"))
-(setq js-develop-directory
-      (concat develop-directory "/js"))
-(setq toolbox-directory
-      (concat dropbox-directory "/toolbox"))
-(setq js-app-directory
-      (concat js-develop-directory "/apps"))
-(setq dot-bashrc-file
-      (concat dot-files-directory "/.bashrc"))
-(setq elisp-directory
-      (concat toolbox-directory "/elisp"))
-(setq elpa-directory
-      (concat elisp-directory "/elpa"))
-(setq custom-keys-file
-      (concat elisp-directory "/lge-keys.el"))
-(setq vendor-directory
-      (concat elisp-directory "/vendor"))
-(setq custom-snippet-directory
-      (concat toolbox-directory "/snippets"))
+(setq dropbox-directory (concat home-directory "/Dropbox"))
+(setq develop-directory (concat home-directory "/Develop"))
+(setq js-develop-directory (concat develop-directory "/js"))
+(setq toolbox-directory (concat dropbox-directory "/toolbox"))
+(setq js-app-directory (concat js-develop-directory "/apps"))
+(setq dot-bashrc-file (concat dot-files-directory "/.bashrc"))
+(setq elisp-directory (concat toolbox-directory "/elisp"))
+(setq elpa-directory (substitute-in-file-name "$HOME/.emacs.d/elpa"))
+(setq custom-keys-file (substitute-in-file-name "$HOME/.emacs.d/lge-keys.el"))
+(setq custom-snippet-directory (substitute-in-file-name "$HOME/.emacs.d/snippets"))
+;; TODO: use git submodule to manage vendor directory then move it to ~/.emacs.d
+(setq vendor-directory (concat elisp-directory "/vendor"))
 
-(add-to-list 'load-path elisp-directory)
-(add-to-list 'load-path (concat elisp-directory "/mine"))
+;; (add-to-list 'load-path elisp-directory)
+(add-to-list 'load-path (substitute-in-file-name "$HOME/.emacs.d/lge")) 
 (add-to-list 'load-path vendor-directory)
 
 (setq visible-bell t)
@@ -46,7 +36,7 @@
 (setq shell-command-switch "-ic")
 (global-auto-revert-mode 1)
 (setq next-screen-context-lines 10)
-(menu-bar-mode 0)
+(menu-bar-mode 1)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (setq x-select-enable-clipboard t)
@@ -133,8 +123,9 @@
 
 (setq yas/snippet-dirs
       `(
+        ;; ,(substitute-in-file-name "$HOME/.emacs.d/snippets")
+        ,custom-snippet-directory
         ,(concat vendor-directory "/yasnippet/snippets")
-        ,(substitute-in-file-name "$HOME/.emacs.d/snippets")
         ))
 (yas/reload-all)
 (yas/global-mode 1)
@@ -186,7 +177,7 @@
      (set-register ?b `(file . ,dot-bashrc-file))
      (set-register ?c `(file . ,dot-files-directory))
      (set-register ?d `(file . ,develop-directory))
-     (set-register ?e `(file . ,elisp-directory))
+     (set-register ?e `(file . ,(substitute-in-file-name "$HOME/.emacs.d")))
      (set-register ?i `(file . ,dot-emacs-file))
      (set-register ?j `(file . ,js-develop-directory))
      (set-register ?k `(file . ,custom-keys-file))
