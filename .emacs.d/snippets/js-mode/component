@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: comp
+# key: comp
+# --
+{
+  "name": "${1:component-name}",
+  "dependencies": {
+    "$0": "*"
+  },
+  "local": [],
+  "scripts": [
+    "$1.js"
+  ],
+  "styles": [],
+  "templates": [],
+  "main": "$1.js"
+}
