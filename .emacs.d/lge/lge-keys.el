@@ -255,7 +255,13 @@
     (interactive)
     (dired default-directory))
   
+  (defun lge-ls-other-window ()
+    "list current directory in dired"
+    (interactive)
+    (dired-other-window default-directory))
+  
   (defalias 'ls 'lge-ls)
+  (defalias 'lso 'lge-ls-other-window)
   (defalias 'b 'ibuffer)
   (defalias 'lb 'ibuffer)
   (defalias 'lr 'list-registers)
