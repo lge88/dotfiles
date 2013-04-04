@@ -257,8 +257,10 @@
   
   (defalias 'ls 'lge-ls)
   (defalias 'b 'ibuffer)
+  (defalias 'lb 'ibuffer)
   (defalias 'lr 'list-registers)
   (defalias 'rj 'jump-to-register)
+  (defalias 'j 'jump-to-register)
   (defalias 'rl 'bookmark-bmenu-list)
 
   (defun lge-goto-scatch ()

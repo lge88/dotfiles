@@ -11,7 +11,7 @@
 (setq dot-bashrc-file (concat dot-files-directory "/.bashrc"))
 (setq elisp-directory (concat toolbox-directory "/elisp"))
 (setq elpa-directory (substitute-in-file-name "$HOME/.emacs.d/elpa"))
-(setq custom-keys-file (substitute-in-file-name "$HOME/.emacs.d/lge-keys.el"))
+(setq custom-keys-file (substitute-in-file-name "$HOME/.emacs.d/lge/lge-keys.el"))
 (setq custom-snippet-directory (substitute-in-file-name "$HOME/.emacs.d/snippets"))
 ;; TODO: use git submodule to manage vendor directory then move it to ~/.emacs.d
 (setq vendor-directory (concat elisp-directory "/vendor"))
@@ -241,3 +241,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-variable-name-face ((t (:foreground "dodger blue")))))
+(put 'downcase-region 'disabled nil)

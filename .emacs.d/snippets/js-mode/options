@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: options
+# key: options
+# --
+${1:options}$2 || ($1$2 = ${3:{}});
