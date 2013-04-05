@@ -4,6 +4,8 @@
 # --
 {
   "name": "${1:component-name}",
+  "repo": "lge88/$1.git",
+  "upstream": "",
   "dependencies": {
     "$0": "*"
   },

@@ -259,14 +259,20 @@
     "list current directory in dired"
     (interactive)
     (dired-other-window default-directory))
+
+  (defun lge-register-list-and-jump ()
+    "list out available registers, and jump"
+    (interactive)
+    (call-interactively 'register-list)
+    (call-interactively 'jump-to-register))
   
   (defalias 'ls 'lge-ls)
   (defalias 'lso 'lge-ls-other-window)
   (defalias 'b 'ibuffer)
   (defalias 'lb 'ibuffer)
-  (defalias 'lr 'list-registers)
+  (defalias 'lr 'register-list)
   (defalias 'rj 'jump-to-register)
-  (defalias 'j 'jump-to-register)
+  (defalias 'j 'lge-register-list-and-jump)
   (defalias 'rl 'bookmark-bmenu-list)
 
   (defun lge-goto-scatch ()

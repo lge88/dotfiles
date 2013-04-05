@@ -71,8 +71,8 @@
 	      (24 1)))
 	    "Improved JavaScript editing mode" single])
  (lex .
-      [(1 0)
-       nil "Lexical analyser construction" single])
+      [(1 1)
+       nil "Lexical analyser construction" tar])
  (lmc .
       [(1 1)
        nil "Little Man Computer in Elisp" single])
