@@ -8,6 +8,8 @@ export DROPBOX_PATH=~/Dropbox
 export TOOLBOX_PATH=~/Dropbox/toolbox
 export TB=${TOOLBOX_PATH}
 
+export PATH=~/Develop/js/ifea/bin:$PATH
+
 export GIT_BB="ssh://git@bitbucket.org/lge"
 export GIT_GH="git@github.com:lge88"
 
@@ -93,7 +95,7 @@ alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias t="mdcd ${DEVELOP_PATH}/tmp/`date +%Y/%b/%d`"
-alias tt="mdcd ${DROPBOX_PATH}/notes/`date +%Y/%b/%d`"
+alias tt="mdcd ${DROPBOX_PATH}/tmp/`date +%Y/%b/%d`"
 
 # set auto complete for following commands:
 complete -cf sudo

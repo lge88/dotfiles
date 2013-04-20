@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
 # name: util
-# key: ut
+# key: util
 # --
-ut.${2:each}(${1:arr}, function(${3:value}) {
-$3$0
-});
+var each = require('each');
+var bind = require('bind');
+var type = require('type');
+var extend = require('extend');

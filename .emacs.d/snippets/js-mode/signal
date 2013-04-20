@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: signal
+# key: signal
+# --
+new Signal()

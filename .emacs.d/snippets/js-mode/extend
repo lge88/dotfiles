@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: extend
+# key: extend
+# --
+var extend = require('extend');

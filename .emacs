@@ -162,7 +162,7 @@
  '(
    "js2-mode" "js-mode" "lisp-mode" "sgml-mode" "conf-space-mode"
    "tcl-mode" "c++mode" "c-mode" "sh-mode" "make-mode"
-   "cmake-mode" "python-mode" "makefile-gmake-mode"
+   "cmake-mode" "python-mode" "makefile-gmake-mode" "jade-mode"
    ))
 
 ;; (load-library "lge-js2.el")
