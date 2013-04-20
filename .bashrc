@@ -80,6 +80,7 @@ alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-wes
 alias .rc="e ~/.bashrc"
 alias i="xtitle `pwd` @ ipython && ipython"
 alias eyum="e /sudo:root@localhost:/etc/yum.repos.d"
+alias etc="e /sudo:root@localhost:/etc"
 alias c=cheat
 alias gg='google-chrome'
 
