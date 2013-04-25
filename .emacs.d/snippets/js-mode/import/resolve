@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import resolve
+# key: imresolve
+# --
+var resolve = ${1:require('path')}.resolve;$0

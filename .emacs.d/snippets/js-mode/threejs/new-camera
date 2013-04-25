@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new three.js camera
+# key: threecamera
+# --
+${1:var camera} = new THREE.${2:Perspective}Camera($0);

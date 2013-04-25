@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: express server template
+# key: eserver
+# --
+var path = require('path');
+var pkgName = path.basename(__dirname);
+var builder = require('build').builder;
+var build;
+var express = require('express');
+var app = express();
+
+app.set('views', __dirname);
+
+if (app.get('env') === 'development') {
+  build = builder({ name: pkgName });
+  app.get('/' + pkgName, build, handleIndexRequest);
+} else {
+  build = builder({
+    name: appName,
+    enableSourceURLs: false,
+    enableOptimization: true
+  });
+  build({}, {}, function() {
+    app.get('/' + pkgName, handleIndexRequest);
+  });
+}
+
+module.exports = function(io) {
+  io.sockets.on('connection', function(socket) {
+    
+  });
+  
+  return app;
+};
+
+function handleIndexRequest(req, res) {
+  res.render('index');
+}

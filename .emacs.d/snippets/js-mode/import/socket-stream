@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import socket-stream
+# key: imss
+# --
+var ss = require('socketstream');

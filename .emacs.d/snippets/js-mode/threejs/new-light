@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new three.js light
+# key: threelight
+# --
+${1:var light} = new THREE.${1:Directional}Light($0);

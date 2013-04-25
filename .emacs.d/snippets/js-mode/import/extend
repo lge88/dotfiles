@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import extend
+# key: imextend
+# --
+var extend = require('${1:extend}')$0

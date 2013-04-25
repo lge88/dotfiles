@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: for in with filter
+# key: forif
+# --
+for (${1:key} in ${2:Object}) {
+if ($2.hasOwnProperty($1)) {
+$0$2[$1]
+}
+}

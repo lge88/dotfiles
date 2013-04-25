@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import Q
+# key: imq
+# --
+var Q = require('q');$0

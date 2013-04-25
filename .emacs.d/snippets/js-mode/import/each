@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import each
+# key: imeach
+# --
+var each = require('each');

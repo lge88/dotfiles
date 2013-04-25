@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: three.js object
+# key: threemater
+# --
+${1:material} = new THREE.${1:MeshBasic}Material($0);

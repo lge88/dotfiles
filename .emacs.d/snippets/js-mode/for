@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for
+# key: for
+# --
+for (${2:i} = 0; $2 < ${3:len}; ++$2) {
+$0${1:arr}[$2]
+}
