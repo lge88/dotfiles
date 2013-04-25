@@ -1,0 +1,11 @@
+!!! 5
+html
+  head
+    title IFEA Application Manager
+    meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width')
+  body(style="background: #cccccc;")
+    - if (apps.length)
+      - apps.forEach(function(it){
+          a(href=it.url)
+            h3= it.name
+      - })

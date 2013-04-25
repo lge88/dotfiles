@@ -1,0 +1,16 @@
+{
+  "name": "bridge",
+  "description": "A bridge to talk to the native api",
+  "scripts": [
+    "bridge.js"
+  ],
+  "main": "bridge.js",
+  "dependencies": {
+    "mattcg/tiny-deferred": "*"
+  },
+  "unit": {
+    "main": "main.js",
+    "scripts": ["main.js"]
+  },
+  "express_server": true
+}

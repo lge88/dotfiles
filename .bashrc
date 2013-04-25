@@ -9,6 +9,7 @@ export TOOLBOX_PATH=~/Dropbox/toolbox
 export TB=${TOOLBOX_PATH}
 
 export PATH=~/Develop/js/ifea/bin:$PATH
+export PATH=~/.dotfiles/.bin:$PATH
 
 export GIT_BB="ssh://git@bitbucket.org/lge"
 export GIT_GH="git@github.com:lge88"

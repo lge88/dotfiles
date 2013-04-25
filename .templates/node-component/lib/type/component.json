@@ -1,0 +1,20 @@
+{
+  "name": "type",
+  "description": "",
+  "dependencies": {},
+  "local": [],
+  "scripts": [
+    "type.js"
+  ],
+  "main": "type.js",
+  "styles": [],
+  "templates": [],
+  "images": [],
+  "express_server": true,
+  "unit": {
+    "main": "main.js",
+    "scripts": [
+      "main.js"
+    ]
+  }
+}

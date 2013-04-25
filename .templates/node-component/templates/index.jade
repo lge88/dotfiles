@@ -1,0 +1,10 @@
+!!! 5
+html
+  head
+    title IFEA - {{pkgName}}
+    link(rel='stylesheet', href='/{{pkgName}}/app.css')
+    meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width')
+  body
+    h3 IFEA - {{pkgName}}
+    script(src='/socket.io/socket.io.js')
+    script(src='/{{pkgName}}/app.js')

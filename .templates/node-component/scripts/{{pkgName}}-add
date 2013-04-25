@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+var prog = require('commander');
+var path = require('path');
+var mustache = require('mustache');
+require('shelljs/global');
+
+prog
+  .version('0.0.1')
+// TODO:
+// .option('-b, --base-on <base>', 'Base module of the module to be create')
+  .usage('module_name');
+
+prog.parse(process.argv);
+var args = prog.args;
+
+if (!args[0]) {
+  console.log('Missing required argument arg1!');
+  prog.help();
+  process.exit();  
+}
+
+var pkgName = args[0];
+var libPath = path.resolve(__dirname, '..', 'lib');
+var tmplPath = path.resolve(__dirname, '..', 'templates');
+
+var files = ls(tmplPath);
+
+if (test('-e', path.join(libPath, pkgName))) {
+  prog.prompt('The package ' + pkgName + ' exists, override? [yes/no] ', function(ans) {
+    if (ans === 'yes') {
+      doit();
+      process.exit();
+    } else {
+      console.log('Abort.');
+      process.exit();
+    }
+  });
+} else {
+  doit();  
+}
+
+
+function doit() {  
+  mkdir('-p', path.join(libPath, pkgName));
+  cd(path.join(libPath, pkgName));
+  
+  files.forEach(function(file) {
+    var str = cat(path.join(tmplPath, file));
+    str = mustache.render(str, { pkgName: pkgName });
+
+    if (file === 'module.js') {
+      file = pkgName + '.js';
+    }
+
+    console.log('Generating ' + pkgName + '/' + file);
+    if (path.extname(file) === '.json') {
+      JSON.stringify(JSON.parse(str), null, 2).to(file);
+    } else {
+      str.to(file);
+    }
+    
+  });
+
+  exit(1);
+  
+}
