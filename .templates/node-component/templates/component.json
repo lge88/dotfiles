@@ -1,15 +1,15 @@
 {
-  "name": "{{pkgName}}",
-  "repo": "lge88/{{pkgName}}.git",
+  "name": "pkgName",
+  "repo": "lge88/pkgName.git",
   "upstream": "",
   "dependencies": {},
   "local": [],
   "scripts": [
-    "{{pkgName}}.js"
+    "pkgName.js"
   ],
   "styles": [],
   "templates": [],
-  "main": "{{pkgName}}.js",
+  "main": "pkgName.js",
   "unit": {
     "main": "main.js",
     "scripts": ["main.js"]

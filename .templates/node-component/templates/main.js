@@ -1,3 +1,3 @@
 
-var pkg = require('./{{pkgName}}');
+var pkg = require('./pkgName');
 // Do some testing with this module:
