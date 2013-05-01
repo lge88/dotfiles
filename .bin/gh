@@ -1,0 +1,145 @@
+#!/usr/bin/env node
+var _ = require('underscore');
+var rq = require('request');
+var Q = require('q');
+var confirmExecute = require('confirm-execute').confirmExecute;
+var exec = require('child_process').exec;
+
+var path = require('path');
+var prog = require('commander');
+var util = require('./util');
+var fatal = util.fatal;
+var error = util.error;
+var log = util.log;
+var warn = util.warn;
+
+var handled = false;
+
+// TODO coerce limit to be a positive interger
+// TODO sort function
+prog
+  .version('0.0.1')
+  .usage('<command> [options]')
+  .option('-f, --forked', 'Forked repositories')
+  .option('-s, --source', 'Source repositories')
+  .option('-e, --exclude <repo>', 'Exclude repositories')
+  .option('-t, --type <type>', 'Type, one of "all", "owner", "public", "private", "member", default is all ', 'all')
+  .option('-b, --sorted-by <sort>', 'Sorted by "created", "updated", "pushed", "full_name", default is full_name', 'full_name')
+  .option('--desc', 'Use desc order when sorting')
+  .option('-l, --limit <limit>', 'List first 100 records by befault', 100)
+  .option('--lang <language>', 'Filter by language')
+  .option('-j, --javascript', 'Shortcut for --lang JavaScript')
+  .option('-a, --all', 'All repositories')
+  .option('-c, --count', 'Output count of the list')
+  .option('-u, --user <user>', 'Username', 'lge88')
+  .option('-d, --directory [DIR]', 'Directory to save the repo', '.')
+  .option('--force', 'Clone the repo even if the directory is not empty')
+  .option('-v, --verbose', 'More info');
+
+function getRepoList(options) {
+  var deferred = Q.defer();
+  var page = options.page;
+  rq({
+    url: 'https://api.github.com/users/' + options.user + '/repos?per_page=100',
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31' 
+    }
+  },function(err, res, body) {
+    var d = JSON.parse(body);
+    d = _.chain(d)
+      .first(options.limit);
+    
+    if (options.forked) {
+      d = d.where({ fork: true });
+    } else if (options.source) {
+      d = d.where({ fork: false });
+    }
+
+    if (options.lang) {
+      d = d.where({ language: options.lang });
+    }
+
+    if (options.javascript) {
+      d = d.where({ language: 'JavaScript' });
+    }
+
+    if (options.exclude) {
+      d = d.reject(function(it) {
+        return it.name === options.exclude;
+      });
+    }
+
+    if (options.verbose) {
+      d = d.map(function(it){
+        return _.pick(it, 'full_name', 'homepage', 'fork', 'description', 'language');
+      }).value();
+    } else {
+      d = d.pluck('name').value();
+    }
+    
+    deferred.resolve(d);
+  });
+  
+  return deferred.promise;
+}
+
+prog
+  .command('ls')
+  .description('list github repositories')
+  .action(function() {
+    handled = true;
+    var _this = this;
+    getRepoList(this).done(function(list) {
+      if (_this.count) {
+        console.log('Total: ' + list.length);
+      }
+      console.log(list.join('\n'));
+      process.exit();
+    });
+  });
+
+prog
+  .command('get [repo]')
+  .description('Get a github repository to local')
+  .action(function(args) {
+    handled = true;
+    
+    var repo = this.args[0];
+    var u = this.user;
+    var _this = this;
+
+    function makeCommand(user, repo, dir, options) {
+      var cmd = [];
+      if (options.force) {
+        cmd.push('[[ -d ' + dir + ' ]] && mv ' + dir + ' ' + dir + '.bak');
+      }
+      cmd.push('git clone git://github.com/' + user + '/' + repo + '.git ' + dir);
+      return cmd.join('\n');
+    }
+
+    if (!repo) {
+      if (this.forked || this.all || this.source || this.javascript || this.language) {
+        getRepoList(this).done(function(list) {
+          var commands = list.map(function(it) {
+            var d = path.join(_this.directory, it);
+            return makeCommand(u, it, d, _this);
+          });
+          confirmExecute(commands);
+        });
+      } else {
+        console.log('Need to specify a repository to get, or use filter options flags');
+        process.exit();
+      }
+
+    } else {
+      var d = path.join(_this.directory, repo);      
+      confirmExecute(makeCommand(u, repo, d, this));
+    }
+  });
+
+prog.parse(process.argv);
+
+
+if (!handled) {
+  prog.help();
+}

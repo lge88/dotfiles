@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: defaults
+# key: defaults
+# --
+\${1:-${1:defaultValue}}$0

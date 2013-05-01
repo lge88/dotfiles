@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: is Function
+# key: isFun
+# --
+typeof $1 === 'function'$0

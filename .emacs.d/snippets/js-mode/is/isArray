@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: is Array
+# key: isArray
+# --
+Array.isArray($1)$0

@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+require('shelljs/global');
+require('colors');
+
+var root = process.argv[2] || '.';
+
+cd(root);
+
+ls('.')
+  .filter(function(d) {
+    return test('-d', d) && test('-d', join(d, '.git'));
+  })
+  .forEach(function(dir) {
+    cd(dir);
+    var out = exec('git status --porcelain', { silent: true }).output;
+    if (out === '') {
+      out = dir + ' is clean.';
+      echo(out.green);
+    } else {
+      out = dir + ' is dirty.';
+      echo(out.red);
+    }
+    cd('..');
+  });

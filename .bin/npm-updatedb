@@ -1,0 +1,6 @@
+#! /bin/sh
+__dirname=$(dirname $(readlink -f $0));
+
+DBFILE=${1:-$__dirname/../.npm_globals.txt}
+
+npm ls -g --parseable --depth=0 2> /dev/null | awk -F/ 'NR>1 {print $NF}' > $DBFILE
