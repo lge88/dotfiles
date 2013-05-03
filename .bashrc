@@ -40,6 +40,10 @@ alias pd='pushd .'
 alias ?='echo $?'
 alias nst='netstat -tlnp'
 
+alias gffs='git flow feature start'
+alias gfff='git flow feature finish'
+
+
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
     alias emacs=/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs
