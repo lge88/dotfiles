@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('shelljs/global');
 require('colors');
-
+var join = require('path').join;
 var root = process.argv[2] || '.';
 
 cd(root);
