@@ -80,6 +80,7 @@ alias rq='repoquery -lq'
 alias vislab='ssh GL@vision2.ucsd.edu'
 alias ligeme='ssh GL@lige.me'
 alias linode='ssh root@192.155.82.21'
+alias aliyun='ssh root@42.96.190.31'
 alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-west-2.compute.amazonaws.com"
 
 alias .rc="e ~/.bashrc"
