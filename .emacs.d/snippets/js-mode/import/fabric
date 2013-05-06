@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import fabric
+# key: imfabric
+# --
+var fabric = require('fabric').fabric;
