@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# name : pull all repositories
+# --
+for i in `dir`; do [ -d $i ] && cd $i && git pull && cd ..; done
