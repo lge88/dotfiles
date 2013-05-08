@@ -1,0 +1,4 @@
+#! /bin/sh
+MSG=${1:-"Update at `date`"}
+git add -A
+git commit -m "$MSG"

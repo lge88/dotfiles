@@ -43,16 +43,20 @@ alias nst='netstat -tlnp'
 # git shortcuts:
 alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
+alias gffp='git flow feature publish'
+alias gffpl='git flow feature pull'
+alias glog='git log'
+alias ga='git add'
 alias gst='git status'
 alias gbr='git branch'
 alias grm='git remote'
 alias gco='git checkout'
 alias gcl='git clone'
 alias gpl='git pull'
-
-# TODO:
-# alias gaac='git add -A && git commit -m '
-# alias gaacp='git add -A && git commit -m "updates" && git push'
+alias gph='git push'
+alias gcm='git-commit-m'
+alias gaac='git-aac'
+alias gaacp='git-aacp'
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
