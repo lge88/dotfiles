@@ -7,7 +7,7 @@
 (setq develop-directory (concat home-directory "/Develop"))
 (setq js-develop-directory (concat develop-directory "/js"))
 (setq toolbox-directory (concat dropbox-directory "/toolbox"))
-(setq js-app-directory (concat js-develop-directory "/apps"))
+(setq ar-app-directory (concat js-develop-directory "/ifea/lib/ar-structure"))
 (setq dot-bashrc-file (concat dot-files-directory "/.bashrc"))
 (setq elisp-directory (concat toolbox-directory "/elisp"))
 (setq elpa-directory (substitute-in-file-name "$HOME/.emacs.d/elpa"))
@@ -173,7 +173,7 @@
   '(progn
      (global-set-key (kbd "C-x r v") 'register-list)
      (global-set-key (kbd "C-x r C-l") 'list-registers)
-     (set-register ?a `(file . ,js-app-directory))
+     (set-register ?a `(file . ,ar-app-directory))
      (set-register ?b `(file . ,dot-bashrc-file))
      (set-register ?c `(file . ,dot-files-directory))
      (set-register ?d `(file . ,develop-directory))

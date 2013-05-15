@@ -2,6 +2,6 @@
 # name: forin
 # key: forin
 # --
-for (${1:key} in ${2:Object}) {
+for ( ${1:key} in ${2:Object} ) {
 $0$2[$1]
 }

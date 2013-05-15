@@ -2,6 +2,6 @@
 # name: main
 # key: main
 # --
-if (require.main === module) {
+if ( require.main === module ) {
 $0
 }

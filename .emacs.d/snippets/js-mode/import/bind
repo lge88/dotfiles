@@ -2,4 +2,4 @@
 # name: import bind
 # key: imbind
 # --
-var bind = ${1:require('bind')}$0
+var bind = ${1:require( 'bind' )}$0
