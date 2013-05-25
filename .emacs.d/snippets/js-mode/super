@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: super
+# key: super
+# --
+${1:super}.prototype.${2:method}.${3:apply}( ${4:this}$0 );

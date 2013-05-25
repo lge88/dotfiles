@@ -2,6 +2,6 @@
 # name: inherits3
 # key: inherits3
 # --
-for ( var method in ${2:Parent}.prototype ) {
-  ${1:Child}.prototype[method] = $2.prototype[method];
+for ( var key in ${1:Parent}.prototype ) {
+  ${2:Child}.prototype[key] = $1.prototype[key];
 }

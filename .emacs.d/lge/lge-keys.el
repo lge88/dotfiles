@@ -120,9 +120,18 @@
 
   (define-key lge-keys-minor-mode-map (key "C-<tab>") 'other-window)
 
+  (define-key lge-keys-minor-mode-map (key "<f12>") 'toggle-js2-js-mode)
+
+  (defun toggle-js2-js-mode ()
+    "DOCSTRING"
+    (interactive)
+    (if (string= major-mode "js-mode")
+        (js2-mode)
+      (js-mode)))
+  
   (require 'sr-speedbar)
   ;; Use f12 to goto speedbar no matter what unless current window is speedbar it close it
-  (define-key lge-keys-minor-mode-map (key "<f12>") 'go-to-speedbar-no-matter-what)
+  ;; (define-key lge-keys-minor-mode-map (key "<f12>") 'go-to-speedbar-no-matter-what)
   (defun go-to-speedbar-no-matter-what()
     "DOCSTRING"
     (interactive)
