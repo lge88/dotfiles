@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Research"
+(("sketchit_old"
+ (filename . "~/Develop/js/sketchit/client/code/libs/sketchit_old/")
+ (front-context-string . "sketchRecognizer")
+ (rear-context-string . "0K Jan 26 14:43 ")
+ (position . 339))
+("Research"
  (filename . "~/Dropbox/research/")
  (front-context-string . "sketchit_paper\n ")
  (rear-context-string . "0K Jan  1 14:02 ")

@@ -17,7 +17,7 @@
 (setq vendor-directory (concat elisp-directory "/vendor"))
 
 ;; (add-to-list 'load-path elisp-directory)
-(add-to-list 'load-path (substitute-in-file-name "$HOME/.emacs.d/lge")) 
+(add-to-list 'load-path (substitute-in-file-name "$HOME/.emacs.d/lge"))
 (add-to-list 'load-path vendor-directory)
 
 (setq visible-bell t)
@@ -41,6 +41,8 @@
 (scroll-bar-mode 0)
 (setq x-select-enable-clipboard t)
 (setq frame-title-format '("" "%b @ Emacs " emacs-version))
+(add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (eval-after-load "js" '(setq js-indent-level 2))
 
@@ -153,8 +155,8 @@
 ;; Global mode doesn't work well in daemon mode
 (mapc
  '(lambda (m)
-    (add-hook (intern (concat m "-hook")) 
-              #'(lambda () 
+    (add-hook (intern (concat m "-hook"))
+              #'(lambda ()
                   (yas/minor-mode 1)
                   (nlinum-mode 1)
                   (auto-complete-mode 1)
@@ -204,7 +206,7 @@
 
 (add-to-list 'load-path (concat vendor-directory "/jade-mode"))
 (require 'sws-mode)
-(require 'jade-mode)    
+(require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 (add-to-list 'auto-mode-alist '("\\.ops$" . tcl-mode))
@@ -214,7 +216,7 @@
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 (eval-after-load "dired-aux"
-  '(add-to-list 'dired-compress-file-suffixes 
+  '(add-to-list 'dired-compress-file-suffixes
                 '("\\.zip\\'" ".zip" "unzip")))
 
 (require 'lge-keys)

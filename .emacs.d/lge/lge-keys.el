@@ -1,6 +1,6 @@
 ;; A minor mode to apply my own key bindings:
 (cond
- 
+
  ((string= system-name "Li-Ges-MacBook-Pro.local")
   (defvar real-keyboard-keys
     '(
@@ -10,7 +10,7 @@
     )
   ;; (setq mac-command-modifier 'meta)
   )
- 
+
  ((string= system-name "vision2.ucsd.edu")
   (message "welcome to vision lab!!!")
   (defvar real-keyboard-keys
@@ -73,17 +73,17 @@
   (require 'yasnippet)
   (define-key lge-keys-minor-mode-map (key "C-x y") 'yas-insert-snippet)
   (define-key lge-keys-minor-mode-map (key "C-x C-y") 'yas-describe-tables)
-  
+
   (require 'undo-tree)
   (define-key lge-keys-minor-mode-map (key "C-c u") 'undo-tree-visualize)
-  
+
   (define-key lge-keys-minor-mode-map (key "C-x x") 'eval-region)
-  
+
   (eval-after-load "files"
     '(progn
        (define-key lge-keys-minor-mode-map (key "C-x s") 'save-buffer)
        ))
-  
+
   (require 'simple)
   (define-key lge-keys-minor-mode-map (key "<f5>") 'toggle-truncate-lines)
   (define-key lge-keys-minor-mode-map (key "C-z") 'undo)
@@ -107,14 +107,14 @@
 
   (require 'sgml-mode)
   (require 'lisp-mode)
-  (require 'js2-mode)  
+  (require 'js2-mode)
   (require 'js)
   (define-key js2-mode-map (key "<return>") 'newline-and-indent)
   (define-key js-mode-map (key "<return>") 'newline-and-indent)
 
   (define-key emacs-lisp-mode-map (key "<return>") 'newline-and-indent)
   (define-key sgml-mode-map (key "<return>") 'newline-and-indent)
-  
+
   (require 'cua-base)
   (define-key lge-keys-minor-mode-map (key "<f7>") 'cua-mode)
 
@@ -128,7 +128,7 @@
     (if (string= major-mode "js-mode")
         (js2-mode)
       (js-mode)))
-  
+
   (require 'sr-speedbar)
   ;; Use f12 to goto speedbar no matter what unless current window is speedbar it close it
   ;; (define-key lge-keys-minor-mode-map (key "<f12>") 'go-to-speedbar-no-matter-what)
@@ -141,8 +141,8 @@
           (sr-speedbar-select-window)
         (progn
           (sr-speedbar-open)))))
-  
-  
+
+
   (eval-after-load "window"
     '(progn
        (define-key lge-keys-minor-mode-map (key "C-x l") 'recenter-top-bottom)
@@ -159,13 +159,13 @@
   (define-key lge-keys-minor-mode-map (key "C-c <right>") 'windmove-right)
   (define-key lge-keys-minor-mode-map (key "C-c <up>") 'windmove-up)
   (define-key lge-keys-minor-mode-map (key "C-c <down>") 'windmove-down)
-  
+
   (require 'winner)
   (define-key lge-keys-minor-mode-map (key "C-x <left>") 'winner-undo)
   (define-key lge-keys-minor-mode-map (key "C-x <right>") 'winner-redo)
   (define-key lge-keys-minor-mode-map (key "C-x u") 'winner-undo)
   (define-key lge-keys-minor-mode-map (key "C-x U") 'winner-redo)
-  
+
   (define-key lge-keys-minor-mode-map (key "<f10>") 'previous-buffer)
   (define-key lge-keys-minor-mode-map (key "<f11>") 'next-buffer)
   (require 'windswap)
@@ -188,12 +188,12 @@
 
   (require 'menu-bar)
   (menu-bar-mode 1)
-  
+
   (define-key lge-keys-minor-mode-map (key "C-c f") 'find-file-at-point)
 
   (require 'ibuffer)
   (global-set-key (key  "C-x C-b") 'ibuffer)
-  
+
 
   ;; TODO:
   (require 'sh-script)
@@ -201,7 +201,7 @@
   (defun sh-eval-current-line ()
     "DOCSTRING"
     (interactive)
-    (if mark-active 
+    (if mark-active
         (sh-execute-region (mark) (point))
       (sh-execute-region (point-at-bol) (point-at-eol))
       )
@@ -228,7 +228,7 @@
   ;; mark word features:
   (defun my-mark-word (N)
     (interactive "p")
-    (if (and 
+    (if (and
          (not (eq last-command this-command))
          (not (eq last-command 'my-mark-word-backward)))
         (set-mark (point)))
@@ -241,7 +241,7 @@
          (not (eq last-command 'my-mark-word)))
         (set-mark (point)))
     (backward-word N))
-  
+
   ;; (define-key lge-keys-minor-mode-map (kbd "M-k") 'my-mark-word)
   ;; (define-key lge-keys-minor-mode-map (kbd "s-k") 'my-mark-word)
   ;; (define-key lge-keys-minor-mode-map (kbd "M-j") 'my-mark-word-backward)
@@ -258,12 +258,12 @@
 
   ;; Shortcuts
   (defalias 'nf 'new-frame)
-  
+
   (defun lge-ls ()
     "list current directory in dired"
     (interactive)
     (dired default-directory))
-  
+
   (defun lge-ls-other-window ()
     "list current directory in dired"
     (interactive)
@@ -274,7 +274,7 @@
     (interactive)
     (call-interactively 'register-list)
     (call-interactively 'jump-to-register))
-  
+
   (defalias 'ls 'lge-ls)
   (defalias 'lso 'lge-ls-other-window)
   (defalias 'b 'ibuffer)
@@ -289,7 +289,7 @@
     (interactive)
     (switch-to-buffer "*scratch*"))
   (defalias 'gs 'lge-goto-scatch)
-  
+
   (defun lge-goto-scratch-and-paste ()
     "go to scratch buffer"
     (interactive)
@@ -302,15 +302,15 @@
           (yank))
       (switch-to-buffer "*scratch*")))
   (defalias 'gsp 'lge-goto-scratch-and-paste)
-  
+
 
   (define-minor-mode lge-keys-minor-mode
     "A minor mode to apply my key maps"
     t " lge" 'lge-keys-minor-mode-map)
-  
+
   (defun my-minibuffer-setup-hook ()
     (lge-keys-minor-mode 0))
-  
+
   (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook))
 
 (provide 'lge-keys)
