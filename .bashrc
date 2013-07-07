@@ -32,7 +32,7 @@ alias comp='component'
 eval "$(hub alias -s)"
 alias ndb='node-inspector --web-port=8888 > /dev/null 2>&1 & sleep 0.5 && google-chrome http://localhost:8888/debug?port=5858'
 alias solr='cd ~/Develop/eclipse/lucene-solr/solr/example && java -jar start.jar'
-alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.2.2/bin/mongod --fork --logpath /var/log/mongodb.log'
+alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod --fork --logpath /var/log/mongodb.log'
 
 alias now="date +%Y%m%d'_'%H%M%S"
 alias perm='stat -c "%a %n" $*'
@@ -116,6 +116,7 @@ alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias t="mdcd ${DROPBOX_PATH}/tmp/`date +%Y/%b/%d`"
+alias te.="t && e."
 
 # set auto complete for following commands:
 complete -cf sudo
@@ -305,7 +306,7 @@ fi
 
 if [[ ${SYSTEM} == 'Darwin' ]]; then
     NCPU=$(sysctl -n hw.ncpu)
-else    
+else
     NCPU=$(grep -c 'processor' /proc/cpuinfo)
 fi
 

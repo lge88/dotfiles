@@ -7,7 +7,7 @@ export SYSTEM=`uname`
 if [[ $SYSTEM == 'Linux' ]]; then
     export LANG="en_US.utf8"
     export LC_ALL="en_US.utf8"
-    export LC_CTYPE="en_US.utf8"    
+    export LC_CTYPE="en_US.utf8"
 fi
 
 if [[ $SYSTEM == 'Darwin' ]]; then
@@ -18,7 +18,8 @@ fi
 # Add some custom search path:
 export PATH=/usr/local/MATLAB/R2012b/bin:$PATH
 export PATH=/opt/ParaView-3.98.0-Linux-64bit/bin:$PATH
-export PATH=/opt/mongodb-linux-x86_64-2.2.2/bin:$PATH
+# export PATH=/opt/mongodb-linux-x86_64-2.2.2/bin:$PATH
+export PATH=/opt/mongodb-linux-x86_64-2.4.4/bin:$PATH
 export PATH=/opt/redis-2.6.9/src:$PATH
 export PATH=/opt/nomad.3.5.1:$PATH
 export PATH=/opt/apache-maven-3.0.4/bin:$PATH
