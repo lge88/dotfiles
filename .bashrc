@@ -39,7 +39,7 @@ function next-port() {
 
 function ndb() {
     p=${2:-8888}
-    [ ! -z $1 ] && node --debug $1 &
+    [ ! -z $1 ] && node --debug-brk $1 &
     node-inspector --web-port=$p > /dev/null 2>&1 &
     sleep 0.5 && open "http://localhost:${p}/debug?port=5858" > /dev/null 2>&1
 }
