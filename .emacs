@@ -20,6 +20,13 @@
 (add-to-list 'load-path (substitute-in-file-name "$HOME/.emacs.d/lge"))
 (add-to-list 'load-path vendor-directory)
 
+(defun my-bell-function ()
+  (unless (memq this-command
+    	'(mwheel-scroll down up next-line previous-line
+              backward-char forward-char))
+    (ding)))
+(setq ring-bell-function 'my-bell-function)
+
 (setq visible-bell t)
 (setq-default truncate-lines t)
 (setq initial-scratch-message "")
