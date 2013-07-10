@@ -30,7 +30,20 @@ alias ladder="cd ${DEVELOP_PATH}/tamudrg/ && ./GUILD.sh"
 alias comp='component'
 # alias sencha="sencha -sdk ~/Develop/js/sencha/touch-2.1.1"
 eval "$(hub alias -s)"
-alias ndb='node-inspector --web-port=8888 > /dev/null 2>&1 & sleep 0.5 && google-chrome http://localhost:8888/debug?port=5858'
+# alias ndb='PORT=8888 node-inspector --web-port=${PORT} > /dev/null 2>&1 & sleep 0.5 && open http://localhost:${PORT}/debug?port=5858 > /dev/null 2>&1'
+
+# alias ndb='node-inspector --web-port=8888 > /dev/null 2>&1 & sleep 0.5 && google-chrome http://localhost:8888/debug?port=5858'
+function next-port() {
+    return 8888
+}
+
+function ndb() {
+    p=${2:-8888}
+    [ ! -z $1 ] && node --debug $1 &
+    node-inspector --web-port=$p > /dev/null 2>&1 &
+    sleep 0.5 && open "http://localhost:${p}/debug?port=5858" > /dev/null 2>&1
+}
+
 alias solr='cd ~/Develop/eclipse/lucene-solr/solr/example && java -jar start.jar'
 alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod --fork --logpath /var/log/mongodb.log'
 
