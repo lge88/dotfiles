@@ -116,7 +116,10 @@ alias ..4="cd ../../../.."
 alias ..5="cd ../../../../.."
 function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias t="mdcd ${DROPBOX_PATH}/tmp/`date +%Y/%b/%d`"
+alias tt="mdcd ${DEVELOP_PATH}/tmp/`date +%Y/%b/%d`"
 alias te.="t && e."
+alias tte.="tt && e."
+alias C='component'
 
 # set auto complete for following commands:
 complete -cf sudo
