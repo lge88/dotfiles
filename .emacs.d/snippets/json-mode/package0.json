@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: package0.json
+# key: pkg0
+# --
+{
+  "name": "${1:pkgName}",
+  "version": "0.0.1",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "main": "${2:index}"
+}

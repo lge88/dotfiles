@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: index default
+# key: ind
+# --
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${1:TEST}</title>
+  </head>
+  <body>
+    <div id='main'></div>
+    <script src="${2:test.js}"></script>
+  </body>
+</html>

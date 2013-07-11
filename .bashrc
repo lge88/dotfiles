@@ -26,6 +26,9 @@ fi
 alias o='open'
 alias o.='open .'
 
+# use z
+. ~/z/z.sh
+
 alias ladder="cd ${DEVELOP_PATH}/tamudrg/ && ./GUILD.sh"
 alias comp='component'
 # alias sencha="sencha -sdk ~/Develop/js/sencha/touch-2.1.1"
