@@ -4,7 +4,7 @@ node:
 browser: build
 	open browser/index.html
 
-build: install
+build: install update
 	component build -d
 
 install:
