@@ -49,10 +49,14 @@ cd( dir );
 JSON.stringify( comp, null, 2 ).to( 'component.json' );
 JSON.stringify( pkg, null, 2 ).to( 'package.json' );
 
-[
+cp( tmplDir + '/Makefile', './' );
+mkdir( '-p', './.bin' );
+cp( tmplDir + '/.bin/update.js', './.bin/' );
+cp( tmplDir + '/gitignore', './.gitignore' );
+
+var tmpl = [
   'var pipeline = require( \'' + pkgName + '\' ).pipeline;',
   'var expect = require( \'expect.js\' );',
-  '',
   '',
   'describe( \'' + pkgName + '\', function() {',
   '',
@@ -61,18 +65,18 @@ JSON.stringify( pkg, null, 2 ).to( 'package.json' );
   '  } );',
   '',
   '} );'
-].join( '\n' ).to( 't1.js' );
+].join( '\n' );
 
-cp( tmplDir + '/Makefile', './' );
-cp( tmplDir + '/.update.js', './' );
+tmpl.to( '.bin/template.js' );
 
-mkdir( '-p', 'browser' );
-cd( 'browser' );
+mkdir( '-p', 'build' );
+cd( 'build' );
 exec( 'mocha init .' );
 rm( 'index.html' );
 rm( 'tests.js' );
-cp( tmplDir + '/index.html', './' );
+cp( tmplDir + '/mocha.html', './' );
 
 cd( '..' );
+exec( 'make create test=t1.js' );
 exec( 'make update' );
 exec( 'make browser' );
