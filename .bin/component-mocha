@@ -1,9 +1,16 @@
 #! /usr/bin/env node
 
 require( 'shelljs/global' );
-
+var path = require('path');
 var dir = process.argv[2] || 'test';
+
+if ( test( '-e', dir ) ) {
+  echo( dir + ' is already there! Abort.' );
+  exit( 1 );
+}
+
 var pkgName = JSON.parse( cat( 'component.json' ) ).name;
+var tmplDir = path.resolve( __dirname, '../.templates/component-mocha' );
 
 var comp = {
   "name": "test",
@@ -13,10 +20,10 @@ var comp = {
     "lge88/expect.js": "*"
   },
   "scripts": [
-    "all.js",
+    "entry.js",
     "t1.js"
   ],
-  "main": "all.js",
+  "main": "entry.js",
   "paths": [
     "../components",
     "../.."
@@ -33,18 +40,15 @@ var pkg = {
   "devDependencies": {
     "expect.js": "~0.2.0"
   },
-  "main": "all.js"
+  "main": "entry.js"
 };
-
 
 mkdir( '-p', dir );
 cd( dir );
 
 JSON.stringify( comp, null, 2 ).to( 'component.json' );
 JSON.stringify( pkg, null, 2 ).to( 'package.json' );
-// exec( 'component install -d' );
 
-'require( \'./t1.js\')'.to( 'all.js' );
 [
   'var pipeline = require( \'' + pkgName + '\' ).pipeline;',
   'var expect = require( \'expect.js\' );',
@@ -59,51 +63,16 @@ JSON.stringify( pkg, null, 2 ).to( 'package.json' );
   '} );'
 ].join( '\n' ).to( 't1.js' );
 
-// exec( 'component build -d' );
-
-[
-  'node:',
-  '\tNODE_PATH=.. mocha all.js',
-  '',
-  'browser: build',
-  '\topen browser/index.html',
-  '',
-  'build: install',
-  '\tcomponent build -d',
-  '',
-  'install:',
-  '\tcomponent install -d',
-  '',
-  '.PHONY: build install'
-].join( '\n' ).to( 'Makefile' );
-
+cp( tmplDir + '/Makefile', './' );
+cp( tmplDir + '/.update.js', './' );
 
 mkdir( '-p', 'browser' );
 cd( 'browser' );
 exec( 'mocha init .' );
+rm( 'index.html' );
 rm( 'tests.js' );
-
-[
-  '<!DOCTYPE html>',
-  '<html>',
-  '<head>',
-  '<title>Mocha</title>',
-  '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">',
-  '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
-  '<link rel="stylesheet" href="mocha.css" />',
-  '</head>',
-  '<body>',
-  '<div id="mocha"></div>',
-  '<script src="mocha.js"></script>',
-  '<script>mocha.setup(\'bdd\')</script>',
-  '<script src="../build/build.js"></script>',
-  '<script>',
-  'require( \'test\' );',
-  'mocha.run();',
-  '</script>',
-  '</body>',
-  '</html>'
-].join( '\n' ).to( 'index.html' );
+cp( tmplDir + '/index.html', './' );
 
 cd( '..' );
+exec( 'make update' );
 exec( 'make browser' );
