@@ -94,8 +94,7 @@
     (interactive)
     (if (string= system-type "gnu/linux")
         (shell-command "gnome-terminal ." nil nil)
-      ;; show use some apple scripts maybe
-      (shell-command "open ." nil nil))
+      (shell-command "open -a Terminal ." nil nil))
     )
   (define-key lge-keys-minor-mode-map (key "<f8>") 'lge-open-terminal-here)
 
@@ -106,7 +105,7 @@
         (shell-command "gnome-open ." nil nil)
       (shell-command "open ." nil nil)))
 
-  (define-key lge-keys-minor-mode-map (key "<f9>") 'open-file-browser-here)
+  (define-key lge-keys-minor-mode-map (key "<f9>") 'lge-open-file-browser-here)
 
   (require 'sgml-mode)
   (require 'lisp-mode)
