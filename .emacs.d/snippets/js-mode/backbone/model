@@ -1,12 +1,5 @@
 # -*- mode: snippet -*-
-# name: backbone model
-# key: bbmodel
+# name: Backbone.Model
+# key: BM
 # --
-var ${1:New_Model} = Backbone.Model.extend({
-    defaults : {},
-    initialize: function() {
-        $0
-    }
-});
-
-module.exports = $1;
+Backbone.Model$0

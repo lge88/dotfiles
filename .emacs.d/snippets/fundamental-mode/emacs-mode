@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: emacs mode
+# key: emode
+# --
+# -*- mode: $1 -*-

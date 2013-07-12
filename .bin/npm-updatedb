@@ -1,6 +1,9 @@
-#! /bin/sh
-__dirname=$(dirname $(readlink -f $0));
+#!/usr/bin/env node
 
-DBFILE=${1:-$__dirname/../.npm_globals.txt}
+require('shelljs/global');
 
-npm ls -g --parseable --depth=0 2> /dev/null | awk -F/ 'NR>1 {print $NF}' > $DBFILE
+var path = require('path');
+var dbFile = path.resolve( __dirname, '../.npm_globals.txt' );
+
+var str = exec( 'npm ls -g --parseable --depth=0 2> /dev/null | awk -F/ \'NR>1 {print $NF}\'', { silient: true } ).output;
+str.to( dbFile );

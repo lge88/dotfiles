@@ -1,12 +1,5 @@
 # -*- mode: snippet -*-
-# name: backbone collection
-# key: bbcol
+# name: Backbone.Collection
+# key: BC
 # --
-var ${1:New_Collection} = Backbone.Collection.extend({
-    model : ${2:Model},
-    initialize: function() {
-        $0
-    }
-});
-
-module.exports = $1;
+Backbone.Collection$0

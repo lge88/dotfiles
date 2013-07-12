@@ -1,0 +1,93 @@
+#! /usr/bin/env node
+
+require( 'shelljs/global' );
+var path = require('path');
+var tmplDir = path.resolve( __dirname, '../.templates/js-app' );
+
+var pkgName, dir, create;
+if ( process.argv[2] ) {
+  pkgName = process.argv[2];
+  dir = path.resolve( pkgName );
+  create = true;
+} else {
+  pkgName = path.basename( __dirname );
+  dir = __dirname;
+  create = false;
+}
+
+if ( test( '-e', dir ) && create ) {
+  echo( dir + ' is already there! Abort.' );
+  exit( 1 );
+}
+
+mkdir( '-p', dir );
+cd( dir );
+
+var comp = {
+  "name": pkgName,
+  "description": pkgName,
+  "dependencies": {},
+  "development": {
+    "lge88/expect.js": "*"
+  },
+  "scripts": [
+    "entry.js",
+    "t1.js"
+  ],
+  "main": "entry.js",
+  "paths": [
+    "../components",
+    "../.."
+  ],
+  "local": [
+    pkgName
+  ]
+};
+
+var pkg = {
+  "name": pkgName,
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "expect.js": "~0.2.0"
+  },
+  "main": "entry.js"
+};
+
+mkdir( '-p', dir );
+cd( dir );
+
+JSON.stringify( comp, null, 2 ).to( 'component.json' );
+JSON.stringify( pkg, null, 2 ).to( 'package.json' );
+
+cp( tmplDir + '/Makefile', './' );
+mkdir( '-p', './.bin' );
+cp( tmplDir + '/.bin/update.js', './.bin/' );
+cp( tmplDir + '/gitignore', './.gitignore' );
+
+var tmpl = [
+  'var pipeline = require( \'' + pkgName + '\' ).pipeline;',
+  'var expect = require( \'expect.js\' );',
+  '',
+  'describe( \'' + pkgName + '\', function() {',
+  '',
+  '  it( \'#example\', function() {',
+  '    expect( 1 ).to.be( 1 );',
+  '  } );',
+  '',
+  '} );'
+].join( '\n' );
+
+tmpl.to( '.bin/template.js' );
+
+mkdir( '-p', 'build' );
+cd( 'build' );
+exec( 'mocha init .' );
+rm( 'index.html' );
+rm( 'tests.js' );
+cp( tmplDir + '/mocha.html', './' );
+
+cd( '..' );
+exec( 'make create test=t1.js' );
+exec( 'make update' );
+exec( 'make browser' );

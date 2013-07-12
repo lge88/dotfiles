@@ -1,0 +1,4 @@
+# name: ls
+# key: ls
+# --
+ls($1)$0

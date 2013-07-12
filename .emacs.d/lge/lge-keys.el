@@ -89,14 +89,17 @@
   (define-key lge-keys-minor-mode-map (key "C-z") 'undo)
   (define-key lge-keys-minor-mode-map (key "M-D") 'backward-kill-word)
 
-  (defun open-gnome-terminal-here ()
+  (defun lge-open-terminal-here ()
     "open ternimal and go to current directory"
     (interactive)
-    (shell-command "gnome-terminal" nil nil)
+    (if (string= system-type "gnu/linux")
+        (shell-command "gnome-terminal ." nil nil)
+      ;; show use some apple scripts maybe
+      (shell-command "open ." nil nil))
     )
-  (define-key lge-keys-minor-mode-map (key "<f8>") 'open-gnome-terminal-here)
+  (define-key lge-keys-minor-mode-map (key "<f8>") 'lge-open-terminal-here)
 
-  (defun open-file-browser-here ()
+  (defun lge-open-file-browser-here ()
     "DOCSTRING"
     (interactive)
     (if (string= system-type "gnu/linux")
@@ -120,9 +123,9 @@
 
   (define-key lge-keys-minor-mode-map (key "C-<tab>") 'other-window)
 
-  (define-key lge-keys-minor-mode-map (key "<f12>") 'toggle-js2-js-mode)
+  (define-key lge-keys-minor-mode-map (key "<f12>") 'lge-toggle-js2-js-mode)
 
-  (defun toggle-js2-js-mode ()
+  (defun lge-toggle-js2-js-mode ()
     "DOCSTRING"
     (interactive)
     (if (string= major-mode "js-mode")
@@ -132,7 +135,7 @@
   (require 'sr-speedbar)
   ;; Use f12 to goto speedbar no matter what unless current window is speedbar it close it
   ;; (define-key lge-keys-minor-mode-map (key "<f12>") 'go-to-speedbar-no-matter-what)
-  (defun go-to-speedbar-no-matter-what()
+  (defun lge-goto-speedbar-no-matter-what()
     "DOCSTRING"
     (interactive)
     (if (string= (buffer-name) "*SPEEDBAR*")
@@ -154,15 +157,15 @@
   ;;      (define-key lge-keys-minor-mode-map (key "M-p") 'backward-paragraph)
   ;;      ))
 
-  (require 'windmove)
-  (define-key lge-keys-minor-mode-map (key "C-c <left>") 'windmove-left)
-  (define-key lge-keys-minor-mode-map (key "C-c <right>") 'windmove-right)
-  (define-key lge-keys-minor-mode-map (key "C-c <up>") 'windmove-up)
-  (define-key lge-keys-minor-mode-map (key "C-c <down>") 'windmove-down)
+  ;; (require 'windmove)
+  ;; (define-key lge-keys-minor-mode-map (key "C-c <left>") 'windmove-left)
+  ;; (define-key lge-keys-minor-mode-map (key "C-c <right>") 'windmove-right)
+  ;; (define-key lge-keys-minor-mode-map (key "C-c <up>") 'windmove-up)
+  ;; (define-key lge-keys-minor-mode-map (key "C-c <down>") 'windmove-down)
 
-  (require 'winner)
-  (define-key lge-keys-minor-mode-map (key "C-x <left>") 'winner-undo)
-  (define-key lge-keys-minor-mode-map (key "C-x <right>") 'winner-redo)
+  ;; (require 'winner)
+  ;; (define-key lge-keys-minor-mode-map (key "C-x <left>") 'winner-undo)
+  ;; (define-key lge-keys-minor-mode-map (key "C-x <right>") 'winner-redo)
   (define-key lge-keys-minor-mode-map (key "C-x u") 'winner-undo)
   (define-key lge-keys-minor-mode-map (key "C-x U") 'winner-redo)
 
@@ -174,14 +177,33 @@
 
   (require 'lined)
   (define-key lge-keys-minor-mode-map (key "C-k") 'kill-line)
-  (define-key lge-keys-minor-mode-map (key "C-S-d") 'kill-whole-line-or-region)
-  (define-key lge-keys-minor-mode-map (key "<S-return>") 'jump-to-newline)
+  ;; (define-key lge-keys-minor-mode-map (key "C-S-d") 'kill-whole-line-or-region)
+  ;; (define-key lge-keys-minor-mode-map (key "<S-return>") 'jump-to-newline)
   (define-key lge-keys-minor-mode-map (key "M-r") 'toggle-comment-line-or-region)
+
   (define-key lge-keys-minor-mode-map (key "C-M-<down>") 'duplicate-current-line-or-region)
   (define-key lge-keys-minor-mode-map (key "C-M-<up>") 'duplicate-current-line-or-region)
+
+
   (define-key lge-keys-minor-mode-map (key "M-<up>") 'move-text-up)
   (define-key lge-keys-minor-mode-map (key "M-<down>") 'move-text-down)
+
   (define-key lge-keys-minor-mode-map (key "C-l") 'expand-region-as-lines)
+
+  ;; mac keyboards:
+  (define-key lge-keys-minor-mode-map (key "M-`") 'other-frame)
+
+  ;; (define-key lge-keys-minor-mode-map (key "M-s-<up>") 'duplicate-current-line-or-region)
+  ;; (define-key lge-keys-minor-mode-map (key "C-s-<down>") 'duplicate-current-line-or-region)
+  ;; (define-key lge-keys-minor-mode-map (key "C-s-<up>") 'duplicate-current-line-or-region)
+  ;; (define-key lge-keys-minor-mode-map (key "s-<up>") 'move-text-up)
+  ;; (define-key lge-keys-minor-mode-map (key "s-<down>") 'move-text-down)
+  ;; (define-key lge-keys-minor-mode-map (key "s-d") 'kill-word)
+  ;; (define-key lge-keys-minor-mode-map (key "s-f") 'forward-word)
+  ;; (define-key lge-keys-minor-mode-map (key "s-b") 'backward-word)
+  ;; (define-key lge-keys-minor-mode-map (key "s-x") 'execute-extended-command)
+  ;; (define-key lge-keys-minor-mode-map (key "s-r") 'toggle-comment-line-or-region)
+  ;; (define-key lge-keys-minor-mode-map (key "s-;") 'comment-dwim)
 
   (require 'nlinum)
   (define-key lge-keys-minor-mode-map (key "<f6>") 'nlinum-mode)
@@ -226,21 +248,21 @@
   (define-key dired-mode-map (key "=") 'dired-ediff-marked-two-files)
 
   ;; mark word features:
-  (defun my-mark-word (N)
-    (interactive "p")
-    (if (and
-         (not (eq last-command this-command))
-         (not (eq last-command 'my-mark-word-backward)))
-        (set-mark (point)))
-    (forward-word N))
+  ;; (defun my-mark-word (N)
+  ;;   (interactive "p")
+  ;;   (if (and
+  ;;        (not (eq last-command this-command))
+  ;;        (not (eq last-command 'my-mark-word-backward)))
+  ;;       (set-mark (point)))
+  ;;   (forward-word N))
 
-  (defun my-mark-word-backward (N)
-    (interactive "p")
-    (if (and
-         (not (eq last-command this-command))
-         (not (eq last-command 'my-mark-word)))
-        (set-mark (point)))
-    (backward-word N))
+  ;; (defun my-mark-word-backward (N)
+  ;;   (interactive "p")
+  ;;   (if (and
+  ;;        (not (eq last-command this-command))
+  ;;        (not (eq last-command 'my-mark-word)))
+  ;;       (set-mark (point)))
+  ;;   (backward-word N))
 
   ;; (define-key lge-keys-minor-mode-map (kbd "M-k") 'my-mark-word)
   ;; (define-key lge-keys-minor-mode-map (kbd "s-k") 'my-mark-word)
@@ -284,33 +306,86 @@
   (defalias 'j 'lge-register-list-and-jump)
   (defalias 'rl 'bookmark-bmenu-list)
 
+  (defun lge-interpret-buffer-with-node ()
+    "Interpret buffer with node.js"
+    (interactive)
+    (shell-command-on-region (point-min) (point-max) "node")
+    (display-buffer "*Shell Command Output*"))
+  (defalias 'n 'lge-interpret-buffer-with-node)
+
+  (defun lge-interpret-buffer-with-sh ()
+    "Interpret buffer with node.js"
+    (interactive)
+    (shell-command-on-region (point-min) (point-max) "/usr/bin/env bash")
+    (display-buffer "*Shell Command Output*"))
+  (defalias 'sh 'lge-interpret-buffer-with-sh)
+
+  (defun lge-goto-today-folder ()
+    "Jump to today's folder"
+    (interactive)
+    (let (f)
+      (setq f (shell-command-to-string "t && pwd"))
+      (dired (substring f 0 (- (length f) 1)))
+      ))
+  (defalias 'td 'lge-goto-today-folder)
+
+  (defun lge-shell-command-result (str)
+    "Trim the ending return character"
+    (let (f)
+      (setq f (shell-command-to-string str))
+      (substring f 0 (- (length f) 1))
+      ))
+
+  (defun lge-create-tmp-here ()
+    "Create a tmp buffer here"
+    (interactive)
+    (let (now)
+      (setq now (lge-shell-command-result "date +*tmp-%y-%b-%d-%H-%M-%S*"))
+      (switch-to-buffer-other-window (get-buffer-create now))
+      ))
+  (defalias 'tmp 'lge-create-tmp-here)
+
   (defun lge-goto-scatch ()
     "DOCSTRING"
     (interactive)
     (switch-to-buffer "*scratch*"))
   (defalias 'gs 'lge-goto-scatch)
 
-  (defun lge-goto-scratch-and-paste ()
-    "go to scratch buffer"
-    (interactive)
-    (if mark-active
-        (progn
-          (kill-ring-save (point) (mark))
-          (switch-to-buffer "*scratch*")
-          (end-of-buffer)
-          (newline)
-          (yank))
-      (switch-to-buffer "*scratch*")))
-  (defalias 'gsp 'lge-goto-scratch-and-paste)
+  (require 'dired)
+  (define-key dired-mode-map (kbd "j")
+    '(lambda (arg) "DOCSTRING" (interactive "P")
+       (if arg
+           (progn
+             (end-of-buffer)
+             (dired-previous-line 1))
+         (progn
+           (beginning-of-buffer)
+           (dired-next-line 3)))
+       (dired-isearch-filenames)))
+
+  (defalias 'rfind 'find-name-dired)
+
+(defun lge-goto-scratch-and-paste ()
+  "go to scratch buffer"
+  (interactive)
+  (if mark-active
+      (progn
+        (kill-ring-save (point) (mark))
+        (switch-to-buffer "*scratch*")
+        (end-of-buffer)
+        (newline)
+        (yank))
+    (switch-to-buffer "*scratch*")))
+(defalias 'gsp 'lge-goto-scratch-and-paste)
 
 
-  (define-minor-mode lge-keys-minor-mode
-    "A minor mode to apply my key maps"
-    t " lge" 'lge-keys-minor-mode-map)
+(define-minor-mode lge-keys-minor-mode
+  "A minor mode to apply my key maps"
+  t " lge" 'lge-keys-minor-mode-map)
 
-  (defun my-minibuffer-setup-hook ()
-    (lge-keys-minor-mode 0))
+(defun my-minibuffer-setup-hook ()
+  (lge-keys-minor-mode 0))
 
-  (add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook))
+(add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook))
 
 (provide 'lge-keys)

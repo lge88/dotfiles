@@ -1,0 +1,20 @@
+node: update
+	NODE_PATH=.. mocha entry.js
+
+browser: build
+	open build/mocha.html
+
+build: install update
+	component build -d
+
+install:
+	component install -d
+
+update:
+	node .bin/update.js
+
+create:
+	@echo "create test file: $(test)"
+	cp .bin/template.js $(test)
+
+.PHONY: build install update

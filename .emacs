@@ -27,6 +27,9 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
+(setq mac-option-modifier nil)
+(setq mac-command-modifier 'meta)
+
 (setq visible-bell t)
 (setq-default truncate-lines t)
 (setq initial-scratch-message "")

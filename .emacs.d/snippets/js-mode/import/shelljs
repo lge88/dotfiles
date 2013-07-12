@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: import shelljs
-# key: imshelljs
+# key: imsh
 # --
 $2require('shelljs${1:/global}')$0
