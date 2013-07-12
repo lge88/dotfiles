@@ -27,7 +27,7 @@ alias o='open'
 alias o.='open .'
 
 # use z
-. ~/z/z.sh
+# . ~/z/z.sh
 
 alias ladder="cd ${DEVELOP_PATH}/tamudrg/ && ./GUILD.sh"
 alias comp='component'
@@ -265,7 +265,7 @@ On_Purple='\e[45m'      # Purple
 On_Cyan='\e[46m'        # Cyan
 On_White='\e[47m'       # White
 
-NC="\e[m"               # Color Reset
+NC="\e[0m"               # Color Reset
 
 ALERT=${BWhite}${On_Red} # Bold White on red background
 
@@ -336,15 +336,23 @@ XLOAD=$(( 400*${NCPU} ))        # Xlarge load
 # Returns system load as percentage, i.e., '40' rather than '0.40)'.
 function load()
 {
-    local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
+    # if [[ ${SYSTEM} == 'Darwin' ]]; then
+    #     # local SYSLOAD=100
+    #     local SYSLOAD=$(sysctl -n vm.loadavg | cut -d " " -f2 | tr -d '.')
+    # else
+    #     local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
+    # fi
+    # echo $SYSLOAD
     # System load of the current host.
-    echo $((10#$SYSLOAD))       # Convert to decimal.
+    local SYSLOAD=$(uptime | awk '{print $10}' | tr -d ',.')
+    Echo $((10#$SYSLOAD))       # Convert to decimal.
 }
 
 # Returns a color indicating system load.
 function load_color()
 {
     local SYSLOAD=$(load)
+
     if [ ${SYSLOAD} -gt ${XLOAD} ]; then
         echo -en ${ALERT}
     elif [ ${SYSLOAD} -gt ${MLOAD} ]; then
@@ -363,8 +371,7 @@ function disk_color()
         echo -en ${Red}
         # No 'write' privilege in the current directory.
     elif [ -s "${PWD}" ] ; then
-        local used=$(command df -P "$PWD" |
-                   awk 'END {print $5} {sub(/%/,"")}')
+        local used=$(command df -P "$PWD" | awk 'END {print $5}' | tr -d '%')
         if [ ${used} -gt 95 ]; then
             echo -en ${ALERT}           # Disk almost full (>95%).
         elif [ ${used} -gt 90 ]; then
@@ -402,16 +409,24 @@ function xtitle()
 PROMPT_COMMAND="history -a"
 case ${TERM} in
   *term | rxvt | linux)
-        PS1="\[\$(load_color)\][\A\[${NC}\] "
+
+        PS1="\[$(load_color)\][\A\[${NC}\] "
+        # PS1="\[\$(load_color)\][\A\[${NC}\] "
         # Time of day (with load info).
+
         PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
         # User@Host (with connection type info).
-        PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
+
+        PS1=${PS1}"\[$(disk_color)\]\W]\[${NC}\] "
+        # PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
         # PWD (with 'disk space' info).
+
         PS1=${PS1}"\[\$(job_color)\]>\[${NC}\] "
         # Prompt (with 'job' info).
+
         PS1=${PS1}"\[\$(xtitle '[\u@\h] \w')\]"
         # Title of current xterm.
+
         ;;
     *)
         PS1="(\A \u@\h \W) > " # --> PS1="(\A \u@\h \w) > "
