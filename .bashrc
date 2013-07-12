@@ -345,7 +345,7 @@ function load()
     # echo $SYSLOAD
     # System load of the current host.
     local SYSLOAD=$(uptime | awk '{print $10}' | tr -d ',.')
-    Echo $((10#$SYSLOAD))       # Convert to decimal.
+    echo $((10#$SYSLOAD))       # Convert to decimal.
 }
 
 # Returns a color indicating system load.

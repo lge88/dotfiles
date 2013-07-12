@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: var function
+# key: vfun
+# --
+var $1 = function($2) {$0}
