@@ -414,10 +414,10 @@ case ${TERM} in
         # PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
         # PWD (with 'disk space' info).
 
-        PS1=${PS1}"\[\$(job_color)\]>\[${NC}\] "
+        PS1=${PS1}"\[$(job_color)\]>\[${NC}\] "
         # Prompt (with 'job' info).
 
-        PS1=${PS1}"\[\$(xtitle '[\u@\h] \w')\]"
+        PS1=${PS1}"\[$(xtitle '[\u@\h] \w')\]"
         # Title of current xterm.
 
         ;;

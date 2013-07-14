@@ -183,9 +183,12 @@
   (define-key lge-keys-minor-mode-map (key "C-M-<down>") 'duplicate-current-line-or-region)
   (define-key lge-keys-minor-mode-map (key "C-M-<up>") 'duplicate-current-line-or-region)
 
+  (define-key lge-keys-minor-mode-map (key "C-M-j") 'duplicate-current-line-or-region)
 
   (define-key lge-keys-minor-mode-map (key "M-<up>") 'move-text-up)
   (define-key lge-keys-minor-mode-map (key "M-<down>") 'move-text-down)
+  (define-key lge-keys-minor-mode-map (key "C-M-p") 'move-text-up)
+  (define-key lge-keys-minor-mode-map (key "C-M-n") 'move-text-down)
 
   (define-key lge-keys-minor-mode-map (key "C-l") 'expand-region-as-lines)
 
@@ -245,6 +248,34 @@
       )
     )
   (define-key dired-mode-map (key "=") 'dired-ediff-marked-two-files)
+
+  (setq lge-file-clipboard nil)
+  (defun lge-copy-marked-files-to-clipboard-in-dired ()
+    (interactive)
+    (setq lge-file-clipboard (dired-get-marked-files)))
+  (defalias 'copy 'lge-copy-marked-files-to-clipboard-in-dired)
+  (defalias 'cp 'lge-copy-marked-files-to-clipboard-in-dired)
+
+  (defun lge-clear-file-clipboard ()
+    "DOCSTRING"
+    (interactive)
+    (setq lge-file-clipboard nil))
+
+  (defun lge-show-file-clipboard ()
+    "DOCSTRING"
+    (interactive)
+    (print lge-file-clipboard))
+
+  (defun lge-paste-files-in-pwd ()
+    "DOCSTRING"
+    (interactive)
+    (mapc
+     (lambda (file)
+       (dired-copy-file-recursive file default-directory nil nil nil 'always))
+     lge-file-clipboard))
+  (defalias 'paste 'lge-paste-files-in-pwd)
+
+
 
   ;; mark word features:
   ;; (defun my-mark-word (N)
@@ -359,8 +390,9 @@
              (dired-previous-line 1))
          (progn
            (beginning-of-buffer)
-           (dired-next-line 3)))
-       (dired-isearch-filenames)))
+           (dired-next-line 3)))))
+
+  (define-key dired-mode-map (kbd "C-j") 'dired-isearch-filenames)
 
   (defalias 'rfind 'find-name-dired)
 

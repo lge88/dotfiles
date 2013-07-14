@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: require implementation
+# key: notimp
+# --
+throw new Error( ${1:'Not implemented!'} )$0
