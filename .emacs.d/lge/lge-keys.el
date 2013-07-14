@@ -106,7 +106,7 @@
         (shell-command "gnome-open ." nil nil)
       (shell-command "open ." nil nil)))
 
-  (define-key lge-keys-minor-mode-map (key "<f9>") 'open-file-browser-here)
+  (define-key lge-keys-minor-mode-map (key "<f9>") 'lge-open-file-browser-here)
 
   (require 'sgml-mode)
   (require 'lisp-mode)
