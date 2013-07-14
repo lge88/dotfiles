@@ -15,6 +15,8 @@ if [[ $SYSTEM == 'Darwin' ]]; then
     export LD_LIBRARY_PATH=/opt/local/lib
 fi
 
+sudo () { ( unset LD_LIBRARY_PATH DYLD_LIBRARY_PATH; exec command sudo $* ) }
+
 # Add some custom search path:
 export PATH=/usr/local/MATLAB/R2012b/bin:$PATH
 export PATH=/opt/ParaView-3.98.0-Linux-64bit/bin:$PATH

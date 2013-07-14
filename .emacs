@@ -27,7 +27,7 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
-(setq mac-option-modifier nil)
+(setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
 (setq visible-bell t)

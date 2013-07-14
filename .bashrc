@@ -61,16 +61,8 @@ alias gffs='git flow feature start'
 alias gfff='git flow feature finish'
 alias gffp='git flow feature publish'
 alias gffpl='git flow feature pull'
-alias glog='git log'
-alias ga='git add'
 alias gst='git status'
-alias gbr='git branch'
-alias grm='git remote'
-alias gco='git checkout'
-alias gcl='git clone'
-alias gpl='git pull'
-alias gph='git push'
-alias gcm='git-commit-m'
+alias gcm='git-cm'
 alias gaac='git-aac'
 alias gaacp='git-aacp'
 
@@ -119,6 +111,7 @@ alias eyum="e /sudo:root@localhost:/etc/yum.repos.d"
 alias etc="e /sudo:root@localhost:/etc"
 alias c=cheat
 alias gg='google-chrome'
+
 
 # short cuts to folders
 alias tl="cd ${TOOLBOX_PATH}"
