@@ -340,7 +340,7 @@ function load()
     # fi
     # echo $SYSLOAD
     # System load of the current host.
-    local SYSLOAD=$(uptime | cut -d, -f4 | cut -d: -f2 | tr -d ' ,.')
+    local SYSLOAD=$(uptime | cut -d, -f4 | cut -d: -f2 | cut -d' ' -f2 | tr -d ' ,.')
     echo $((10#$SYSLOAD))       # Convert to decimal.
 }
 
