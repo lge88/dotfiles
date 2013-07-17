@@ -26,6 +26,8 @@ fi
 alias o='open'
 alias o.='open .'
 
+# debugger:
+
 # use z
 # . ~/z/z.sh
 
@@ -65,6 +67,7 @@ alias gst='git status'
 alias gcm='git-cm'
 alias gaac='git-aac'
 alias gaacp='git-aacp'
+
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
@@ -337,7 +340,7 @@ function load()
     # fi
     # echo $SYSLOAD
     # System load of the current host.
-    local SYSLOAD=$(uptime | awk '{print $10}' | tr -d ',.')
+    local SYSLOAD=$(uptime | cut -d, -f4 | cut -d: -f2 | tr -d ' ,.')
     echo $((10#$SYSLOAD))       # Convert to decimal.
 }
 
@@ -398,6 +401,7 @@ function xtitle()
     esac
 }
 
+# echo herea
 # Now we construct the prompt.
 PROMPT_COMMAND="history -a"
 case ${TERM} in
@@ -426,6 +430,7 @@ case ${TERM} in
                                # --> Shows full pathname of current dir.
         ;;
 esac
+# echo hereb
 
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 export HISTIGNORE="&:bg:fg:ll:h"

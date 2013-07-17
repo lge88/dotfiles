@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: insert before index
+# key: insb
+# --
+$3splice( ${1:index}, 0, ${2:item} )$0
