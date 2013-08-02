@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: getUserMedia
+# key: mediafun
+# --
+navigator.getMedia = ( navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia ||
+                       navigator.msGetUserMedia )$0
