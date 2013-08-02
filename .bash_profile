@@ -18,7 +18,7 @@ fi
 sudo () { ( unset LD_LIBRARY_PATH DYLD_LIBRARY_PATH; exec command sudo $* ) }
 
 # Add some custom search path:
-export PATH=/usr/local/MATLAB/R2012b/bin:$PATH
+export PATH=/usr/local/MATLAB/R2013b/bin:$PATH
 export PATH=/opt/ParaView-3.98.0-Linux-64bit/bin:$PATH
 # export PATH=/opt/mongodb-linux-x86_64-2.2.2/bin:$PATH
 export PATH=/opt/mongodb-linux-x86_64-2.4.4/bin:$PATH

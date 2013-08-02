@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: mocha test
 # key: mocha
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
 node: update
 	NODE_PATH=.. mocha entry.js

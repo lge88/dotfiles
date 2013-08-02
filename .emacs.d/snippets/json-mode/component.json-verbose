@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: component.json verbose
+# key: compv
+# --
+{
+  "name": "${1:component-name}",
+  "repo": "lge88/$1.git",
+  "upstream": "",
+  "dependencies": {
+    "$0": "*"
+  },
+  "local": [],
+  "scripts": [
+    "$1.js"
+  ],
+  "styles": [],
+  "templates": [],
+  "main": "$1.js"
+}

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: new three.js mesh
-# key: threemesh
+# key: mesh
 # --
-${1:var mesh} = new THREE.Mesh(${2:geometry}, ${3:material});$0
+$1new THREE.Mesh($2)$0

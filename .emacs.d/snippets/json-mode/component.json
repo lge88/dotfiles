@@ -3,17 +3,9 @@
 # key: comp
 # --
 {
-  "name": "${1:component-name}",
-  "repo": "lge88/$1.git",
-  "upstream": "",
-  "dependencies": {
-    "$0": "*"
-  },
-  "local": [],
+  "name": "$1",
   "scripts": [
     "$1.js"
   ],
-  "styles": [],
-  "templates": [],
   "main": "$1.js"
 }

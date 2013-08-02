@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: three.js object
-# key: threemater
+# name: new three.js material
+# key: mat
 # --
-${1:material} = new THREE.${1:MeshBasic}Material($0);
+${1}new THREE.${1:MeshBasic}Material( $0 )

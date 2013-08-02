@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: create a ball with radius r
+# key: ballfun
+# --
+function ball( r ) {
+  var m = new THREE.Mesh(
+    new THREE.SphereGeometry( r || 40 )
+  );
+  m.material.wireframe = false;
+  return m;
+}$0

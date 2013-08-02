@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: random
+# key: ran
+# --
+function random( a, b ) {
+return Math.random()*( b - a ) + a;
+}$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new three.js camera
+# key: pcam
+# --
+$1new THREE.PerspectiveCamera( ${2:fov}, ${3:aspect}, ${4:near}, ${5:far} )$0

@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: component build
+# key: comp
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+MIDWARES=$(HOME)/.dotfiles/lib/component-build
+
+build: components
+	component build -d -u $(MIDWARES)/stylus,$(MIDWARES)/templates
+
+components:
+	component install -d
+
+.PHONY: build

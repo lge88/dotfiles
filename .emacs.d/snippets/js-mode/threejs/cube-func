@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: new cube geometry
+# key: cubefun
+# --
+function cube( w, h, t ) {
+  var m = new THREE.Mesh(
+    new THREE.CubeGeometry( w || 40, h || 40, t || 40 )
+  );
+  m.material.wireframe = false;
+  return m;
+}$0

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: new three.js scene
-# key: threescene
+# key: scene
 # --
-${1:var scene} = new THREE.Scene();$0
+$1new THREE.Scene()$0
