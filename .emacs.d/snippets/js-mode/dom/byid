@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: getElementById
+# key: byid
+# --
+document.getElementById( $1 )$0
