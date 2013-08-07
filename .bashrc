@@ -52,7 +52,6 @@ function ndb() {
 alias solr='cd ~/Develop/eclipse/lucene-solr/solr/example && java -jar start.jar'
 alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod --fork --logpath /var/log/mongodb.log'
 
-alias now="date +%Y%m%d'_'%H%M%S"
 alias perm='stat -c "%a %n" $*'
 alias pd='pushd .'
 alias ?='echo $?'
@@ -68,6 +67,18 @@ alias gcm='git-cm'
 alias gaac='git-aac'
 alias gaacp='git-aacp'
 
+
+if [[ ${SYSTEM} == Darwin ]]; then
+    alias clip='tee >(pbcopy)'
+    alias clipo='pbpaste'
+else
+    alias clip='tee >(xclip -selection clipboard)'
+    alias clipo='xclip -selection clipboard -o'
+fi
+
+alias today='date +%Y%m%d'
+alias td='today'
+alias now='date +%H%M%S'
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
