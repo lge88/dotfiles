@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: sequence
+# key: seqfunc
+# --
+function sequence( funcs ) {
+  var noop = function( x ) { return x; };
+  return funcs.reduce( function( sofar, f ) {
+    return function( x ) {
+      return f( sofar(x) );
+    };
+  }, noop );
+}

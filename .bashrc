@@ -123,23 +123,29 @@ alias .rc="e ~/.bashrc"
 alias i="xtitle `pwd` @ ipython && ipython"
 alias eyum="e /sudo:root@localhost:/etc/yum.repos.d"
 alias etc="e /sudo:root@localhost:/etc"
-alias c=cheat
-alias gg='google-chrome'
+
+# google stuff
+alias gmail='o https://mail.google.com'
+alias gdrive='o https://drive.google.com'
+alias gtmp='today | xclip -selection clipboard && o https://drive.google.com/#folders/0B4SFO7Gy17ufYWNPMWZZUlJ1RTA'
+
 
 
 # short cuts to folders
-alias tl="cd ${TOOLBOX_PATH}"
-alias js="cd ${DEVELOP_PATH}/js"
-alias ios="cd ${DEVELOP_PATH}/ios"
+alias dev="cd ${DEVELOP_PATH} && pwd"
+alias desk="cd ${HOME}/Desktop && pwd"
+alias js="cd ${DEVELOP_PATH}/js && pwd"
+alias ios="cd ${DEVELOP_PATH}/ios && pwd"
 
-alias ..="cd .."
-alias ..2="cd ../.."
-alias ..3="cd ../../.."
-alias ..4="cd ../../../.."
-alias ..5="cd ../../../../.."
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+alias cd.....="cd ../../../.."
+alias cd......="cd ../../../../.."
+
 function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-alias t="mdcd ${DROPBOX_PATH}/tmp/`date +%Y/%b/%d`"
-alias tt="mdcd ${DEVELOP_PATH}/tmp/`date +%Y/%b/%d`"
+alias t="mdcd ${DROPBOX_PATH}/tmp/`today`"
+alias tt="mdcd ${DEVELOP_PATH}/tmp/`today`"
 alias te.="t && e."
 alias tte.="tt && e."
 alias C='component'
