@@ -8,7 +8,7 @@
   "forked": {
     "socketstream": "~/Develop/js/socketstream",
     "shelljs": "~/Develop/js/shelljs",
-    "component": "~/Develop/js/component"    
+    "component": "~/Develop/js/component"
   },
   "stable": {
     "bower": "latest",

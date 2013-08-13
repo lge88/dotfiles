@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import mustache
-# key: immust
-# --
-var mustache = require('mustache');$0

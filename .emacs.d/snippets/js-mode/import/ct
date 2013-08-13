@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import category-theory
-# key: imct
-# --
-var ct = require( 'category-theory' );

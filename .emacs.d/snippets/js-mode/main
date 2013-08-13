@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: main
-# key: main
-# --
-if ( require.main === module ) {
-$0
-}

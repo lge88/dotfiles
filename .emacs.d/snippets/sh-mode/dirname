@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name : dirname
-# key: __dirname
-# --
-__dirname=$(dirname $(readlink -f \$0))$0

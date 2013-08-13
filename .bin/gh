@@ -64,13 +64,13 @@ function getRepoList(options) {
   rq({
     url: 'https://api.github.com/users/' + options.user + '/repos?per_page=100',
     headers: {
-      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31' 
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31'
     }
   },function(err, res, body) {
     var d = JSON.parse(body);
     d = _.chain(d)
       .first(options.limit);
-    
+
     if (options.forked) {
       d = d.where({ fork: true });
     } else if (options.source) {
@@ -98,10 +98,10 @@ function getRepoList(options) {
     } else {
       d = d.pluck('name').value();
     }
-    
+
     deferred.resolve(d);
   });
-  
+
   return deferred.promise;
 }
 
@@ -125,7 +125,7 @@ prog
   .description('Get a github repository to local')
   .action(function(args) {
     handled = true;
-    
+
     var repo = this.args[0];
     var u = this.user;
     var _this = this;
@@ -154,7 +154,7 @@ prog
       }
 
     } else {
-      var d = path.join(_this.directory, repo);      
+      var d = path.join(_this.directory, repo);
       confirmExecute(makeCommand(u, repo, d, this));
     }
   });

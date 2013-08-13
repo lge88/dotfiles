@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: inherits2
-# key: inherits2
-# --
-function ${1:Child}() {
-${2:Parent}.call(this);
-}
-$1.prototype.__proto__ = $2.prototype;

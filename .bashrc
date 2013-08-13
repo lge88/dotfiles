@@ -1,43 +1,54 @@
  # .bashrc
 [ -z "$PS1" ] && return
+
 export SYSTEM=`uname`
 
-# set up my paths
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        export PATH=${1}:$PATH
+    fi
+}
+
+# Set up my paths
 export DEVELOP_PATH=~/Develop
 export DROPBOX_PATH=~/Dropbox
 export TOOLBOX_PATH=~/Dropbox/toolbox
-export TB=${TOOLBOX_PATH}
+export DOTFILES_PATH=~/.dotfiles
+export ISE_PATH=${DEVELOP_PATH}/js/ifea
 
-export PATH=~/Develop/js/ifea/bin:$PATH
-export PATH=~/.dotfiles/.bin:$PATH
+# My toolboxes:
+pathadd ${TOOLBOX_PATH}/bin
+pathadd ${DOTFILES_PATH}/.bin
+pathadd ${ISE_PATH}/bin
 
+# Remotes:
 export GIT_BB="ssh://git@bitbucket.org/lge"
 export GIT_GH="git@github.com:lge88"
-
 # TODO: put repos under a subfolder
 export GIT_ME="git@lige.me:GL"
 export GIT_VIS="git@vision2.ucsd.edu:GL"
 
-# alias:
-# User specific aliases and functions
-if [[ ${SYSTEM} == 'Linux' ]]; then
+# System open command:
+if [[ ${SYSTEM} == Linux ]]; then
     alias open='gnome-open'
 fi
 alias o='open'
 alias o.='open .'
 
-# debugger:
+# System clipboard:
+if [[ ${SYSTEM} == Darwin ]]; then
+    alias clip='tee >(pbcopy)'
+    alias clipo='pbpaste'
+else
+    alias clip='tee >(xclip -selection clipboard)'
+    alias clipo='xclip -selection clipboard -o'
+fi
 
-# use z
-# . ~/z/z.sh
-
-alias ladder="cd ${DEVELOP_PATH}/tamudrg/ && ./GUILD.sh"
-alias comp='component'
+# alias ladder="cd ${DEVELOP_PATH}/tamudrg/ && ./GUILD.sh"
 # alias sencha="sencha -sdk ~/Develop/js/sencha/touch-2.1.1"
-eval "$(hub alias -s)"
-# alias ndb='PORT=8888 node-inspector --web-port=${PORT} > /dev/null 2>&1 & sleep 0.5 && open http://localhost:${PORT}/debug?port=5858 > /dev/null 2>&1'
+# eval "$(hub alias -s)"
 
-# alias ndb='node-inspector --web-port=8888 > /dev/null 2>&1 & sleep 0.5 && google-chrome http://localhost:8888/debug?port=5858'
+# TODO: return next available port
 function next-port() {
     return 8888
 }
@@ -67,15 +78,9 @@ alias gcm='git-cm'
 alias gaac='git-aac'
 alias gaacp='git-aacp'
 
+alias C='component'
 
-if [[ ${SYSTEM} == Darwin ]]; then
-    alias clip='tee >(pbcopy)'
-    alias clipo='pbpaste'
-else
-    alias clip='tee >(xclip -selection clipboard)'
-    alias clipo='xclip -selection clipboard -o'
-fi
-
+# time utils
 alias today='date +%Y%m%d'
 alias td='today'
 alias now='date +%H%M%S'
@@ -86,7 +91,7 @@ if [[ ${SYSTEM} == Darwin ]]; then
     alias emacsclient=/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient
 fi
 
-alias estart='emacs --daemon;emacsclient -e "(add-lge-keys-minor-mode)"'
+alias estart='emacs --daemon'
 alias estop='emacsclient -e "(kill-emacs)"'
 alias erestart='estop;estart'
 export EDITOR='emacsclient -t'
@@ -101,6 +106,7 @@ e() {
 alias e.='e .'
 alias et='emacsclient -t'
 alias et.='emacsclient -t .'
+alias .rc="e ~/.bashrc"
 emacs-pipe () {
     if [ -z $1 ]; then
         TMP=/tmp/`data +%Y_%m_%d_%H_%M`
@@ -111,44 +117,34 @@ emacs-pipe () {
     rm $TMP
 }
 alias ep=emacs-pipe
+alias eyum="e /sudo:root@localhost:/etc/yum.repos.d"
+alias etc="e /sudo:root@localhost:/etc"
 alias rq='repoquery -lq'
 
+# Remotes:
 alias vislab='ssh GL@vision2.ucsd.edu'
 alias ligeme='ssh GL@lige.me'
 alias linode='ssh root@192.155.82.21'
 alias aliyun='ssh root@42.96.190.31'
 alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-west-2.compute.amazonaws.com"
 
-alias .rc="e ~/.bashrc"
-alias i="xtitle `pwd` @ ipython && ipython"
-alias eyum="e /sudo:root@localhost:/etc/yum.repos.d"
-alias etc="e /sudo:root@localhost:/etc"
-
-# google stuff
+# Google stuff
 alias gmail='o https://mail.google.com'
 alias gdrive='o https://drive.google.com'
 alias gtmp='today | xclip -selection clipboard && o https://drive.google.com/#folders/0B4SFO7Gy17ufYWNPMWZZUlJ1RTA'
 
-
-
-# short cuts to folders
+# Directory shortcuts:
 alias dev="cd ${DEVELOP_PATH} && pwd"
 alias desk="cd ${HOME}/Desktop && pwd"
 alias js="cd ${DEVELOP_PATH}/js && pwd"
 alias ios="cd ${DEVELOP_PATH}/ios && pwd"
 
-alias cd..="cd .."
-alias cd...="cd ../.."
-alias cd....="cd ../../.."
-alias cd.....="cd ../../../.."
-alias cd......="cd ../../../../.."
-
+# Easy to try something out:
 function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias t="mdcd ${DROPBOX_PATH}/tmp/`today`"
 alias tt="mdcd ${DEVELOP_PATH}/tmp/`today`"
 alias te.="t && e."
 alias tte.="tt && e."
-alias C='component'
 
 # set auto complete for following commands:
 complete -cf sudo

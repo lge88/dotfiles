@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import join
-# key: imjoin
-# --
-var join = ${1:require('path')}.join;$0

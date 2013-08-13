@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: write to file
-# key: fopen
-# --
-set ${2:fd} [open "${1:tmp.txt}" "w"]
-$0
-close $2

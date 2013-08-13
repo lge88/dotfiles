@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: stringify json
-# key: wjson
-# --
-JSON.stringify( ${1:config}, null, 2 )$0

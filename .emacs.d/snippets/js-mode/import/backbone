@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import backbone
-# key: imbb
-# --
-var Backbone = require( 'backbone' )$0

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: options
-# key: options
-# --
-${1:options} || ( $1 = ${2:{}} )$0

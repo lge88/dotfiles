@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: component paths
-# key: comppath
-# --
-"paths": [
-"${1:/home/GL}/.dotfiles/lib/components",
-"${1}/Develop/js/ifea/lib"
-]

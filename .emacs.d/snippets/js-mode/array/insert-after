@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: insert after index
-# key: insa
-# --
-$3splice( ${1:index} + 1, 0, ${2:item} )$0

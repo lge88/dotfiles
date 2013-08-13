@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: type of undefined
-# key: tund
-# --
-typeof $1 === 'undefined'

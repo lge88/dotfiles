@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: capitalize
-# key: cap
-# --
-${1:letter}.charAt(0).toUpperCase() + $1.slice(1)$0
