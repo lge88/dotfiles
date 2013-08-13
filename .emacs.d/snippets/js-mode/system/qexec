@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: Q exec
+# key: qexec
+# --
+var ${1:d} = Q.defer();
+exec([
+'$0'
+].join('\n'), function(err, stdout, stderr) {
+if (err) { 
+$1.reject(err); 
+} else {
+$1.resolve(${2:stdout});
+}
+});
+$1.promise;

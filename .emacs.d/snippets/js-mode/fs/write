@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: write file
+# key: write
+# --
+write(${1:filePath}, ${2:data}${3:, 'utf8'}${4:, callback})$0
+

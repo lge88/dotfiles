@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: inherits
+# key: inherits
+# --
+function ${1:Child_Class}() {
+${2:Parent_Class}.apply( this, arguments );
+}
+$1.prototype = Object.create( $2.prototype );
+$1.prototype.constructor = $1;

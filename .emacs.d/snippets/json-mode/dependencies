@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dependencies
+# key: deps
+# --
+"dependencies": {
+$0
+},

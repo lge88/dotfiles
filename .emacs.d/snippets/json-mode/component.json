@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: component.json
+# key: comp
+# --
+{
+  "name": "$1",
+  "scripts": [
+    "$1.js"
+  ],
+  "main": "$1.js"
+}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: typeof int32
+# key: tint
+# --
+(n | 0) === n

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: remove at index
+# key: rmat
+# --
+$2splice( ${1:index}, 1 )$0

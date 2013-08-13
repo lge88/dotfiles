@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: type of object
+# key: tobj
+# --
+typeof $1 === 'object'

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: type of function
+# key: tfunc
+# --
+typeof $1 === 'function'

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import opencv
+# key: imcv
+# --
+var cv = require( 'opencv' )$0

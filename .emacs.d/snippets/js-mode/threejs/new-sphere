@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new sphere geometry
+# key: sphere
+# --
+$1new THREE.SphereGeometry( ${2:r}${3:,segmentsWidth, segmentsHeight, phiStart, phiLength, thetaStart, thetaLength} )$0

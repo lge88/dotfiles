@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# key: singleton
+# name: singleton
+# group: pattern
+# --
+var ${1:singleton} = function $1(){
+	var defaults = {};
+    $0
+	if($1.caller != $1.getInstance){
+		throw new Error("This object cannot be instanciated");
+	}
+};
+
+$1.instance = null;
+
+$1.getInstance = function(){
+	if(this.instance === null){
+		this.instance = new $1();
+	}
+	return this.instance;
+};
+
+module.exports = $1.getInstance();

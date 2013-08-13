@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new three.js object3d
+# key: obj3
+# --
+$1new THREE.Object3D()$0

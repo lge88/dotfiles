@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: instanceof
+# key: tins
+# --
+$1 instanceof $2

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : toarray
+# key: toarray
+# --
+IFS=', ' read -a ${1:array} <<< "\$${2:string}"

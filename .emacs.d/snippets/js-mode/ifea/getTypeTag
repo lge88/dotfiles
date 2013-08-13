@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: getTypeTag
+# key: getTypeTag
+# expand-env: ((yas/indent-line 'fixed))
+# --
+
+${1:Class_Name}.prototype.getTypeTag = 
+$1.prototype.getClassName = function() {
+  var type = '$1';
+  return function() { return type; };
+}();

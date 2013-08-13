@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+#name : xtitle
+# key: xtitle
+# --
+function xtitle() {
+    case "$TERM" in
+        *term* | rxvt)
+            echo -en  "\033]0;$*\007" ;;
+        *)  ;;
+    esac
+}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: insert pwd
+# key: pwd
+# --
+`default-directory`$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function random( a, b )
+# key: randomfunc
+# --
+function random( a, b ) {
+return Math.random()*( b - a ) + a;
+}$0

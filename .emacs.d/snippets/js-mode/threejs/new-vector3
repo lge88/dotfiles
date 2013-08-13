@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new vector3
+# key: vec
+# --
+$1new THREE.Vector3($2)$0

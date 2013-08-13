@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: is Boolean
+# key: isBool
+# --
+typeof $1 === 'boolean'$0

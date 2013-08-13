@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: type of null
+# key: tnull
+# --
+$1 === null

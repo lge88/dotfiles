@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new three.js mesh
+# key: mesh
+# --
+$1new THREE.Mesh($2)$0

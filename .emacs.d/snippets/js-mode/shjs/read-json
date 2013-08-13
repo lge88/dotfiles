@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: read component.json
+# key: rjson
+# --
+JSON.parse( cat( ${1:'component.json'} ) )$0

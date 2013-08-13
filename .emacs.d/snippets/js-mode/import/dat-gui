@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import dat-gui
+# key: imgui
+# --
+var GUI = require( 'dat-gui' ).GUI$0

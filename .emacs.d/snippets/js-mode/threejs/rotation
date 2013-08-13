@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rotation
+# key: rot
+# --
+$1rotation$0

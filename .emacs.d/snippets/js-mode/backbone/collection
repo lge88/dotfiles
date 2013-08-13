@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Backbone.Collection
+# key: BC
+# --
+Backbone.Collection$0

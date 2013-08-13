@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: replace item at index
+# key: replaceat
+# --
+$3splice( ${1:index}, 1, ${2:new_item} )$0

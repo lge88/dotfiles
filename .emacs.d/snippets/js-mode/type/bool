@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: type of boolean
+# key: tbool
+# --
+typeof $1 === 'boolean'

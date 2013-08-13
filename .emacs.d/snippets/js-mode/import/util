@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: import util
+# key: imutil
+# --
+var each = require('each');
+var bind = require('bind');
+var type = require('type');
+var extend = require('extend');

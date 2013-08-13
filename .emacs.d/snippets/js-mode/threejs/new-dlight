@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new three.js directional light
+# key: dlight
+# --
+$1new THREE.DirectionalLight( ${2:color}, ${3:intensity}, ${4:distance} )$0

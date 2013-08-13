@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import superagent
+# key: imreq
+# --
+var request = require( 'superagent' )$0

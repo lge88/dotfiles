@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : prompt
+# key: prompt
+# --
+read -n 1 -p "$0"

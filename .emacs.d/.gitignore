@@ -1,6 +1,6 @@
-*
-!.gitignore
-!lge
-!setup
-!site-lisp
-!snippets
+/*
+!/.gitignore
+!/lge
+!/setup
+!/site-lisp
+!/snippets
