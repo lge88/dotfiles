@@ -17,7 +17,8 @@
 
 (defconst *spell-check-support-enabled* nil)
 (defconst *is-a-mac* (eq system-type 'darwin))
-(defconst *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
+;; (defconst *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
+(defconst *is-cocoa-emacs* *is-a-mac*)
 
 (require 'purcell-compat)
 (require 'purcell-utils)
