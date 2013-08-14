@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: create canvas element
+# key: canvas
+# --
+$1document.createElement( 'canvas' )$0

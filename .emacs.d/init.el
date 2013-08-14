@@ -86,6 +86,8 @@
 (require 'purcell-sql)
 
 (require-package 'midnight)
+(require-package 'cmake-mode)
+(require 'cmake-mode)
 (require-package 'gnuplot)
 (require-package 'lua-mode)
 (require-package 'htmlize)
@@ -102,3 +104,4 @@
 
 (message "init completed in %.2fms"
          (sanityinc/time-subtract-millis (current-time) before-init-time))
+(put 'upcase-region 'disabled nil)

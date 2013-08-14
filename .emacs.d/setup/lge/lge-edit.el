@@ -85,10 +85,10 @@
 ;; (global-set-key (kbd "<S-return>") 'jump-to-newline)
 (global-set-key (kbd "M-r") 'toggle-comment-line-or-region)
 
-;; (global-set-key (kbd "C-M-<down>") 'duplicate-current-line-or-region)
-;; (global-set-key (kbd "C-M-<up>") 'duplicate-current-line-or-region)
-;; (global-set-key (kbd "M-<up>") 'move-text-up)
-;; (global-set-key (kbd "M-<down>") 'move-text-down)
+(global-set-key (kbd "C-M-<down>") 'duplicate-current-line-or-region)
+(global-set-key (kbd "C-M-<up>") 'duplicate-current-line-or-region)
+(global-set-key (kbd "M-<up>") 'move-text-up)
+(global-set-key (kbd "M-<down>") 'move-text-down)
 
 (global-set-key (kbd "C-M-j") 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-M-p") 'move-text-up)
