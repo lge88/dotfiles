@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rq
+# key: rq
+# --
+$2require( $1 )$0

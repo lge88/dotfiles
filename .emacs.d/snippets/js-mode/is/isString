@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: is String
-# key: isString
+# name: A String
+# key: is
 # --
 typeof $1 === 'string'$0

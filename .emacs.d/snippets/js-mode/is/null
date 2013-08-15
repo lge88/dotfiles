@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: is null object
+# key: isnull
+# --
+$1 === null$0

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: is Object
-# key: isObject
+# name: An Object
+# key: is
 # --
 typeof $1 === 'object'$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Integer
+# key: isint
+# --
+(${1:n} | 0) === $1$0

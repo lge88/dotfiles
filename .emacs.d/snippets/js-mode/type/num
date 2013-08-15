@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: type of number
-# key: tnum
-# --
-typeof $1 === 'number'

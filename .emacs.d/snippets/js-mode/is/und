@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: type of undefined
-# key: tund
+# key: isund
 # --
-typeof $1 === 'undefined'
+typeof $1 === 'undefined'$0
