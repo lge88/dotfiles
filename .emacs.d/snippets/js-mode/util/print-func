@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: print function
+# key: printfun
+# --
+function print() { console.log.apply( console, arguments ); }
