@@ -69,6 +69,7 @@
 (require 'lge-git)
 
 (require 'lge-js)
+;; (require 'lge-latex)
 (require 'purcell-crontab)
 (require 'purcell-textile)
 (require 'purcell-markdown)

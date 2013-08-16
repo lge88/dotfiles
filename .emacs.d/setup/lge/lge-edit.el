@@ -96,6 +96,10 @@
 
 (global-set-key (kbd "C-l") 'expand-region-as-lines)
 
+(global-set-key (kbd "C-c f") 'find-file-at-point)
+(global-unset-key [C-down-mouse-1])
+
+
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
 
