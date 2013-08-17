@@ -9,6 +9,10 @@
 (require-package 'ido-ubiquitous)
 (ido-ubiquitous-mode t)
 
+(require-package 'ido-vertical-mode)
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
+
 (require-package 'smex)
 (global-set-key (kbd "M-x") 'smex)
 

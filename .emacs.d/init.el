@@ -93,10 +93,16 @@
 (require 'jade-mode)
 (require-package 'stylus-mode)
 (require 'stylus-mode)
+(require-package 'iy-go-to-char)
 (require-package 'gnuplot)
 (require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
+(require-package 'dash)
+(require 'dash)
+(require-package 's)
+(require 's)
+
 (when *is-a-mac*
   (require-package 'osx-location))
 (require-package 'regex-tool)
@@ -110,3 +116,4 @@
 (message "init completed in %.2fms"
          (sanityinc/time-subtract-millis (current-time) before-init-time))
 (put 'upcase-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
