@@ -17,7 +17,7 @@
         (goto-char end)
         (end-of-line)
         (execute-kbd-macro [?\M-\;]))
-    (execute-kbd-macro [?\M-m ?\C-@ ?\C-e ?\M-\;])))
+    (execute-kbd-macro [?\C-a ?\C-@ ?\C-e ?\M-\;])))
 
 (defun expand-region-as-lines ()
   (interactive)
