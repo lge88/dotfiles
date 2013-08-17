@@ -42,6 +42,7 @@
 (define-key undo-tree-map (kbd "C-/") nil)
 (define-key undo-tree-map (kbd "C-c u") 'undo-tree-visualize)
 
+(require-package 'iy-go-to-char)
 (require 'iy-go-to-char)
 (global-set-key (kbd "M-m") 'iy-go-to-char)
 (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
