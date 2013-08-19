@@ -1,4 +1,6 @@
 ;; Use C-f during file selection to switch to regular find-file
+(require 'vc-git)
+
 (ido-mode t)
 (ido-everywhere t)
 (setq ido-enable-flex-matching t)
