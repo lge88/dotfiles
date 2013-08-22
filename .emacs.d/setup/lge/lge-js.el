@@ -98,5 +98,8 @@
     (add-hook 'skewer-mode-hook
               (lambda () (inferior-js-keys-mode -1)))))
 
+(require-package 'js2-refactor)
+(require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
 (provide 'lge-js)

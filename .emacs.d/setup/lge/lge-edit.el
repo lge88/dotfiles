@@ -30,6 +30,8 @@
  backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/")))
  visible-bell t)
 
+(delete-selection-mode 1)
+
 (transient-mark-mode t)
 
 (global-set-key (kbd "RET") 'newline-and-indent)
