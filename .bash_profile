@@ -14,7 +14,7 @@ export DEVELOP_PATH=~/Develop
 export DROPBOX_PATH=~/Dropbox
 export TOOLBOX_PATH=~/Dropbox/toolbox
 export DOTFILES_PATH=~/.dotfiles
-export ISE_PATH=${DEVELOP_PATH}/js/ifea
+export ISE_PATH=${DEVELOP_PATH}/js/ife
 
 # Remotes:
 export GIT_BB="ssh://git@bitbucket.org/lge"

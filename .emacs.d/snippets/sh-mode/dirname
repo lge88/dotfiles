@@ -2,4 +2,7 @@
 # name : dirname
 # key: __dirname
 # --
-__dirname=$(dirname $(readlink -f \$0))$0
+pushd \`dirname \$0\` > /dev/null
+__dirname=\`pwd\`
+popd > /dev/null
+$0

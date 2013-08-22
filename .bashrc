@@ -14,12 +14,21 @@ export DEVELOP_PATH=~/Develop
 export DROPBOX_PATH=~/Dropbox
 export TOOLBOX_PATH=~/Dropbox/toolbox
 export DOTFILES_PATH=~/.dotfiles
-export ISE_PATH=${DEVELOP_PATH}/js/ifea
+export ISE_PATH=${DEVELOP_PATH}/js/ise
 
 # My toolboxes:
 pathadd ${TOOLBOX_PATH}/bin
 pathadd ${DOTFILES_PATH}/.bin
 pathadd ${ISE_PATH}/bin
+
+# ise completion:
+_ise()
+{
+  cur=${COMP_WORDS[COMP_CWORD]}
+  local subcommands="start kill running restart logs debug monitor"
+  COMPREPLY=( $( compgen -W "$subcommands" -- $cur ) )
+}
+complete -o default -o nospace -F _ise  ise
 
 # Remotes:
 export GIT_BB="ssh://git@bitbucket.org/lge"
