@@ -2,7 +2,7 @@
 require( 'shelljs/global' );
 
 var root = __dirname + '/..'
-var excludedPattern = /^(bin|build)\//;
+var excludedPattern = /^(bin|build|components|node_modules)\//;
 var scriptsPattern = /\.js$/;
 var stylesPattern = /\.(css|styl)$/;
 
