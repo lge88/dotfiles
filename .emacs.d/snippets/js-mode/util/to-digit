@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: to digit
+# key: digit
+# --
+( '0' + $1 ).slice( -2 )

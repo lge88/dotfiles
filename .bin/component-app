@@ -1,0 +1,50 @@
+#! /usr/bin/env node
+
+require( 'shelljs/global' );
+var path = require('path');
+
+var dir = process.argv[2] || 'demo-' + now().join( '-' );
+var pkgName = dir;
+
+if ( test( '-e', dir ) ) {
+  echo( dir + ' is already there! Abort.' );
+  exit( 1 );
+}
+
+var tmplDir = path.resolve( __dirname, '../.templates/component-app' );
+
+var comp = {
+  'name': pkgName,
+  'description': 'Application: ' + pkgName,
+  'dependencies': {},
+  'paths': [
+    process.env.ISE_PATH + '/lib'
+  ],
+  'local': [],
+  'scripts': [],
+  'main': 'main.js'
+};
+
+mkdir( '-p', dir );
+cd( dir );
+cp( '-fr', tmplDir + '/*', './' );
+
+JSON.stringify( comp, null, 2 ).to( 'component.json' );
+sed( '-i', /<%=[ ]*pkgName[ ]*%>/, pkgName, 'index.html' );
+exec( 'make' );
+
+function now() {
+  var d = new Date();
+  var year = d.getFullYear();
+  var month = 1 + d.getMonth();
+  month = ( '0' + month ).slice( -2 );
+  var day = d.getDate();
+  day = ( '0' + day ).slice( -2 );
+  var hour = d.getHours();
+  hour = ( '0' + hour ).slice( -2 );
+  var mins = d.getMinutes();
+  mins = ( '0' + mins ).slice( -2 );
+  var secs = d.getSeconds();
+  secs = ( '0' + secs ).slice( -2 );
+  return [ year, month, day, hour, mins, secs ];
+}

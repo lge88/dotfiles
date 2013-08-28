@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: to digit
+# key: digitfun
+# --
+funcion toDigit( num, numberOfDigits ) {
+  var zeros = '';
+  for ( i = 0; i < numberOfDigits-1; ++i ) {
+    zeros += '0';
+  }
+  return ( '0' + $1 ).slice( -numberOfDigits );
+}
