@@ -1,20 +1,21 @@
+
 node: update
 	NODE_PATH=.. mocha entry.js
 
 browser: build
-	open build/mocha.html
+	if [[ `uname` == Darwin ]]; then open build/mocha.html;else gnome-open build/mocha.html;fi
 
-build: install update
+build: components update
 	component build -d
 
-install:
+components:
 	component install -d
 
 update:
-	node .bin/update.js
+	node bin/update.js
 
 create:
 	@echo "create test file: $(test)"
-	cp .bin/template.js $(test)
+	cp bin/template.js $(test)
 
-.PHONY: build install update
+.PHONY: build create update

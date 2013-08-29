@@ -7,16 +7,16 @@ var rl = require( 'readline' ).createInterface( {
   output: process.stdout
 } );
 
-if ( process.argv.length !== 4  ) {
-  echo( 'Usage: tmpl templatePath [destinationPath]' );
+if ( process.argv.length < 3  ) {
+  echo( 'Usage: component-template templatePath [destinationPath]' );
   exit( 1 );
 }
 
-var tmplName = process.argv[2];
-var dir = process.argv[3] || 'test-' + now().join( '-' );
+var tmplName = process.argv[2] ? ( 'component-' + process.argv[2] ) : 'component-lib';
+var dir = process.argv[3] || 'demo-' + now().join( '-' );
+var pkgName = dir;
 var tmplBaseDir = path.resolve( __dirname, '../.templates' );
 var tmplDir = path.resolve( tmplBaseDir, tmplName );
-var savedDir = pwd();
 
 if ( !test( '-d', tmplDir ) ) {
   echo( 'Can\'t not find template named ' + tmplName );
@@ -60,7 +60,7 @@ function doit() {
       }
 
       if ( typeof task.execute === 'function' ) {
-        task.order || ( task.order = 0 );
+        task.priority || ( task.priority = 0 );
         tasks.push( task );
       }
     } );
@@ -81,4 +81,20 @@ function doit() {
 
   echo( 'Done!' );
   exit();
+}
+
+function now() {
+  var d = new Date();
+  var year = d.getFullYear();
+  var month = 1 + d.getMonth();
+  month = ( '0' + month ).slice( -2 );
+  var day = d.getDate();
+  day = ( '0' + day ).slice( -2 );
+  var hour = d.getHours();
+  hour = ( '0' + hour ).slice( -2 );
+  var mins = d.getMinutes();
+  mins = ( '0' + mins ).slice( -2 );
+  var secs = d.getSeconds();
+  secs = ( '0' + secs ).slice( -2 );
+  return [ year, month, day, hour, mins, secs ];
 }

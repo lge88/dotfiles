@@ -25,7 +25,9 @@ pathadd ${ISE_PATH}/bin
 _ise()
 {
   cur=${COMP_WORDS[COMP_CWORD]}
-  local subcommands="start kill running restart logs debug monitor client"
+  local subcommands="start kill running restart logs debug monitor template \
+app"
+  # TODO: auto complete templates
   COMPREPLY=( $( compgen -W "$subcommands" -- $cur ) )
 }
 complete -o default -o nospace -F _ise  ise

@@ -1,0 +1,5 @@
+#! /usr/bin/env node
+
+require( 'shelljs/global' );
+var args =  Array.prototype.slice.call( process.argv, 2 );
+exec( 'tmpl component-lib ' + args.join( ' ' ) );

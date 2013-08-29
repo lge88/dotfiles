@@ -22,5 +22,5 @@ conf.scripts = ls( '.' )
     return re.test( f );
   } );
 
-cp( '-f', 'component.json', '.bin/component.json.bak' );
+cp( '-f', 'component.json', 'bin/component.json.bak' );
 JSON.stringify( conf, null, 2 ).to( 'component.json' );
