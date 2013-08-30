@@ -10,10 +10,10 @@ var scriptsPattern = /\.js$/;
 var stylesPattern = /\.(css|styl)$/;
 
 if ( require.main === module ) {
-  addFlies()
+  addFiles()
 }
 
-function addFlies( root ) {
+function addFiles( root ) {
   root || ( root = __dirname + '/..' );
   sh.cd( root );
   var config = JSON.parse( sh.cat( 'component.json' ) );
@@ -40,4 +40,4 @@ function addFlies( root ) {
   JSON.stringify( config, null, 2 ).to( 'component.json' );
 }
 
-module.exports = exports = addFlies;
+module.exports = exports = addFiles;

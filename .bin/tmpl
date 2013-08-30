@@ -26,7 +26,9 @@ if ( !test( '-d', tmplDir ) ) {
 
 if ( test( '-e', dir ) ) {
   rl.question( dir + ' is already there, Override? [y/N]', function( ans ) {
+    echo( 'ans:' + ans );
     if ( ans === 'y' ) {
+      echo( 'OK, doit' );
       doit();
     } else {
       echo( 'Abort.' );

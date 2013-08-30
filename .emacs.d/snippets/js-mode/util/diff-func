@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: function diff
+# key: difffun
+# --
+function diff( array, substract ) {
+  substract || ( substract = function( a, b ) { return a - b; } );
+  var len = array.length;
+  var i, p0, p1, dx, dy, out = [];
+  for ( i = 1; i < len; ++i ) {
+    p0 = array[i-1];
+    p1 = array[i];
+    out.push( substract( p1, p0 ) );
+  }
+  return out;
+}
