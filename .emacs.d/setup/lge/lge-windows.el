@@ -33,11 +33,11 @@ Call a second time to restore the original window configuration."
     (window-configuration-to-register :sanityinc/split-window)
     (switch-to-buffer-other-window nil)))
 
-(global-set-key (kbd "<f10>") 'sanityinc/split-window)
-(global-set-key (kbd "<f11>")
-                (lambda ()
-                  (interactive)
-                  (switch-to-buffer nil)))
+;; (global-set-key (kbd "<f10>") 'sanityinc/split-window)
+;; (global-set-key (kbd "<f11>")
+;;                 (lambda ()
+;;                   (interactive)
+;;                   (switch-to-buffer nil)))
 
 ;; Idea and starter code from Benjamin Rutt (rutt.4+news@osu.edu) on comp.emacs
 (defun window-horizontal-to-vertical ()

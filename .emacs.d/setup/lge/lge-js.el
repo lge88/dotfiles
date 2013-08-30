@@ -35,6 +35,27 @@
     (js-mode)))
 (global-set-key (kbd "<f12>") 'lge-toggle-js2-js-mode)
 
+(defun lge-eval-node-js-on-region-or-buffer (start end)
+  "DOCSTRING"
+  (interactive "r")
+  (if mark-active
+      (progn
+        (shell-command-on-region start end "node" "*js*")
+        (display-buffer "*js*"))
+    (progn
+      (shell-command-on-region (point-min) (point-max) "node" "*js*")
+      (display-buffer "*js*"))))
+
+(defun lge-eval-node-js-on-region-and-replace (start end)
+  "DOCSTRING"
+  (interactive "r")
+  (if mark-active
+      (shell-command-on-region start end "node" t)
+    (shell-command-on-region (point-min) (point-max) "node" t)))
+
+(defalias 'rn 'js2r-rename-var)
+(global-set-key (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)
+(global-set-key (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
 
 ;; js2-mode
 (after-load 'js2-mode
