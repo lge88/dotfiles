@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: function walk
+# key: walkfunc
+# --
+function walk( dir, filterFn, list ) {
+  filterFn || ( filterFn = function() { return true; } );
+  list || ( list = [] );
+  ls( '-A', dir )
+    .filter( filterFn )
+    .map( function( f ) {
+      // return path.resolve( dir, f );
+      return path.join( dir, f );
+    } )
+    .forEach( function( f ) {
+      if ( test( '-d', f ) ) {
+        walk( f, filterFn, list );
+      } else {
+        list.push( f );
+      }
+    } );
+  return list;
+}

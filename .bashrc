@@ -15,6 +15,7 @@ export DROPBOX_PATH=~/Dropbox
 export TOOLBOX_PATH=~/Dropbox/toolbox
 export DOTFILES_PATH=~/.dotfiles
 export ISE_PATH=${DEVELOP_PATH}/js/ise
+export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/.templates
 
 # My toolboxes:
 pathadd ${TOOLBOX_PATH}/bin

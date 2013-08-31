@@ -15,6 +15,7 @@ export DROPBOX_PATH=~/Dropbox
 export TOOLBOX_PATH=~/Dropbox/toolbox
 export DOTFILES_PATH=~/.dotfiles
 export ISE_PATH=${DEVELOP_PATH}/js/ife
+export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/.templates
 
 # Remotes:
 export GIT_BB="ssh://git@bitbucket.org/lge"
