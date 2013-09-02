@@ -1,0 +1,31 @@
+# -*- mode: snippet -*-
+# name: function walk on directories
+# key: funwalk
+# --
+function walk( dir, filterFn, list ) {
+  filterFn || ( filterFn = function( file, fullpath ) { return true; } );
+  list || ( list = [] );
+  ls( '-A', dir )
+    .map( function( f ) {
+      return [ f, path.join( dir, f) ];
+    } )
+    .filter( function( paths ) {
+      return filterFn.apply( null, paths );
+    } )
+    .map( function( paths ) { return paths[1]; } )
+    .forEach( function( f ) {
+      if ( test( '-d', f ) ) {
+        walk( f, filterFn, list );
+      } else {
+        list.push( f );
+      }
+    } );
+  return list;
+}
+// $0
+require( 'shelljs/global' );
+var filter = function( x, y ) {
+  // console.log( x );
+return /threejs/.test(y); };
+var path = require( 'path' );
+console.log( walk( '..', filter ) );

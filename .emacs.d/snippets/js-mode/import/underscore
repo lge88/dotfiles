@@ -2,4 +2,5 @@
 # name: import underscore
 # key: im_
 # --
-var _ = require('underscore');$0
+var _ = require( 'underscore' );
+$0

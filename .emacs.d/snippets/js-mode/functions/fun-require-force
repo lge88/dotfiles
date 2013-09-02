@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: function requireForce
+# key: funrequireForce
+# --
+function requireForce( id ) {
+  var resolved = require.resolve( id );
+  var old = require.cache[ resolved ];
+  delete require.cache[ resolved ];
+  result = require( resolved );
+  require.cache[ resolved ] = old;
+  return result;
+}

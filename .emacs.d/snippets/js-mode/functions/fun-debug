@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
 # name: debug function
-# key: debugfun
+# key: fundebug
 # --
 function debug() {
   var args =  Array.prototype.slice.call( arguments );
   args.unshift( 'debug' );
   socket.emit.apply( socket, args );
-}
+}$0

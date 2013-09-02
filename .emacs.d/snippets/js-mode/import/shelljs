@@ -2,4 +2,5 @@
 # name: import shelljs
 # key: imsh
 # --
-$2require('shelljs${1:/global}')$0
+var sh = require( 'shelljs' );
+$0

@@ -14,10 +14,11 @@
 (defun lge-create-tmp-here ()
   "Create a tmp buffer here"
   (interactive)
-  (let (now)
-    (setq now (lge-shell-command-result "date +*tmp-%y-%b-%d-%H-%M-%S*"))
-    (switch-to-buffer-other-window (get-buffer-create now))
-    ))
+  (let (now the-mode)
+    (setq the-mode (symbol-name major-mode))
+    (setq now (lge-shell-command-result (concat "date +*" the-mode "-%y-%b-%d-%H-%M-%S*")))
+    (switch-to-buffer (get-buffer-create now))))
+    ;; ((symbol-function (make-symbol the-mode)) 1)))
 (defalias 'tmp 'lge-create-tmp-here)
 
 (defun lge-goto-today-folder ()

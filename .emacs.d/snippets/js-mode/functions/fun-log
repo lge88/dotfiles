@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: function log
+# key: funlog
+# --
+function log() { console.log.apply( console, arguments ); }$0

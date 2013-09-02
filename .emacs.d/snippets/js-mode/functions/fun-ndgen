@@ -1,10 +1,15 @@
 # -*- mode: snippet -*-
-# name: function arrGen
-# key: arrgen
+# name: function ndgen
+# key: funndgen
 # --
-function arrGen() {
+function ndgen() {
   var args =  Array.prototype.slice.call( arguments );
-  var fn = args.pop();
+  var fn;
+  if ( typeof args[args.length-1] === 'function' ) {
+    fn = args.pop();
+  } else {
+    fn = function() { return 0; };
+  }
   var sizes = Array.isArray( args[0] ) ? args[0] : args;
   var dim = sizes.length;
   var indices = sizes.map( function() { return 0; } );
@@ -48,3 +53,11 @@ function arrGen() {
 
   return out;
 }
+
+var arr = ndgen( 5, function( i ) { return i*2; } );
+console.log( arr );
+var arr1 = ndgen( 2, 2, 2, function( i, j, k ) { return i + j + k; } );
+console.log( arr1 );
+var zeros = ndgen( 3, 3 );
+console.log( zeros );
+$0

@@ -2,6 +2,6 @@
 # name: main
 # key: main
 # --
-if ( require.main === module ) {
+if ( !module.parent ) {
 $0
 }

@@ -1,11 +1,11 @@
 # -*- mode: snippet -*-
 # name: function diff
-# key: difffun
+# key: fundiff
 # --
 function diff( array, substract ) {
   substract || ( substract = function( a, b ) { return a - b; } );
   var len = array.length;
-  var i, p0, p1, dx, dy, out = [];
+  var i, p0, p1, out = [];
   for ( i = 1; i < len; ++i ) {
     p0 = array[i-1];
     p1 = array[i];
@@ -13,3 +13,8 @@ function diff( array, substract ) {
   }
   return out;
 }
+
+var arr = [ 1, 2, 3, 4, 6 ];
+console.log( diff( arr ) );
+//[ 1, 1, 1, 2 ]
+$0

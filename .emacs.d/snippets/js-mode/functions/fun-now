@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: function now
-# key: nowfun
+# key: funnow
 # --
 function now() {
   var d = new Date();
@@ -15,4 +15,5 @@ function now() {
   } );
   out.unshift( '' + d.getFullYear() );
   return out;
-}$0
+}
+$0// console.log( now() )             // [ '2013', '08', '30', '22', '10', '59' ]

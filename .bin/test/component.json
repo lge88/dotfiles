@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "repo": "lge88/appName.git",
+  "upstream": "",
+  "dependencies": {
+  },
+  "paths": [
+    "lib"
+  ],
+  "local": [],
+  "scripts": [
+    "appName.js"
+  ],
+  "styles": [],
+  "templates": [],
+  "main": "appName.js"
+}

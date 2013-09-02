@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: new cube geometry
-# key: cubefun
+# name: function cube()
+# key: funcube
 # --
 function cube( w, h, t ) {
   var m = new THREE.Mesh(

@@ -1,8 +1,7 @@
 # -*- mode: snippet -*-
-# name: Procedure constructor
-# key: procfun
+# name: function procedure constructor
+# key: funproc
 # --
-
 function procedure() {
 
   var stack =  Array.prototype.slice.call( arguments );

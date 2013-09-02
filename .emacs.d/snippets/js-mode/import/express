@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
-# name: imex
-# key: imex
+# name: import express
+# key: imexpress
 # --
 var express = require( 'express' );
+$0

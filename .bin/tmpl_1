@@ -8,12 +8,7 @@ var rl = require( 'readline' ).createInterface( {
 } );
 
 var tmplName = process.argv[2];
-var pkgName = process.argv[3] || now().join( '-' );
-var dest = path.resolve( pkgName );
-pkgName = path.basename( pkgName );
-
-var matched = pkgName.match( /([^\/]*)\/+$/ );
-if ( matched ) { pkgName = matched[1]; }
+var dest = process.argv[3] || now().join( '-' );
 
 if ( !tmplName ) {
   echo( 'Usage: tmpl templateName [destinationPath]' );
@@ -32,29 +27,23 @@ try {
 var savedDir = pwd();
 
 var context = {
-  pkgName: pkgName,
   cwd: pwd(),
   src: src,
-  dest: dest,
+  dest: path.resolve( dest ),
   filesCopied: false,
   filter: null,
   ignore: [
       /^\.git$/, /^components$/, /^node_modules$/, /backup/,
       /\.bak$/, /autosaves/, /elpa/, /legacy/, /~$/, /^\.#/
   ],
-  middlewares: [],
-  middlewareFolderPattern: /^_.*_$/,
-  hooks:  [
-    'afterCopy', 'beforeCopy',
-    // legacy:
-    'execute', 'run'
-  ],
-  routes: null,
+  preStack: [],
+  postStack: [],
   copyList: []
 };
 
 if ( test( '-e', dest ) ) {
   rl.question( dest + ' is already there, Override? [y/N]', function( ans ) {
+    echo( 'ans:' + ans );
     if ( ans === 'y' ) {
       echo( 'OK, doit' );
       run( context );
@@ -67,133 +56,11 @@ if ( test( '-e', dest ) ) {
   run( context );
 }
 
-function initRoutes( context ) {
-  var middlewares = context.middlewares, hooks = context.hooks;
-  var cwd = context.cwd, dest = context.dest;
-  function resetToCwd() { cd( cwd ); }
-  function resetToDest() { cd( dest ); }
+function loadInitScripts( context ) {
+  var src = context.src, pre = context.preStack, post = context.postStack;
+  var dirs = [ '_ise_', '_tmpl_', '_init' ];
 
-  function handlerWrapper( handler, p ) {
-    var reset;
-    if ( p.route === 'beforeCopy' ) {
-      reset = resetToCwd;
-    } else {
-      reset = resetToDest;
-    }
-    var wrapped = function() {
-      reset();
-      handler( context );
-      return context;
-    };
-    wrapped.order = handler.order;
-    return wrapped;
-  }
-
-  context.routes = compileRoutes( hooks, middlewares, handlerWrapper );
-}
-
-function prog() {
-
-  var stack =  Array.prototype.slice.call( arguments );
-  var _compiled;
-
-  ( typeof stack[0] === 'string' ) && ( p.route = stack.shift() );
-  ( stack.length === 1 ) && Array.isArray( stack[0] ) && ( stack = stack[ 0 ] );
-
-  function p() {
-    p.dirty && ( _compiled = p.compile( p.stack ) ) && ( p.dirty = false );
-    return _compiled.apply( this, arguments );
-  }
-
-  p.dirty = true;
-  p.clone = clone;
-  p.stack = stack;
-  p.noop = noop;
-  p.compile = compile;
-  compile.comparator = byOrder;
-
-  function compile( stack ) {
-    return stack
-      .slice()
-      .filter( function( f ) { return f !== p.noop; } )
-      .map( function( f ) {
-        isNaN( f.order ) && ( f.order = 0 );
-        return f;
-      } )
-      .sort( compile.comparator )
-      .reduce( function( sofar, f ) {
-        return function( x ) { return f( sofar(x) ); };
-      }, p.noop );
-  };
-
-  function noop( x ) { return x; }
-  function byOrder( a, b ) { return a.order - b.order; };
-  function clone() { return prog( p.route, p.stack ); }
-
-  return p;
-};
-
-function compileRoutes( routes, middlewares, handlerWrapper ) {
-
-  handlerWrapper || ( handlerWrapper = function( handler, program ) {
-    return handler;
-  } );
-
-  var programs = routes
-    .map( function( route ) {
-      var p = prog( route );
-      return p;
-    } );
-
-  middlewares
-    .filter( function( middleware ) {
-      return !(middleware.disabled === true);
-    } )
-    .forEach( function( middleware ) {
-      programs
-        .map( function( p ) {
-          var route = p.route;
-          return [ p, middleware[route] ];
-        } )
-        .filter( function( tuple ) {
-          var handler = tuple[1];
-          return (typeof handler !== 'undefined') && !(handler.disabled === true);
-        } )
-        .map( function( tuple ) {
-          ( !Array.isArray( tuple[1] ) ) && ( tuple[1] = [ tuple[1] ] );
-          return tuple;
-        } )
-        .forEach( function( tuple ) {
-          var handlers = tuple[1], program = tuple[0];
-          handlers
-            .filter( function( handler ) {
-              return typeof handler === 'function' ;
-            } )
-            .map( function( handler ) {
-              return handlerWrapper( handler, program );
-            } )
-            .forEach( function( handler ) {
-              program.stack.push( handler );
-            } );
-          program.dirty = true;
-        } );
-    } );
-
-  return programs.reduce( function( prev, cur ) {
-    prev[cur.route] = cur;
-    return prev;
-  }, {} );
-
-}
-
-function loadMiddlewares( context ) {
-  var src = context.src, middlewares = context.middlewares;
-  var middlewareFolderPattern = context.middlewareFolderPattern;
-
-  ls( src )
-    .filter( function( f ) {
-      return middlewareFolderPattern.test( f );
-    } )
+  dirs
     .map( function( dir ) {
       return path.resolve( src, dir );
     } )
@@ -201,27 +68,32 @@ function loadMiddlewares( context ) {
       return test( '-d', dir );
     })
     .forEach( function( dir ) {
-      echo( 'load middleware under ' + dir +' folder' );
-      ls( dir )
-        .filter( function( f ) {
-          return /\.js$/.test( f );
-        } )
-        .filter( function( f ) {
-          try {
-            require( path.resolve( dir, f ) );
-          } catch( err ) {
-            console.log( err );
-            return false;
+      echo( 'load scripts under ' + dir +' folder' );
+
+      ls( dir ).forEach( function( f ) {
+        try {
+          var task = require( path.resolve( dir, f ) );
+        } catch( err ) {
+          console.log( err );
+          return;
+        }
+
+        if ( typeof task.execute === 'function' ||
+             typeof task.run === 'function' ) {
+          task.run = task.execute || task.run;
+          task.order || ( task.order = 1 );
+          if ( task.order < 0 ) {
+            pre.push( task );
+          } else {
+            post.push( task );
           }
-          return true;
-        } )
-        .map( function( f ) {
-          return require( path.resolve( dir, f ) );
-        } )
-        .forEach( function( middleware ) {
-          middlewares.push( middleware );
-        } );
+        }
+      } );
     } );
+
+  function byOrder( a, b ) { return a.order - b.order; };
+  pre.sort( byOrder );
+  post.sort( byOrder );
 
 }
 
@@ -254,7 +126,7 @@ function generateCopyList( context ) {
       return !patternsToIgnore.some( function( p ) {
         return p.test( f );
       } );
-    };
+    }
   }
 
   var files = walk( src, filterFn );
@@ -269,8 +141,13 @@ function generateCopyList( context ) {
 }
 
 function runPreInitTasks( context ) {
-  var handler = context.routes.beforeCopy;
-  handler( context );
+  var pre = context.preStack, cwd = context.cwd;
+  pre
+    .forEach( function( t ) {
+      cd( cwd );
+      t.run( context );
+      cd( cwd );
+    } );
 }
 
 function copyFiles( context ) {
@@ -283,24 +160,74 @@ function copyFiles( context ) {
     var src = pair[0], dest = pair[1];
     var dir = path.dirname( dest );
     mkdir( '-p', dir );
-    cp( '-f', src, dest );
+    cp( src, dest );
   } );
   context.filesCopied = true;
   echo( 'Files are copied to ' + dest );
 }
 
 function runPostInitTasks( context ) {
-  var handler = context.routes.afterCopy;
-  handler( context );
+  var post = context.postStack, dest = context.dest;
+  post
+    .forEach( function( t ) {
+      cd( dest );
+      t.run( context );
+      cd( dest );
+    } );
 }
 
 function run( context ) {
-  loadMiddlewares( context );
-  initRoutes( context );
+  loadInitScripts( context );
   runPreInitTasks( context );
   generateCopyList( context );
   copyFiles( context );
   runPostInitTasks( context );
+  exit();
+}
+
+function doit() {
+  echo( 'Copy template files from ' + src );
+  mkdir( '-p', dest );
+  cd( dest );
+  cp( '-fr', src + '/*', './' );
+  cp( '-fr', src + '/.gitignore', './' );
+  echo( 'Files are copied to ' + dest );
+
+  var savedDir = pwd();
+
+  if ( test( '-d', '_init' ) ) {
+    echo( 'Run scripts under ' + dest +'_init folder' );
+
+    var tasks = [];
+    cd( '_init' );
+    ls( '.' ).forEach( function( f ) {
+      try {
+        var task = require( path.resolve( f ) );
+      } catch( err ) {
+        console.log( err );
+      }
+
+      if ( typeof task.execute === 'function' ) {
+        task.order || ( task.order = 0 );
+        tasks.push( task );
+      }
+    } );
+
+    tasks
+      .sort( function( a, b ) { return a.order - b.order; } )
+      .forEach( function( t ) {
+        cd( savedDir );
+        t.execute();
+        cd( savedDir );
+      } );
+
+    echo( 'Remove _init folder' );
+    rm( '-r', './_init' );
+
+    cd( savedDir );
+  }
+
+  echo( 'Done!' );
   exit();
 }
 

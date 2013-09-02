@@ -54,6 +54,7 @@
     (shell-command-on-region (point-min) (point-max) "node" t)))
 
 (defalias 'rn 'js2r-rename-var)
+(defalias 'lt 'js2r-log-this)
 (global-set-key (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)
 (global-set-key (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
 

@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
 # name: three.js object
-# key: threemyobj
+# key: classObject3D
 # --
 function ${1:New_Object}() {
-THREE.Object3D.call(this);
-$0
+  THREE.Object3D.call( this );
+  $0
 }
-$1.prototype = Object.create(THREE.Object3D.prototype);
+$1.prototype = Object.create( THREE.Object3D.prototype );

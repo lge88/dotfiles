@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: function digitFormat
+# key: fundigitFormat
+# --
+function digitFormat( number, leastNumOfDigits ) {
+  var i = 0, zeros = '', out;
+  while ( i < leastNumOfDigits-1 ) {
+    zeros += '0';
+    i += 1;
+  }
+  out = '' + number;
+  if ( leastNumOfDigits < out.length ) {
+    leastNumOfDigits = out.length;
+  }
+  out = zeros + number;
+  return ( zeros + number ).slice( -leastNumOfDigits );
+}
+$0// console.log( digitFormat( 123, 8 ) ) // 00000123

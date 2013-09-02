@@ -2,4 +2,5 @@
 # name: import expect.js
 # key: imexpect
 # --
-var expect = require('expect.js');$0
+var expect = require( 'expect.js' );
+$0

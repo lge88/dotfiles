@@ -1,12 +1,12 @@
 # -*- mode: snippet -*-
 # name: load userMedia to video element
-# key: vmedia
+# key: getMedia
 # --
-navigator.getMedia(
+getMedia(
 { video: true },
-function( stream ){
-video.src = window.URL.createObjectURL( stream )$0
+function( stream ) {
+${1:video}.src = window.URL.createObjectURL( stream )$0
 },
-function( err ){
+function( err ) {
 console.log( 'Error occured when getting user media: ' + err );
 } );

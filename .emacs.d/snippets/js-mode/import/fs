@@ -3,3 +3,4 @@
 # key: imfs
 # --
 var fs = require('fs');
+$0
