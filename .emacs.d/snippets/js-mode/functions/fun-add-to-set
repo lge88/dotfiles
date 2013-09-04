@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: function addToSet
-# key: funcaddToSet
+# key: funaddToSet
 # --
 function addToSet( arr, item ) {
   if ( -1 === arr.indexOf( item ) ) {
