@@ -18,7 +18,7 @@
     (setq the-mode (symbol-name major-mode))
     (setq now (lge-shell-command-result (concat "date +*" the-mode "-%y-%b-%d-%H-%M-%S*")))
     (switch-to-buffer (get-buffer-create now))))
-    ;; ((symbol-function (make-symbol the-mode)) 1)))
+    ;; ((symbol-function (make-symbol the-mode))1;2501;0c 1)))
 (defalias 'tmp 'lge-create-tmp-here)
 
 (defun lge-goto-today-folder ()

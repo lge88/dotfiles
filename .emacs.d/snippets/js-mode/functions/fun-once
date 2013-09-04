@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: function onece
+# key: funonece
+# --
+function onece( f ) {
+  var called = false;
+  return function() {
+    if ( !called ) {
+      called = true;
+      return f.apply( null, arguments );
+    } else {
+      throw "Called once already!";
+    }
+  };
+};
