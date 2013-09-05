@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function randomColor
+# key: funrandomColor
+# --
+function randomColor() {
+  return '#'+Math.floor(Math.random()*16777215).toString(16);
+}
