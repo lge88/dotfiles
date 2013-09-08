@@ -1,0 +1,88 @@
+{
+  "name": "ise-client",
+  "repo": "lge88/ise-client",
+  "description": "ISE Application ise-client",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "lge88/underscore": "*",
+    "lge88/backbone": "*",
+    "lge88/jquery": "*",
+    "lge88/three-build": "*",
+    "lge88/dat-gui": "*",
+    "lge88/js-signals": "*",
+    "lge88/arr-gen": "*",
+    "caolan/async": "*",
+    "microjs/q": "*",
+    "ghinda/css-toggle-switch": "*"
+  },
+  "local": [
+    "unistroke-recognize",
+    "ise-inspector",
+    "canvas2d-context",
+    "pipeline",
+    "merge"
+  ],
+  "scripts": [
+    "lib/plugin.js",
+    "lib/visualize/Visualizer.js",
+    "lib/commands/mesh-object.js",
+    "lib/commands/index.js",
+    "lib/commands/cube.js",
+    "lib/commands/add-object-at-point.js",
+    "lib/commands/truss.js",
+    "lib/commands/select-object-at-point.js",
+    "lib/ISEGUI.js",
+    "lib/ISECommandHandler.js",
+    "lib/gui/index.js",
+    "lib/index.js",
+    "lib/ISEViewport.js",
+    "lib/sketch/gestures/index.js",
+    "lib/sketch/gestures/line.js",
+    "lib/sketch/unistroke-templates/triangle.js",
+    "lib/sketch/unistroke-templates/index.js",
+    "lib/sketch/unistroke-templates/line.js",
+    "lib/sketch/unistroke-templates/arrow.js",
+    "lib/sketch/SketchController.js",
+    "lib/ISEApp.js",
+    "lib/model/Editor.js",
+    "lib/model/factory/index.js",
+    "lib/model/factory/fenode.js",
+    "lib/model/factory/truss.js",
+    "lib/query/index.js",
+    "lib/misc/response-codes.js"
+  ],
+  "styles": [
+    "lib/ise.css",
+    "lib/gui/ise-gui.css"
+  ],
+  "main": "lib/index.js",
+  "paths": [
+    "/home/GL/Develop/js/ise/lib",
+    "/home/GL/Develop/js/ise/lib-client"
+  ],
+  "_auto_update_file_list_": {
+    "folders": [
+      "lib"
+    ]
+  },
+  "_rename_": [
+    "component.json",
+    "Makefile",
+    "index.html",
+    "main.js",
+    "main.css"
+  ],
+  "_ise_paths_": [
+    "lib",
+    "lib-client"
+  ],
+  "_auto_index_files_": [
+    "lib/model/factory/index.js",
+    "lib/gui/index.js",
+    "lib/commands/index.js",
+    "lib/query/index.js",
+    "lib/sketch/unistroke-templates/index.js",
+    "lib/sketch/gestures/index.js"
+  ]
+}
