@@ -8,6 +8,7 @@
   "development": {
     "lge88/expect.js": "*"
   },
+  "homepage": "https://github.com/lge88/__pkgName__",
   "scripts": [
     "lib/index.js"
   ],

@@ -4,7 +4,9 @@
   "description": "__pkgName__",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "lge88/three-build": "*"
+  },
   "development": {
     "lge88/expect.js": "*",
     "lge88/ise-viewport": "*",
@@ -12,6 +14,7 @@
     "lge88/three-random-cubes": "*",
     "lge88/camera-navigator": "*"
   },
+  "homepage": "https://github.com/lge88/__pkgName__",
   "scripts": [
     "lib/index.js"
   ],
