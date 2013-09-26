@@ -1,7 +1,0 @@
-{
-  "name": "demo",
-  "scripts": [
-    "main.js"
-  ],
-  "main": "main.js"
-}

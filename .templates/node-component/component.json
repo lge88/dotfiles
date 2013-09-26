@@ -1,9 +1,0 @@
-{
-  "name": "{{pkgName}}",
-  "paths": [
-    "lib"
-  ],
-  "local": [
-    "install"
-  ]
-}

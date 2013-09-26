@@ -1,2 +1,0 @@
-#! /bin/sh
-curl --form "fileupload=@chips.jpg" http://localhost:8005/upload

@@ -141,11 +141,11 @@ function autoUpdateFileList( context, next ) {
 function writeToComponentJSONFile( context, next ) {
   var src = context.src, config = context.config;
   var file = path.resolve( src, 'component.json' );
-  var backupFolder = path.resolve( __dirname, 'backup' );
-  var backup = path.resolve( backupFolder, 'component.json.' + now().join( '-' ) + '.bak' );
+  // var backupFolder = path.resolve( __dirname, 'backup' );
+  // var backup = path.resolve( backupFolder, 'component.json.' + now().join( '-' ) + '.bak' );
 
-  mkdir( '-p', backupFolder );
-  cp( '-f', file, backup );
+  // mkdir( '-p', backupFolder );
+  // cp( '-f', file, backup );
   JSON.stringify( config, null, 2 ).to( file );
 
   next( null, context );

@@ -1,3 +1,0 @@
-# {{pkgName}} #
-
-## Running ##

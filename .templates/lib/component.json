@@ -8,7 +8,13 @@
   "development": {
     "lge88/expect.js": "*"
   },
-  "homepage": "https://github.com/lge88/__pkgName__",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lge88/__pkgName__.git"
+  },
+  "_examples": "https://github.com/lge88/__pkgName__/tree/master/examples",
+  "_test": "https://github.com/lge88/__pkgName__/tree/master/test",
+  "_homepage": "https://github.com/lge88/__pkgName__",
   "scripts": [
     "lib/index.js"
   ],
@@ -18,6 +24,7 @@
   "main": "lib/index.js",
   "_rename_": [
     "component.json",
+    "package.json",
     "Makefile",
     "examples/index.html",
     "examples/main.js",
