@@ -4,7 +4,10 @@
   "description": "__pkgName__",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "lge88/extend": "*",
+    "lge88/composable": "*"
+  },
   "development": {
     "lge88/expect.js": "*"
   },
