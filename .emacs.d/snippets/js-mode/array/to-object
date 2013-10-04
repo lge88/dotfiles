@@ -3,6 +3,6 @@
 # key: toObject
 # --
 reduce( function( obj, item ) {
-obj[ item.${1:name} ] = item;
+obj[ item${1:.name} ] = item;
 return obj;
 }, {} )$0

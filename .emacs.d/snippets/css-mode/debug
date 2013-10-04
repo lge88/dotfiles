@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: debug element
+# key: debug
+# --
+#debug {
+    background: yellow;
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}

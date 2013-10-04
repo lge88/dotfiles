@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: function reject
-# key: funreject
+# name: function omit
+# key: funomit
 # --
-function reject( obj, keys ) {
+function omit( obj, keys ) {
   Array.isArray( keys ) || ( keys = [ keys ] );
   var mask = keys
     .reduce( function( obj, item ) {

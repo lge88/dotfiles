@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: debug element
+# key: debug
+# --
+<div id='debug'></div>
