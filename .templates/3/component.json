@@ -14,9 +14,9 @@
     "lge88/three-random-cubes": "*",
     "lge88/camera-navigator": "*"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/lge88/__pkgName__.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lge88/__pkgName__.git"
   },
   "_examples": "https://github.com/lge88/__pkgName__/tree/master/examples",
   "_test": "https://github.com/lge88/__pkgName__/tree/master/test",

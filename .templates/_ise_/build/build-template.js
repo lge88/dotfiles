@@ -16,7 +16,7 @@ module.exports = function(builder){
         str = jade.compile(str)({});
       }
       var js = str2js(str);
-      var newFile = path.basename(file, ext) + '.js';
+      var newFile = file + '.js';
       pkg.addFile('scripts', newFile, js);
     });
   });

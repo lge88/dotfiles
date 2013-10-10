@@ -8,7 +8,7 @@ var rl = require( 'readline' ).createInterface( {
 } );
 
 var tmplName = process.argv[2];
-var pkgName = process.argv[3] || now().join( '-' );
+var pkgName = process.argv[3] || tmplName; // now().join( '-' );
 var dest = path.resolve( pkgName );
 pkgName = path.basename( pkgName );
 // console.log( tmplName, pkgName );exit();
@@ -299,6 +299,10 @@ function runPostInitTasks( context ) {
 }
 
 function run( context ) {
+  if ( test( '-f', context.src ) ) {
+    cp( context.src, context.dest );
+    exit();
+  }
   loadMiddlewares( context );
   initRoutes( context );
   runPreInitTasks( context );
@@ -328,7 +332,7 @@ function findTemplate( name ) {
   paths.some( function( p ) {
     return ls( p )
       .filter( function( d ) {
-        return test( '-d', path.resolve( p, d )  );
+        return test( '-e', path.resolve( p, d )  );
       } )
       .filter( function( d ) {
         return !/(legacy|\.bak$)/.test( d );
