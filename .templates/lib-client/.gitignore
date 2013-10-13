@@ -1,4 +1,1 @@
-components
-build
-node_modules
-*.bak
+../.gitignore

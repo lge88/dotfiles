@@ -21,6 +21,8 @@
   "styles": [
     "lib/index.css"
   ],
+  "templates": [
+  ],
   "main": "lib/index.js",
   "_rename_": [
     "component.json",

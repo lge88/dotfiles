@@ -5,8 +5,7 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "lge88/extend": "*",
-    "lge88/composable": "*"
+    "lge88/extend": "*"
   },
   "development": {
     "lge88/expect.js": "*"
@@ -20,9 +19,6 @@
   "_homepage": "https://github.com/lge88/__pkgName__",
   "scripts": [
     "lib/index.js"
-  ],
-  "styles": [
-    "lib/index.css"
   ],
   "main": "lib/index.js",
   "_rename_": [
