@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: .reduce()
+# key: reduce
+# --
+reduce(function( x ) {
+$0
+})

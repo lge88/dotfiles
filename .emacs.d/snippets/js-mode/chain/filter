@@ -1,5 +1,7 @@
 # -*- mode: snippet -*-
 # name: .filter()
-# key: .filter
+# key: filter
 # --
-.filter( $0 )
+filter(function( x ) {
+$0
+})

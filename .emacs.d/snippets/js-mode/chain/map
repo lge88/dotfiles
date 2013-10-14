@@ -1,5 +1,7 @@
 # -*- mode: snippet -*-
-# name: map
+# name: .map()
 # key: map
 # --
-map($1)$0
+map(function( x ) {
+$0
+})
