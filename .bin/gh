@@ -113,7 +113,8 @@ prog
     var _this = this;
     getRepoList(this).done(function(list) {
       if (_this.count) {
-        console.log('Total: ' + list.length);
+        console.log(list.length);
+        process.exit();
       }
       console.log(list.join('\n'));
       process.exit();
