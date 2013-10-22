@@ -432,21 +432,26 @@ PROMPT_COMMAND="history -a"
 case ${TERM} in
   *term | rxvt | linux)
 
-        PS1="\[$(load_color)\][\A\[${NC}\] "
+        # PS1="\[$(load_color)\][\A\[${NC}\] "
+        # PS1="\[$(load_color)\][\[${NC}\] "
         # PS1="\[\$(load_color)\][\A\[${NC}\] "
+
         # Time of day (with load info).
 
-        PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
+        # PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
+        # PS1=${PS1}"\[${SU}\]\u\[${NC}\] "
+        PS1="[\[${SU}\]\u\[${NC}\] "
         # User@Host (with connection type info).
 
-        PS1=${PS1}"\[$(disk_color)\]\W]\[${NC}\] "
+        PS1=${PS1}"\[$(disk_color)\]\W\[${NC}\]]"
         # PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
         # PWD (with 'disk space' info).
 
         PS1=${PS1}"\[$(job_color)\]>\[${NC}\] "
         # Prompt (with 'job' info).
 
-        PS1=${PS1}"\[$(xtitle '[\u@\h] \w')\]"
+        # PS1=${PS1}"\[$(xtitle '[\u] \w')\]"
+        PS1=${PS1}"\[$(xtitle '\w')\]"
         # Title of current xterm.
 
         ;;
