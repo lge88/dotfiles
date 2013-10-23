@@ -83,7 +83,7 @@
 (require 'purcell-haml)
 (require 'purcell-python-mode)
 (require 'purcell-haskell)
-(require 'purcell-ruby-mode)
+(require 'lge-ruby-mode)
 (require 'purcell-rails)
 (require 'purcell-sql)
 
