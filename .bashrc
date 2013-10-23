@@ -97,6 +97,9 @@ alias today='date +%Y%m%d'
 alias td='today'
 alias now='date +%H%M%S'
 
+# python
+alias ipy='python -m IPython'
+
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
     alias emacs=/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs
@@ -1008,3 +1011,5 @@ _killall()
 
 complete -F _killall killall killps
 ###-end-abs.bashrc
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
