@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: enum
+# key: enum
+# --
+#include <stdio.h>
+typedef enum {
+PENDING=0,
+RUNNING,
+TERMINATED
+} state_t;
+
+state_t input_state = RUNNING;

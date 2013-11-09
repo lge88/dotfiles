@@ -16,6 +16,9 @@
  grep-highlight-matches t
  grep-scroll-output t
  indent-tabs-mode nil
+ tab-width 2
+ c-default-style "k&r"
+ c-basic-offset 2
  line-spacing 0.2
  mouse-yank-at-point t
  save-interprogram-paste-before-kill t

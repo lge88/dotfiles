@@ -10,17 +10,19 @@
 (define-key ac-mode-map (kbd "S-SPC") 'auto-complete)
 (define-key ac-completing-map (kbd "<escape> <tab>") 'ac-stop)
 
-(setq-default ac-sources
-              '(
-                ac-source-imenu
-                ac-source-yasnippet
-                ac-source-abbrev
-                ac-source-words-in-buffer
-                ac-source-files-in-current-dir
-                ac-source-filename
-                ac-source-words-in-all-buffer
-                ac-source-dictionary
-                ))
+(ac-config-default)
+
+;; (setq-default ac-sources
+;;               '(
+;;                 ac-source-imenu
+;;                 ac-source-abbrev
+;;                 ac-source-words-in-buffer
+;;                 ac-source-files-in-current-dir
+;;                 ac-source-filename
+;;                 ac-source-words-in-all-buffer
+;;                 ac-source-dictionary
+;;                 ac-source-yasnippet
+;;                 ))
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode csv-mode espresso-mode haskell-mode
