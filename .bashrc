@@ -21,6 +21,7 @@ export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/.templates
 pathadd ${TOOLBOX_PATH}/bin
 pathadd ${DOTFILES_PATH}/.bin
 pathadd ${ISE_PATH}/bin
+pathadd ${DEVELOP_PATH}/scala/sbt/bin
 
 # ise completion:
 _ise()
