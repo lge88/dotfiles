@@ -51,6 +51,7 @@
 (require 'lge-auto-complete)
 (require 'lge-windows)
 (require 'lge-autopair)
+(require 'lge-paredit)
 (require 'purcell-sessions)
 (require 'purcell-fonts)
 (require 'purcell-mmm)

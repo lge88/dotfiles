@@ -8,6 +8,8 @@
 (setq ac-dwim nil)
 
 (define-key ac-mode-map (kbd "S-SPC") 'auto-complete)
+(define-key ac-mode-map (kbd "S-<tab>") 'auto-complete)
+(define-key ac-mode-map (kbd "<backtab>") 'auto-complete)
 (define-key ac-completing-map (kbd "<escape> <tab>") 'ac-stop)
 
 (ac-config-default)
@@ -33,3 +35,13 @@
                 cmake-mode python-mode makefile-gmake-mode jade-mode
                 js3-mode css-mode less-css-mode sql-mode ielm-mode))
   (add-to-list 'ac-modes mode))
+
+(dolist (hook '(emacs-lisp-mode-hook))
+  (add-hook hook (lambda ()
+                   (setq ac-sources
+                         '(
+                           ac-source-functions
+                           ac-source-symbols
+                           ac-source-yasnippet
+                           ac-source-filename
+                           )))))
