@@ -3,6 +3,8 @@
 
 export SYSTEM=`uname`
 
+umask 022
+
 pathadd() {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
         export PATH=${1}:$PATH
