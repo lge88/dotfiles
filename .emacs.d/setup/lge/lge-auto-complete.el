@@ -12,6 +12,16 @@
 
 (ac-config-default)
 
+(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
+                sass-mode yaml-mode csv-mode espresso-mode haskell-mode
+                html-mode nxml-mode smarty-mode clojure-mode
+                textile-mode markdown-mode tuareg-mode
+                js2-mode js-mode lisp-mode sgml-mode conf-space-mode
+                tcl-mode c++mode c-mode sh-mode make-mode latex-mode
+                cmake-mode python-mode makefile-gmake-mode jade-mode
+                js3-mode css-mode less-css-mode sql-mode ielm-mode))
+  (add-to-list 'ac-modes mode))
+
 ;; (setq-default ac-sources
 ;;               '(
 ;;                 ac-source-imenu
@@ -23,16 +33,6 @@
 ;;                 ac-source-dictionary
 ;;                 ac-source-yasnippet
 ;;                 ))
-
-(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
-                sass-mode yaml-mode csv-mode espresso-mode haskell-mode
-                html-mode nxml-mode smarty-mode clojure-mode
-                textile-mode markdown-mode tuareg-mode
-                js2-mode js-mode lisp-mode sgml-mode conf-space-mode
-                tcl-mode c++mode c-mode sh-mode make-mode latex-mode
-                cmake-mode python-mode makefile-gmake-mode jade-mode
-                js3-mode css-mode less-css-mode sql-mode ielm-mode))
-  (add-to-list 'ac-modes mode))
 
 ;; (dolist (hook '(emacs-lisp-mode-hook))
 ;;   (add-hook hook (lambda ()

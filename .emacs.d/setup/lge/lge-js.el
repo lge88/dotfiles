@@ -6,8 +6,8 @@
 (require-package 'rainbow-delimiters)
 (require-package 'coffee-mode)
 
-(require 'js)
 (require-package 'js2-mode)
+(require 'js)
 (require 'js2-mode)
 
 (defcustom preferred-javascript-mode
