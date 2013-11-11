@@ -5,19 +5,23 @@
 (defun __dirname ()
   (file-name-as-directory load-file-name))
 
-(defconst *system-open* (cond
-                         ((eq system-type 'darwin)
-                          "open")
-                         ((eq system-type 'gnu/linux)
-                          "gnome-open")
-                         (t "gnome-open")))
+(defconst *system-open*
+  (cond
+   ((eq system-type 'darwin)
+    "open")
+   ((eq system-type 'gnu/linux)
+    "gnome-open")
+   (t
+    "gnome-open")))
 
-(defconst *system-terminal* (cond
-                         ((eq system-type 'darwin)
-                          "open -a Terminal")
-                         ((eq system-type 'gnu/linux)
-                          "gnome-terminal")
-                         (t "gnome-terminal")))
+(defconst *system-terminal*
+  (cond
+   ((eq system-type 'darwin)
+    "open -a Terminal")
+   ((eq system-type 'gnu/linux)
+    "gnome-terminal")
+   (t
+    "gnome-terminal")))
 
 (defun lge-open-terminal-here ()
   "open ternimal and go to current directory"
@@ -29,14 +33,13 @@
 ;; bash: cannot set terminal process group (-1): Invalid argument
 ;; bash: no job control in this shell
 ;; (fset 'lge-trigger-open-terminal-here
-   ;; [?\M-: ?\( ?l ?g ?e ?- ?o ?p ?e ?n ?- ?t ?e ?r ?m ?i ?n ?a ?l ?- ?h ?e ?r ?e return])
+;; [?\M-: ?\( ?l ?g ?e ?- ?o ?p ?e ?n ?- ?t ?e ?r ?m ?i ?n ?a ?l ?- ?h ?e ?r ?e return])
 ;; (global-set-key (kbd "<f8>") 'lge-trigger-open-terminal-here)
 
 (defun lge-open-file-brower-here ()
   "open ternimal and go to current directory"
   (interactive)
   (shell-command (concat *system-open* " .") nil nil))
-(global-set-key (kbd "<f9>") 'lge-open-file-brower-here)
 
 ;; (fset 'lge-trigger-open-file-browser-here
 ;;    [?\M-: ?\( ?l ?g ?e ?- ?o ?p ?e ?n ?- ?f ?i ?l ?e ?- ?b ?r ?o ?w ?s ?e ?r ?- ?h ?e ?r ?e return])

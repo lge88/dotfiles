@@ -6,6 +6,9 @@
 (require-package 'rainbow-delimiters)
 (require-package 'coffee-mode)
 
+(require 'js)
+(require-package 'js2-mode)
+(require 'js2-mode)
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js-mode js2-mode)))
@@ -23,9 +26,7 @@
                                   unless (eq preferred-javascript-mode (cdr entry))
                                   collect entry)))
 
-
 (add-auto-mode 'js-mode "\\.json\\'")
-
 
 (defun lge-toggle-js2-js-mode ()
   "DOCSTRING"
@@ -33,7 +34,6 @@
   (if (string= major-mode "js-mode")
       (js2-mode)
     (js-mode)))
-(global-set-key (kbd "<f12>") 'lge-toggle-js2-js-mode)
 
 (defun lge-eval-node-js-on-region-or-buffer (start end)
   "DOCSTRING"
@@ -94,7 +94,7 @@
 ;; Run and interact with an inferior JS via js-comint.el
 ;; ---------------------------------------------------------------------------
 
-(setq inferior-js-program-command "js")
+(setq inferior-js-program-command "node")
 
 (defvar inferior-js-minor-mode-map (make-sparse-keymap))
 (define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)

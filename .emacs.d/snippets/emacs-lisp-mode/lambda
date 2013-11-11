@@ -1,4 +1,5 @@
+# -*- mode: snippet -*-
 # name: f
 # key: f
 # --
-(lambda ($0) )
+(lambda ($1) $0)

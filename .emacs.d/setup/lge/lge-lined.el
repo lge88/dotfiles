@@ -63,6 +63,60 @@
        (newline)
        (yank)))))
 
+(defun duplicate-line-or-region ()
+  (interactive)
+  (let
+      ((pcol (current-column)))
+    (if (region-active-p)
+        (let ((m (mark))
+              (p (point))
+              beg
+              end
+              (mcol
+               (let (col)
+                 (exchange-point-and-mark)
+                 (setq col (current-column))
+                 (exchange-point-and-mark) col)))
+          (if (> p m)
+              (progn
+                (end-of-line)
+                (setq end (point))
+                (exchange-point-and-mark)
+                (beginning-of-line)
+                (setq beg (point))
+                (kill-ring-save beg end)
+                (exchange-point-and-mark)
+                (newline)
+                (yank)
+                (setq p (point))
+                (exchange-point-and-mark)
+                (move-to-column mcol)
+                (push-mark)
+                (goto-char p)
+                (move-to-column pcol))
+            (progn
+              (beginning-of-line)
+              (setq beg (point))
+              (exchange-point-and-mark)
+              (end-of-line)
+              (setq end (point))
+              (kill-ring-save beg end)
+              (newline)
+              (setq p (point))
+              (yank)
+              (move-to-column mcol)
+              (push-mark)
+              (goto-char p)
+              (move-to-column pcol)))
+          ;; this is the trick...
+          (setq deactivate-mark nil))
+      (progn
+        (kill-ring-save (line-beginning-position) (line-end-position))
+        (end-of-line)
+        (newline)
+        (yank)
+        (move-to-column pcol)))))
+
 (defun jump-to-newline ()
   (interactive)
   (execute-kbd-macro (kbd "C-e C-j")))
@@ -124,4 +178,4 @@ BEG and END (region to sort)."
             (replace-match "" nil nil))
           (goto-char next-line))))))
 
-(provide 'lined)
+(provide 'lge-lined)

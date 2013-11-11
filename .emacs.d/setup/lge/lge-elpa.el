@@ -11,7 +11,7 @@
 (require 'package)
 
 (require 'vc-git)
-
+
 ;;; Add support to package.el for pre-filtering available packages
 
 (defvar package-filter-function nil
@@ -35,7 +35,6 @@ ARCHIVE is the string name of the package archive.")
     ad-do-it))
 
 
-
 ;;; Standard package repositories
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -57,7 +56,6 @@ ARCHIVE is the string name of the package archive.")
             (not (memq package '(slime))))))
 
 
-
 ;;; On-demand installation of packages
 
 (defun require-package (package &optional min-version no-refresh)
