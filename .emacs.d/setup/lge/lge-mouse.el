@@ -1,9 +1,14 @@
 
+(global-set-key (kbd "<C-mouse-1>") 'ffap-at-mouse)
 
-(global-set-key (kbd "<C-down-mouse-1>")
-                (lambda (p)
-                  (interactive "e")
-                  (goto-char (nth 1 (nth 1 p)))
-                  (find-file-at-point)))
+(global-set-key (kbd "<C-down-mouse-5>")
+                (lambda ()
+                  (interactive)
+                  (text-scale-decrease 1)))
+
+(global-set-key (kbd "<C-down-mouse-4>")
+                (lambda ()
+                  (interactive)
+                  (text-scale-increase 1)))
 
 (provide 'lge-mouse)

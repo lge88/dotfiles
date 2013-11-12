@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: emacs mode header
+# key: mode
+# --
+`comment-start` -*- mode: $1 -*-

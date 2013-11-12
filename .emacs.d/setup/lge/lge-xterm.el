@@ -43,12 +43,21 @@ Selectively runs either `after-make-console-frame-hooks' or
     (define-key map "[3;5~" [C-<delete>])
     ))
 
-(add-hook 'after-make-console-frame-hooks
-          (lambda ()
-            (when (< emacs-major-version 23)
-              (fix-up-xterm-control-arrows))
-            (xterm-mouse-mode 1) ; Mouse in a terminal (Use shift to paste with middle button)
-            (when (fboundp 'mwheel-install)
-              (mwheel-install))))
+;; (add-hook 'after-make-console-frame-hooks
+;;           (lambda ()
+;;             (message "hey i ran!!")
+;;             (when (< emacs-major-version 23)
+;;               (fix-up-xterm-control-arrows))
+;;             (xterm-mouse-mode 1)
+;;             (when (fboundp 'mwheel-install)
+;;               (mwheel-install))))
+
+(progn
+  (message "hey i ran!!")
+  (when (< emacs-major-version 23)
+    (fix-up-xterm-control-arrows))
+  (xterm-mouse-mode 1)
+  (when (fboundp 'mwheel-install)
+    (mwheel-install)))
 
 (provide 'lge-xterm)

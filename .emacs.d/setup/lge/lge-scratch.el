@@ -1,8 +1,5 @@
 
-(provide 'lge-tmp)
-
 (require-package 'scratch)
-(global-set-key (kbd "C-c C-s") 'scratch)
 
 (defun lge-shell-command-result (str)
   "Trim the ending return character"
@@ -22,7 +19,6 @@
                   (format-time-string "%Y-%m-%d-%H-%M-%S") "*"))
     (switch-to-buffer (get-buffer-create now))
     (funcall (symbol-function the-mode))))
-(defalias 'tmp 'lge-create-tmp-here)
 
 (defun lge-goto-today-folder ()
   "Jump to today's folder"
@@ -31,4 +27,4 @@
     (make-directory folder t)
     (dired folder)))
 
-(defalias 'td 'lge-goto-today-folder)
+(provide 'lge-scratch)

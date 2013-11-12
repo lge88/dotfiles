@@ -47,7 +47,7 @@
 (require 'lge-mouse)
 (require 'lge-files)
 (require 'lge-system-utils)
-(require 'lge-tmp)
+(require 'lge-scratch)
 (require 'lge-register)
 
 (require 'lge-git)

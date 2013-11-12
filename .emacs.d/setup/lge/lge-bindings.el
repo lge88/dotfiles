@@ -9,9 +9,15 @@
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 
+(require 'lge-ido)
+(global-set-key (kbd "C-x f") 'ido-find-file)
 
 (require 'ffap)
 (global-set-key (kbd "C-c f") 'find-file-at-point)
+
+(require 're-builder)
+(global-set-key (kbd "C-c r") 're-builder)
+(define-key reb-mode-map (kbd "C-c q") 'reb-quit)
 
 (require 'lge-lined)
 (global-set-key (kbd "C-k") 'kill-line)
@@ -44,7 +50,15 @@
 (global-set-key (kbd "<f6>") 'nlinum-mode)
 
 (require 'lge-system-utils)
+(global-set-key (kbd "<f8>") 'lge-open-terminal-here)
 (global-set-key (kbd "<f9>") 'lge-open-file-brower-here)
+(defalias 'cp 'lge-copy-marked-files-to-clipboard-in-dired)
+(defalias 'paste 'lge-paste-files-in-pwd)
+
+(require 'lge-scratch)
+(global-set-key (kbd "C-c s") 'scratch)
+(defalias 'tmp 'lge-create-tmp-here)
+(defalias 'td 'lge-goto-today-folder)
 
 (require 'lge-wgrep)
 (define-key grep-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode)
@@ -53,16 +67,10 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 (require 'lge-paredit)
-(define-key lisp-mode-shared-map (kbd "<f12>") 'paredit-mode)1;2501;0c
+(define-key lisp-mode-shared-map (kbd "<f12>") 'paredit-mode)
 
 (require 'lge-js)
 (define-key js2-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
 (define-key js-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
 
 (provide 'lge-bindings)
-
-;; (require-package 'iy-go-to-char)
-;; (require 'iy-go-to-char)
-;; (global-set-key (kbd "M-m") 'iy-go-to-char)
-;; (global-set-key (kbd "M-M") 'iy-go-to-char-backward)
-;; (global-unset-key [C-down-mouse-1])
