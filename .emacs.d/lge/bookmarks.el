@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("FAESOR"
+(("org-capture-last-stored-marker"
+ (filename . "~/Dropbox/org/gtd.org")
+ (front-context-string . "** TODO Not sure")
+ (rear-context-string . "Dropbox/org\")]]\n")
+ (position . 206))
+("org-refile-last-stored"
+ (filename . "~/Dropbox/org/gtd.org")
+ (front-context-string . "** TODO Not sure")
+ (rear-context-string . "Dropbox/org\")]]\n")
+ (position . 206))
+("org-capture-last-stored"
+ (filename . "~/Dropbox/org/ideas.org")
+ (front-context-string . "* :10cee:researc")
+ (rear-context-string . "erate searching\n")
+ (position . 369))
+("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")
  (rear-context-string . "0K Sep 15  2012 ")

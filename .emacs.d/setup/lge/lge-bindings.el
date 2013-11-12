@@ -60,6 +60,11 @@
 (defalias 'tmp 'lge-create-tmp-here)
 (defalias 'td 'lge-goto-today-folder)
 
+(require 'lge-org)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 (require 'lge-wgrep)
 (define-key grep-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode)
 

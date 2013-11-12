@@ -26,6 +26,9 @@
 (require 'lge-auto-complete)
 (require 'lge-autopair)
 (require 'lge-diminish)
+(require 'lge-org)
+;;; FIXME: doesn't work yet
+;; (require 'lge-google-translate)
 (require 'lge-dired)
 (require 'lge-ibuffer)
 (require 'lge-ido)
