@@ -58,6 +58,7 @@
 (require 'lge-js)
 (require 'lge-tex)
 (require 'lge-ruby-mode)
+(require 'lge-clojure)
 
 (require-package 'scratch)
 
