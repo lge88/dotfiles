@@ -1,0 +1,22 @@
+# name: Flow
+# key: flow
+# --
+function ${1:Flow}() {
+
+}
+
+$1.prototype.start = function() {
+
+};
+
+$1.prototype.stop = function() {
+
+};
+
+$1.prototype.pause = function() {
+
+};
+
+$1.prototype.resume = function() {
+
+};

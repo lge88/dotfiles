@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: new cube geometry
-# key: cube
-# --
-$1new THREE.CubeGeometry( ${2:w}, ${3:h}, ${4:t}${5:, nw, nh, nt} )$0

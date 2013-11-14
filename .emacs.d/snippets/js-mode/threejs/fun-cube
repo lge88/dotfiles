@@ -1,11 +1,26 @@
 # -*- mode: snippet -*-
-# name: function cube()
-# key: funcube
+# name: create THREE cube
+# key: Tcube
 # --
 function cube( w, h, t ) {
-  var m = new THREE.Mesh(
-    new THREE.CubeGeometry( w || 40, h || 40, t || 40 )
+  var mesh = new THREE.Mesh(
+    new THREE.CubeGeometry(
+      w || 40,
+      h || 40,
+      t || 40
+    ),
+    new THREE.MeshPhongMaterial( {
+      color: 0xdddddd
+      , specular: 0x009900
+      , emissive: 0xff0000
+      , ambient: 0x030303
+      , shininess: 30
+      , shading: THREE.SmoothShading
+      , map: texture
+      , opacity: 0.9
+      , transparent: true
+      , wireframe: false
+    } )
   );
-  m.material.wireframe = false;
-  return m;
+  return mesh;
 }$0

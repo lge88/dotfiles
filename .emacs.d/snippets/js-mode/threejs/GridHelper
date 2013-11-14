@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: THREE.GridHelper
+# key: Tgrid
+# --
+new THREE.GridHelper( size, step )$0

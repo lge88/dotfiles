@@ -75,7 +75,9 @@
 (define-key lisp-mode-shared-map (kbd "<f12>") 'paredit-mode)
 
 (require 'lge-js)
-(define-key js2-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
 (define-key js-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
+(define-key js2-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
+(define-key js-mode-map (kbd "M-(") 'lge-wrap-region)
+(define-key js2-mode-map (kbd "M-(") 'lge-wrap-region)
 
 (provide 'lge-bindings)

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: contract of a boolean
+# key: ct
+# --
+if ( !(typeof $1 === 'boolean') ) {
+throw new Error( 'Expect $1 to be a boolean, but got ' + $1 );
+}$0

@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: Command Class
+# key: cmd
+# --
+function ${1:Command}( params ) {
+
+}
+
+$1.prototype.name = '$1';
+
+$1.prototype.toJSON = function() {
+
+};
+
+$1.prototype.execute = function( env ) {
+
+};
+
+$1.prototype.undo = function( env ) {
+
+};
+
+$1.prototype.redo = $1.prototype.execute;
+
+$1.prototype.cancel = $1.prototype.undo;
+$0

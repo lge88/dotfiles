@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: THREE.Scene
+# key: Tscene
+# --
+new THREE.Scene()$0

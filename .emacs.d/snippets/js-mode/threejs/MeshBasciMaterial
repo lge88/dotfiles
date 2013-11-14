@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: THREE.MeshBasicMaterial
+# key: Tmbm
+# --
+new THREE.MeshBasicMaterial( {
+color: 0xff0000
+} )$0

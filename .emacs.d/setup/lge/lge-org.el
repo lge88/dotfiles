@@ -9,7 +9,7 @@
 
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "FIXME(f)" "ACTIVE(a)" "|" "DONE(d!)")))
+      '((sequence "TODO(t)" "FEATURE(F)" "FIXME(f)" "ACTIVE(a)" "|" "CANCELED(c)" "DONE(d!)")))
 
 (setq org-capture-templates
       '(("t" "TODO"

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: THREE.Camera
+# key: Tcam
+# --
+new THREE.Camera()$0

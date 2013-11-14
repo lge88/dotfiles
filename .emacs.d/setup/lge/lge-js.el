@@ -28,6 +28,15 @@
 
 (add-auto-mode 'js-mode "\\.json\\'")
 
+(defun lge-wrap-region (start end)
+  "wrap active region with parence"
+  (interactive "r")
+  (goto-char end)
+  (insert ")")
+  (goto-char start)
+  (insert "(")
+  (backward-char))
+
 (defun lge-toggle-js2-js-mode ()
   "DOCSTRING"
   (interactive)

@@ -1,11 +1,20 @@
 # -*- mode: snippet -*-
-# name: function ball
-# key: funball
+# name: create a ball
+# key: Tball
 # --
 function ball( r ) {
-  var m = new THREE.Mesh(
+  var mesh = new THREE.Mesh(
     new THREE.SphereGeometry( r || 40 )
+    , new THREE.MeshLambertMaterial( {
+      color: 0xdddddd
+      , emissive: 0xff0000
+      , ambient: 0x030303
+      , shading: THREE.FlatShading
+      , map: texture
+      , opacity: 0.9
+      , transparent: true
+      , wireframe: false
+    } )
   );
-  m.material.wireframe = false;
-  return m;
+  return mesh;
 }$0

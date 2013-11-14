@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: new three.js object3d
-# key: obj3
+# name: THREE.Object3D
+# key: Tobj
 # --
 $1new THREE.Object3D()$0

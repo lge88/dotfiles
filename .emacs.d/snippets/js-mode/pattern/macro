@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: Macro Class
+# key: macro
+# --
+function ${1:Macro}( params ) {
+
+}
+
+$1.fromJSON = function( json ) {
+  return new $1( json );
+};
+
+$1.prototype.name = '$1';
+
+$1.prototype.toJSON = function() {
+
+};
+
+$1.prototype.expand = function( env ) {
+
+};
+$0

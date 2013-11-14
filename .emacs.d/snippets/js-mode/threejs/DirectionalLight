@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: THREE.DirectionalLight
+# key: Tdl
+# --
+new THREE.DirectionalLight( color, intensity, distance )$0

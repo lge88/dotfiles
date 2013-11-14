@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: new three.js camera
-# key: ocam
-# --
-$1new THREE.OrthographicCamera( -${2:w}/2, $2/2, ${3:h}/2, -$3/2, ${4:near}, ${5:far} )$0

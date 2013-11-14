@@ -22,6 +22,13 @@
                 js3-mode css-mode less-css-mode sql-mode ielm-mode))
   (add-to-list 'ac-modes mode))
 
+(dolist (hook '(js-mode-hook js2-mode-hook))
+  (add-hook hook (lambda ()
+                   (add-to-list 'ac-sources 'ac-source-yasnippet))))
+
+;; (remove-hook 'js-mode-hook (elt js-mode-hook 0))
+
+
 ;; (setq-default ac-sources
 ;;               '(
 ;;                 ac-source-imenu
