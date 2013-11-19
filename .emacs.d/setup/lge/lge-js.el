@@ -28,14 +28,21 @@
 
 (add-auto-mode 'js-mode "\\.json\\'")
 
-(defun lge-wrap-region (start end)
-  "wrap active region with parence"
-  (interactive "r")
-  (goto-char end)
-  (insert ")")
-  (goto-char start)
-  (insert "(")
-  (backward-char))
+(defun lge-console-time-region (start end str)
+  "time the region using console.time/console.timeEnd"
+  (interactive "r\nsconsole.time with message: ")
+  (let ((str1 (concat "console.time( \"" str "\" );"))
+        (str2 (concat "console.timeEnd( \"" str "\" );")))
+    (goto-char end)
+    (end-of-line)
+    (newline-and-indent)
+    (newline-and-indent)
+    (insert str2)
+    (goto-char start)
+    (back-to-indentation)
+    (insert str1)
+    (newline-and-indent)
+    (newline-and-indent)))
 
 (defun lge-toggle-js2-js-mode ()
   "DOCSTRING"

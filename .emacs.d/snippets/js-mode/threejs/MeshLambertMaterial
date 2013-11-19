@@ -7,8 +7,8 @@ color: 0xdddddd
 , emissive: 0xff0000
 , ambient: 0x030303
 , shading: THREE.FlatShading
-, map: texture,
-, opacity: 0.9,
+, map: texture
+, opacity: 0.9
 , transparent: true
 , wireframe: false
 } )$0

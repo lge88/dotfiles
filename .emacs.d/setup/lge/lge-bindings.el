@@ -74,10 +74,16 @@
 (require 'lge-paredit)
 (define-key lisp-mode-shared-map (kbd "<f12>") 'paredit-mode)
 
+(require 'lge-yasnippet)
+(global-set-key (kbd "C-c y") 'lge-create-snippet-from-region)
+
 (require 'lge-js)
+(require 'lge-paredit)
 (define-key js-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
 (define-key js2-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
-(define-key js-mode-map (kbd "M-(") 'lge-wrap-region)
-(define-key js2-mode-map (kbd "M-(") 'lge-wrap-region)
+(define-key js-mode-map (kbd "M-(") 'lge-wrap-region-1)
+(define-key js2-mode-map (kbd "M-(") 'lge-wrap-region-1)
+(define-key js2-mode-map (kbd "C-c t") 'lge-console-time-region)
+(define-key js-mode-map (kbd "C-c t") 'lge-console-time-region)
 
 (provide 'lge-bindings)
