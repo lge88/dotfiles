@@ -335,8 +335,8 @@ ALERT=${BWhite}${On_Red} # Bold White on red background
 # Test connection type:
 if [ -n "${SSH_CONNECTION}" ]; then
     CNX=${Green}        # Connected on remote machine, via ssh (good).
-elif [[ "${DISPLAY%%:0*}" != "" ]]; then
-    CNX=${ALERT}        # Connected on remote machine, not via ssh (bad).
+# elif [[ "${DISPLAY%%:0*}" != "" ]]; then
+    # CNX=${ALERT}        # Connected on remote machine, not via ssh (bad).
 else
     CNX=${BCyan}        # Connected on local machine.
 fi
@@ -446,7 +446,7 @@ case ${TERM} in
 
         # PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
         # PS1=${PS1}"\[${SU}\]\u\[${NC}\] "
-        PS1="[\[${SU}\]\u\[${NC}\] "
+        PS1="[\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
         # User@Host (with connection type info).
 
         PS1=${PS1}"\[$(disk_color)\]\W\[${NC}\]]"
