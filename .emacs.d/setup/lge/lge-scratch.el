@@ -27,4 +27,12 @@
     (make-directory folder t)
     (dired folder)))
 
+(defun lge-switch-to-scratch-buffer (&optional arg)
+  "Preserve the current directory"
+  (interactive "p")
+  (let ((dir default-directory) )
+    (scratch arg)
+    (setq default-directory dir)))
+
+
 (provide 'lge-scratch)

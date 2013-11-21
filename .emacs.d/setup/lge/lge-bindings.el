@@ -36,7 +36,7 @@
 
 (require 'lge-edit)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
-(global-set-key [remap move-beginning-of-line] 'smarter-move-beginning-of-line)
+
 
 (require-package 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -56,7 +56,7 @@
 (defalias 'paste 'lge-paste-files-in-pwd)
 
 (require 'lge-scratch)
-(global-set-key (kbd "C-c s") 'scratch)
+(global-set-key (kbd "C-c s") 'lge-switch-to-scratch-buffer)
 (defalias 'tmp 'lge-create-tmp-here)
 (defalias 'td 'lge-goto-today-folder)
 
@@ -91,5 +91,9 @@
 (define-key js2-mode-map (kbd "M-(") 'lge-wrap-region-1)
 (define-key js2-mode-map (kbd "C-c t") 'lge-console-time-region)
 (define-key js-mode-map (kbd "C-c t") 'lge-console-time-region)
+
+;;; Can never press C-b, M-b accurately
+(global-set-key (kbd "C-v") 'backward-char)
+(global-set-key (kbd "M-v") 'backward-word)
 
 (provide 'lge-bindings)
