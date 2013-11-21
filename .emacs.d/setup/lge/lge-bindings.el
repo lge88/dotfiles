@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-c f") 'find-file-at-point)
 
 (require 're-builder)
-(global-set-key (kbd "C-c r") 're-builder)
+;; (global-set-key (kbd "C-c r") 're-builder)
 (define-key reb-mode-map (kbd "C-c q") 'reb-quit)
 
 (require 'lge-lined)
@@ -64,6 +64,12 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+(require 'lge-google-translate)
+(global-set-key (kbd "C-c t") 'google-translate-at-point)
+(global-set-key (kbd "C-c T") 'google-translate-query-translate)
+(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
 
 (require 'lge-wgrep)
 (define-key grep-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode)

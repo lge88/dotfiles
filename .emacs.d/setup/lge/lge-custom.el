@@ -35,6 +35,10 @@
 (setq-default truncate-lines t)
 ;; (setq shell-command-switch "-ic")
 
+;;; This solves the problem:
+;;; quit: "pasteboard doesn't contain valid data"
+(setq save-interprogram-paste-before-kill nil)
+
 (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
 (column-number-mode 1)
 (global-auto-revert-mode 1)

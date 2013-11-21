@@ -13,10 +13,10 @@
  (rear-context-string . "Dropbox/org\")]]\n")
  (position . 206))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/org/ideas.org")
- (front-context-string . "* :10cee:researc")
- (rear-context-string . "erate searching\n")
- (position . 369))
+ (filename . "~/Dropbox/org/journal.org")
+ (front-context-string . "**** \nEntered on")
+ (rear-context-string . "11-20 Wednesday\n")
+ (position . 383))
 ("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")

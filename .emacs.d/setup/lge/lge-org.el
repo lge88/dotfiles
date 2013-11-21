@@ -15,16 +15,28 @@
       '(("t" "TODO"
          entry
          (file+headline (concat org-directory "/gtd.org") "Tasks")
-         "* TODO %?\n  %i\n  %a")
-        ("f" "FIXME"
+         "* TODO %?\n %i")
+        ("d" "DEADLINE"
          entry
-         (file+headline (concat org-directory "/gtd.org") "Bugs")
-         "* FIXME :%?:\n  In %F\n  %a")
-        ("i" "Idea"
+         (file+headline (concat org-directory "/gtd.org") "Deadlines")
+         "* TODO %?\n DEADLINE: %T")
+        ("b" "FIXME"
+         entry
+         (file+headline (concat org-directory "/coding.org") "Bugs")
+         "* FIXME %?\n %i\n %a")
+        ("f" "FEATURE"
+         entry
+         (file+headline (concat org-directory "/coding.org") "Features")
+         "* FEATURE %?")
+        ("s" "SNIPPETS"
+         entry
+         (file (concat org-directory "/snippets.org"))
+         "* %?\n #+BEGIN_SRC\n %i\n #+END_SRC\n")
+        ("I" "IDEA"
          entry
          (file (concat org-directory "/ideas.org"))
          "* %?")
-        ("j" "Journal"
+        ("j" "JOURNAL"
          entry
          (file+datetree (concat org-directory "/journal.org"))
          "* %?\nEntered on %U\n  %i\n  %a")))
