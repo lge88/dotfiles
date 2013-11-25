@@ -27,7 +27,7 @@
         ("f" "FEATURE"
          entry
          (file+headline (concat org-directory "/coding.org") "Features")
-         "* FEATURE %?")
+         "* FEATURE %?\n %i\n %a")
         ("s" "SNIPPETS"
          entry
          (file (concat org-directory "/snippets.org"))

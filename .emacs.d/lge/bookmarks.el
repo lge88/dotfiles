@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored-marker"
+(("QCAR"
+ (filename . "~/Develop/Android/vuforia-sdk-android-2-0-31/build/include/QCAR/")
+ (front-context-string . "Area.h\n  -rwxrwx")
+ (rear-context-string . "88 Mar  7  2013 ")
+ (position . 251))
+("org-capture-last-stored-marker"
  (filename . "~/Dropbox/org/gtd.org")
  (front-context-string . "** TODO Not sure")
  (rear-context-string . "Dropbox/org\")]]\n")
@@ -13,10 +18,10 @@
  (rear-context-string . "Dropbox/org\")]]\n")
  (position . 206))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/org/journal.org")
- (front-context-string . "**** \nEntered on")
- (rear-context-string . "11-20 Wednesday\n")
- (position . 383))
+ (filename . "~/Dropbox/org/gtd.org")
+ (front-context-string . "** FIXME marker ")
+ (rear-context-string . "f the target!]]\n")
+ (position . 7991))
 ("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")

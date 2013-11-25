@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: isSubstringOf implementation
+# key: isSubstringOf
+# --
+bool isSubstringOf(string& a, string& b) {
+  // FIXME: how to use const string& a instead?
+  string::iterator it_a = a.begin();
+  string::iterator it_b = b.begin();
+
+  enum {
+    MATCHING,
+    NOT_MATCHING
+  } state;
+
+  while (true) {
+    if (*it_a == *it_b) {
+      state = MATCHING;
+    } else {
+      state = NOT_MATCHING;
+    }
+
+    if (state == MATCHING) {
+      it_a++;
+      it_b++;
+    } else if (state == NOT_MATCHING) {
+      it_a = a.begin();
+      it_b++;
+    }
+
+    if (it_a == a.end()) {
+      return true;
+    }
+
+    if (it_b == b.end()) {
+      return false;
+    }
+  }
+}
