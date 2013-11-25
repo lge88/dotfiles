@@ -11,5 +11,6 @@
 (set-register ?h `(file . "~/"))
 (set-register ?s `(file . "~/.emacs.d/snippets/"))
 (set-register ?t `(file . "~/Dropbox/toolbox/"))
+(set-register ?o `(file . "~/Dropbox/org/"))
 (switch-to-buffer "*scratch*")
 (point-to-register ?\s)
