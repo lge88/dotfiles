@@ -92,6 +92,10 @@
 (define-key js2-mode-map (kbd "C-c t") 'lge-console-time-region)
 (define-key js-mode-map (kbd "C-c t") 'lge-console-time-region)
 
+(require 'flycheck)
+(define-key c++-mode-map (kbd "<f12>") 'flycheck-mode)
+(define-key c-mode-map (kbd "<f12>") 'flycheck-mode)
+
 ;;; Can never press C-b, M-b accurately
 (global-set-key (kbd "C-v") 'backward-char)
 (global-set-key (kbd "M-v") 'backward-word)

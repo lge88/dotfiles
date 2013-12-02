@@ -2,10 +2,10 @@
 # name: isSubstringOf implementation
 # key: isSubstringOf
 # --
-bool isSubstringOf(string& a, string& b) {
+bool isSubstringOf(const string& a, const string& b) {
   // FIXME: how to use const string& a instead?
-  string::iterator it_a = a.begin();
-  string::iterator it_b = b.begin();
+  string::const_iterator it_a = a.begin();
+  string::const_iterator it_b = b.begin();
 
   enum {
     MATCHING,
