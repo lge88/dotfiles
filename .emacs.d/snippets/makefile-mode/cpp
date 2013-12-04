@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: cpp Makefile
+# key: cpp
+# expand-env: ((yas/indent-line 'fixed))
+# --
+
+CC = clang++
+
+LIBRARIES:=
+INCLUDE_PATHS:= ../
+
+CFLAGS = -Wall -g -I$(INCLUDE_PATHS) $(SOURCE)
+LDFLAGS = $(LIBRARIES)
+
+SOURCE = $(wildcard *.cxx *.cpp *.hxx *.h)
+OUT = main
+
+$(OUT): $(SOURCE)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(OUT)
+
+run: $(OUT)
+	@./$(OUT)
+
+clean:
+	rm -fr $(OUT) *.dSYM *.o

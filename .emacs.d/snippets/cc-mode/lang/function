@@ -1,7 +1,0 @@
-# name: function
-# key: f
-# --
-int ${1:do_it}(${2:int})
-{
-$0
-}

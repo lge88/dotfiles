@@ -30,6 +30,8 @@
 (require 'lge-ispell)
 ;;; FIXME: doesn't work yet
 ;; (require 'lge-google-translate)
+(require 'lge-goto)
+(require 'lge-alias)
 (require 'lge-dired)
 (require 'lge-ibuffer)
 (require 'lge-ido)
