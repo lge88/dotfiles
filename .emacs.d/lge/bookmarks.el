@@ -18,10 +18,10 @@
  (rear-context-string . "Dropbox/org\")]]\n")
  (position . 206))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/org/gtd.org")
- (front-context-string . "** FIXME marker ")
- (rear-context-string . "f the target!]]\n")
- (position . 7991))
+ (filename . "~/Dropbox/org/coding.org")
+ (front-context-string . "** FIXME stopLis")
+ (rear-context-string . ".js::} else {]]\n")
+ (position . 2047))
 ("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")
