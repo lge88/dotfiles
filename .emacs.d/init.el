@@ -59,6 +59,7 @@
 (require 'lge-git)
 
 (require 'lge-js)
+(require 'lge-c)
 (require 'lge-tex)
 (require 'lge-ruby-mode)
 (require 'lge-clojure)

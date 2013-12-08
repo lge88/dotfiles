@@ -3,7 +3,7 @@
 # key: cci
 # expand-env: ((yas/indent-line 'fixed))
 # --
-OUT += main
+OUT += $(shell ls *.cpp | sed -e 's/.cpp//g')
 
 CC = clang++
 
@@ -15,14 +15,11 @@ LDFLAGS = $(LIBRARIES)
 
 all: $(OUT)
 
-%: %.cxx
-	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
-
 %: %.cpp
-	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
 
 touch:
-	touch -c *.cxx *.cpp
+	touch -c *.cpp
 
 clean:
 	rm -fr $(OUT) *.dSYM *.o
