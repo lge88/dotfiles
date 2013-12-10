@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: expression
-# key: ex
+# key: e
 # --
 [expr $0]

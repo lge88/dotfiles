@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: showExpr
+# key: proc
+# --
+proc showExpr body {
+  puts "$body: [expr $body]"
+}

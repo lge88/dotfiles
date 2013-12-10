@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: proc
+# key: f
+# --
+proc ${1:procName} ${2:{}} {$0}

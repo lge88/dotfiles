@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: if
-# key: if
+# name: while
+# key: wh
 # --
 while {${1:true}} {
 $0
