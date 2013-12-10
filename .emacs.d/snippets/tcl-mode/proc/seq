@@ -1,0 +1,35 @@
+# -*- mode: snippet -*-
+# name: seq
+# key: proc
+# --
+proc seq {start {end ""} {step ""}} {
+  if {$end == ""} {
+    set end $start
+    set start 1
+  }
+
+  if {$step == ""} {
+    set step [expr {$start < $end ? 1 : -1}]
+  }
+
+  set start [expr int($start)]
+  set end [expr int($end)]
+  set step [expr int($step)]
+
+  # Early return a empty list for invalid input
+  if {($step == 0) || (($end-$start)/$step < 0)} {
+    return {};
+  }
+
+  set list {}
+  if {$end >= $start} {
+    for {set i $start} {$i <= $end} {incr i $step} {
+      set list [linsert $list end $i]
+    }
+  } else {
+    for {set i $start} {$i >= $end} {incr i $step} {
+      set list [linsert $list end $i]
+    }
+  }
+  return $list
+}

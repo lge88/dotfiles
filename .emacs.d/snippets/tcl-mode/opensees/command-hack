@@ -5,7 +5,7 @@
 global ${1:cmd}
 rename $1 __$1
 proc $1 args {
-global command_history
-lappend command_history [linsert $args 0 "$1"]
-eval "__$1 $args"
+  global command_history
+  lappend command_history [linsert $args 0 "$1"]
+  eval "__$1 $args"
 }
