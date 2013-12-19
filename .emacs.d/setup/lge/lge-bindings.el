@@ -100,4 +100,8 @@
 (global-set-key (kbd "C-v") 'backward-char)
 (global-set-key (kbd "M-v") 'backward-word)
 
+(require 'dired+)
+(define-key dired-mode-map (kbd "<down-mouse-1>") 'diredp-mouse-find-file)
+
+
 (provide 'lge-bindings)

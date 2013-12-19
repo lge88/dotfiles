@@ -105,8 +105,10 @@ alias ipy='python -m IPython'
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
-    alias emacs=/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs
-    alias emacsclient=/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient
+    alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
+    alias emacsclient=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+    # alias emacs=/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs
+    # alias emacsclient=/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient
 fi
 
 alias estart='emacs --daemon'

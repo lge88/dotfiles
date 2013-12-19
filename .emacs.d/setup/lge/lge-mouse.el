@@ -8,7 +8,6 @@
 (global-set-key (kbd "<C-wheel-up>") 'lge-text-scale-increase-1)
 (global-set-key (kbd "<C-wheel-down>") 'lge-text-scale-decrease-1)
 
-
 (defun lge-text-scale-decrease-1 ()
   "DOCSTRING"
   (interactive)

@@ -18,10 +18,10 @@
  (rear-context-string . "Dropbox/org\")]]\n")
  (position . 206))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/org/coding.org")
- (front-context-string . "** FIXME stopLis")
- (rear-context-string . ".js::} else {]]\n")
- (position . 2047))
+ (filename . "~/Dropbox/org/journal.org")
+ (front-context-string . "**** :workout:\nE")
+ (rear-context-string . "13-12-08 Sunday\n")
+ (position . 4685))
 ("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")
