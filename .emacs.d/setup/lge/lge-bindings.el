@@ -1,5 +1,5 @@
 (require 'simple)
-(global-set-key (kbd "RET") 'newline-and-indent)
+;; (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-<right>") 'forward-word)
 (global-set-key (kbd "M-<left>") 'backward-word)
 
