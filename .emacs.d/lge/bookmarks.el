@@ -19,9 +19,21 @@
  (position . 206))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/org/journal.org")
+<<<<<<< HEAD
  (front-context-string . "**** TODO [0/0]\n")
  (rear-context-string . "-12-19 Thursday\n")
  (position . 5525))
+=======
+<<<<<<< HEAD
+ (front-context-string . "**** :getup:\nEnt")
+ (rear-context-string . "01-15 Wednesday\n")
+ (position . 6422))
+=======
+ (front-context-string . "**** :workout:\nE")
+ (rear-context-string . "13-12-08 Sunday\n")
+ (position . 4685))
+>>>>>>> abd92c474eee9732a308230978eb0527ae867253
+>>>>>>> e3d534fc4fb5e69ac26cc7b5189433c759ad999c
 ("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")

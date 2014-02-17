@@ -33,6 +33,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq-default truncate-lines t)
+(setq indent-line-function 'insert-tab)
 ;; (setq shell-command-switch "-ic")
 
 ;;; This solves the problem:
