@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: THREE.Object3D
+# key: Tobj
+# --
+$1new THREE.Object3D()$0

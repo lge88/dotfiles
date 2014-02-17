@@ -2,16 +2,16 @@
 # name: function linearMap
 # key: funlinearMap
 # --
-function linearMap( range1, range2 ) {
-  if ( !range2 ) {
+function linearMap(range1, range2) {
+  if (!range2) {
     range2 = range1;
-    range1 = [ 0, 1 ];
+    range1 = [0, 1];
   }
   var a = range1[0];
   var b = range2[0];
   var d1 = range1[1] - range1[0];
   var d2 = range2[1] - range2[0];
-  return function( x ) {
-    return b + ( x - a ) * d2 / d1;
+  return function(x) {
+    return b + (x - a) * d2 / d1;
   }
 }

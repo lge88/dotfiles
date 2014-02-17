@@ -2,6 +2,6 @@
 # name: cb
 # key: cb
 # --
-function( err, $1 ) {
+function(err, $1) {
 $0
 }

@@ -2,13 +2,10 @@
 # name: subclass
 # key: sub
 # --
-define([
-'util',
-'${2:Parent_Class}'
-], function(
+define(["util",
+"${2:Parent_Class}"], function(
 util,
-${3:$2}
-) {
+${3:$2}) {
 function ${1:Sub_Class}() {
 $0
 }

@@ -2,9 +2,7 @@
 # name: THREE.PerspectiveCamera
 # key: Tpcam
 # --
-new THREE.PerspectiveCamera(
-50,
+new THREE.PerspectiveCamera(50,
 container.offsetWidth / container.offsetHeight,
 1,
-10000
-)$0
+10000)$0

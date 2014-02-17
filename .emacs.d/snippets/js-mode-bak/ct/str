@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ensure string
+# key: ctstr
+# --
+if ( !(typeof $1 === 'string') ) {
+throw new Error( 'Expect $1 to be a string, but got ' + $1 );
+}$0

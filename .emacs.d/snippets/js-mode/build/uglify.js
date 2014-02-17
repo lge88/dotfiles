@@ -1,19 +1,19 @@
 
-var uglifyjs = require('uglify-js');
-var path = require('path');
-var fs = require('fs');
+var uglifyjs = require("uglify-js");
+var path = require("path");
+var fs = require("fs");
 var read = fs.readFileSync;
 
 module.exports = function(builder){
-  builder.hook('before scripts', function(pkg){
+  builder.hook("before scripts", function(pkg){
     var scripts = pkg.conf.scripts;
     if (!scripts) return;
 
     for (var i = 0; i < scripts.length; i++) {
       var file = scripts[i];
-      var js = compile(read(pkg.path(file), 'utf8').replace(/\r/g, ''));
-      pkg.removeFile('scripts', file);
-      pkg.addFile('scripts', file, js);
+      var js = compile(read(pkg.path(file), "utf8").replace(/\r/g, ""));
+      pkg.removeFile("scripts", file);
+      pkg.addFile("scripts", file, js);
     }
   });
 };

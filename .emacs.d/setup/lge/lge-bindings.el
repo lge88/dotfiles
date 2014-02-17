@@ -101,7 +101,8 @@
 (global-set-key (kbd "M-v") 'backward-word)
 
 (require 'dired+)
-(define-key dired-mode-map (kbd "<down-mouse-1>") 'diredp-mouse-find-file)
+;; (define-key dired-mode-map (kbd "<down-mouse-1>") 'diredp-mouse-find-file)
+;; (define-key dired-mode-map (kbd "<C-down-mouse-1>") '(lambda () (interactive) (message-box "hi")))
 
 
 (provide 'lge-bindings)

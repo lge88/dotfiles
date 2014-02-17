@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: express directory server
+# key: directory
+# --
+$1use( express.directory( ${2:__dirname} ) )$0

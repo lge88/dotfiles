@@ -2,4 +2,4 @@
 # name: getElementsByName
 # key: byname
 # --
-document.getElementsByName( $1 )$0
+document.getElementsByName($1)$0

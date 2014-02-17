@@ -2,6 +2,6 @@
 # name: .reduce()
 # key: reduce
 # --
-reduce(function( x ) {
+reduce(function( x) {
 $0
 })

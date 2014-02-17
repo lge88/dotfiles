@@ -2,4 +2,4 @@
 # name: import idl
 # key: imidl
 # --
-var idl = require( 'idl' );
+var idl = require("idl");

@@ -2,4 +2,4 @@
 # name: Array
 # key: isarr
 # --
-Array.isArray( $1 )$0
+Array.isArray($1)$0

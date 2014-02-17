@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: THREE.CubeGeometry
+# key: Tcg
+# --
+new THREE.CubeGeometry( w, h, t, nw, nh, nt )$0

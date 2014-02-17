@@ -19,9 +19,9 @@
  (position . 206))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/org/journal.org")
- (front-context-string . "**** :workout:\nE")
- (rear-context-string . "13-12-08 Sunday\n")
- (position . 4685))
+ (front-context-string . "**** TODO [0/0]\n")
+ (rear-context-string . "-12-19 Thursday\n")
+ (position . 5525))
 ("FAESOR"
  (filename . "~/Dropbox/scripts/matlab/FAESOR/")
  (front-context-string . "algorithms\n  drw")

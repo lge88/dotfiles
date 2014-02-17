@@ -2,4 +2,4 @@
 # name: querySelector
 # key: $
 # --
-$3querySelector$1( $2 )$0
+$3querySelector$1($2)$0

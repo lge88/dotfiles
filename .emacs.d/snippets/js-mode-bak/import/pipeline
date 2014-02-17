@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import pipeline
+# key: impp
+# --
+var pipeline = require( 'pipeline' );
+$0

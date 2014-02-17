@@ -2,6 +2,6 @@
 # name: .filter()
 # key: filter
 # --
-filter(function( x ) {
+filter(function( x) {
 $0
 })

@@ -2,7 +2,7 @@
 # name: node-class
 # key: ncls
 # --
-var ut = require('util-lge');
+var ut = require("util-lge");
 
 var defaults = {};
 

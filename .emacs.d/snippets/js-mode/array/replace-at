@@ -2,4 +2,4 @@
 # name: replace item at index
 # key: replaceAt
 # --
-$3splice( ${1:index}, 1, ${2:new_item} )$0
+$3splice(${1:index}, 1, ${2:new_item})$0

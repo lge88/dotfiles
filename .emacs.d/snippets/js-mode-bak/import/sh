@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: shell js
+# key: sh
+# --
+require( 'shelljs/global' );
+$0

@@ -2,4 +2,4 @@
 # name: import category-theory
 # key: imct
 # --
-var ct = require( 'category-theory' );
+var ct = require("category-theory");

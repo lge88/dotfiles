@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import read
+# key: imread
+# --
+var read = ${1:fs}.readFileSync;

@@ -3,26 +3,26 @@
 # key: funconcat
 # --
 
-function concat( a, b, T ) {
-  T || ( T = Array );
+function concat(a, b, T) {
+  T || (T = Array);
   var aLen = a.length, bLen = b.length;
   var len = aLen + bLen;
-  var out = new T( len );
+  var out = new T(len);
   var i;
 
-  for ( i = 0; i < aLen; ++i ) {
-    out[ i ] = a[ i ];
+  for (i = 0; i < aLen; ++i) {
+    out[i] = a[i];
   }
 
-  for ( i = 0; i < bLen; ++i ) {
-    out[ i+aLen ] = b[ i ];
+  for (i = 0; i < bLen; ++i) {
+    out[i+aLen] = b[i];
   }
 
   return out;
 }
 
 $0
-// var a = new Float32Array( [1,2,3,4] );
-// var b = new Float32Array( [1,2,3,4] );
-// var c = concat( a, b, Float32Array )
+// var a = new Float32Array([1,2,3,4]);
+// var b = new Float32Array([1,2,3,4]);
+// var c = concat(a, b, Float32Array)
 // console.log("c = ", c);

@@ -3,21 +3,21 @@
 # key: funmakeSeq
 # --
 function makeSeq() {
-  var fns =  Array.prototype.slice.call( arguments );
+  var fns =  Array.prototype.slice.call(arguments);
   var ended = false;
-  if ( fns.length ===1 && Array.isArray( fns[0] ) ) {
+  if (fns.length ===1 && Array.isArray( fns[0]) ) {
     fns = fns[0];
   }
 
-  function once( f ) {
+  function once(f) {
     var called = false;
     return function() {
-      if ( !called ) {
+      if (!called) {
         called = true;
-        return f.apply( null, arguments );
+        return f.apply(null, arguments);
       } else {
         ended = true;
-        done( "Called once already" );
+        done("Called once already");
       }
     }
   }
@@ -25,51 +25,49 @@ function makeSeq() {
   var i = 0, len = fns.length, done = function() {};
 
   function next() {
-    var args = Array.prototype.slice.call( arguments );
+    var args = Array.prototype.slice.call(arguments);
     var fn, err = args[0];
-    if ( ended === true ) { return; }
+    if (ended === true) { return; }
 
-    if ( err || i >= len ) {
-      done.apply( null, args );
+    if (err || i >= len) {
+      done.apply(null, args);
     } else {
       fn = fns[i];
       args.shift();
-      args.push( once( next ) );
+      args.push(once( next) );
       i = i + 1;
-      fn.apply( null, args );
+      fn.apply(null, args);
     }
   }
 
   return function() {
-    var args =  Array.prototype.slice.call( arguments );
-    if ( typeof args[args.length -1] === 'function' ) {
+    var args =  Array.prototype.slice.call(arguments);
+    if (typeof args[args.length -1] === "function") {
       done = args.pop();
     }
-    args.unshift( null );
-    args.push( once( next ) );
-    next.apply( null, args );
+    args.unshift(null);
+    args.push(once( next) );
+    next.apply(null, args);
   };
 }
 
 // f(x) = (2*(x+1))^2
-var f = makeSeq( [
-  function( x, next ) {
-    setTimeout( function() {
-      next( null, x+1 );
+var f = makeSeq([function( x, next) {
+    setTimeout(function() {
+      next(null, x+1);
     }, 1000 );
-    // next( null, x+1 )
+    // next(null, x+1)
   },
-  function( x, next ) {
-    setTimeout( function() {
-      next( null, 2*x );
+  function(x, next) {
+    setTimeout(function() {
+      next(null, 2*x);
     }, 2000 )
   },
-  function( x, next ) { next( null, x*x ); }
-] );
-f( 3, function( err, result ) {
-  console.log( err );
+  function(x, next) { next(null, x*x); }] );
+f(3, function( err, result) {
+  console.log(err);
 
-  console.log( result );
+  console.log(result);
   // f(3) === 64 after 3 seconds
 } );
 $0

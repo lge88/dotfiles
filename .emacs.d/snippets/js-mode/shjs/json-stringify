@@ -2,4 +2,4 @@
 # name: JSON.stringify
 # key: jsons
 # --
-JSON.stringify( ${1:config}, null, 2 )$0
+JSON.stringify(${1:config}, null, 2)$0

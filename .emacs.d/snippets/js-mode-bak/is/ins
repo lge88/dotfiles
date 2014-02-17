@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Instanceof
+# key: isa
+# --
+$1instanceof$0

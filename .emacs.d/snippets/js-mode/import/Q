@@ -2,4 +2,4 @@
 # name: import Q
 # key: imq
 # --
-var Q = require('q');$0
+var Q = require("q");$0

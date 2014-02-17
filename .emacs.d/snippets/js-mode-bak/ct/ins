@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ensure Instanceof
+# key: cta
+# --
+if ( !($1 instanceof $2) ) {
+throw new Error(  'Expect $1 to be a Instanceof $2, but got ' + $1 );
+}$0

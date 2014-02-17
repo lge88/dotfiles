@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import event emitter
+# key: imemitter
+# --
+var Emitter = require('events').EventEmitter;$0

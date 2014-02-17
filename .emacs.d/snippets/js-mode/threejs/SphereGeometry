@@ -2,11 +2,10 @@
 # name: SphereGeometry
 # key: Tsphere
 # --
-$1new THREE.SphereGeometry( radius
+$1new THREE.SphereGeometry(radius
 , segmentsWidth
 , segmentsHeight
 , phiStart
 , phiLength
 , thetaStart
-, thetaLength
-)$0
+, thetaLength)$0

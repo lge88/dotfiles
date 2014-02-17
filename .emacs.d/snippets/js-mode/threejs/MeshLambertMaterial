@@ -2,7 +2,7 @@
 # name: THREE.MeshLambertMaterial
 # key: Tmlm
 # --
-new THREE.MeshLambertMaterial( {
+new THREE.MeshLambertMaterial({
 color: 0xdddddd
 , emissive: 0xff0000
 , ambient: 0x030303
@@ -11,4 +11,4 @@ color: 0xdddddd
 , opacity: 0.9
 , transparent: true
 , wireframe: false
-} )$0
+})$0

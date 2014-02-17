@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lambda
+# key: f
+# --
+function($1) {$0}

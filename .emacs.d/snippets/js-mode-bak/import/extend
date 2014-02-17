@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: imextend
+# key: imextend
+# --
+var extend = require( 'extend' );
+$0

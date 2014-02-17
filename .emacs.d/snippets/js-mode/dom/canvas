@@ -2,4 +2,4 @@
 # name: create canvas element
 # key: canvas
 # --
-$1document.createElement( 'canvas' )$0
+$1document.createElement("canvas")$0

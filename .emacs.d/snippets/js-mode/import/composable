@@ -2,5 +2,5 @@
 # name: import composable
 # key: imcomp
 # --
-var composable = require( 'composable' );
+var composable = require("composable");
 $0

@@ -3,7 +3,7 @@
 # key: fundebug
 # --
 function debug() {
-  var args =  Array.prototype.slice.call( arguments );
-  args.unshift( 'debug' );
-  socket.emit.apply( socket, args );
+  var args =  Array.prototype.slice.call(arguments);
+  args.unshift("debug");
+  socket.emit.apply(socket, args);
 }$0

@@ -2,4 +2,4 @@
 # name: RegExp
 # key: reg
 # --
-RegExp( '$0' )
+RegExp("$0")

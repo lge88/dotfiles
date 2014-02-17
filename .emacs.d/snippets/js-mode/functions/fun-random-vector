@@ -2,15 +2,15 @@
 # name: function randomVector
 # key: funrandomVector
 # --
-function randomVector( dim, seed ) {
+function randomVector(dim, seed) {
   var i, out = [];
-  seed || ( seed = Math.random );
-  for ( i = 0; i < dim; ++i ) {
-    out.push( seed() );
+  seed || (seed = Math.random);
+  for (i = 0; i < dim; ++i) {
+    out.push(seed() );
   }
   return out;
 }
 
 $0
-var a = randomVector( 4 );
-console.log( a )
+var a = randomVector(4);
+console.log(a)

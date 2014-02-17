@@ -2,4 +2,4 @@
 # name: THREE.DirectionalLight
 # key: Tdl
 # --
-new THREE.DirectionalLight( color, intensity, distance )$0
+new THREE.DirectionalLight(color, intensity, distance)$0

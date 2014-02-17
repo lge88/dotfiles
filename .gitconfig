@@ -5,3 +5,5 @@
 	excludesfile = ~/.gitignore_global
 [push]
 	default = matching
+[gui]
+	recentrepo = /Users/lige/Develop/js/three.js

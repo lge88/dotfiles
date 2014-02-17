@@ -2,5 +2,5 @@
 # name: import commander
 # key: imcommander
 # --
-var prog = require( 'commander' );
+var prog = require("commander");
 $0

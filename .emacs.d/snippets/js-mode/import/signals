@@ -2,4 +2,4 @@
 # name: import signals
 # key: imsig
 # --
-var Signal = require('signals');
+var Signal = require("signals");

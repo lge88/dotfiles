@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import path
+# key: impath
+# --
+var path = require( 'path' );
+$0

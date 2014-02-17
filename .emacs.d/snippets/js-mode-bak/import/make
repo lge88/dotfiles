@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import make
+# key: immake
+# --
+require('shelljs/make')$0

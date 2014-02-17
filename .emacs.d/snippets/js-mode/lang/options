@@ -2,4 +2,4 @@
 # name: options
 # key: opt
 # --
-${1:options} || ( $1 = ${2:{}} );$0
+${1:options} || ($1 = ${2:{}});$0

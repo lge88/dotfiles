@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: getter and setter
+# key: getset
+# --
+function( ${1:type} ) {
+  if ( !$1 ) {
+    return ${2:this.$1};
+  } else {
+    $2 = $1;
+    return this;
+  }
+}$0

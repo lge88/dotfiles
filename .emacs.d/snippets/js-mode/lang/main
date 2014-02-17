@@ -2,6 +2,6 @@
 # name: main
 # key: main
 # --
-if ( !module.parent ) {
+if (!module.parent) {
 $0
 }

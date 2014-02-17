@@ -2,4 +2,4 @@
 # name: ensure list
 # key: list
 # --
-Array.isArray( $1 ) || ( $1 = [ $1 ] );$0
+Array.isArray($1) || ($1 = [$1]);$0

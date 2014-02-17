@@ -2,4 +2,4 @@
 # name: handle
 # key: handle
 # --
-function ${1:handle}( req, res, next ) {$0}
+function ${1:handle}(req, res, next) {$0}

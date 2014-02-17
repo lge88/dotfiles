@@ -2,4 +2,4 @@
 # name: import backbone
 # key: imbb
 # --
-var Backbone = require( 'backbone' )$0
+var Backbone = require("backbone")$0

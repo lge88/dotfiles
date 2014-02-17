@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function animate
+# key: funanimate
+# --
+function animate() {
+  requestAnimationFrame( animate );
+  render();
+}$0

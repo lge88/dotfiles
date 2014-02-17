@@ -2,7 +2,7 @@
 # name: THREE.MeshPhongMaterial
 # key: Tmpm
 # --
-new THREE.MeshPhongMaterial( {
+new THREE.MeshPhongMaterial({
 color: 0xdddddd
 , specular: 0x009900
 , emissive: 0xff0000
@@ -12,4 +12,4 @@ color: 0xdddddd
 , map: texture
 , opacity: 0.9
 , transparent: true
-} )$0
+})$0

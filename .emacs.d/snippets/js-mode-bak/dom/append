@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: appendChild
+# key: append
+# --
+$2appendChild( $1 )$0

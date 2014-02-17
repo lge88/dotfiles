@@ -2,6 +2,6 @@
 # name: THREE.MeshBasicMaterial
 # key: Tmbm
 # --
-new THREE.MeshBasicMaterial( {
+new THREE.MeshBasicMaterial({
 color: 0xff0000
-} )$0
+})$0

@@ -3,67 +3,67 @@
 # key: make1
 # --
 
-require('shelljs/make');
-var path = require('path');
+require("shelljs/make");
+var path = require("path");
 
-var deps = [ '../fe-core' ];
+var deps = ["../fe-core"];
 
 target.all = function() {
   target.update();
-  exec( 'component build --dev' );
+  exec("component build --dev");
 }
 
 target.update = function() {
   target.updateScriptList();
   target.updateDeps();
-  echo( 'All done!' );
+  echo("All done!");
 };
 
 target.updateSelf = function() {
-  return updateScriptList( __dirname, 'src' );
+  return updateScriptList(__dirname, "src");
 };
 
 target.updateDeps = function() {
-  deps.forEach( function( d ) {
-    cd( path.resolve( __dirname, d ) );
-    exec( 'node make update' );
+  deps.forEach(function( d) {
+    cd(path.resolve( __dirname, d) );
+    exec("node make update");
   } );
 }
 
-target.help = function() { echo( Object.keys( target ) ); }
+target.help = function() { echo(Object.keys( target) ); }
 
 
-function findJsFileInDir( dir ) {
-  return find( dir )
-    .filter( function( f ) { return /\.js$/.test( f ); } )
-    .filter( function( f ) { return !/\.idl/.test( f ); } );
+function findJsFileInDir(dir) {
+  return find(dir)
+    .filter(function( f) { return /\.js$/.test(f); } )
+    .filter(function( f) { return !/\.idl/.test(f); } );
 }
 
-function isSameStringList( a, b ) {
+function isSameStringList(a, b) {
   var copyA = a.slice().sort(), copyB = b.slice().sort();
-  return copyA.every( function( el, ind ) {
+  return copyA.every(function( el, ind) {
     return el === copyB[ind];
   } );
 }
 
-function updateScriptList( dir, srcDir ) {
-  srcDir || ( srcDir = dir );
-  cd( dir );
-  var config = JSON.parse( cat( 'component.json' ) );
+function updateScriptList(dir, srcDir) {
+  srcDir || (srcDir = dir);
+  cd(dir);
+  var config = JSON.parse(cat( "component.json") );
   var oldList = config.scripts;
-  var newList = findJsFileInDir( srcDir );
-  var isChanged = !isSameStringList( oldList, newList );
+  var newList = findJsFileInDir(srcDir);
+  var isChanged = !isSameStringList(oldList, newList);
 
-  echo( 'In ' + path.resolve( dir ) + ' :');
-  if ( isChanged && newList.length > 0 ) {
-    echo( 'Old scripts list: ', oldList );
-    echo( 'New scripts: ', newList  );
-    echo( 'The file list is changed, update component.json...' );
-    cp( '-f', 'component.json', 'component.json.bak' );
+  echo("In " + path.resolve( dir) + " :");
+  if (isChanged && newList.length > 0) {
+    echo("Old scripts list: ", oldList);
+    echo("New scripts: ", newList);
+    echo("The file list is changed, update component.json...");
+    cp("-f", "component.json", "component.json.bak");
     config.scripts = newList;
-    JSON.stringify( config, null, 2 ).to( 'component.json' );
+    JSON.stringify(config, null, 2).to("component.json");
   } else {
-    echo( 'Scripts list is not changed, do nothing.' )
+    echo("Scripts list is not changed, do nothing.")
   }
   return isChanged;
 }

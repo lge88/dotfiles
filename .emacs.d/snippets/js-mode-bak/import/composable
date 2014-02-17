@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import composable
+# key: imcomp
+# --
+var composable = require( 'composable' );
+$0

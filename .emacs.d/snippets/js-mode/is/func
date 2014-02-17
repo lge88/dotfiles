@@ -2,4 +2,4 @@
 # name: Function
 # key: isfun
 # --
-typeof $1 === 'function'$0
+typeof $1 === "function"$0

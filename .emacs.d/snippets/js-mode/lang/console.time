@@ -2,5 +2,5 @@
 # name: console.time
 # key: cst
 # --
-console.time( $1 );
-console.timeEnd( $1 );$0
+console.time($1);
+console.timeEnd($1);$0

@@ -3,16 +3,13 @@
 # key: prog
 # --
 prog
-  .version('0.0.1')
-  .usage('[options] arg1 arg2')        
-  .option('-f, --flag', 'flag')
-  .option('-a, --required_a <a>', 'required option a')
-  .option(
-    '-d, --directory [DIR]',
-    [
-      'Working directory',
-      'default is .'
-    ].join(', '),
+  .version("0.0.1")
+  .usage("[options] arg1 arg2")        
+  .option("-f, --flag", "flag")
+  .option("-a, --required_a <a>", "required option a")
+  .option("-d, --directory [DIR]",
+    ["Working directory",
+      "default is ."].join(", "),
     pwd()
   );
 

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mkdirp
+# key: mkdirp
+# --
+var mkdirp = require('mkdirp').sync;

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import write
+# key: imwrite
+# --
+var write = ${1:fs}.writeFileSync;

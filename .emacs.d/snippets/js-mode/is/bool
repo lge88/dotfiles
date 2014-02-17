@@ -2,4 +2,4 @@
 # name: Boolean
 # key: isbool
 # --
-typeof $1 === 'boolean'$0
+typeof $1 === "boolean"$0

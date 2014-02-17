@@ -2,4 +2,4 @@
 # name: import procedure
 # key: improc
 # --
-var proc = require( 'procedure' )$0
+var proc = require("procedure")$0

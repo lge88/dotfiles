@@ -2,10 +2,9 @@
 # name: create a ball
 # key: Tball
 # --
-function ball( r ) {
-  var mesh = new THREE.Mesh(
-    new THREE.SphereGeometry( r || 40 )
-    , new THREE.MeshLambertMaterial( {
+function ball(r) {
+  var mesh = new THREE.Mesh(new THREE.SphereGeometry( r || 40)
+    , new THREE.MeshLambertMaterial({
       color: 0xdddddd
       , emissive: 0xff0000
       , ambient: 0x030303
@@ -14,7 +13,7 @@ function ball( r ) {
       , opacity: 0.9
       , transparent: true
       , wireframe: false
-    } )
+    })
   );
   return mesh;
 }$0

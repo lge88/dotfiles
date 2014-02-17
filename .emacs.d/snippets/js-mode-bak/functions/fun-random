@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function random( a, b )
+# key: funrandom
+# --
+function random( a, b ) {
+  return Math.random()*( b - a ) + a;
+}
+$0// console.log( random( 3, 3.1414 ) ) // 3.092871784727415

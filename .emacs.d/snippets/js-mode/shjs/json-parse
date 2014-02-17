@@ -2,4 +2,4 @@
 # name: JSON.parse
 # key: jsonp
 # --
-JSON.parse( ${1:cat( 'component.json' )} )$0
+JSON.parse(${1:cat( "component.json")} )$0

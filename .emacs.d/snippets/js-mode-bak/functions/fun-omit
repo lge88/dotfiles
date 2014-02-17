@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: function omit
+# key: funomit
+# --
+function omit( obj, keys ) {
+  Array.isArray( keys ) || ( keys = [ keys ] );
+  var mask = keys
+    .reduce( function( obj, item ) {
+      obj[ item ] = true;
+      return obj;
+    }, {} );
+
+  return Object
+    .keys( obj )
+    .filter( function( k ) {
+      return !mask[k];
+    } )
+    .reduce( function( ret, key ) {
+      ret[ key ] = obj[ key ];
+      return ret;
+    }, {} );
+}
+
+// $0
+// var a = { x: 1, y: 2, z: 3, w: 4 };
+// console.log( reject( a, 'x' ) );
+// console.log( reject( a, [ 'x', 'w' ] ) );

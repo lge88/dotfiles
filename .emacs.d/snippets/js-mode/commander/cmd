@@ -3,8 +3,8 @@
 # key: cmd
 # --
 #!/usr/bin/env node
-var prog = require('commander');
-require('shelljs/global');
+var prog = require("commander");
+require("shelljs/global");
 
 function fatal(msg) {
   console.error();
@@ -14,36 +14,33 @@ function fatal(msg) {
 }
 
 function log(type, msg, color) {
-  color = color || '36';
+  color = color || "36";
   var w = 10;
   var len = Math.max(0, w - type.length);
-  var pad = Array(len + 1).join(' ');
-  console.log('  \033[' + color + 'm%s\033[m : \033[90m%s\033[m', pad + type, msg);
+  var pad = Array(len + 1).join(" ");
+  console.log("  \033[" + color + "m%s\033[m : \033[90m%s\033[m", pad + type, msg);
 }
 
 function warn(type, msg) {
-  exports.log(type, msg, '33');
+  exports.log(type, msg, "33");
 }
 
 function error(msg) {
   var w = 10;
-  var type = 'error';
+  var type = "error";
   var len = Math.max(0, w - type.length);
-  var pad = Array(len + 1).join(' ');
-  console.error('  \033[31m%s\033[m : \033[90m%s\033[m', pad + type, msg);
+  var pad = Array(len + 1).join(" ");
+  console.error("  \033[31m%s\033[m : \033[90m%s\033[m", pad + type, msg);
 }
 
 prog
-  .version('0.0.1')
-  .usage('[options] arg1 arg2')        
-  .option('-f, --flag', 'flag')
-  .option('-a, --required_a <a>', 'required option a')
-  .option(
-    '-d, --directory [DIR]',
-    [
-      'Working directory',
-      'default is .'
-    ].join(', '),
+  .version("0.0.1")
+  .usage("[options] arg1 arg2")        
+  .option("-f, --flag", "flag")
+  .option("-a, --required_a <a>", "required option a")
+  .option("-d, --directory [DIR]",
+    ["Working directory",
+      "default is ."].join(", "),
     pwd()
   );
 
@@ -51,7 +48,7 @@ prog.parse(process.argv);
 var args = prog.args;
 
 if (!args[0]) {
-fatal('Missing required argument arg1!');
+fatal("Missing required argument arg1!");
 }
 
 $0

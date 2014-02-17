@@ -2,4 +2,4 @@
 # name: import event emitter
 # key: imemitter
 # --
-var Emitter = require('events').EventEmitter;$0
+var Emitter = require("events").EventEmitter;$0

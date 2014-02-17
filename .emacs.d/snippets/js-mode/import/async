@@ -2,5 +2,5 @@
 # name: import async
 # key: imasync
 # --
-var async = require( 'async' );
+var async = require("async");
 $0

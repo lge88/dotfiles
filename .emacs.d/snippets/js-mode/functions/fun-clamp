@@ -1,17 +1,17 @@
 # -*- mode: snippet -*-
-# name: function clamp( a, b )
+# name: function clamp(a, b)
 # key: funclamp
 # --
-function clamp( x, a, b ) {
-  if ( a > b ) {
+function clamp(x, a, b) {
+  if (a > b) {
     var tmp = b;
     b = a;
     a = tmp;
   }
 
-  if ( x < a ) {
+  if (x < a) {
     return a;
-  } else if ( x > b ) {
+  } else if (x > b) {
     return b;
   } else {
     return x;

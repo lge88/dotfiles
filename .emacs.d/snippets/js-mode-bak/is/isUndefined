@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Undefined
+# key: is
+# --
+typeof $1 === 'undefined'$0

@@ -2,5 +2,5 @@
 # name: shell js
 # key: sh
 # --
-require( 'shelljs/global' );
+require("shelljs/global");
 $0

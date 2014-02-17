@@ -2,6 +2,6 @@
 # name: ensure number
 # key: ctnum
 # --
-if ( !(typeof $1 === 'number') ) {
-throw new Error( 'Expect $1 to be a Number, but got ' + $1 );
+if (!(typeof $1 === "number") ) {
+throw new Error("Expect $1 to be a Number, but got " + $1);
 }$0

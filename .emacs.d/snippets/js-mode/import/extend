@@ -2,5 +2,5 @@
 # name: imextend
 # key: imextend
 # --
-var extend = require( 'extend' );
+var extend = require("extend");
 $0

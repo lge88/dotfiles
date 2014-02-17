@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ensure undefined
+# key: ctund
+# --
+if ( !(typeof $1 === 'undefined') ) {
+throw new Error( 'Expect $1 to be undefined, but got ' + $1 );
+}$0

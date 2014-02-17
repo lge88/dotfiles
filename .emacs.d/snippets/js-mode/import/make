@@ -2,4 +2,4 @@
 # name: import make
 # key: immake
 # --
-require('shelljs/make')$0
+require("shelljs/make")$0

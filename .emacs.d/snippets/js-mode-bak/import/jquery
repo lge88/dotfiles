@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import jquery
+# key: im$
+# --
+var $ = require( 'jquery' );
+$0

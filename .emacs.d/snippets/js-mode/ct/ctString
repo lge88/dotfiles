@@ -2,6 +2,6 @@
 # name: contract of a string
 # key: ct
 # --
-if ( !(typeof $1 === 'string') ) {
-throw new Error( 'Expect $1 to be a string, but got ' + $1 );
+if (!(typeof $1 === "string") ) {
+throw new Error("Expect $1 to be a string, but got " + $1);
 }$0

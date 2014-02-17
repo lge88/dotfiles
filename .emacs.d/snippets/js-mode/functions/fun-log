@@ -2,4 +2,4 @@
 # name: function log
 # key: funlog
 # --
-function log() { console.log.apply( console, arguments ); }$0
+function log() { console.log.apply(console, arguments); }$0

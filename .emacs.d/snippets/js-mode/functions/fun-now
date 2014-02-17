@@ -4,16 +4,14 @@
 # --
 function now() {
   var d = new Date();
-  var out = [
-   1 + d.getMonth(),
+  var out = [1 + d.getMonth(),
    d.getDate(),
    d.getHours(),
    d.getMinutes(),
-   d.getSeconds()
-  ].map( function( num ) {
-    return ( '0' + num ).slice( -2 );
+   d.getSeconds()].map(function( num) {
+    return ("0" + num).slice(-2);
   } );
-  out.unshift( '' + d.getFullYear() );
+  out.unshift("" + d.getFullYear() );
   return out;
 }
-$0// console.log( now() )             // [ '2013', '08', '30', '22', '10', '59' ]
+$0// console.log(now() )             // ["2013", "08", "30", "22", "10", "59"]

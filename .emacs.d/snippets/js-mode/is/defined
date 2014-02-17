@@ -2,4 +2,4 @@
 # name: type of undefined
 # key: isdef
 # --
-typeof $1 !== 'undefined'$0
+typeof $1 !== "undefined"$0

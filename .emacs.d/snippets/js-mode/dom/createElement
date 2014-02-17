@@ -2,4 +2,4 @@
 # name: createElement
 # key: ele
 # --
-document.createElement( $1 )$0
+document.createElement($1)$0

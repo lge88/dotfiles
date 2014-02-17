@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Backbone.Model
+# key: BM
+# --
+Backbone.Model$0

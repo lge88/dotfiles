@@ -2,4 +2,4 @@
 # name: import mustache
 # key: immust
 # --
-var mustache = require('mustache');$0
+var mustache = require("mustache");$0

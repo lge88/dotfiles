@@ -2,4 +2,4 @@
 # name: getElementsByTagName
 # key: bytag
 # --
-$2getElementByTagName( $1 )$0
+$2getElementByTagName($1)$0

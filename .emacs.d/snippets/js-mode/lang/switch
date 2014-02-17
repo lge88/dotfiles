@@ -2,7 +2,7 @@
 # name: switch case
 # key: switch
 # --
-switch( ${1:n} ) {
+switch(${1:n}) {
 case ${2:1}:
 
   break;

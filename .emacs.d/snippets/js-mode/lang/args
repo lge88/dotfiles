@@ -2,4 +2,4 @@
 # name: args
 # key: args
 # --
-var args =  Array.prototype.slice.call( arguments );
+var args =  Array.prototype.slice.call(arguments);

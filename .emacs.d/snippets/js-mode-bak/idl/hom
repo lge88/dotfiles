@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: hom
+# key: hom
+# --
+var ${1:fn_name} = ct.hom( ${2:signature} )( function $1( ${3:args} ) {
+$0
+} );

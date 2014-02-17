@@ -3,9 +3,7 @@
 # key: qexec
 # --
 var ${1:d} = Q.defer();
-exec([
-'$0'
-].join('\n'), function(err, stdout, stderr) {
+exec(["$0"].join("\n"), function(err, stdout, stderr) {
 if (err) { 
 $1.reject(err); 
 } else {

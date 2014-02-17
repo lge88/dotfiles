@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import shelljs
+# key: imsh
+# --
+var sh = require( 'shelljs' );
+$0

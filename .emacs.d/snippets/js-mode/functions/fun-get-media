@@ -3,9 +3,9 @@
 # key: fungetMedia
 # --
 function getMedia() {
-  var fn = ( navigator.getUserMedia ||
+  var fn = (navigator.getUserMedia ||
              navigator.webkitGetUserMedia ||
              navigator.mozGetUserMedia ||
-             navigator.msGetUserMedia );
-  return fn.apply( null, arguments );
+             navigator.msGetUserMedia);
+  return fn.apply(null, arguments);
 }$0

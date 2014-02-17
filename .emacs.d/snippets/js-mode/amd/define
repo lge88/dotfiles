@@ -2,10 +2,7 @@
 # name: define
 # key: def
 # --
-define([
-'${1:util}'
-], function(
-${2:$1}
-) {
+define(["${1:util}"], function(
+${2:$1}) {
 $0
 });

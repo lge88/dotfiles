@@ -2,23 +2,21 @@
 # name: function makeSeq using loop
 # key: funmakeSeq
 # --
-function makeSeq( funcs ) {
+function makeSeq(funcs) {
   var fns = funcs.slice(), len = fns.length;
   return function() {
-    var i, fn, args =  Array.prototype.slice.call( arguments );
-    for ( i = 0; i < len, fn = funcs[i]; i += 1 ) {
-      args = [fn.apply( null, args )];
+    var i, fn, args =  Array.prototype.slice.call(arguments);
+    for (i = 0; i < len, fn = funcs[i]; i += 1) {
+      args = [fn.apply(null, args)];
     }
     return args[0];
   }
 }
 
 // f(x) = (2*(x+1))^2
-var f = makeSeq( [
-  function( x ) { return x+1; },
-  function( x ) { return x*2; },
-  function( x ) { return x*x; },
-] );
-console.log( f(1) );
+var f = makeSeq([function( x) { return x+1; },
+  function(x) { return x*2; },
+  function(x) { return x*x; },] );
+console.log(f(1) );
 // f(3) = 64
 $0

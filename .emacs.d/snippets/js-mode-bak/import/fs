@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import fs
+# key: imfs
+# --
+var fs = require('fs');
+$0

@@ -2,34 +2,34 @@
 # name: for each n element of an arry
 # key: functeachN
 # --
-function eachN( size, arr ) {
-  if ( arr ) {
-    return f( arr );
+function eachN(size, arr) {
+  if (arr) {
+    return f(arr);
   } else {
     return f;
   }
 
-  function f( arr ) {
-    return function( fn ) {
+  function f(arr) {
+    return function(fn) {
       var i = 0, j, len = arr.length, ind = 0;
-      var tmp = new Array( size );
-      while ( i < len ) {
-        for ( j = 0; j < size; ++j ) {
-          tmp[ j ] = arr[ i ];
+      var tmp = new Array(size);
+      while (i < len) {
+        for (j = 0; j < size; ++j) {
+          tmp[j] = arr[i];
           i++;
         }
-        fn( tmp, ind, arr );
+        fn(tmp, ind, arr);
         ind++;
       }
     };
   }
 }
 
-var a = new Uint32Array( [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] );
-var iter = eachN( 3, a );
-iter( function( val, ind, a ) {
-  console.log( val[0] );
-  console.log( val[1] );
-  console.log( val[2] );
-  console.log( ind );
+var a = new Uint32Array([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+var iter = eachN(3, a);
+iter(function( val, ind, a) {
+  console.log(val[0]);
+  console.log(val[1]);
+  console.log(val[2]);
+  console.log(ind);
 } );

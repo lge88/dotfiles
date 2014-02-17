@@ -2,4 +2,4 @@
 # name: appendChild
 # key: append
 # --
-$2appendChild( $1 )$0
+$2appendChild($1)$0

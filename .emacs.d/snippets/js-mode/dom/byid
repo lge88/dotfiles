@@ -2,4 +2,4 @@
 # name: getElementById
 # key: byid
 # --
-document.getElementById( $1 )$0
+document.getElementById($1)$0

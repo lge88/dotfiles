@@ -2,6 +2,6 @@
 # name: else if
 # key: elif
 # --
-else if ( $0 ) {
+else if ($0) {
 
 }

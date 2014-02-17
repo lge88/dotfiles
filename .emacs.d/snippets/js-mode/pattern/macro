@@ -2,19 +2,19 @@
 # name: Macro Class
 # key: macro
 # --
-function ${1:my_macro}( params ) {
-  if ( !(this instanceof $1) ) {
-    return new $1( params );
+function ${1:my_macro}(params) {
+  if (!(this instanceof $1) ) {
+    return new $1(params);
   }
   this.params = params;
   $0
   return this;
 }
 
-$1.prototype.name = '$1';
+$1.prototype.name = "$1";
 
 $1.create = function() {
-return new $1( arguments );
+return new $1(arguments);
 };
 
 $1.prototype.toJSON = function() {
@@ -24,7 +24,7 @@ params: this.params
 };
 };
 
-$1.prototype.expand = function( env ) {
+$1.prototype.expand = function(env) {
 return [];
 };
 $0

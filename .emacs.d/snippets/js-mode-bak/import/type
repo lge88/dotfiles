@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import type
+# key: imtype
+# --
+var type = require('type');

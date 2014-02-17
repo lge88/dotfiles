@@ -2,4 +2,4 @@
 # name: import resolve
 # key: imresolve
 # --
-var resolve = ${1:require('path')}.resolve;$0
+var resolve = ${1:require("path")}.resolve;$0

@@ -2,8 +2,8 @@
 # name: required method
 # key: required
 # --
-function required( spec ) {
+function required(spec) {
   return function() {
-    throw new Error( 'Required method is not implemented!\n' + spec );
+    throw new Error("Required method is not implemented!\n" + spec);
   }
 }

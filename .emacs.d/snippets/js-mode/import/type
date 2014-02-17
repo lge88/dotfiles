@@ -2,4 +2,4 @@
 # name: import type
 # key: imtype
 # --
-var type = require('type');
+var type = require("type");

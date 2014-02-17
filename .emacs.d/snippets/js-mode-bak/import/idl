@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import idl
+# key: imidl
+# --
+var idl = require( 'idl' );

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: handle
+# key: handle
+# --
+function ${1:handle}( req, res, next ) {$0}

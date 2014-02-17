@@ -2,6 +2,6 @@
 # name: ensure integer
 # key: ctint
 # --
-if ( !((${1:n} | 0) === $1) ) {
-throw new Error( 'Expect $1 to be an integer, but got ' + $1 );
+if (!((${1:n} | 0) === $1) ) {
+throw new Error("Expect $1 to be an integer, but got " + $1);
 }$0

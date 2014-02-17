@@ -2,12 +2,12 @@
 # name: function onece
 # key: funonece
 # --
-function onece( f ) {
+function onece(f) {
   var called = false;
   return function() {
-    if ( !called ) {
+    if (!called) {
       called = true;
-      return f.apply( null, arguments );
+      return f.apply(null, arguments);
     } else {
       throw "Called once already!";
     }

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: import commander
+# key: imcommander
+# --
+var prog = require( 'commander' );
+$0

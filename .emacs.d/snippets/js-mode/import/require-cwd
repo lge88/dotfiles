@@ -2,4 +2,4 @@
 # name: require module in current dir
 # key: r
 # --
-var $1 = require( './$1' );$0
+var $1 = require("./$1");$0

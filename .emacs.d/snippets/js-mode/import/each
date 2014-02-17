@@ -2,4 +2,4 @@
 # name: import each
 # key: imeach
 # --
-var each = require('each');
+var each = require("each");

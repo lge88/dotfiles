@@ -2,6 +2,6 @@
 # name: .map()
 # key: map
 # --
-map(function( x ) {
+map(function( x) {
 $0
 })

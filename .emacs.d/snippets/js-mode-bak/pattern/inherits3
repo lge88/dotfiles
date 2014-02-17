@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: inherits3
+# key: inherits3
+# --
+for ( var key in ${1:Parent}.prototype ) {
+  ${2:Child}.prototype[key] = $1.prototype[key];
+}

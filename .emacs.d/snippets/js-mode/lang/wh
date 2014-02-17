@@ -2,6 +2,6 @@
 # name: wh
 # key: wh
 # --
-while ( $0 ) {
+while ($0) {
 
 }
