@@ -10,6 +10,7 @@
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 (add-to-list 'auto-mode-alist '("\\.ops$" . tcl-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-defun 'disabled nil)
