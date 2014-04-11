@@ -2,5 +2,5 @@
 # name: import pipeline
 # key: impp
 # --
-var pipeline = require("pipeline");
+var pipeline = require('pipeline');
 $0

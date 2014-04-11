@@ -17,7 +17,7 @@ function makeSeq() {
         return f.apply(null, arguments);
       } else {
         ended = true;
-        done("Called once already");
+        done('Called once already');
       }
     }
   }
@@ -42,7 +42,7 @@ function makeSeq() {
 
   return function() {
     var args =  Array.prototype.slice.call(arguments);
-    if (typeof args[args.length -1] === "function") {
+    if (typeof args[args.length -1] === 'function') {
       done = args.pop();
     }
     args.unshift(null);

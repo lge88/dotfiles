@@ -2,4 +2,4 @@
 # name: is undefined
 # key: isund
 # --
-typeof $1 === "undefined"$0
+typeof $1 === 'undefined'$0

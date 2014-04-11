@@ -4,6 +4,6 @@
 # --
 function debug() {
   var args =  Array.prototype.slice.call(arguments);
-  args.unshift("debug");
+  args.unshift('debug');
   socket.emit.apply(socket, args);
 }$0

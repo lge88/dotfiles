@@ -2,4 +2,4 @@
 # name: A String
 # key: is
 # --
-typeof $1 === "string"$0
+typeof $1 === 'string'$0

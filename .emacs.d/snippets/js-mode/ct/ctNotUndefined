@@ -2,6 +2,6 @@
 # name: contract of defined value
 # key: ct
 # --
-if (!(typeof $1 !== "undefined") ) {
-throw new Error("Expect $1 to be defined, but got " + $1);
+if (!(typeof $1 !== 'undefined') ) {
+throw new Error('Expect $1 to be defined, but got ' + $1);
 }$0

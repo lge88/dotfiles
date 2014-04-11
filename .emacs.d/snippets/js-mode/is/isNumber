@@ -2,4 +2,4 @@
 # name: A Number
 # key: is
 # --
-typeof $1 === "number"$0
+typeof $1 === 'number'$0

@@ -42,7 +42,7 @@ function viewport(domElement, options) {
   }
 
   function setupScene() {
-    container = document.getElementById("main");
+    container = document.getElementById('main');
 
     cameras = [];
     helpers = [];
@@ -70,7 +70,7 @@ function viewport(domElement, options) {
     transformControls = new THREE.TransformControls(camera, renderer.domElement);
     scene.add(transformControls.gizmo);
     transformControls.hide();
-    // transformControls.addEventListener("change", render);
+    // transformControls.addEventListener('change', render);
 
     onMouseDownPosition = new THREE.Vector2();
     onMouseUpPosition = new THREE.Vector2();
@@ -78,9 +78,9 @@ function viewport(domElement, options) {
     ray = new THREE.Raycaster();
     projector = new THREE.Projector();
 
-    renderer.domElement.addEventListener("mousedown", onMouseDown);
-    renderer.domElement.addEventListener("mouseup", onMouseUp);
-    renderer.domElement.addEventListener("dblclick", onDoubleClick, false);
+    renderer.domElement.addEventListener('mousedown', onMouseDown);
+    renderer.domElement.addEventListener('mouseup', onMouseUp);
+    renderer.domElement.addEventListener('dblclick', onDoubleClick, false);
 
     controls = new THREE.EditorControls(camera, renderer.domElement);
     // controls = new THREE.TrackballControls(camera, renderer.domElement);
@@ -117,7 +117,7 @@ function viewport(domElement, options) {
     onMouseDownPosition.set(event.layerX, event.layerY);
     if (transformControls.hovered === false) {
 	  controls.enabled = true;
-	  document.addEventListener("mouseup", onMouseUp, false);
+	  document.addEventListener('mouseup', onMouseUp, false);
     }
   };
 
@@ -145,7 +145,7 @@ function viewport(domElement, options) {
 	  render();
     }
     controls.enabled = false;
-    document.removeEventListener("mouseup", onMouseUp);
+    document.removeEventListener('mouseup', onMouseUp);
   };
 
   function onDoubleClick(event) {
@@ -160,7 +160,7 @@ function viewport(domElement, options) {
     }
   }
 
-  // Animate objA"s state to objB"s state, do not change objB
+  // Animate objA's state to objB's state, do not change objB
   function tweening(objA, objB, fields, duration, preFrame, postFrame, done, fail) {
     duration || (duration = 2000);
     preFrame || (preFrame = noop);
@@ -189,7 +189,7 @@ function viewport(domElement, options) {
 
     function noop() {}
     function getTargetAndKey(obj, field) {
-      var arr = field.split("."), target = obj;
+      var arr = field.split('.'), target = obj;
       var key = arr.shift();
       while (arr.length > 0) {
         target = target[key];
@@ -226,7 +226,7 @@ function viewport(domElement, options) {
   function navigateCamera(currentCamera, targetCamera, duration) {
     duration || (duration = 2000);
 
-    ["x", "y", "z"].forEach(function( dir) {
+    ['x', 'y', 'z'].forEach(function( dir) {
       var rad1 = currentCamera.rotation[dir];
       var rad2 = targetCamera.rotation[dir];
       var dt = rad2 -rad1;
@@ -237,12 +237,12 @@ function viewport(domElement, options) {
       }
     } );
 
-    var fields = ["position.x",
-      "position.y",
-      "position.z",
-      "rotation.x",
-      "rotation.y",
-      "rotation.z",]
+    var fields = ['position.x',
+      'position.y',
+      'position.z',
+      'rotation.x',
+      'rotation.y',
+      'rotation.z',]
 
     if (targetCamera instanceof THREE.PerspectiveCamera) {
       currentCamera.near = CAMERA_NEAR;
@@ -250,8 +250,8 @@ function viewport(domElement, options) {
       currentCamera.aspect || (currentCamera.aspect = window.innerWidth / window.innerHeight);
       currentCamera.fov || (currentCamera.fov = 50);
 
-      fields.push("aspect");
-      fields.push("fov");
+      fields.push('aspect');
+      fields.push('fov');
     }
 
     var updateProj = THREE.PerspectiveCamera.prototype.updateProjectionMatrix;

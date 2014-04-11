@@ -2,5 +2,5 @@
 # name: import merge
 # key: immerge
 # --
-var merge = require("merge");
+var merge = require('merge');
 $0

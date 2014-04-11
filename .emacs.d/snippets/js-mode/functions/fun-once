@@ -9,7 +9,7 @@ function onece(f) {
       called = true;
       return f.apply(null, arguments);
     } else {
-      throw "Called once already!";
+      throw 'Called once already!';
     }
   };
 };

@@ -38,28 +38,28 @@ function procedure() {
 
   run.compile = compile;
 
-  Object.defineProperty(run, "dirty", {
+  Object.defineProperty(run, 'dirty', {
     get: function() { return dirty; },
     set: function(s) { dirty = s; }
   } );
 
-  Object.defineProperty(run, "stack", {
+  Object.defineProperty(run, 'stack', {
     get: function() { return stack; },
     set: function(s) { stack = s; }
   } );
 
-  Object.defineProperty(run, "pre", {
+  Object.defineProperty(run, 'pre', {
     get: function() { return pre; },
     set: function(s) { pre = s; }
   } );
 
-  Object.defineProperty(run, "post", {
+  Object.defineProperty(run, 'post', {
     get: function() { return post; },
     set: function(s) { post = s; }
   } );
 
   run.use = function(fn) {
-    if (typeof fn === "function") {
+    if (typeof fn === 'function') {
       stack.push(fn);
       dirty = true;
     }
@@ -67,7 +67,7 @@ function procedure() {
   };
 
   run.addPre = function(fn) {
-    if (typeof fn === "function") {
+    if (typeof fn === 'function') {
       pre.push(fn);
       dirty = true;
     }
@@ -75,7 +75,7 @@ function procedure() {
   };
 
   run.addPost = function(fn) {
-    if (typeof fn === "function") {
+    if (typeof fn === 'function') {
       post.push(fn);
       dirty = true;
     }

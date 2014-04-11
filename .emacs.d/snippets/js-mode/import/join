@@ -2,4 +2,4 @@
 # name: import join
 # key: imjoin
 # --
-var join = ${1:require("path")}.join;$0
+var join = ${1:require('path')}.join;$0

@@ -2,4 +2,4 @@
 # name: import fabric
 # key: imfabric
 # --
-var fabric = require("fabric").fabric;
+var fabric = require('fabric').fabric;

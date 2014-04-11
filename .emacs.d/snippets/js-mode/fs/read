@@ -2,5 +2,4 @@
 # name: read file
 # key: read
 # --
-read(${1:filePath}${2:, "utf8"}${3:, callback})$0
-
+read(${1:filePath}${2:, 'utf8'}${3:, callback})$0

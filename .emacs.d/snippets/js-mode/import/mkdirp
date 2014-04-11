@@ -2,4 +2,4 @@
 # name: import mkdirp
 # key: immkdirp
 # --
-var mkdirp = require("mkdirp")${1:.sync};$0
+var mkdirp = require('mkdirp')${1:.sync};$0

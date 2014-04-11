@@ -3,8 +3,8 @@
 # key: funblock2d
 # --
 function block2d(p1, p2, p3, p4, nx, ny) {
-  var arrgen = require("arr-gen");
-  var flatten = require("flatten");
+  var arrgen = require('arr-gen');
+  var flatten = require('flatten');
   function lerp(p1, p2, r) {
     var x1= p1.x, x2 = p2.x, y1 = p1.y, y2 = p2.y;
     return { x: x1+(x2-x1)*r, y: y1+(y2-y1)*r };
@@ -23,7 +23,7 @@ function block2d(p1, p2, p3, p4, nx, ny) {
   var elements = arrgen(nx, ny, function( i, j) {
     var n1 = nodes[i][j].id, n2 = nodes[i+1][j].id;
     var n3 = nodes[i+1][j+1].id, n4 = nodes[i][j+1].id;
-    return { id: id++, type: "quad", nodes_id: [n1, n2, n3, n4] };
+    return { id: id++, type: 'quad', nodes_id: [n1, n2, n3, n4] };
   } );
 
   return { nodes: flatten(nodes), elements: flatten(elements) };

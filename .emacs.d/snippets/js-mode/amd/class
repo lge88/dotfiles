@@ -2,7 +2,7 @@
 # name: class
 # key: cls
 # --
-define(["${2:util}"], function(
+define(['${2:util}'], function(
 ${3:$2}) {
 var defaults = {};
 function ${1:Class_Name}() {

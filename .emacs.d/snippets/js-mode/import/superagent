@@ -2,5 +2,5 @@
 # name: import superagent
 # key: imrequest
 # --
-var request = require("superagent")
+var request = require('superagent')
 $0

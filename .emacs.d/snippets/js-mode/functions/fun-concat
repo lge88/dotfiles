@@ -25,4 +25,4 @@ $0
 // var a = new Float32Array([1,2,3,4]);
 // var b = new Float32Array([1,2,3,4]);
 // var c = concat(a, b, Float32Array)
-// console.log("c = ", c);
+// console.log('c = ', c);

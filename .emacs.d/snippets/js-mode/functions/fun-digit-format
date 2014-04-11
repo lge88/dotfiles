@@ -3,12 +3,12 @@
 # key: fundigitFormat
 # --
 function digitFormat(number, leastNumOfDigits) {
-  var i = 0, zeros = "", out;
+  var i = 0, zeros = '', out;
   while (i < leastNumOfDigits-1) {
-    zeros += "0";
+    zeros += '0';
     i += 1;
   }
-  out = "" + number;
+  out = '' + number;
   if (leastNumOfDigits < out.length) {
     leastNumOfDigits = out.length;
   }

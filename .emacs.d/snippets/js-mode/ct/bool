@@ -2,6 +2,6 @@
 # name: ensure boolean
 # key: ctbool
 # --
-if (!(typeof $1 === "boolean") ) {
-throw new Error("Expect $1 to be a boolean, but got " + $1);
+if (!(typeof $1 === 'boolean') ) {
+throw new Error('Expect $1 to be a boolean, but got ' + $1);
 }$0

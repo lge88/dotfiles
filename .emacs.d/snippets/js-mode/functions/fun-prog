@@ -7,7 +7,7 @@ function prog() {
   var stack =  Array.prototype.slice.call(arguments);
   var _compiled;
 
-  (typeof stack[0] === "string") && (p.route = stack.shift() );
+  (typeof stack[0] === 'string') && (p.route = stack.shift() );
   (stack.length === 1) && Array.isArray(stack[0]) && (stack = stack[0]);
 
   function p() {
@@ -44,7 +44,7 @@ function prog() {
 };
 
 // $0
-var p = prog("test", [function( x) { return x+1; },
+var p = prog('test', [function( x) { return x+1; },
   function(x) { return x*x; },
   function(x) { return 2*x; }] );
 console.log(p);

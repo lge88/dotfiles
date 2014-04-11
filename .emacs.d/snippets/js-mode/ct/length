@@ -3,5 +3,5 @@
 # key: ctlen
 # --
 if (!($1.length === $2) ) {
-throw new Error("Expect length of $1 to be $2, but got " + $1.length);
+throw new Error('Expect length of $1 to be $2, but got ' + $1.length);
 }$0

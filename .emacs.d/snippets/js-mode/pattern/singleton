@@ -7,7 +7,7 @@ var ${1:singleton} = function $1(){
 	var defaults = {};
     $0
 	if($1.caller != $1.getInstance){
-		throw new Error("This object cannot be instanciated");
+		throw new Error('This object cannot be instanciated');
 	}
 };
 

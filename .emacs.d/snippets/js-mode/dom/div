@@ -2,4 +2,4 @@
 # name: create div element
 # key: div
 # --
-$1document.createElement("div")$0
+$1document.createElement('div')$0

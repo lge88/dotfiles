@@ -11,7 +11,7 @@ function ${1:my_command}(params) {
   return this;
 }
 
-$1.prototype.name = "$1";
+$1.prototype.name = '$1';
 
 $1.create = function() {
   return new $1(arguments);

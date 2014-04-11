@@ -2,15 +2,15 @@
 # key: funns
 # --
 function ns(obj, str) {
-  var list = str.split(".");
+  var list = str.split('.');
   var out = obj;
   var key, tmp;
 
   while (list.length > 0) {
     key = list.shift();
     tmp = out[key];
-    if (!(typeof tmp === "object") ||
-         !(typeof tmp === "function")) {
+    if (!(typeof tmp === 'object') ||
+         !(typeof tmp === 'function')) {
       out[key] = {};
     }
     out = out[key];
@@ -21,9 +21,9 @@ function ns(obj, str) {
 
 $0
 // var a = {};
-// ns(a, "x.y.z").w = "hello";
+// ns(a, 'x.y.z').w = 'hello';
 // console.log(JSON.stringify(a, null, 2));
 
 // var b = function() {};
-// ns(b, "x.y.z").w = function() { return "hi"; };
+// ns(b, 'x.y.z').w = function() { return 'hi'; };
 // console.log(b.x.y.z.w() );

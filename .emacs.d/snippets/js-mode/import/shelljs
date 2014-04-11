@@ -2,5 +2,5 @@
 # name: import shelljs
 # key: imsh
 # --
-var sh = require("shelljs");
+var sh = require('shelljs');
 $0

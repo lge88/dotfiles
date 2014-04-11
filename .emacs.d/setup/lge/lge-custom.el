@@ -35,6 +35,7 @@
 (setq-default tab-width 2)
 (setq-default truncate-lines t)
 (setq indent-line-function 'insert-tab)
+(set-fontset-font t 'han (font-spec :name "Songti SC"))
 ;; (setq shell-command-switch "-ic")
 
 ;;; This solves the problem:

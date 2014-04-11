@@ -3,23 +3,23 @@
 # key: commander
 # --
 #!/usr/bin/env node
-var program = require("commander");
-var spawn = require("child_process").spawn;
-var path = require("path");
+var program = require('commander');
+var spawn = require('child_process').spawn;
+var path = require('path');
 var join = path.join;
-var fs = require("fs");
+var fs = require('fs');
 var exists = fs.existsSync;
 
 program
-  .version("0.0.1")
-  .usage("<command> [options]");
+  .version('0.0.1')
+  .usage('<command> [options]');
 
-program.on("--help", function(){
-  console.log("  Commands:");
+program.on('--help', function(){
+  console.log('  Commands:');
   console.log();
-  console.log("    install [name ...]      install one or more components");
-  console.log("    convert <file ...>      convert html files to js modules");
-  console.log("    info <name> [prop]      output json component information");
+  console.log('    install [name ...]      install one or more components');
+  console.log('    convert <file ...>      convert html files to js modules');
+  console.log('    info <name> [prop]      output json component information');
   console.log();
   process.exit();
 });
@@ -30,14 +30,14 @@ var cmd = program.args[0];
 
 if (!cmd) {
   process.stdout.write(program.helpInformation());
-  program.emit("--help");
+  program.emit('--help');
   process.exit();
 }
 
 // Find sub commands in {command_name}-sub folder
-var bin = join(__dirname, "${1:my_command}-sub/" + cmd);
+var bin = join(__dirname, '${1:my_command}-sub/' + cmd);
 if (exists(bin)) {
-spawn(bin, args, { stdio: "inherit" });
+spawn(bin, args, { stdio: 'inherit' });
 } else {
-console.log("$1 can not find command " + cmd);
+console.log('$1 can not find command ' + cmd);
 }

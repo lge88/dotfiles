@@ -3,5 +3,5 @@
 # key: ctarr
 # --
 if (!(Array.isArray( $1)) ) {
-throw new Error("Expect $1 to be an Array, but got " + $1);
+throw new Error('Expect $1 to be an Array, but got ' + $1);
 }$0

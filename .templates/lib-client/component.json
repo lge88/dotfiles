@@ -8,9 +8,9 @@
   "development": {
     "lge88/expect.js": "*"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/lge88/__pkgName__.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lge88/__pkgName__.git"
   },
   "_examples": "https://github.com/lge88/__pkgName__/tree/master/examples",
   "_test": "https://github.com/lge88/__pkgName__/tree/master/test",
@@ -21,8 +21,7 @@
   "styles": [
     "lib/index.css"
   ],
-  "templates": [
-  ],
+  "templates": [],
   "main": "lib/index.js",
   "_rename_": [
     "component.json",
@@ -45,6 +44,8 @@
   "_auto_index_files_": [],
   "paths": [
     "/home/GL/Develop/js/ise/lib",
-    "/home/GL/Develop/js/ise/lib-client"
+    "/home/GL/Develop/js/ise/lib-client",
+    "/Users/lige/Develop/js/ise/lib",
+    "/Users/lige/Develop/js/ise/lib-client"
   ]
 }

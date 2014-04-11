@@ -2,5 +2,5 @@
 # name: import path
 # key: impath
 # --
-var path = require("path");
+var path = require('path');
 $0

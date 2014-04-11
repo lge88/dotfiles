@@ -2,4 +2,4 @@
 # name: import socket-stream
 # key: imss
 # --
-var ss = require("socketstream");
+var ss = require('socketstream');

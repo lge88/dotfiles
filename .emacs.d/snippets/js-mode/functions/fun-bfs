@@ -21,7 +21,7 @@ function bfs(tree) {
   return out;
 }
 
-var flatten = require("flatten");
+var flatten = require('flatten');
 var b = [0, [ 1, [ 9, [ 10, [ 11] ] ], [2, [ 3, [ 5, 6] ], [4, 7, 8] ] ] ];
-console.log("dfs", flatten( b) );
-console.log("bfs", bfs( b) );
+console.log('dfs', flatten( b) );
+console.log('bfs', bfs( b) );

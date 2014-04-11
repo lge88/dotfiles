@@ -3,7 +3,7 @@
 # key: fungetTarget
 # --
 function getTargetAndKey(obj, selector, sep) {
-  sep || (sep = ".");
+  sep || (sep = '.');
   var arr = selector.split(sep);
   var target = obj, key = arr.shift();
   while (arr.length > 0) {
@@ -20,8 +20,8 @@ $0
 //     y: {
 //       z: 10
 //     },
-//     w: "a"
+//     w: 'a'
 //   },
-//   k: "b"
+//   k: 'b'
 // };
-// console.log(getTargetAndKey( obj, "x.y.z") );
+// console.log(getTargetAndKey( obj, 'x.y.z') );

@@ -5,7 +5,7 @@
 function ndgen() {
   var args =  Array.prototype.slice.call(arguments);
   var fn;
-  if (typeof args[args.length-1] === "function") {
+  if (typeof args[args.length-1] === 'function') {
     fn = args.pop();
   } else {
     fn = function() { return 0; };

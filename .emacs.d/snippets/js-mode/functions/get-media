@@ -7,5 +7,5 @@ function( stream) {
 ${1:video}.src = window.URL.createObjectURL(stream)$0
 },
 function(err) {
-console.log("Error occured when getting user media: " + err);
+console.log('Error occured when getting user media: ' + err);
 } );

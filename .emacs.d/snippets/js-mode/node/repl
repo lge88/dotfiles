@@ -2,10 +2,10 @@
 # name: repl
 # key: repl
 # --
-var repl = require("repl");
+var repl = require('repl');
 var $1$0;
 var r = repl.start({
-    prompt: ">> ",
+    prompt: '>> ',
     input: process.stdin,
     output: process.stdout
 });

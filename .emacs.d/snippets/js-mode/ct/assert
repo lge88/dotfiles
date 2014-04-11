@@ -3,5 +3,5 @@
 # key: ctassert
 # --
 if (!($1) ) {
-throw new Error("Expect $1 but " + $1);
+throw new Error('Expect $1 but ' + $1);
 }$0
