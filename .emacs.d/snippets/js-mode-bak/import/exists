@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import exists
-# key: imexists
-# --
-var exists = ${1:fs}.existsSync;

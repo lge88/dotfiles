@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import signals
-# key: imsig
-# --
-var Signal = require('signals');

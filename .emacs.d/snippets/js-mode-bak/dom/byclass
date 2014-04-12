@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: getElementsByClassName
-# key: byclass
-# --
-$2getElementsByClassName( $1 )$0

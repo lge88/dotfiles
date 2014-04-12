@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: contract of a number
-# key: ct
-# --
-if ( !(typeof $1 === 'number') ) {
-throw new Error( 'Expect $1 to be a number, but got ' + $1 );
-}$0

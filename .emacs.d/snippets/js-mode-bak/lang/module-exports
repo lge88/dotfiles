@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: module.exports
-# key: xport
-# --
-module.exports = exports = $0

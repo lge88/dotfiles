@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: THREE.Mesh
-# key: Tmesh
-# --
-new THREE.Mesh(${1: geometry, material })$0

@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: THREE.LineBasicMaterial
-# key: Tlbm
-# --
-new THREE.LineBasicMaterial( {
-color: 0x000000
-,
-} )$0

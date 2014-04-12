@@ -71,7 +71,7 @@ pathadd ${DOTFILES_PATH}/.bin
 pathadd ${ISE_PATH}/bin
 
 # NVM settings:
-export USE_NODE_VERSION="v0.8.18"
+export USE_NODE_VERSION="v0.10.26"
 
 if [[ -r ~/nvm/nvm.sh ]]; then
     . ~/nvm/nvm.sh

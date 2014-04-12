@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: requestAnimationFrame
+# key: raf
+# --
+window.requestAnimationFrame = (function(){
+  var dt = 1000 / 60;
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    function(callback) {
+      window.setTimeout(callback, dt);
+    };
+})();

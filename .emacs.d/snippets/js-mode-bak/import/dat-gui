@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: import dat-gui
-# key: imdat
-# --
-var GUI = require( 'dat-gui' ).GUI;
-$0

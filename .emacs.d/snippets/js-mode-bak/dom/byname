@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: getElementsByName
-# key: byname
-# --
-document.getElementsByName( $1 )$0

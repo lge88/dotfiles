@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: require implementation
-# key: ctimpl
-# --
-$1.prototype.$2 = function() {
-throw new Error( '$1.$2 is not implemented in ' +
-                 this.constructor.name );
-};$0

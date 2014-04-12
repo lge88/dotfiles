@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: .forEach()
-# key: each
-# --
-forEach(function( x ) {
-$0
-})

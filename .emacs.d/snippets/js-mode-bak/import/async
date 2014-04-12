@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: import async
-# key: imasync
-# --
-var async = require( 'async' );
-$0

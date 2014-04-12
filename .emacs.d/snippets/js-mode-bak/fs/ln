@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: ln
-# key: ln
-# --
-fs.symlinkSync(${1:target}, ${2:linkName});

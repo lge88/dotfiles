@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: exec
-# key: exec
-# --
-exec([
-'$0'
-].join('\n'), function(err, stdout, stderr) {
-
-});

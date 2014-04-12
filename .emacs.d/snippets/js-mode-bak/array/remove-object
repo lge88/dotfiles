@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: remove object in the array
-# key: remove
-# --
-${3:i} = ${2:arr}.indexOf( ${1:obj} );
-( $3 !== -1 ) && ( $2.splice( $3, 1 ) )$0

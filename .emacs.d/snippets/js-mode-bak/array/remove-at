@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: remove at index
-# key: removeAt
-# --
-$2splice( ${1:index}, 1 )$0

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: A Function
-# key: is
-# --
-typeof $1 === 'function'$0

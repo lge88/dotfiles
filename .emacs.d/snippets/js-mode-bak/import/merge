@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: import merge
-# key: immerge
-# --
-var merge = require( 'merge' );
-$0

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: ensure array length
-# key: ctlen
-# --
-if ( !($1.length === $2) ) {
-throw new Error( 'Expect length of $1 to be $2, but got ' + $1.length );
-}$0

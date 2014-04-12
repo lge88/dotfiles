@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: function cap
-# key: funcap
-# --
-function cap( word ) {
-  return word.charAt( 0 ).toUpperCase() + world.slice( 1 );
-}$0

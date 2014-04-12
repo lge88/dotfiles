@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: RegExp
-# key: reg
-# --
-RegExp( '$0' )

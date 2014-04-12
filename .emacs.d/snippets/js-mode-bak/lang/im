@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import
-# key: im
-# --
-var $1 = ${2:this}.$1;$0

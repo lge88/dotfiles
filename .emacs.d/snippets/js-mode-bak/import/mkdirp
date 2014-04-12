@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import mkdirp
-# key: immkdirp
-# --
-var mkdirp = require('mkdirp')${1:.sync};$0

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: THREE.Matrix4
-# key: Tm3
-# --
-$1new THREE.Matrix4($2)$0
