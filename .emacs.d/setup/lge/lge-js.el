@@ -86,14 +86,14 @@
      "\n")))
 
 (defun lge-grep-methods-for-buffer ()
-  "Grep all the ClassName.prototype.method strings, insert to current position"
+  "Grep all the ClassName.method or ClassName.prototype.method strings,
+insert to current position."
   (interactive)
   (when mark-active
       (delete-region (region-beginning) (region-end)))
 
   (let (ins-meth-pattern cls-meth-pattern)
     (setq ins-meth-pattern "^\\([A-Z]+\w*\\)\.prototype\.\\([a-z]+\w*\\)\s*=\s*function[^(]*(\\([^)]*\\))")
-    ;;(setq cls-meth-pattern "^\([A-Z]+\w*\)\.\([a-z]+\w*\)\s*=\s*function\s*([^)]*)")
     (setq cls-meth-pattern "^\\([A-Z]+\w*\\)\.\\([a-z]+\w*\\)\s*=\s*function[^(]*(\\([^)]*\\))")
     (insert "// CLASS METHODS:\n")
     (insert
