@@ -69,6 +69,49 @@
       (shell-command-on-region start end "node" t)
     (shell-command-on-region (point-min) (point-max) "node" t)))
 
+(require 's)
+(defun lge-gen-sig-from-matches (matches method-type)
+  "Generate method signatures from the match results"
+  (let (join-str)
+    (if (string= method-type "class")
+        (setq join-str ".")
+      (setq join-str "::"))
+    (mapconcat
+     (lambda (m) (let (cls meth sig)
+                   (setq cls (nth 1 m))
+                   (setq meth (nth 2 m))
+                   (setq sig (nth 3 m))
+                   (concat "// " cls join-str meth "(" sig ")")))
+     matches
+     "\n")))
+
+(defun lge-grep-methods-for-buffer ()
+  "Grep all the ClassName.prototype.method strings, insert to current position"
+  (interactive)
+  (when mark-active
+      (delete-region (region-beginning) (region-end)))
+
+  (let (ins-meth-pattern cls-meth-pattern)
+    (setq ins-meth-pattern "^\\([A-Z]+\w*\\)\.prototype\.\\([a-z]+\w*\\)\s*=\s*function[^(]*(\\([^)]*\\))")
+    ;;(setq cls-meth-pattern "^\([A-Z]+\w*\)\.\([a-z]+\w*\)\s*=\s*function\s*([^)]*)")
+    (setq cls-meth-pattern "^\\([A-Z]+\w*\\)\.\\([a-z]+\w*\\)\s*=\s*function[^(]*(\\([^)]*\\))")
+    (insert "// CLASS METHODS:\n")
+    (insert
+     (lge-gen-sig-from-matches
+      (s-match-strings-all
+       cls-meth-pattern
+       (buffer-substring-no-properties (point-min) (point-max)))
+      "class"))
+    (insert "\n// INSTANCE METHODS:\n")
+    (insert
+     (lge-gen-sig-from-matches
+      (s-match-strings-all
+       ins-meth-pattern
+       (buffer-substring-no-properties (point-min) (point-max)))
+      "instance"))
+    (insert "\n")
+    ))
+
 (defalias 'rn 'js2r-rename-var)
 (defalias 'lt 'js2r-log-this)
 (global-set-key (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)

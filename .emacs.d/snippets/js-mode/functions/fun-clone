@@ -1,0 +1,43 @@
+# -*- mode: snippet -*-
+# name: function clone
+# key: funclone
+# --
+function clone(obj, shallow) {
+  if (obj && typeof obj.clone === 'function') { return obj.clone(); }
+  if (Array.isArray(obj)) { return obj.slice(); }
+  if (typeof obj === 'object') {
+    var cloned = {};
+    if (shallow === true) {
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) { cloned[key] = obj[key]; }
+      }
+    } else {
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) { cloned[key] = clone(obj[key]); }
+      }
+    }
+    return cloned;
+  }
+  return obj;
+}
+
+var a = {};
+a.x = 100; a.y = '2313'; a.z = [1,2,3,54];
+a.w = { x: 100, y: 20, z: { x: 100, y: 'asdf' } };
+var b = clone(a);
+var c = clone(a, true);
+console.log('a:', a);
+console.log('b:', b);
+console.log('c:', c);
+
+b.w.x = 234;
+console.log('change b.w.x')
+console.log('a:', a);
+console.log('b:', b);
+console.log('c:', c);
+
+c.w.x = 234;
+console.log('change c.w.x')
+console.log('a:', a);
+console.log('b:', b);
+console.log('c:', c);
