@@ -11,7 +11,7 @@
   (let ((default-directory path))
       (normal-top-level-add-subdirs-to-load-path)))
 
-(lge-add-to-load-path-recursive "~/.emacs.d/setup/")
+(lge-add-to-load-path-recursive "~/.emacs.d/lge/")
 
 (require 'purcell-benchmarking)
 

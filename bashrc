@@ -14,17 +14,15 @@ function pathadd() {
 # Set up my paths
 export DEVELOP_PATH=~/Develop
 export DROPBOX_PATH=~/Dropbox
-# export TOOLBOX_PATH=~/Dropbox/toolbox
-export DOTFILES_PATH=~/.dotfiles
+export DOTFILES_PATH=~/dotfiles
 export ISE_PATH=${DEVELOP_PATH}/js/ise
-export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/.templates
+export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/templates
 
 # My toolboxes:
-# pathadd ${TOOLBOX_PATH}/bin
-pathadd ${DOTFILES_PATH}/.bin
+pathadd ${DOTFILES_PATH}/bin
 pathadd ${ISE_PATH}/bin
 pathadd ${DEVELOP_PATH}/scala/sbt/bin
-pathadd ~/Develop/OpenSees/BUILD/debug/bin
+pathadd ${DEVELOP_PATH}/OpenSees/BUILD/debug/bin
 
 if [[ $SYSTEM == 'Darwin' ]]; then
   pathadd $HOME/bin
@@ -66,11 +64,10 @@ fi
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
-  alias emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
-  # alias emacsclient=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
-  pathadd /Applications/Emacs.app/Contents/MacOS/bin
-  # alias emacs=/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs
-  # alias emacsclient=/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/emacsclient
+  EMACS_APP_ROOT=/Applications/Emacs.app
+  # EMACS_APP_ROOT=/Applications/MacPorts/Emacs.app
+  alias emacs=${EMACS_APP_ROOT}/Contents/MacOS/Emacs
+  pathadd ${EMACS_APP_ROOT}/Contents/MacOS/bin
 fi
 
 # NVM settings:
@@ -86,7 +83,7 @@ fi
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+pathadd $PYENV_ROOT
 # eval "$(pyenv init -)"
 
 # System open command:
