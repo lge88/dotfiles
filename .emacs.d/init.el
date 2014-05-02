@@ -62,6 +62,7 @@
 (require 'lge-white-board)
 (require 'lge-c)
 (require 'lge-tcl)
+(require 'lge-sh)
 (require 'lge-python)
 (require 'lge-tex)
 (require 'lge-ruby-mode)
