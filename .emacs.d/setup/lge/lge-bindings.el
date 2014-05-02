@@ -102,10 +102,6 @@
 
 (require 'dired+)
 ;; (define-key dired-mode-map (kbd "<down-mouse-1>") 'diredp-mouse-find-file)
-<<<<<<< Updated upstream
-;; (define-key dired-mode-map (kbd "<C-down-mouse-1>") '(lambda () (interactive) (message-box "hi")))
-=======
->>>>>>> Stashed changes
 
 
 (provide 'lge-bindings)

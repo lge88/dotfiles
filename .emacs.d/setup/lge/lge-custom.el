@@ -36,6 +36,7 @@
 (setq-default truncate-lines t)
 (setq indent-line-function 'insert-tab)
 (set-fontset-font t 'han (font-spec :name "Songti SC"))
+(setq cursor-type 'bar)
 ;; (setq shell-command-switch "-ic")
 
 ;;; This solves the problem:

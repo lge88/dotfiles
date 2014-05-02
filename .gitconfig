@@ -3,6 +3,7 @@
 	email = lge@ucsd.edu
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = emacsclient -t -a=\\\"\\\"
 [push]
 	default = matching
 [gui]

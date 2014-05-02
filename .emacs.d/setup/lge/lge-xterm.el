@@ -53,7 +53,6 @@ Selectively runs either `after-make-console-frame-hooks' or
 ;;               (mwheel-install))))
 
 (progn
-  (message "hey i ran!!")
   (when (< emacs-major-version 23)
     (fix-up-xterm-control-arrows))
   (xterm-mouse-mode 1)
