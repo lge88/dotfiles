@@ -5,7 +5,7 @@ export SYSTEM=`uname`
 PS1="(\u@\h \W) > "
 umask 022
 
-pathadd() {
+function pathadd() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     export PATH=${1}:$PATH
   fi
