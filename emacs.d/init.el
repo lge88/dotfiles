@@ -13,11 +13,8 @@
 
 (lge-add-to-load-path-recursive "~/.emacs.d/lge/")
 
-(require 'purcell-benchmarking)
-
 (defconst *spell-check-support-enabled* nil)
 (defconst *is-a-mac* (eq system-type 'darwin))
-;; (defconst *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
 (defconst *is-cocoa-emacs* *is-a-mac*)
 
 (require 'lge-elpa)
@@ -105,32 +102,9 @@
 
 (require-package 'regex-tool)
 
-;; (let ((custom-file (expand-file-name "custom.el" "~/.emacs.d/lge/")))
-;;   (when (file-exists-p custom-file)
-;;     (load custom-file)))
-
 (require 'lge-custom)
 
 (require 'lge-bindings)
-
-(message "init completed in %.2fms"
-         (sanityinc/time-subtract-millis (current-time) before-init-time))
-
-;; (require 'purcell-crontab)
-;; (require 'purcell-textile)
-;; (require 'purcell-markdown)
-;; (require 'purcell-csv)
-;; (require 'purcell-erlang)
-;; (require 'purcell-php)
-;; (require 'purcell-org)
-;; (require 'purcell-nxml)
-;; (require 'purcell-css)
-;; (require 'purcell-haml)
-;; (require 'purcell-python-mode)
-;; (require 'purcell-haskell)
-;; (require 'purcell-rails)
-;; (require 'purcell-sql)
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
