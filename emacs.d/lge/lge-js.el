@@ -69,6 +69,7 @@
       (shell-command-on-region start end "node" t)
     (shell-command-on-region (point-min) (point-max) "node" t)))
 
+(require-package 's)
 (require 's)
 (defun lge-gen-sig-from-matches (matches method-type)
   "Generate method signatures from the match results"
