@@ -103,6 +103,7 @@
 (require-package 'regex-tool)
 
 (require 'lge-custom)
+(require 'lge-theme)
 
 (require 'lge-bindings)
 
