@@ -92,6 +92,7 @@
 (define-key js2-mode-map (kbd "C-c t") 'lge-console-time-region)
 (define-key js-mode-map (kbd "C-c t") 'lge-console-time-region)
 
+(require-package 'flycheck)
 (require 'flycheck)
 (define-key c++-mode-map (kbd "<f12>") 'flycheck-mode)
 (define-key c-mode-map (kbd "<f12>") 'flycheck-mode)
