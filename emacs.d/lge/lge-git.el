@@ -1,4 +1,5 @@
 (require-package 'magit)
+(require-package 'magit-svn)
 (require-package 'git-gutter-fringe)
 (require-package 'git-blame)
 (require-package 'git-commit-mode)
@@ -6,6 +7,7 @@
 (require-package 'gitconfig-mode)
 
 (require 'magit)
+(require 'magit-svn)
 
 (setq-default
  magit-save-some-buffers nil
@@ -30,8 +32,8 @@
 (global-set-key (kbd "C-x v f") 'vc-git-grep)
 
 
-(after-load 'magit-key-mode
-  (require 'magit-svn))
+;; (after-load 'magit-key-mode
+;;   (require 'magit-svn))
 
 (after-load 'compile
   (dolist (defn (list '(git-svn-updated "^\t[A-Z]\t\\(.*\\)$" 1 nil nil 0 1)
