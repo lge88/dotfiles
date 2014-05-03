@@ -1,0 +1,8 @@
+[user]
+	name = Li Ge
+	email = lge@ucsd.edu
+[core]
+	excludesfile = ~/dotfiles/gitignore
+	editor = emacsclient -t -a=\\\"\\\"
+[push]
+	default = matching
