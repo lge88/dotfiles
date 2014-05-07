@@ -3,6 +3,7 @@
 export SYSTEM=`uname`
 
 PS1="(\u@\h \W) > "
+PROMPT_COMMAND='echo -ne "\033]0;`pwd`\007"'
 umask 022
 
 function pathadd() {
@@ -31,28 +32,28 @@ if [[ $SYSTEM == 'Darwin' ]]; then
   export LD_LIBRARY_PATH=/opt/local/lib
   sudo () { ( unset LD_LIBRARY_PATH DYLD_LIBRARY_PATH; exec command sudo $* ) }
 elif [[ $SYSTEM == 'Linux' ]]; then
-  pathadd /usr/local/MATLAB/R2013b/bin
+  pathadd /usr/local/MATLAB/R2013a/bin
   pathadd /opt/ParaView-3.98.0-Linux-64bit/bin
-  pathadd /opt/mongodb-linux-x86_64-2.2.2/bin
-  pathadd /opt/mongodb-linux-x86_64-2.4.4/bin
-  pathadd /opt/redis-2.6.9/src
-  pathadd /opt/nomad.3.5.1
-  pathadd /opt/apache-maven-3.0.4/bin
-  pathadd /opt/cisco/vpn/bin
-  pathadd ~/GiDx64/11.1.2d
+  # pathadd /opt/mongodb-linux-x86_64-2.2.2/bin
+  # pathadd /opt/mongodb-linux-x86_64-2.4.4/bin
+  # pathadd /opt/redis-2.6.9/src
+  # pathadd /opt/nomad.3.5.1
+  # pathadd /opt/apache-maven-3.0.4/bin
+  # pathadd /opt/cisco/vpn/bin
+  # pathadd ~/GiDx64/11.1.2d
   pathadd ~/Develop/server/node-opensees-server/bin
   pathadd ~/Develop/gmsh/build
-  pathadd ~/Develop/eclipse/elasticsearch/target/releases/elasticsearch-0.21.0.Beta1-SNAPSHOT/bin
-  pathadd ~/Develop/Android/adt-bundle-linux-x86_64-20130219/eclipse
+  # pathadd ~/Develop/eclipse/elasticsearch/target/releases/elasticsearch-0.21.0.Beta1-SNAPSHOT/bin
+  # pathadd ~/Develop/Android/adt-bundle-linux-x86_64-20130219/eclipse
   pathadd ~/Develop/Android/adt-bundle-linux-x86_64-20130219/sdk/tools
   pathadd ~/Develop/Android/adt-bundle-linux-x86_64-20130219/sdk/platform-tools
   pathadd ~/Develop/Android/android-ndk-r8d
-  pathadd ~/Develop/js/sencha/Sencha/Cmd/3.1.0.239
-  pathadd ~/bin/eclipse
-  pathadd ~/bin/AptanaStudio3
-  export ANT_HOME=~/local/apache-ant-1.8.4/bin
-  export SENCHA_TOUCH_SDK="~/Develop/js/sencha/touch-2.1.1"
-  export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
+  # pathadd ~/Develop/js/sencha/Sencha/Cmd/3.1.0.239
+  # pathadd ~/bin/eclipse
+  # pathadd ~/bin/AptanaStudio3
+  # export ANT_HOME=~/local/apache-ant-1.8.4/bin
+  # export SENCHA_TOUCH_SDK="~/Develop/js/sencha/touch-2.1.1"
+  # export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
 fi
 
 # Language
@@ -60,6 +61,19 @@ if [[ $SYSTEM == 'Linux' ]]; then
   export LANG="en_US.utf8"
   export LC_ALL="en_US.utf8"
   export LC_CTYPE="en_US.utf8"
+fi
+
+# osx pbcopy equivalent
+if [[ $SYSTEM == 'Linux' ]]; then
+  alias pbcopy='xclip -selection clipboard'
+fi
+
+# z
+if [[ -f ~/z/z.sh ]]; then
+  . ~/z/z.sh
+  alias zl='z -l'
+  alias zt='z -t'
+  alias zx='z -x'
 fi
 
 # Emacs
@@ -94,7 +108,8 @@ alias o='open'
 alias o.='open .'
 
 # Mongodb
-alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod --fork --logpath /var/log/mongodb.log'
+alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod \
+--fork --logpath /var/log/mongodb.log'
 
 # git shortcuts:
 alias gffs='git flow feature start'
