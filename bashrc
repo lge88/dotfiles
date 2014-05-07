@@ -16,21 +16,19 @@ function pathadd() {
 export DEVELOP_PATH=~/Develop
 export DROPBOX_PATH=~/Dropbox
 export DOTFILES_PATH=~/dotfiles
-export ISE_PATH=${DEVELOP_PATH}/js/ise
 export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/templates
 
-# My toolboxes:
 pathadd ${DOTFILES_PATH}/bin
-pathadd ${ISE_PATH}/bin
 pathadd ${DEVELOP_PATH}/scala/sbt/bin
 pathadd ${DEVELOP_PATH}/OpenSees/BUILD/debug/bin
+export ISE_PATH=${DEVELOP_PATH}/js/ise
+pathadd ${ISE_PATH}/bin
 
 if [[ $SYSTEM == 'Darwin' ]]; then
   pathadd $HOME/bin
   pathadd /opt/local/bin
   pathadd /usr/local/texbin
   export LD_LIBRARY_PATH=/opt/local/lib
-  sudo () { ( unset LD_LIBRARY_PATH DYLD_LIBRARY_PATH; exec command sudo $* ) }
 elif [[ $SYSTEM == 'Linux' ]]; then
   pathadd /usr/local/MATLAB/R2013a/bin
   pathadd /opt/ParaView-3.98.0-Linux-64bit/bin
@@ -56,6 +54,12 @@ elif [[ $SYSTEM == 'Linux' ]]; then
   # export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
 fi
 
+
+# Fix the sudo
+if [[ $SYSTEM == 'Darwin' ]]; then
+  sudo () { ( unset LD_LIBRARY_PATH DYLD_LIBRARY_PATH; exec command sudo $* ) }
+fi
+
 # Language
 if [[ $SYSTEM == 'Linux' ]]; then
   export LANG="en_US.utf8"
@@ -63,18 +67,17 @@ if [[ $SYSTEM == 'Linux' ]]; then
   export LC_CTYPE="en_US.utf8"
 fi
 
-# osx pbcopy equivalent
+# paste board, osx pbcopy/pbpaste equivalent
 if [[ $SYSTEM == 'Linux' ]]; then
   alias pbcopy='xclip -selection clipboard'
 fi
+alias pb='pbcopy'
+
+# print working directory to paste board
+alias pwdpb='pwd | pbcopy'
 
 # z
-if [[ -f ~/z/z.sh ]]; then
-  . ~/z/z.sh
-  alias zl='z -l'
-  alias zt='z -t'
-  alias zx='z -x'
-fi
+[[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zl='z -l' && alias zt='z -t'
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
@@ -108,7 +111,7 @@ alias o='open'
 alias o.='open .'
 
 # Mongodb
-alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod \
+alias mongodb-default='sudo /opt/mongodb-linux-x86_64-2.4.4/bin/mongod
 --fork --logpath /var/log/mongodb.log'
 
 # git shortcuts:
@@ -154,8 +157,8 @@ alias aliyun='ssh root@42.96.190.31'
 alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-west-2.compute.amazonaws.com"
 
 # Easy to try something out:
-function mdcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-alias t="mdcd ${DROPBOX_PATH}/tmp/`today`"
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+alias t="mkdircd ${DROPBOX_PATH}/tmp/`today`"
 
 alias mkdir='mkdir -p'
 alias j='jobs -l'
