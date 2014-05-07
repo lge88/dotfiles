@@ -21,6 +21,7 @@ export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/templates
 pathadd ${DOTFILES_PATH}/bin
 pathadd ${DEVELOP_PATH}/scala/sbt/bin
 pathadd ${DEVELOP_PATH}/OpenSees/BUILD/debug/bin
+
 export ISE_PATH=${DEVELOP_PATH}/js/ise
 pathadd ${ISE_PATH}/bin
 
@@ -54,6 +55,18 @@ elif [[ $SYSTEM == 'Linux' ]]; then
   # export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
 fi
 
+# Remotes:
+function remotes {
+  echo 'GL@vision2.ucsd.edu'
+  echo 'GL@lige.me'
+  echo 'git@github.com:lge88'
+  echo 'git@bitbucket.org:lge'
+}
+alias vislab='ssh GL@vision2.ucsd.edu'
+alias ligeme='ssh GL@lige.me'
+alias linode='ssh root@192.155.82.21'
+alias aliyun='ssh root@42.96.190.31'
+alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-west-2.compute.amazonaws.com"
 
 # Fix the sudo
 if [[ $SYSTEM == 'Darwin' ]]; then
@@ -149,7 +162,6 @@ alias .rc="e ~/.bashrc"
 
 alias rq='repoquery -lq'
 
-# Remotes:
 alias vislab='ssh GL@vision2.ucsd.edu'
 alias ligeme='ssh GL@lige.me'
 alias linode='ssh root@192.155.82.21'
@@ -194,22 +206,20 @@ complete -cf man
 complete -cf which
 complete -cf type
 complete -cf gdb
+complete -cf help
 
 # ise completion:
 function _ise() {
   cur=${COMP_WORDS[COMP_CWORD]}
-  local subcommands="start kill running restart logs debug monitor template \
-app"
+  local subcommands="start kill running restart logs \
+debug monitor template app"
   # TODO: auto complete templates
   COMPREPLY=( $( compgen -W "$subcommands" -- $cur ) )
 }
 complete -o default -o nospace -F _ise  ise
 
-### -begin-git-autocomplete
-if [[ -f ~/.git-completion.sh ]]; then
-  . ~/.git-completion.sh
-fi
-### -end-git-autocomplete
+### Git auto-complete
+[[ -f ~/.git-completion.sh ]] && . ~/.git-completion.sh
 
 # OPAM configuration
 # . /Users/lige/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
