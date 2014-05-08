@@ -70,6 +70,7 @@
     (shell-command-on-region (point-min) (point-max) "node" t)))
 
 (require-package 's)
+(require-package 'dash)
 (require 's)
 (defun lge-gen-sig-from-matches (matches method-type)
   "Generate method signatures from the match results"
@@ -86,32 +87,109 @@
      matches
      "\n")))
 
-(defun lge-grep-methods-for-buffer ()
-  "Grep all the ClassName.method or ClassName.prototype.method strings,
+(defun lge-uniq-string-list (lst)
+  (let ((-compare-fn
+         (lambda
+           (a b) (string= (car a) (car b)))))
+    (-uniq lst)))
+
+(defun lge-grep-functions (str)
+  "Given string, return a list of functions."
+  (let (pattern matches res)
+    (setq pattern
+          (concat
+           "\\(?:"
+           "^var +\\(.*\\) += +function"
+           "\\|"
+           "^function +\\([^(]+\\)"
+           "\\)"
+           ))
+    (setq matches (s-match-strings-all pattern str))
+    (setq res (mapcar
+      (lambda (match)
+        (if (>= (length match) 3) (nth 2 match) (nth 1 match)))
+      matches))
+    ;; (-uniq res)
+    ))
+
+(defun lge-grep-cls-methods (str cls-name)
+  "Given string and class name, return a list of class methods.
+Each item in the list is of form (\"method-name\" . \"method-signature\")"
+  (let (pattern matches res)
+    (setq pattern
+          (concat
+           "^ *"
+           cls-name
+           "\.\\([^. ]*\\) *= * function *(\\([^)]*\\)) *"
+           ))
+    (setq matches (s-match-strings-all pattern str))
+    (setq res (mapcar
+      (lambda (match) (cons (nth 1 match) (nth 2 match)))
+      matches))
+    ;; (lge-uniq-string-list res)
+    ))
+
+(defun lge-grep-ins-methods (str cls-name)
+  "Given string and class name, return a list of instance methods.
+Each item in the list is of form (\"method-name\" . \"method-signature\")"
+  (let (pattern matches res)
+    (setq pattern
+          (concat
+           "^ *"
+           cls-name
+           "\.prototype\.\\([^. ]*\\) *= * function *(\\([^)]*\\)) *"
+           ))
+    (setq matches (s-match-strings-all pattern str))
+    (setq res (mapcar
+      (lambda (match)(cons (nth 1 match) (nth 2 match)))
+      matches))
+    ;;(lge-uniq-string-list res)
+    ))
+
+(defun lge-insert-methods (cls meths sep)
+  (mapc
+   (lambda (meth)
+     (let ((name (car meth)) (sig (cdr meth)))
+       (insert "//   " cls sep name "(" sig ")\n")
+       )
+     )
+   meths
+   ))
+
+(defun lge-insert-outline-for-buffer ()
+  "Grep all the functions, ClassName.method and ClassName.prototype.method,
 insert to current position."
   (interactive)
   (when mark-active
-      (delete-region (region-beginning) (region-end)))
+    (delete-region (region-beginning) (region-end)))
 
-  (let (ins-meth-pattern cls-meth-pattern)
-    (setq ins-meth-pattern "^\\([A-Z]+\w*\\)\.prototype\.\\([a-z]+\w*\\)\s*=\s*function[^(]*(\\([^)]*\\))")
-    (setq cls-meth-pattern "^\\([A-Z]+\w*\\)\.\\([a-z]+\w*\\)\s*=\s*function[^(]*(\\([^)]*\\))")
-    (insert "// CLASS METHODS:\n")
-    (insert
-     (lge-gen-sig-from-matches
-      (s-match-strings-all
-       cls-meth-pattern
-       (buffer-substring-no-properties (point-min) (point-max)))
-      "class"))
-    (insert "\n// INSTANCE METHODS:\n")
-    (insert
-     (lge-gen-sig-from-matches
-      (s-match-strings-all
-       ins-meth-pattern
-       (buffer-substring-no-properties (point-min) (point-max)))
-      "instance"))
-    (insert "\n")
-    ))
+  (let (buf-str funcs insert-methods)
+    (setq buf-str (buffer-substring-no-properties (point-min) (point-max)))
+    (setq funcs (lge-grep-functions buf-str))
+
+    ;; Insert functions or classes
+    (insert "// FUNCTIONS:\n")
+    (mapc (lambda (f) (insert "//   " f "\n")) funcs)
+
+    ;; Insert methods
+    (mapc
+     (lambda
+       (f)
+       (let (ins-methods cls-methods)
+         (setq cls-methods (lge-grep-cls-methods buf-str f))
+         (setq ins-methods (lge-grep-ins-methods buf-str f))
+
+         (when (> (length cls-methods) 0)
+           (insert "// //\n// [" f "] class methods:\n")
+           (lge-insert-methods f cls-methods "."))
+
+         (when (> (length ins-methods) 0)
+           (insert "// //\n// [" f "] instance methods:\n")
+           (lge-insert-methods f ins-methods "::"))
+         )
+       ) funcs)
+    )
+)
 
 (defun lge-disable-leading-and-trailing-space-in-brackets ()
   (interactive)

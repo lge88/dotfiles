@@ -91,6 +91,8 @@
 (define-key js2-mode-map (kbd "M-(") 'lge-wrap-region-1)
 (define-key js2-mode-map (kbd "C-c t") 'lge-console-time-region)
 (define-key js-mode-map (kbd "C-c t") 'lge-console-time-region)
+(define-key js-mode-map (kbd "C-c C-u") 'lge-insert-outline-for-buffer)
+(define-key js2-mode-map (kbd "C-c C-u") 'lge-insert-outline-for-buffer)
 
 (require-package 'flycheck)
 (require 'flycheck)
