@@ -17,5 +17,6 @@
 
 ;; (yas/reload-all)
 (yas/global-mode 1)
+;; (yas/global-mode nil)
 
 (provide 'lge-yasnippet)
