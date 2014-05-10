@@ -1,0 +1,18 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: function fireEvent
+# key: funfireEvent
+# --
+function fireEvent(element, type) {
+  var evt;
+  if (document.createEvent) {
+    // dispatch for firefox + others
+    evt = document.createEvent('HTMLEvents');
+    // event type,bubbling,cancelable
+    evt.initEvent(type, true, true );
+    return !element.dispatchEvent(evt);
+  } else {
+    // dispatch for IE
+    evt = document.createEventObject();
+    return element.fireEvent('on' + type, evt);
+  }
+}

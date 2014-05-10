@@ -15,8 +15,8 @@
 (require 'ido-vertical-mode)
 (ido-vertical-mode)
 
-(require-package 'smex)
-(global-set-key (kbd "M-x") 'smex)
+;;(require-package 'smex)
+;;(global-set-key (kbd "M-x") 'smex)
 
 (require-package 'idomenu)
 

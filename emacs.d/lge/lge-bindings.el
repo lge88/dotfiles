@@ -1,3 +1,5 @@
+;;; Includes keyboard bindings and short aliases
+
 (require 'simple)
 ;; (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-<right>") 'forward-word)
@@ -10,13 +12,32 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 
 (require 'lge-ido)
-(global-set-key (kbd "C-x f") 'ido-find-file)
+;; (global-set-key (kbd "C-x f") 'ido-find-file)
+
+(require 'lge-helm)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'lge-helm-buffers-list)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x f") 'helm-find-files)
+(global-set-key (kbd "C-x C-i") 'helm-imenu)
+(global-set-key (kbd "M-s o") 'helm-occur)
+
+(global-set-key (kbd "C-c h r") 'helm-regexp)
+(global-set-key (kbd "C-c h g") 'helm-do-grep)
+(global-set-key (kbd "C-c h s") 'lge-helm-search-web)
+(global-set-key (kbd "C-c h p") 'lge-helm-list-elisp-packages)
+(global-set-key (kbd "C-c h t") 'lge-helm-top)
+(global-set-key (kbd "C-c h c") 'helm-colors)
+(global-set-key (kbd "C-c h b") 'helm-bookmarks)
+
+(global-set-key (kbd "C-x j") 'helm-mark-ring)
+(global-set-key (kbd "C-x y") 'helm-show-kill-ring)
 
 (require 'ffap)
 (global-set-key (kbd "C-c f") 'find-file-at-point)
 
 (require 're-builder)
-;; (global-set-key (kbd "C-c r") 're-builder)
+;; (global-set-key (kbd "C-c C-r") 're-builder)
 (define-key reb-mode-map (kbd "C-c q") 'reb-quit)
 
 (require 'lge-lined)
@@ -35,8 +56,7 @@
 (define-key undo-tree-map [remap undo] 'nil)
 
 (require 'lge-edit)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
-
+;; (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 (require-package 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -56,7 +76,7 @@
 (defalias 'paste 'lge-paste-files-in-pwd)
 
 (require 'lge-scratch)
-(global-set-key (kbd "C-c s") 'lge-switch-to-scratch-buffer)
+(global-set-key (kbd "C-c C-s") 'lge-switch-to-scratch-buffer)
 (defalias 'tmp 'lge-create-tmp-here)
 (defalias 'td 'lge-goto-today-folder)
 
@@ -70,6 +90,14 @@
 (global-set-key (kbd "C-c T") 'google-translate-query-translate)
 (global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
 (global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
+
+(require 'lge-goto)
+(defalias 'cci 'lge-goto-cci-folder)
+(defalias 'cs 'lge-goto-cs-folder)
+
+(require 'lge-white-board)
+(defalias 'wb 'lge-enter-white-board-mode)
+(defalias 'wbclear 'lge-exit-white-board-mode)
 
 (require 'lge-wgrep)
 (define-key grep-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode)

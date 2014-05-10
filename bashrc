@@ -3,7 +3,8 @@
 export SYSTEM=`uname`
 
 PS1="(\u@\h \W) > "
-PROMPT_COMMAND='echo -ne "\033]0;`pwd`\007"'
+TERM=xterm-256color
+PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
 umask 022
 
 function pathadd() {
@@ -86,11 +87,11 @@ if [[ $SYSTEM == 'Linux' ]]; then
 fi
 alias pb='pbcopy'
 
-# print working directory to paste board
-alias pwdpb='pwd | pbcopy'
+# print working directory to screen and paste board
+alias cpwd='command pwd | tee /dev/tty | pbcopy'
 
 # z
-[[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zl='z -l' && alias zt='z -t'
+[[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zt='z -t'
 
 # Emacs
 if [[ ${SYSTEM} == Darwin ]]; then
@@ -133,6 +134,7 @@ alias gfff='git flow feature finish'
 alias gffp='git flow feature publish'
 alias gffpl='git flow feature pull'
 alias gst='git status'
+alias gdf='git diff --color'
 alias gcm='git-cm'
 alias gaac='git-aac'
 alias gaacp='git-aacp'
