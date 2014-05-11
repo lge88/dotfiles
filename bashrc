@@ -114,7 +114,7 @@ fi
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-pathadd $PYENV_ROOT
+pathadd $PYENV_ROOT/bin
 # eval "$(pyenv init -)"
 
 # System open command:
