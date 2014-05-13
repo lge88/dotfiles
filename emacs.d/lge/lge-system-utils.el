@@ -5,6 +5,15 @@
 (defun __dirname ()
   (file-name-as-directory load-file-name))
 
+(defun pwd ()
+  "Show the current default directory.
+Copy the directory to clipboard."
+  (interactive nil)
+  (with-temp-buffer
+    (insert default-directory)
+    (kill-ring-save (point-min) (point-max)))
+  (message "Directory %s" default-directory))
+
 (defconst *system-open*
   (cond
    ((eq system-type 'darwin)

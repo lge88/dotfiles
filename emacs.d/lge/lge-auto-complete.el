@@ -9,6 +9,8 @@
 
 (define-key ac-mode-map (kbd "S-SPC") 'auto-complete)
 (define-key ac-completing-map (kbd "<escape> <tab>") 'ac-stop)
+(define-key ac-completing-map (kbd "C-n") 'ac-next)
+(define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
 (ac-config-default)
 

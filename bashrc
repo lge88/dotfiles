@@ -87,7 +87,7 @@ if [[ $SYSTEM == 'Linux' ]]; then
 fi
 alias pb='pbcopy'
 
-# print working directory to screen and paste board
+# copy and print working directory
 alias cpwd='command pwd | tee /dev/tty | pbcopy'
 
 # z
@@ -102,20 +102,27 @@ if [[ ${SYSTEM} == Darwin ]]; then
 fi
 
 # NVM settings:
-export USE_NODE_VERSION="v0.10.26"
-if [[ -r ~/nvm/nvm.sh ]]; then
-  . ~/nvm/nvm.sh
-  [[ -r ~/nvm/bash_completion ]] && . ~/nvm/bash_completion
-  nvm use $USE_NODE_VERSION > /dev/null 2>&1
-fi
+function _init_nvm() {
+  export USE_NODE_VERSION="v0.10.26"
+  if [[ -r ~/nvm/nvm.sh ]]; then
+    . ~/nvm/nvm.sh
+    [[ -r ~/nvm/bash_completion ]] && . ~/nvm/bash_completion
+    nvm use $USE_NODE_VERSION > /dev/null 2>&1
+  fi
+}
+#init_nvm
 
 # Github cli util:
 # eval "$(hub alias -s)"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-pathadd $PYENV_ROOT/bin
-# eval "$(pyenv init -)"
+function _init_pyenv() {
+  export PYENV_ROOT="$HOME/.pyenv"
+  pathadd $PYENV_ROOT/bin
+  # Very slow...
+  eval "$(pyenv init -)"
+}
+#init_pyenv
 
 # System open command:
 if [[ ${SYSTEM} == Linux ]]; then
