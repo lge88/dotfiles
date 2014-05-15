@@ -14,8 +14,8 @@
 (require 'lge-ido)
 ;; (global-set-key (kbd "C-x f") 'ido-find-file)
 
-(require 'lge-auto-complete)
-(global-set-key (kbd "<tab>") 'lge-auto-complete)
+;; (require 'lge-auto-complete)
+;; (global-set-key (kbd "<tab>") 'lge-auto-complete)
 
 
 (require 'lge-helm)

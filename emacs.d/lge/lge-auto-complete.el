@@ -35,18 +35,18 @@
 ;;   3) Then try indent region
 ;; Need to somehow bind it to <tab> for all modes
 
-(defun lge-auto-complete (args)
-  (interactive "P")
-  (unless (yas/expand)
-    (progn
-      (delete-backward-char 1)
-      (auto-complete))))
+;; (defun lge-auto-complete (args)
+;;   (interactive "P")
+;;   (unless (yas/expand)
+;;     (progn
+;;       (delete-backward-char 1)
+;;       (auto-complete))))
 
 ;; Doesn't seen to work
-(require 'lge-yasnippet)
-(add-hook 'yas/minor-mode-hook
-          (lambda () (define-key yas/minor-mode-map
-                       (kbd "<tab>") 'lge-auto-complete)))
+;; (require 'lge-yasnippet)
+;; (add-hook 'yas/minor-mode-hook
+;;           (lambda () (define-key yas/minor-mode-map
+;;                        (kbd "<tab>") 'lge-auto-complete)))
 
 
 ;; (remove-hook 'js-mode-hook (elt js-mode-hook 0))

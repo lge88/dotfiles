@@ -263,32 +263,32 @@ insert to current position."
 ;; Run and interact with an inferior JS via js-comint.el
 ;; ---------------------------------------------------------------------------
 
-(setenv "NODE_NO_READLINE" "1")
-(setq inferior-js-program-command "node --interactive")
+;; (setenv "NODE_NO_READLINE" "1")
+;; (setq inferior-js-program-command "node --interactive")
 
-(defvar inferior-js-minor-mode-map (make-sparse-keymap))
-(define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)
-(define-key inferior-js-minor-mode-map "\C-\M-x" 'js-send-last-sexp-and-go)
-(define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
-(define-key inferior-js-minor-mode-map "\C-c\C-b" 'js-send-buffer-and-go)
-(define-key inferior-js-minor-mode-map "\C-cl" 'js-load-file-and-go)
+;; (defvar inferior-js-minor-mode-map (make-sparse-keymap))
+;; (define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)
+;; (define-key inferior-js-minor-mode-map "\C-\M-x" 'js-send-last-sexp-and-go)
+;; (define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
+;; (define-key inferior-js-minor-mode-map "\C-c\C-b" 'js-send-buffer-and-go)
+;; (define-key inferior-js-minor-mode-map "\C-cl" 'js-load-file-and-go)
 
-(define-minor-mode inferior-js-keys-mode
-  "Bindings for communicating with an inferior js interpreter."
-  nil " InfJS" inferior-js-minor-mode-map)
+;; (define-minor-mode inferior-js-keys-mode
+;;   "Bindings for communicating with an inferior js interpreter."
+;;   nil " InfJS" inferior-js-minor-mode-map)
 
-(dolist (hook '(js2-mode-hook js-mode-hook))
-  (add-hook hook 'inferior-js-keys-mode))
+;; (dolist (hook '(js2-mode-hook js-mode-hook))
+;;   (add-hook hook 'inferior-js-keys-mode))
 
 ;; ---------------------------------------------------------------------------
 ;; Alternatively, use skewer-mode
 ;; ---------------------------------------------------------------------------
 
-(when (featurep 'js2-mode)
-  (require-package 'skewer-mode)
-  (after-load 'skewer-mode
-    (add-hook 'skewer-mode-hook
-              (lambda () (inferior-js-keys-mode -1)))))
+;; (when (featurep 'js2-mode)
+;;   (require-package 'skewer-mode)
+;;   (after-load 'skewer-mode
+;;     (add-hook 'skewer-mode-hook
+;;               (lambda () (inferior-js-keys-mode -1)))))
 
 (require-package 'js2-refactor)
 (require 'js2-refactor)

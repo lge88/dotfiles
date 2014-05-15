@@ -10,7 +10,7 @@
 Copy the directory to clipboard."
   (interactive nil)
   (with-temp-buffer
-    (insert default-directory)
+    (insert (expand-file-name default-directory))
     (kill-ring-save (point-min) (point-max)))
   (message "Directory %s" default-directory))
 

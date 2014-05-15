@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: require shim
+# key: funrequire
+# --
+if (typeof require !== 'function') {
+  require = function(mod) { return window[mod]; }
+}

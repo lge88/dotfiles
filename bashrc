@@ -88,7 +88,7 @@ fi
 alias pb='pbcopy'
 
 # copy and print working directory
-alias cpwd='command pwd | tee /dev/tty | pbcopy'
+alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
 
 # z
 [[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zt='z -t'
