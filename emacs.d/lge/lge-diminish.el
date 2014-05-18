@@ -4,6 +4,8 @@
 
 (require 'lge-undo-tree)
 (diminish 'undo-tree-mode)
-(diminish 'helm-mode)
+
+;; (require 'lge-helm)
+;; (diminish 'helm-mode)
 
 (provide 'lge-diminish)

@@ -88,7 +88,11 @@ fi
 alias pb='pbcopy'
 
 # copy and print working directory
-alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
+if [[ $SYSTEM == 'Darwin' ]]; then
+  alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
+elif [[ $SYSTEM == 'Linux' ]]; then
+  alias cpwd='command pwd | tee >(tr -d "\n" | pbcopy)'
+fi
 
 function which() {
   local cmds=$(command which $*)
