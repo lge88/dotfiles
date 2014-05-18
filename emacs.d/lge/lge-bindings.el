@@ -8,23 +8,25 @@
 (global-set-key (kbd "<f5>") 'toggle-truncate-lines)
 (global-set-key (kbd "C-z") 'undo)
 
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(require 're-builder)
+(global-set-key (kbd "C-r") 're-builder)
+(define-key reb-mode-map (kbd "C-r") 'reb-quit)
 
-(require 'lge-ido)
+;; (require 'lge-ido)
 ;; (global-set-key (kbd "C-x f") 'ido-find-file)
 
 ;; (require 'lge-auto-complete)
 ;; (global-set-key (kbd "<tab>") 'lge-auto-complete)
-
 
 (require 'lge-helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'lge-helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x f") 'helm-find-files)
+(global-set-key (kbd "C-c f") 'helm-find-files)
 (global-set-key (kbd "C-x C-i") 'helm-imenu)
 (global-set-key (kbd "M-s o") 'helm-occur)
+(global-set-key (kbd "C-s") 'helm-occur)
 
 (global-set-key (kbd "C-c h r") 'helm-regexp)
 (global-set-key (kbd "C-c h g") 'helm-do-grep)
@@ -36,13 +38,6 @@
 
 (global-set-key (kbd "C-x j") 'helm-mark-ring)
 (global-set-key (kbd "C-x y") 'helm-show-kill-ring)
-
-(require 'ffap)
-(global-set-key (kbd "C-c f") 'find-file-at-point)
-
-(require 're-builder)
-;; (global-set-key (kbd "C-c C-r") 're-builder)
-(define-key reb-mode-map (kbd "C-c q") 'reb-quit)
 
 (require 'lge-lined)
 (global-set-key (kbd "C-k") 'kill-line)

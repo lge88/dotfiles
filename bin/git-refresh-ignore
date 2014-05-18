@@ -1,0 +1,5 @@
+#! /bin/sh
+DIR=${1:-.}
+git rm -r --cached $DIR
+git add $DIR
+git commit -m "refresh .gitignore"
