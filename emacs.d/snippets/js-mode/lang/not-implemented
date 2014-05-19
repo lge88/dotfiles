@@ -1,5 +1,5 @@
-# -*- mode: snippet -*-
-# name: require implementation
-# key: notimp
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: not implemented
+# key: notimpl
 # --
-throw new Error(${1:'Not implemented!'})$0
+throw new NotImplementedError($0)

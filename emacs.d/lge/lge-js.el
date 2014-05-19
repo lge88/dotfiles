@@ -99,15 +99,17 @@
     (setq pattern
           (concat
            "\\(?:"
-           "^var +\\(.*\\) += +function"
+           "^var +\\(.*\\) += +function *(\\([^)]*\\))"
            "\\|"
-           "^function +\\([^(]+\\)"
+           "^function +\\([^(]+\\) *(\\([^)]*\\))"
            "\\)"
            ))
     (setq matches (s-match-strings-all pattern str))
     (setq res (mapcar
       (lambda (match)
-        (if (>= (length match) 3) (nth 2 match) (nth 1 match)))
+        (if (>= (length match) 5)
+            (cons (nth 3 match) (nth 4 match))
+          (cons (nth 1 match) (nth 2 match))))
       matches))
     ;; (-uniq res)
     ))
@@ -163,21 +165,30 @@ insert to current position."
   (when mark-active
     (delete-region (region-beginning) (region-end)))
 
-  (let (buf-str funcs insert-methods)
+  (let (buf-str fun-sigs insert-methods)
     (setq buf-str (buffer-substring-no-properties (point-min) (point-max)))
-    (setq funcs (lge-grep-functions buf-str))
+    (setq fun-sigs (lge-grep-functions buf-str))
 
     ;; Insert functions or classes
     (insert "// FUNCTIONS:\n")
-    (mapc (lambda (f) (insert "//   " f "\n")) funcs)
+    (mapc
+     (lambda (f)
+       (insert "//   " (car f) "(" (cdr f) ")" "\n"))
+     fun-sigs)
 
     ;; Insert methods
     (mapc
      (lambda
-       (f)
-       (let (ins-methods cls-methods)
+       (fun-sig)
+       (let (f sig ins-methods cls-methods)
+         (setq f (car fun-sig))
+         (setq sig (cdr fun-sig))
          (setq cls-methods (lge-grep-cls-methods buf-str f))
          (setq ins-methods (lge-grep-ins-methods buf-str f))
+
+         (when (> (length ins-methods) 0)
+           (insert "// //\n// [" f "] constructor:\n")
+           (insert "//   " f "(" sig ")\n"))
 
          (when (> (length cls-methods) 0)
            (insert "// //\n// [" f "] class methods:\n")
@@ -187,7 +198,7 @@ insert to current position."
            (insert "// //\n// [" f "] instance methods:\n")
            (lge-insert-methods f ins-methods "::"))
          )
-       ) funcs)
+       ) fun-sigs)
     )
 )
 

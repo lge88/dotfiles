@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: NotImplementedError
+# key: NotImplementedError
+# --
+function NotImplementedError(msg) {
+  this.name = 'NotImplementedError';
+  this.message = msg;
+  this.stack = (new Error()).stack;
+}
+NotImplementedError.prototype = new Error;
