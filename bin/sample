@@ -1,0 +1,17 @@
+#! /usr/bin/python
+from sys import stdin, stdout, argv
+from random import random
+def print_lines_with_prob(ifs, ofs, p):
+  for line in ifs.readlines():
+    if random() < p:
+      ofs.write(line)
+
+if __name__ == '__main__':
+  try:
+    p = float(argv[1])
+  except Exception:
+    p = 0.1
+
+  if p > 1.0 or p < 0.0: p = 0.1
+
+  print_lines_with_prob(stdin, stdout, p)
