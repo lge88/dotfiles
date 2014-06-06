@@ -189,7 +189,8 @@ alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-wes
 
 # Easy to try something out:
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
-alias t="mkdircd ${DROPBOX_PATH}/tmp/`today`"
+
+alias t="mkdircd ${DROPBOX_PATH}/tmp/`date +%Y%m%d`"
 
 alias mkdir='mkdir -p'
 alias j='jobs -l'
