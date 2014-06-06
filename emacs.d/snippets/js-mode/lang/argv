@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: argv
+# key: argv
+# --
+var argv = Array.prototype.slice.call(arguments), argc = argv.length;
