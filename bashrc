@@ -26,6 +26,8 @@ pathadd ${DEVELOP_PATH}/OpenSees/BUILD/debug/bin
 export ISE_PATH=${DEVELOP_PATH}/js/ise
 pathadd ${ISE_PATH}/bin
 
+pathadd ~/elastic-mapreduce-ruby
+
 if [[ $SYSTEM == 'Darwin' ]]; then
   pathadd $HOME/bin
   pathadd /opt/local/bin
@@ -68,6 +70,7 @@ alias ligeme='ssh GL@lige.me'
 alias linode='ssh root@192.155.82.21'
 alias aliyun='ssh root@42.96.190.31'
 alias ec2="ssh -i $TOOLBOX_PATH/share/likey.pem ec2-user@ec2-54-245-28-33.us-west-2.compute.amazonaws.com"
+alias emr='elastic-mapreduce -c ~/.ssh/aws-root-credentials.json'
 
 # Fix the sudo
 if [[ $SYSTEM == 'Darwin' ]]; then
