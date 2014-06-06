@@ -1,3 +1,4 @@
+
 ;;; Includes keyboard bindings and short aliases
 
 (require 'simple)
@@ -9,14 +10,18 @@
 (global-set-key (kbd "C-z") 'undo)
 
 (require 're-builder)
-(global-set-key (kbd "C-r") 're-builder)
-(define-key reb-mode-map (kbd "C-r") 'reb-quit)
+;; (global-set-key (kbd "C-r") 're-builder)
+;; (define-key reb-mode-map (kbd "C-r") 'reb-quit)
 
 ;; (require 'lge-ido)
 ;; (global-set-key (kbd "C-x f") 'ido-find-file)
 
 ;; (require 'lge-auto-complete)
 ;; (global-set-key (kbd "<tab>") 'lge-auto-complete)
+
+(require 'lge-dash-at-point)
+(global-set-key (kbd "M-<f1>") 'dash-at-point)
+(global-set-key (kbd "M-<f2>") 'dash-at-point-with-docset)
 
 (require 'lge-helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -26,7 +31,7 @@
 (global-set-key (kbd "C-c f") 'helm-find-files)
 (global-set-key (kbd "C-x C-i") 'helm-imenu)
 (global-set-key (kbd "M-s o") 'helm-occur)
-(global-set-key (kbd "C-s") 'helm-occur)
+;; (global-set-key (kbd "C-s") 'helm-occur)
 
 (global-set-key (kbd "C-c h r") 'helm-regexp)
 (global-set-key (kbd "C-c h g") 'helm-do-grep)
