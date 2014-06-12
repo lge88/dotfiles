@@ -19,6 +19,11 @@ export DROPBOX_PATH=~/Dropbox
 export DOTFILES_PATH=~/dotfiles
 export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/templates
 
+# CalVR Variables
+export CALVR_HOME=~/Develop/calvr
+export CALVR_CONFIG_FILE=~/calvr_configs/lige_default.xml
+alias calvr=CalVR
+
 pathadd ${DOTFILES_PATH}/bin
 pathadd ${DEVELOP_PATH}/scala/sbt/bin
 pathadd ${DEVELOP_PATH}/OpenSees/BUILD/debug/bin
@@ -34,6 +39,7 @@ if [[ $SYSTEM == 'Darwin' ]]; then
   pathadd /usr/local/texbin
   export LD_LIBRARY_PATH=/opt/local/lib
 elif [[ $SYSTEM == 'Linux' ]]; then
+  pathadd ~/.pyenv/versions/2.7.6/bin/
   pathadd /usr/local/MATLAB/R2013a/bin
   pathadd /opt/ParaView-3.98.0-Linux-64bit/bin
   # pathadd /opt/mongodb-linux-x86_64-2.2.2/bin
@@ -56,6 +62,7 @@ elif [[ $SYSTEM == 'Linux' ]]; then
   # export ANT_HOME=~/local/apache-ant-1.8.4/bin
   # export SENCHA_TOUCH_SDK="~/Develop/js/sencha/touch-2.1.1"
   # export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
+  pathadd "$CALVR_HOME/bin"
 fi
 
 # Remotes:
