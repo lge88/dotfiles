@@ -104,11 +104,11 @@ elif [[ $SYSTEM == 'Linux' ]]; then
   alias cpwd='command pwd | tee >(tr -d "\n" | pbcopy)'
 fi
 
-function which() {
-  local cmds=$(command which $*)
-  echo $cmds | tr -d "\n" | pbcopy
-  echo $cmds
-}
+# function which() {
+#   local cmds=$(command which $*)
+#   echo $cmds | tr -d "\n" | pbcopy
+#   echo $cmds
+# }
 
 # z
 [[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zt='z -t'
