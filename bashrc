@@ -23,6 +23,7 @@ export TMPL_PATH=${DEVELOP_PATH}/js/ise/templates:${DOTFILES_PATH}/templates
 export CALVR_HOME=~/Develop/calvr
 export CALVR_CONFIG_FILE=~/calvr_configs/lige_default.xml
 alias calvr=CalVR
+pathadd "$CALVR_HOME/bin"
 
 pathadd ${DOTFILES_PATH}/bin
 pathadd ${DEVELOP_PATH}/scala/sbt/bin
@@ -64,7 +65,6 @@ elif [[ $SYSTEM == 'Linux' ]]; then
   # export ANT_HOME=~/local/apache-ant-1.8.4/bin
   # export SENCHA_TOUCH_SDK="~/Develop/js/sencha/touch-2.1.1"
   # export SENCHA_CMD_3_0_0="~/Develop/js/sencha/Sencha/Cmd/3.1.0.239"
-  pathadd "$CALVR_HOME/bin"
 fi
 
 # Remotes:
