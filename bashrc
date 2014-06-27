@@ -37,6 +37,8 @@ if [[ $SYSTEM == 'Darwin' ]]; then
   pathadd $HOME/bin
   pathadd /opt/local/bin
   pathadd /usr/local/texbin
+  pathadd ~/Library/Python/2.7/bin
+  pathadd /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
   export LD_LIBRARY_PATH=/opt/local/lib
 elif [[ $SYSTEM == 'Linux' ]]; then
   pathadd ~/.pyenv/versions/2.7.6/bin/
