@@ -70,8 +70,8 @@
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 
-(require 'lge-nlinum)
-(global-set-key (kbd "<f6>") 'nlinum-mode)
+(require 'lge-linum)
+(global-set-key (kbd "<f6>") 'linum-mode)
 
 (require 'lge-system-utils)
 (global-set-key (kbd "<f8>") 'lge-open-terminal-here)
