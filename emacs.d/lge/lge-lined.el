@@ -139,12 +139,14 @@
       (setq deactivate-mark nil)))
    (t
     (let ((column (current-column)))
-      (beginning-of-line)
-      (when (or (> arg 0) (not (bobp)))
-        (forward-line)
-        (when (or (< arg 0) (not (eobp)))
-          (transpose-lines arg))
-        (forward-line -1))
+      (if (> arg 0)
+          (progn
+            (forward-line)
+            (transpose-lines 1)
+            (forward-line -1))
+        (progn
+          (transpose-lines 1)
+          (forward-line -2)))
       (move-to-column column t)))))
 
 (defun move-text-down (arg)
