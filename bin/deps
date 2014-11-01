@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 var account = 'lge88';
 var baseUrl = 'https://github.com/' + account + '/';
 var pkgs = process.argv.slice( 2 );

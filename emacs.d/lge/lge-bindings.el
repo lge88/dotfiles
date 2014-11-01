@@ -2,22 +2,20 @@
 ;;; Includes keyboard bindings and short aliases
 
 (require 'simple)
-;; (global-set-key (kbd "RET") 'newline-and-indent)
+(require 'electric)
+(global-set-key (kbd "C-j") 'newline)
+(global-set-key (kbd "RET") 'electric-newline-and-maybe-indent)
 (global-set-key (kbd "M-<right>") 'forward-word)
 (global-set-key (kbd "M-<left>") 'backward-word)
 
 (global-set-key (kbd "<f5>") 'toggle-truncate-lines)
 (global-set-key (kbd "C-z") 'undo)
 
-(require 're-builder)
-;; (global-set-key (kbd "C-r") 're-builder)
-;; (define-key reb-mode-map (kbd "C-r") 'reb-quit)
-
-;; (require 'lge-ido)
-;; (global-set-key (kbd "C-x f") 'ido-find-file)
-
-;; (require 'lge-auto-complete)
-;; (global-set-key (kbd "<tab>") 'lge-auto-complete)
+(require 'lge-auto-complete)
+(define-key ac-mode-map (kbd "S-SPC") 'auto-complete)
+(define-key ac-completing-map (kbd "<escape> <tab>") 'ac-stop)
+(define-key ac-completing-map (kbd "C-n") 'ac-next)
+(define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
 (require 'lge-dash-at-point)
 (global-set-key (kbd "M-<f1>") 'dash-at-point)
@@ -53,7 +51,7 @@
 (global-set-key (kbd "M-<down>") 'move-text-down)
 (global-set-key (kbd "C-l") 'expand-region-as-lines)
 
-(require 'lge-undo-tree)
+(require 'undo-tree)
 (define-key undo-tree-map (kbd "C-x u") nil)
 (define-key undo-tree-map (kbd "C-/") nil)
 (define-key undo-tree-map (kbd "C-c u") 'undo-tree-visualize)
@@ -95,10 +93,6 @@
 (global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
 (global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
 
-(require 'lge-goto)
-(defalias 'cci 'lge-goto-cci-folder)
-(defalias 'cs 'lge-goto-cs-folder)
-
 (require 'lge-white-board)
 (defalias 'wb 'lge-enter-white-board-mode)
 (defalias 'wbclear 'lge-exit-white-board-mode)
@@ -117,26 +111,29 @@
 
 (require 'lge-js)
 (require 'lge-paredit)
-(define-key js-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
-(define-key js2-mode-map (kbd "<f12>") 'lge-toggle-js2-js-mode)
-(define-key js-mode-map (kbd "M-(") 'lge-wrap-region-1)
-(define-key js2-mode-map (kbd "M-(") 'lge-wrap-region-1)
-(define-key js2-mode-map (kbd "C-c t") 'lge-console-time-region)
-(define-key js-mode-map (kbd "C-c t") 'lge-console-time-region)
-(define-key js-mode-map (kbd "C-c C-u") 'lge-insert-outline-for-buffer)
-(define-key js2-mode-map (kbd "C-c C-u") 'lge-insert-outline-for-buffer)
+(define-key js-mode-map (kbd "<f12>") 'lge-js-toggle-js2-js-mode)
+(define-key js2-mode-map (kbd "<f12>") 'lge-js-toggle-js2-js-mode)
+(define-key js2-mode-map (kbd "C-c C-m t t") 'lge-js-time-this-region)
+(define-key js-mode-map (kbd "C-c C-m t t") 'lge-js-time-this-region)
+(define-key js-mode-map (kbd "C-c C-m i o") 'lge-js-insert-outline-for-buffer)
+(define-key js2-mode-map (kbd "C-c C-m i o") 'lge-js-insert-outline-for-buffer)
+(define-key js-mode-map (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)
+(define-key js2-mode-map (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)
+(define-key js2-mode-map (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
+(define-key js2-mode-map (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
 
 (require-package 'flycheck)
 (require 'flycheck)
 (define-key c++-mode-map (kbd "<f12>") 'flycheck-mode)
 (define-key c-mode-map (kbd "<f12>") 'flycheck-mode)
 
-;;; Can never press C-b, M-b accurately
-(global-set-key (kbd "C-v") 'backward-char)
-(global-set-key (kbd "M-v") 'backward-word)
+(require 'lge-windows)
+(global-set-key (kbd "C-x u") 'winner-undo)
+(global-set-key (kbd "C-x U") 'winner-redo)
+(global-set-key (kbd "C-x w v") `window-horizontal-to-vertical)
+(global-set-key (kbd "C-x w h") `window-vertical-to-horizontal)
 
-(require 'dired+)
-;; (define-key dired-mode-map (kbd "<down-mouse-1>") 'diredp-mouse-find-file)
-
+(require 'cua-base)
+(global-set-key (kbd "<f7>") 'cua-mode)
 
 (provide 'lge-bindings)

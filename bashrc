@@ -2,6 +2,7 @@
 export SYSTEM=`uname`
 
 TERM=xterm-256color
+PS1="(\u@\h \W) > "
 PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
 umask 022
 
@@ -37,7 +38,7 @@ alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
 alias ip='ipconfig getifaddr en1 | tee >(tr -d "\n" | pbcopy)'
 
 # Emacs
-[[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs'
+[[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias estart='emacs --daemon'
 alias estop='emacsclient -e "(kill-emacs)"'
 alias erestart='estop;estart'

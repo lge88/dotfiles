@@ -1,8 +1,7 @@
-
 (require-package 'diminish)
 (require 'diminish)
 
-(require 'lge-undo-tree)
+(require 'undo-tree)
 (diminish 'undo-tree-mode)
 
 ;; (require 'lge-helm)

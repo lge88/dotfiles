@@ -7,7 +7,7 @@
     (setq f (shell-command-to-string str))
     (substring f 0 (- (length f) 1))))
 
-(defvar lge-tmp-folder (file-name-as-directory (expand-file-name "~/Dropbox/tmp")))
+(defvar lge-tmp-folder (file-name-as-directory (expand-file-name "~/tmp")))
 
 (defun lge-create-tmp-here ()
   "Create a tmp buffer here"

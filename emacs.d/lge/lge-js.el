@@ -1,34 +1,10 @@
-(require-package 'json)
 (when (>= emacs-major-version 24)
   (require-package 'js2-mode)
   (require-package 'ac-js2))
-(require-package 'js-comint)
-(require-package 'rainbow-delimiters)
-(require-package 'coffee-mode)
-
-(require-package 'js2-mode)
 (require 'js)
 (require 'js2-mode)
 
-(defcustom preferred-javascript-mode
-  (first (remove-if-not #'fboundp '(js-mode js2-mode)))
-  "Javascript mode to use for .js files."
-  :type 'symbol
-  :group 'programming
-  :options '(js-mode js2-mode))
-(defvar preferred-javascript-indent-level 4)
-
-;; Need to first remove from list if present, since elpa adds entries too, which
-;; may be in an arbitrary order
-(eval-when-compile (require 'cl))
-(setq auto-mode-alist (cons `("\\.js\\(\\.erb\\)?\\'" . ,preferred-javascript-mode)
-                            (loop for entry in auto-mode-alist
-                                  unless (eq preferred-javascript-mode (cdr entry))
-                                  collect entry)))
-
-(add-auto-mode 'js-mode "\\.json\\'")
-
-(defun lge-console-time-region (start end str)
+(defun lge-js-time-this-region (start end str)
   "time the region using console.time/console.timeEnd"
   (interactive "r\nsconsole.time with message: ")
   (let ((str1 (concat "console.time( \"" str "\" );"))
@@ -44,15 +20,15 @@
     (newline-and-indent)
     (newline-and-indent)))
 
-(defun lge-toggle-js2-js-mode ()
-  "DOCSTRING"
+(defun lge-js-toggle-js2-js-mode ()
+  "Toggle between js2-mode and js-mode"
   (interactive)
   (if (string= major-mode "js-mode")
       (js2-mode)
     (js-mode)))
 
 (defun lge-eval-node-js-on-region-or-buffer (start end)
-  "DOCSTRING"
+  "If mark active, eval marked region; otherwise eval buffer. Display result in another buffer."
   (interactive "r")
   (if mark-active
       (progn
@@ -63,7 +39,7 @@
       (display-buffer "*js*"))))
 
 (defun lge-eval-node-js-on-region-and-replace (start end)
-  "DOCSTRING"
+  "If mark active, eval marked region; otherwise eval buffer. Standard output result will replace the region or entire buffer."
   (interactive "r")
   (if mark-active
       (shell-command-on-region start end "node" t)
@@ -158,7 +134,7 @@ Each item in the list is of form (\"method-name\" . \"method-signature\")"
    meths
    ))
 
-(defun lge-insert-outline-for-buffer ()
+(defun lge-js-insert-outline-for-buffer ()
   "Grep all the functions, ClassName.method and ClassName.prototype.method,
 insert to current position."
   (interactive)
@@ -233,78 +209,28 @@ insert to current position."
     )
   )
 
-(defalias 'rn 'js2r-rename-var)
-(defalias 'lt 'js2r-log-this)
-(global-set-key (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)
-(global-set-key (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
-
 ;; js2-mode
-(after-load 'js2-mode
-  (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2"))))
+;; (after-load 'js2-mode
+;;   (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2"))))
 
 (setq js2-use-font-lock-faces t
       js2-mode-must-byte-compile nil
-      js2-basic-offset preferred-javascript-indent-level
+      js2-basic-offset 2
       js2-indent-on-enter-key t
       js2-auto-indent-p t
       js2-bounce-indent-p nil)
 
-(after-load 'js2-mode
-  (js2-imenu-extras-setup))
+(after-load 'js2-mode (js2-imenu-extras-setup))
 
 ;; js-mode
-(setq js-indent-level preferred-javascript-indent-level)
-
+(setq js-indent-level 2)
 
 ;; standard javascript-mode
-(setq javascript-indent-level preferred-javascript-indent-level)
-
-(add-to-list 'interpreter-mode-alist (cons "node" preferred-javascript-mode))
-
-
-;;; Coffeescript
-
-(after-load 'coffee-mode
-  (setq coffee-js-mode preferred-javascript-mode
-        coffee-tab-width preferred-javascript-indent-level))
-
-(add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'" . coffee-mode))
-
-;; ---------------------------------------------------------------------------
-;; Run and interact with an inferior JS via js-comint.el
-;; ---------------------------------------------------------------------------
-
-;; (setenv "NODE_NO_READLINE" "1")
-;; (setq inferior-js-program-command "node --interactive")
-
-;; (defvar inferior-js-minor-mode-map (make-sparse-keymap))
-;; (define-key inferior-js-minor-mode-map "\C-x\C-e" 'js-send-last-sexp)
-;; (define-key inferior-js-minor-mode-map "\C-\M-x" 'js-send-last-sexp-and-go)
-;; (define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
-;; (define-key inferior-js-minor-mode-map "\C-c\C-b" 'js-send-buffer-and-go)
-;; (define-key inferior-js-minor-mode-map "\C-cl" 'js-load-file-and-go)
-
-;; (define-minor-mode inferior-js-keys-mode
-;;   "Bindings for communicating with an inferior js interpreter."
-;;   nil " InfJS" inferior-js-minor-mode-map)
-
-;; (dolist (hook '(js2-mode-hook js-mode-hook))
-;;   (add-hook hook 'inferior-js-keys-mode))
-
-;; ---------------------------------------------------------------------------
-;; Alternatively, use skewer-mode
-;; ---------------------------------------------------------------------------
-
-;; (when (featurep 'js2-mode)
-;;   (require-package 'skewer-mode)
-;;   (after-load 'skewer-mode
-;;     (add-hook 'skewer-mode-hook
-;;               (lambda () (inferior-js-keys-mode -1)))))
+(setq javascript-indent-level 2)
 
 (require-package 'js2-refactor)
 (require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
-
 (require 'typescript)
 
 (provide 'lge-js)

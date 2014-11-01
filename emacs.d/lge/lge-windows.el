@@ -1,7 +1,4 @@
-
 (winner-mode 1)
-(global-set-key (kbd "C-x u") 'winner-undo)
-(global-set-key (kbd "C-x U") 'winner-redo)
 
 ;; Idea and starter code from Benjamin Rutt (rutt.4+news@osu.edu) on comp.emacs
 (defun window-horizontal-to-vertical ()
@@ -27,8 +24,5 @@
     (split-window-horizontally)
     (switch-to-buffer one-buf)
     (goto-char buf-point)))
-
-(global-set-key (kbd "C-x w v") `window-horizontal-to-vertical)
-(global-set-key (kbd "C-x w h") `window-vertical-to-horizontal)
 
 (provide 'lge-windows)

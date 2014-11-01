@@ -1,6 +1,7 @@
 (provide 'lge-auto-complete)
 
 (require-package 'auto-complete)
+(require 'auto-complete)
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (setq ac-expand-on-auto-complete nil)
@@ -13,7 +14,6 @@
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
 (ac-config-default)
-
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode csv-mode espresso-mode haskell-mode
                 html-mode nxml-mode smarty-mode clojure-mode
