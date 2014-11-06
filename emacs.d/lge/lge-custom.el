@@ -17,7 +17,8 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-(setq dired-dwim-target nil)
+(setq dired-dwim-target t)
+(setq tramp-default-method "ssh")
 (setq frame-title-format '("" "%b @ Emacs " emacs-version))
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
