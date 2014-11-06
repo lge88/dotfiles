@@ -1,19 +1,22 @@
 # .bashrc
 export SYSTEM=`uname`
 
-TERM=xterm-256color
 PS1="(\u@\h \W) > "
-PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
+if [[ $SYSTEM == 'Darwin' ]]; then
+  TERM=xterm-256color
+  PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
+fi
+
 umask 022
 
 function pathadd() { [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]] && export PATH=${1}:$PATH; }
 
 # Set up my paths
+pathadd ~/bin
 pathadd ~/dotfiles/bin
 
 if [[ $SYSTEM == 'Darwin' ]]; then
   export LD_LIBRARY_PATH=/opt/local/lib
-  pathadd ~/bin
   pathadd /opt/local/bin
   pathadd /opt/local/sbin
 fi
