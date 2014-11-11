@@ -210,8 +210,8 @@ insert to current position."
   )
 
 ;; js2-mode
-;; (after-load 'js2-mode
-;;   (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2"))))
+(after-load 'js2-mode
+  (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2"))))
 
 (setq js2-use-font-lock-faces t
       js2-mode-must-byte-compile nil

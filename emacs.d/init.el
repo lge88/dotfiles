@@ -16,6 +16,8 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst *is-cocoa-emacs* *is-a-mac*)
 
+(package-refresh-contents)
+
 (require 'lge-elpa)
 (require 'lge-base)
 
@@ -99,6 +101,9 @@
 
 (require-package 'markdown-mode)
 (require 'markdown-mode)
+
+(require-package 'smooth-scrolling)
+(require 'smooth-scrolling)
 
 (require-package 'rainbow-delimiters)
 (require 'rainbow-delimiters)

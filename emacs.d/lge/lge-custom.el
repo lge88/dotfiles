@@ -9,6 +9,7 @@
 (add-auto-mode 'markdown-mode "\\.md")
 (add-auto-mode 'c++-mode "\\.h$")
 (add-auto-mode 'js-mode "\\.json\\'")
+(add-auto-mode 'js2-mode "\\.js\\'")
 
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-defun 'disabled nil)
