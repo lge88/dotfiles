@@ -69,7 +69,7 @@ alias ldpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 if [[ $SYSTEM == 'Darwin' ]]; then
   alias ls='ls -G' && alias la='ls -lGa' && alias ll='ls -l'
 else
-  alias ls='ls -h --color' && alias ll='ls -l' && alias la='ll -A'
+  alias ls='ls -h --color=auto' && alias ll='ls -l' && alias la='ll -A'
 fi
 
 function sanitize() { chmod -R u=rwX,g=rX,o= "$@"; }
