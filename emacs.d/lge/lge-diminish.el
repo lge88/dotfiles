@@ -1,6 +1,7 @@
 (require-package 'diminish)
 (require 'diminish)
 
+(require-package 'undo-tree)
 (require 'undo-tree)
 (diminish 'undo-tree-mode)
 

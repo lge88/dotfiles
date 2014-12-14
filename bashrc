@@ -38,22 +38,12 @@ alias gdf='git diff --color'
 
 # utils
 alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
-alias ip='ipconfig getifaddr en1 | tee >(tr -d "\n" | pbcopy)'
+alias ip='ipconfig getifaddr en0 | tee >(tr -d "\n" | pbcopy)'
 
 # Emacs
 [[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-alias estart='emacs --daemon'
-alias estop='emacsclient -e "(kill-emacs)"'
-alias erestart='estop;estart'
 export EDITOR='emacsclient -t'
-
-function e() {
-  if [[ $(emacsclient -e "(message \"hi\")") == \"hi\" ]]; then
-    emacsclient -c -n $*;
-  else
-    estart && emacsclient -c -n $*;
-  fi
-}
+alias e='emacsclient -n'
 alias et='emacsclient -t'
 
 # Easy to try something out:
@@ -87,27 +77,32 @@ for __ac_cmd in ${__ac_cmds}; do
   complete -cf ${__ac_cmd}
 done
 
-### Git auto-complete
+# Git auto-complete
 [[ -f ~/.git-completion.sh ]] && . ~/.git-completion.sh
 
 # z
 [[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zt='z -t'
 
 # NVM settings:
-function __init_nvm() { [[ -r ~/nvm/nvm.sh ]] && . ~/nvm/nvm.sh; }
+function __init_nvm() {
+  [[ -r ~/.nvm/nvm.sh ]] || exit
+  . ~/.nvm/nvm.sh || exit
+  # FIXME: why this is slow?
+  # nvm use stable > /dev/null 2>&1
+}
 __init_nvm
 
 # pyenv
+# Very slow...
 function __init_pyenv() {
   export PYENV_ROOT="$HOME/.pyenv"
   pathadd $PYENV_ROOT/bin
   eval "$(pyenv init -)"
 }
-# Very slow...
 #__init_pyenv
 
 # CalVR Variables
-export CALVR_HOME=~/Develop/calvr
-export CALVR_CONFIG_FILE=~/calvr_configs/lige_default.xml
+export CALVR_HOME=~/local/calvr
+export CALVR_CONFIG_FILE=~/config/calvr/lige_default.xml
 alias calvr=CalVR
 pathadd "$CALVR_HOME/bin"

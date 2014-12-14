@@ -2,6 +2,7 @@
 (require-package 'helm)
 (require 'helm)
 
+(setq helm-truncate-lines t)
 (setq helm-buffers-favorite-modes
       '(text-mode
         js-mode
@@ -25,7 +26,7 @@
   (interactive)
   (helm :sources '(helm-source-buffers-list
                    helm-source-ido-virtual-buffers
-                   helm-source-recentf
+                   ;helm-source-recentf
                    helm-source-buffer-not-found)
         :buffer "*helm buffers*"
         :keymap helm-buffer-map

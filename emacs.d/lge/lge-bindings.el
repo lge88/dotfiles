@@ -17,19 +17,16 @@
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
-(require 'lge-dash-at-point)
-(global-set-key (kbd "M-<f1>") 'dash-at-point)
-(global-set-key (kbd "M-<f2>") 'dash-at-point-with-docset)
+(require 'ffap)
+(global-set-key (kbd "C-c C-f") 'find-file-at-point)
 
 (require 'lge-helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'lge-helm-buffers-list)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'find-file)
 (global-set-key (kbd "C-x f") 'helm-find-files)
-(global-set-key (kbd "C-c f") 'helm-find-files)
 (global-set-key (kbd "C-x C-i") 'helm-imenu)
 (global-set-key (kbd "M-s o") 'helm-occur)
-;; (global-set-key (kbd "C-s") 'helm-occur)
 
 (global-set-key (kbd "C-c h r") 'helm-regexp)
 (global-set-key (kbd "C-c h g") 'helm-do-grep)
@@ -38,9 +35,8 @@
 (global-set-key (kbd "C-c h t") 'lge-helm-top)
 (global-set-key (kbd "C-c h c") 'helm-colors)
 (global-set-key (kbd "C-c h b") 'helm-bookmarks)
-
-(global-set-key (kbd "C-x j") 'helm-mark-ring)
-(global-set-key (kbd "C-x y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-c h m") 'helm-mark-ring)
+(global-set-key (kbd "C-c h y") 'helm-show-kill-ring)
 
 (require 'lge-lined)
 (global-set-key (kbd "C-k") 'kill-line)
