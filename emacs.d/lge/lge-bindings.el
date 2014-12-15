@@ -18,7 +18,7 @@
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
 (require 'ffap)
-(global-set-key (kbd "C-c C-f") 'find-file-at-point)
+(global-set-key (kbd "C-c f") 'find-file-at-point)
 
 (require 'lge-helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
