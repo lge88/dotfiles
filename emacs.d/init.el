@@ -30,7 +30,7 @@
 (require 'lge-projectile)
 
 (require 'lge-dired)
-(require 'lge-ido)
+;; (require 'lge-ido)
 ;; (require 'lge-isearch)
 ;; (require 'lge-maxframe)
 (require 'lge-osx-keys)
@@ -119,3 +119,4 @@
 (require 'lge-theme)
 
 (require 'lge-bindings)
+(server-start)

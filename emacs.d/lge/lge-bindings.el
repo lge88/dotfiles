@@ -19,20 +19,29 @@
 
 (require 'ffap)
 (global-set-key (kbd "C-c f") 'find-file-at-point)
+(global-set-key (kbd "C-c C-f") 'find-file-at-point)
+
+(require 'lge-files)
+(global-set-key (kbd "C-x C-f") 'lge-find-file-from-scratch)
+
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (require 'lge-helm)
+(global-set-key (kbd "C-c h s") 'lge-helm-search-web)
+(global-set-key (kbd "C-h f") 'lge-helm-describe-function)
+(global-set-key (kbd "C-h v") 'lge-helm-describe-variable)
+
+(require 'helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'find-file)
 (global-set-key (kbd "C-x f") 'helm-find-files)
+(global-set-key (kbd "C-h a") 'helm-apropos)
 (global-set-key (kbd "C-x C-i") 'helm-imenu)
 (global-set-key (kbd "M-s o") 'helm-occur)
 
 (global-set-key (kbd "C-c h r") 'helm-regexp)
 (global-set-key (kbd "C-c h g") 'helm-do-grep)
-(global-set-key (kbd "C-c h s") 'lge-helm-search-web)
-(global-set-key (kbd "C-c h p") 'lge-helm-list-elisp-packages)
-(global-set-key (kbd "C-c h t") 'lge-helm-top)
 (global-set-key (kbd "C-c h c") 'helm-colors)
 (global-set-key (kbd "C-c h b") 'helm-bookmarks)
 (global-set-key (kbd "C-c h m") 'helm-mark-ring)

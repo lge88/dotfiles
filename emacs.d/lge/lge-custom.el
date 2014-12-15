@@ -25,7 +25,7 @@
 (setq initial-scratch-message "")
 (setq markdown-command "marked --gfm")
 (setq next-screen-context-lines 10)
-(setq vc-follow-symlinks nil)
+(setq vc-follow-symlinks t)
 (setq visible-bell t)
 (setq x-select-enable-clipboard t)
 (setq-default indent-tabs-mode nil)
