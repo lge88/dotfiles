@@ -33,8 +33,7 @@ alias pb='pbcopy'
 alias o='open'
 
 # git shortcuts:
-alias gst='git status'
-alias gdf='git diff --color'
+alias gst='git status' gdf='git diff --color'
 
 # utils
 alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
@@ -43,8 +42,8 @@ alias ip='ipconfig getifaddr en0 | tee >(tr -d "\n" | pbcopy)'
 # Emacs
 [[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 export EDITOR='emacsclient -t'
-alias e='emacsclient -n'
-alias et='emacsclient -t'
+alias e='emacsclient -n' e.='emacsclient -n .'
+alias et='emacsclient -t' et.='emacsclient -t .'
 
 # Easy to try something out:
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
@@ -53,23 +52,15 @@ alias mkdir='mkdir -p'
 alias j='jobs -l'
 
 # Pretty-print of some PATH variables:
-alias path='echo -e ${PATH//:/\\n}'
-alias ldpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+alias path='echo -e ${PATH//:/\\n}' ldpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
 if [[ $SYSTEM == 'Darwin' ]]; then
-  alias ls='ls -G' && alias la='ls -lGa' && alias ll='ls -l'
+  alias ls='ls -G' la='ls -lGa' ll='ls -l'
 else
-  alias ls='ls -h --color=auto' && alias ll='ls -l' && alias la='ll -A'
+  alias ls='ls -h --color=auto' ll='ls -l' la='ll -A'
 fi
 
 function sanitize() { chmod -R u=rwX,g=rX,o= "$@"; }
-
-function ndb() {
-  local p=${2:-8888}
-  [ ! -z $1 ] && node --debug-brk $1 &
-  node-inspector --web-port=$p > /dev/null 2>&1 &
-  sleep 0.5 && open "http://localhost:${p}/debug?port=5858" > /dev/null 2>&1
-}
 
 # Completion
 __ac_cmds="sudo man which type gdb help"
@@ -93,16 +84,17 @@ function __init_nvm() {
 __init_nvm
 
 # pyenv
-# Very slow...
 function __init_pyenv() {
   export PYENV_ROOT="$HOME/.pyenv"
   pathadd $PYENV_ROOT/bin
   eval "$(pyenv init -)"
 }
-#__init_pyenv
+# __init_pyenv
 
 # CalVR Variables
-export CALVR_HOME=~/local/calvr
-export CALVR_CONFIG_FILE=~/config/calvr/lige_default.xml
-alias calvr=CalVR
-pathadd "$CALVR_HOME/bin"
+if [[ $SYSTEM == 'Linux' ]]; then
+  export CALVR_HOME=~/local/calvr
+  export CALVR_CONFIG_FILE=~/config/calvr/lige_default.xml
+  alias calvr=CalVR
+  pathadd "$CALVR_HOME/bin"
+fi

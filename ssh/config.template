@@ -1,0 +1,9 @@
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/master-%l-%r@%h:%p
+  ServerAliveCountMax=30
+  ServerAliveInterval=5
+
+Host vision2
+  HostName vision2.ucsd.edu
+  User GL
