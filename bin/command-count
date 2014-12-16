@@ -1,2 +1,7 @@
 #! /bin/sh
-cat ~/.bash_history | grep -E ^[^#] | cut -d ' ' -f 1 | sort | uniq -c | sort -rn
+cat ~/.bash_history | \
+  grep -E ^[^#] | \
+  cut -d ' ' -f 1 | \
+  sort | \
+  uniq -c | \
+  sort -rn
