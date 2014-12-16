@@ -21,6 +21,12 @@ if [[ $SYSTEM == 'Darwin' ]]; then
   pathadd /opt/local/sbin
 fi
 
+# Emacs
+[[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+export EDITOR='emacsclient -t'
+alias e='emacsclient -n' e.='emacsclient -n .'
+alias et='emacsclient -t' et.='emacsclient -t .'
+
 # paste board, osx pbcopy/pbpaste equivalent
 [[ $SYSTEM == 'Linux' ]] && alias pbcopy='xclip -selection clipboard'
 alias pb='pbcopy'
@@ -38,12 +44,6 @@ alias gst='git status' gdf='git diff --color'
 # utils
 alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
 alias ip='ipconfig getifaddr en0 | tee >(tr -d "\n" | pbcopy)'
-
-# Emacs
-[[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-export EDITOR='emacsclient -t'
-alias e='emacsclient -n' e.='emacsclient -n .'
-alias et='emacsclient -t' et.='emacsclient -t .'
 
 # Easy to try something out:
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
