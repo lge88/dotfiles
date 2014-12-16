@@ -32,7 +32,9 @@
 (global-set-key (kbd "C-h f") 'lge-helm-describe-function)
 (global-set-key (kbd "C-h v") 'lge-helm-describe-variable)
 
+
 (require 'helm)
+(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-x f") 'helm-find-files)
