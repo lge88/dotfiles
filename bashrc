@@ -4,7 +4,7 @@ export SYSTEM=`uname`
 PS1="(\u@\h \W) > "
 if [[ $SYSTEM == 'Darwin' ]]; then
   TERM=xterm-256color
-  PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
+  # PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
 fi
 
 umask 022
