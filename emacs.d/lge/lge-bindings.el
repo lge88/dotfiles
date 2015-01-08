@@ -64,6 +64,10 @@
 (define-key undo-tree-map (kbd "C-c u") 'undo-tree-visualize)
 (define-key undo-tree-map [remap undo] 'nil)
 
+(require 'lge-emmet)
+(define-key emmet-mode-keymap (kbd "C-j") nil)
+(define-key emmet-mode-keymap (kbd "<tab>") 'emmet-expand-line)
+
 (require 'lge-edit)
 ;; (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
@@ -128,6 +132,10 @@
 (define-key js2-mode-map (kbd "<f10>") 'lge-eval-node-js-on-region-or-buffer)
 (define-key js2-mode-map (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
 (define-key js2-mode-map (kbd "<f11>") 'lge-eval-node-js-on-region-and-replace)
+
+;;
+(define-key js2-mode-map (kbd "C-x C-e") 'js-send-region)
+(define-key js2-mode-map (kbd "C-u C-x C-e") 'js-send-region-and-go)
 
 (require-package 'flycheck)
 (require 'flycheck)

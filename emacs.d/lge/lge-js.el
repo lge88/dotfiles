@@ -1,3 +1,14 @@
+
+(require 'js-comint)
+(setq lge-nvm-path (expand-file-name "~/.nvm"))
+(setq lge-node-version-in-use "v0.10.35")
+(setq lge-node-home (format "%s/%s" lge-nvm-path lge-node-version-in-use))
+(setq lge-node-bin (format "%s/bin/node" lge-node-home))
+(setq lge-node-path (format "%s/lib/node-modules" lge-node-home))
+(setq inferior-js-program-command (format "%s --interactive" lge-node-bin))
+(setenv "NODE_NO_READLINE" "1")
+(setenv "NODE_PATH" lge-node-path)
+
 (when (>= emacs-major-version 24)
   (require-package 'js2-mode)
   (require-package 'ac-js2))
@@ -222,15 +233,14 @@ insert to current position."
 
 (after-load 'js2-mode (js2-imenu-extras-setup))
 
-;; js-mode
+;; indent
 (setq js-indent-level 2)
-
-;; standard javascript-mode
 (setq javascript-indent-level 2)
 
 (require-package 'js2-refactor)
 (require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
+
 (require 'typescript)
 
 (provide 'lge-js)
