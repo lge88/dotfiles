@@ -3,7 +3,6 @@
 (require-package 'yasnippet)
 
 (require 'yasnippet)
-(yas--initialize)
 
 (defun lge-create-snippet-from-region (start end)
   "marked region copy to snippet creation buffer"
