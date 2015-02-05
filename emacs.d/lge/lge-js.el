@@ -4,7 +4,7 @@
 (setq lge-node-version-in-use "v0.10.35")
 (setq lge-node-home (format "%s/%s" lge-nvm-path lge-node-version-in-use))
 (setq lge-node-bin (format "%s/bin/node" lge-node-home))
-(setq lge-node-path (format "%s/lib/node-modules" lge-node-home))
+(setq lge-node-path (format "%s/lib/node_modules" lge-node-home))
 (setq inferior-js-program-command (format "%s --interactive" lge-node-bin))
 (setenv "NODE_NO_READLINE" "1")
 (setenv "NODE_PATH" lge-node-path)

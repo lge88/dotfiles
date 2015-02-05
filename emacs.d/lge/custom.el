@@ -15,6 +15,7 @@
  '(fci-rule-color "#073642")
  '(js2-skip-preprocessor-directives t)
  '(python-indent-offset 4)
+ '(typescript-indent-level 2)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jshint
+# key: jshint
+# --
+/*jshint undef: true, unused: true */
+/*global __dirname describe it require*/
