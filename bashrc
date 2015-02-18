@@ -31,6 +31,8 @@ alias et='emacsclient -t' et.='emacsclient -t .'
 [[ $SYSTEM == 'Linux' ]] && alias pbcopy='xclip -selection clipboard'
 alias pb='pbcopy'
 
+alias gist='gist -c'
+
 # copy and print working directory
 [[ $SYSTEM == 'Darwin' ]] && alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
 
@@ -39,7 +41,7 @@ alias pb='pbcopy'
 alias o='open'
 
 # git shortcuts:
-alias gst='git status' gdf='git diff --color'
+alias gst='git status' gdf='git diff --color' gdfc='git diff --color --cached'
 
 # utils
 alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
