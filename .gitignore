@@ -2,3 +2,4 @@
 [#]*[#]
 .#*
 *.elc
+node_modules
