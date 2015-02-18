@@ -14,6 +14,10 @@
 
 ;; (setq yas/root-directory "~/.emacs.d/snippets")
 
+;; After package update:
+;;   - Goto ~/.emacs.d/elpa/yasnippet-201xxxxx.xxx/snippets/js-mode/
+;;   - Rename f -> _f, for -> _for to disable the snippet prompt.
+
 ;; (yas/reload-all)
 (yas/global-mode 1)
 
