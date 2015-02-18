@@ -11,6 +11,7 @@
 (add-auto-mode 'js-mode "\\.json\\'")
 (add-auto-mode 'js2-mode "\\.js\\'")
 (add-auto-mode 'octave-mode "\\.m\\'")
+(add-auto-mode 'web-mode "\\.html\\'")
 
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-defun 'disabled nil)
