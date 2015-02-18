@@ -1,0 +1,17 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "My dotfiles",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lge88/dotfiles.git"
+  },
+  "author": "Li Ge",
+  "license": "MIT",
+  "homepage": "https://github.com/lge88/dotfiles",
+  "dependencies": {
+    "colors": "^1.0.3",
+    "shelljs": "^0.3.0"
+  }
+}
