@@ -1,3 +1,0 @@
-#!/usr/bin/env node
-require('shelljs/global');
-var path = require('path');

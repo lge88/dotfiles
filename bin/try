@@ -1,5 +1,0 @@
-
-#! /bin/sh
-
-mkdir -p $1
-[ ! -z $1 ] && echo $1 >> .gitignore
