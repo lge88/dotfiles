@@ -1,5 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: not implemented
-# key: notimpl
-# --
-throw new NotImplementedError($0)

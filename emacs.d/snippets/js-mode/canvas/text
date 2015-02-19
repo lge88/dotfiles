@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: context 2d fill text
-# key: cantext
-# --
-ctx.fillStyle = 'black';
-ctx.font = '20pt Arial';
-ctx.fillText('text', x, y);$0

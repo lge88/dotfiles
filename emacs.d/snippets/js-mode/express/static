@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: express static server
-# key: static
-# --
-$1use(express.static( ${2:__dirname}) )$0

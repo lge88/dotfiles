@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: toObject
-# key: toObject
-# --
-reduce(function( obj, item) {
-obj[${1:item}] = item;
-return obj;
-}, {})

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: querySelector
-# key: $
+# key: qs
 # --
-$3querySelector$1($2)$0
+querySelector($0)
