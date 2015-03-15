@@ -12,6 +12,7 @@
 (add-auto-mode 'js2-mode "\\.js\\'")
 (add-auto-mode 'octave-mode "\\.m\\'")
 (add-auto-mode 'web-mode "\\.html\\'")
+(add-auto-mode 'sass-mode "\\.scss\\'")
 
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-defun 'disabled nil)

@@ -1,0 +1,8 @@
+# name : doc
+# key : doc
+# --
+/**
+ * $0
+ * @param {Number} ${1:x} - $1
+ * @returns {Number} - ${2:y}
+ */
