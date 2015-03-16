@@ -22,7 +22,7 @@ if [[ $SYSTEM == 'Darwin' ]]; then
 fi
 
 # Emacs
-[[ $SYSTEM == 'Darwin' ]] && alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+[[ $SYSTEM == 'Darwin' ]] && alias emacs='~/Applications/Emacs.app/Contents/MacOS/Emacs'
 export EDITOR='emacsclient -t'
 alias e='emacsclient -n' e.='emacsclient -n .'
 alias et='emacsclient -t' et.='emacsclient -t .'
