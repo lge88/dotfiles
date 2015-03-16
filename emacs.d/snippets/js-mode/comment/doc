@@ -3,6 +3,6 @@
 # --
 /**
  * $0
- * @param {Number} ${1:x} - $1
- * @returns {Number} - ${2:y}
+ * @param {${1:Number}} ${2:x}
+ * @returns {$3}
  */
