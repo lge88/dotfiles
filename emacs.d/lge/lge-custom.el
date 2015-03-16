@@ -38,6 +38,15 @@
 (set-fontset-font t 'han (font-spec :name "Songti SC"))
 (setq cursor-type 'bar)
 (blink-cursor-mode 0)
+
+
+(defun font-existsp (font)
+    (if (null (x-list-fonts font))
+        nil t))
+(set-face-attribute 'default nil :height 140)
+(when (font-existsp "Source Code Pro")
+      (set-default-font "Source Code Pro 14"))
+
 ;; (setq shell-command-switch "-ic")
 
 ;;; This solves the problem:

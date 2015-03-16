@@ -7,6 +7,8 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
  '(css-indent-offset 2)
  '(cursor-type (quote bar))
  '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
@@ -17,6 +19,7 @@
  '(js2-skip-preprocessor-directives t)
  '(jsx-indent-level 2)
  '(python-indent-offset 4)
+ '(tool-bar-mode nil)
  '(typescript-indent-level 2)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
