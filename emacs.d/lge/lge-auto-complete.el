@@ -17,7 +17,7 @@
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode csv-mode espresso-mode haskell-mode
                 html-mode nxml-mode smarty-mode clojure-mode
-                textile-mode markdown-mode tuareg-mode
+                textile-mode markdown-mode tuareg-mode octave-mode
                 js2-mode js-mode lisp-mode sgml-mode conf-space-mode
                 tcl-mode c++mode c-mode sh-mode make-mode latex-mode
                 cmake-mode python-mode makefile-gmake-mode jade-mode
