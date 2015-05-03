@@ -26,6 +26,7 @@
 (setq frame-title-format '("" "%b @ Emacs " emacs-version))
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
+(setq magit-last-seen-setup-instructions "1.4.0")
 (setq markdown-command "marked --gfm")
 (setq next-screen-context-lines 10)
 (setq vc-follow-symlinks t)
