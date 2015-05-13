@@ -122,8 +122,9 @@
 
 (require 'lge-js)
 (require 'lge-paredit)
-(define-key js-mode-map (kbd "<f12>") 'lge-js-toggle-js2-js-mode)
-(define-key js2-mode-map (kbd "<f12>") 'lge-js-toggle-js2-js-mode)
+(define-key js-mode-map (kbd "<f12>") 'lge-cycle-web-js-js2-mode)
+(define-key js2-mode-map (kbd "<f12>") 'lge-cycle-web-js-js2-mode)
+(define-key web-mode-map (kbd "<f12>") 'lge-cycle-web-js-js2-mode)
 (define-key js2-mode-map (kbd "C-c C-m t t") 'lge-js-time-this-region)
 (define-key js-mode-map (kbd "C-c C-m t t") 'lge-js-time-this-region)
 (define-key js-mode-map (kbd "C-c C-m i o") 'lge-js-insert-outline-for-buffer)

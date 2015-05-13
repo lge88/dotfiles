@@ -239,7 +239,16 @@ insert to current position."
 
 (require-package 'js2-refactor)
 (require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
 (js2r-add-keybindings-with-prefix "C-c C-m")
+
+(defun lge-cycle-web-js-js2-mode ()
+  (interactive)
+  (cond
+   ((string= major-mode "web-mode") (js-mode))
+   ((string= major-mode "js-mode") (js2-mode))
+   ((string= major-mode "js2-mode") (web-mode))
+   (t (js2-mode))))
 
 (require 'typescript)
 
