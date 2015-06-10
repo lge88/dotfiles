@@ -10,6 +10,7 @@
 (add-auto-mode 'c++-mode "\\.h$")
 (add-auto-mode 'js-mode "\\.json\\'")
 (add-auto-mode 'js2-mode "\\.js\\'")
+(add-auto-mode 'web-mode "\\.jsx\\'")
 (add-auto-mode 'octave-mode "\\.m\\'")
 (add-auto-mode 'web-mode "\\.html\\'")
 (add-auto-mode 'sass-mode "\\.scss\\'")
