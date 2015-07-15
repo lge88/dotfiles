@@ -5,7 +5,7 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (setq ac-expand-on-auto-complete nil)
-(setq ac-auto-start t)
+(setq ac-auto-start nil)
 (setq ac-dwim nil)
 
 (define-key ac-mode-map (kbd "S-SPC") 'auto-complete)
