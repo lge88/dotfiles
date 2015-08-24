@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: ensure an object
-# key: ctobj
-# --
-if (!(typeof $1 === 'object') ) {
-throw new Error('Expect $1 to be an Object, but got ' + $1);
-}$0

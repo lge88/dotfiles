@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: ensure defined
-# key: ctdef
-# --
-if (!(typeof $1 !== 'undefined') ) {
-throw new Error('Expect $1 to be a defined value, but got ' + $1);
-}$0

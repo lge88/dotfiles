@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: node path
-# key: npath
-# --
-NODE_PATH=$(HOME)/.dotfiles/lib/node_modules:$(HOME)/.dotfiles/lib/component-build

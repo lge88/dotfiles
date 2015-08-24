@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: ensure object
-# key: ctnull
-# --
-if (!($1 === null) ) {
-throw new Error('Expect $1 to be a null object, but got ' + $1);
-}$0

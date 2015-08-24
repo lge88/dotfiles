@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: .gitignore
-# key: ignore
-# --
-components
-node_modules
-build
-tmp
-*bak
