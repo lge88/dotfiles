@@ -14,10 +14,10 @@ ls('.')
     cd(dir);
     var out = exec('git status --porcelain', { silent: true }).output;
     if (out === '') {
-      out = dir + ' is clean.';
+      out = dir;
       echo(out.green);
     } else {
-      out = dir + ' is dirty.';
+      out = '*' + dir;
       echo(out.red);
     }
     cd('..');
