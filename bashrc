@@ -1,5 +1,6 @@
 # .bashrc
 export SYSTEM=`uname`
+HISTFILESIZE=2500
 
 PS1="(\u@\h \W) > "
 if [[ $SYSTEM == 'Darwin' ]]; then
@@ -26,6 +27,12 @@ fi
 export EDITOR='emacsclient -t'
 alias e='emacsclient -n' e.='emacsclient -n .'
 alias et='emacsclient -t' et.='emacsclient -t .'
+
+# Atom
+alias a='atom'
+
+# Visual Studio Code
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # paste board, osx pbcopy/pbpaste equivalent
 [[ $SYSTEM == 'Linux' ]] && alias pbcopy='xclip -selection clipboard'
@@ -92,11 +99,3 @@ function __init_pyenv() {
   eval "$(pyenv init -)"
 }
 # __init_pyenv
-
-# CalVR Variables
-if [[ $SYSTEM == 'Linux' ]]; then
-  export CALVR_HOME=~/local/calvr
-  export CALVR_CONFIG_FILE=~/config/calvr/lige_default.xml
-  alias calvr=CalVR
-  pathadd "$CALVR_HOME/bin"
-fi
