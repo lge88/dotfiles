@@ -3,6 +3,8 @@
 ;;; Code:
 (require-package 'web-mode)
 (require 'web-mode)
+(require-package 'js2-mode)
+(require 'js2-mode)
 (require-package 'emmet-mode)
 (require 'emmet-mode)
 (require-package 'yasnippet)
@@ -31,6 +33,19 @@
  'json-mode-hook
  (lambda ()
    (flycheck-mode 1)))
+
+(add-hook
+ 'js2-mode-hook
+ (lambda ()
+   (setq mode-name "JS2")
+   (flycheck-mode 1)))
+
+(defun lge-toggle-web-js2-mode ()
+  (interactive)
+  (cond
+   ((string= major-mode "web-mode") (js2-mode))
+   ((string= major-mode "js2-mode") (web-mode))
+   (t (web-mode))))
 
 (provide 'lge-web)
 ;;; lge-web.el ends here

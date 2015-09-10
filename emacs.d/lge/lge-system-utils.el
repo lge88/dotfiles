@@ -26,7 +26,7 @@ Copy the directory to clipboard."
 (defconst *system-terminal*
   (cond
    ((eq system-type 'darwin)
-    "open -a Terminal")
+    "open -a iTerm")
    ((eq system-type 'gnu/linux)
     "gnome-terminal")
    (t

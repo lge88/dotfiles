@@ -16,7 +16,7 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst *is-cocoa-emacs* *is-a-mac*)
 
-(package-refresh-contents)
+;; (package-refresh-contents)
 
 (require 'lge-elpa)
 (require 'lge-base)
@@ -26,11 +26,11 @@
 (require 'lge-diminish)
 ;; (require 'lge-org)
 (require 'lge-ispell)
-(require 'lge-google-translate)
+;;; (require 'lge-google-translate)
 (require 'lge-projectile)
 
 (require 'lge-dired)
-(require 'lge-ido)
+;;; (require 'lge-ido)
 ;; (require 'lge-isearch)
 ;; (require 'lge-maxframe)
 (require 'lge-osx-keys)
@@ -40,7 +40,7 @@
 (require 'lge-windows)
 (require 'lge-xterm)
 (require 'lge-hippie-expand)
-(require 'lge-mmm)
+;;; (require 'lge-mmm)
 (require 'lge-yasnippet)
 
 (require 'lge-edit)
@@ -50,20 +50,20 @@
 (require 'lge-scratch)
 ;; (require 'lge-register)
 
-(require 'lge-git)
+;; (require 'lge-git)
 
-;;(require 'lge-js)
+;; (require 'lge-js)
 ;; (require 'lge-emmet)
+;; (require 'lge-tss)
 (require 'lge-web)
-(require 'lge-tss)
 (require 'lge-white-board)
 (require 'lge-c)
-(require 'lge-tcl)
-(require 'lge-sh)
-(require 'lge-python)
+;; (require 'lge-tcl)
+;; (require 'lge-sh)
+;; (require 'lge-python)
 (require 'lge-tex)
-(require 'lge-ruby-mode)
-(require 'lge-clojure)
+;; (require 'lge-ruby-mode)
+;; (require 'lge-clojure)
 
 (require-package 'scratch)
 
@@ -71,8 +71,9 @@
 (require 'editorconfig)
 
 (require-package 'go-mode)
+(require 'go-mode)
 
-(require 're-builder)
+;; (require 're-builder)
 
 (require 'undo-tree)
 (global-undo-tree-mode 1)
@@ -83,20 +84,20 @@
 (require-package 'cmake-mode)
 (require 'cmake-mode)
 
-(require-package 'jade-mode)
-(require 'jade-mode)
+;; (require-package 'jade-mode)
+;; (require 'jade-mode)
 
-(require-package 'stylus-mode)
-(require 'stylus-mode)
+;; (require-package 'stylus-mode)
+;; (require 'stylus-mode)
 
-(require-package 'gnuplot)
+;; (require-package 'gnuplot)
 
-(require-package 'lua-mode)
-(require 'lua-mode)
+;; (require-package 'lua-mode)
+;; (require 'lua-mode)
 
-(require-package 'htmlize)
+;; (require-package 'htmlize)
 
-(require-package 'dsvn)
+;; (require-package 'dsvn)
 
 (require-package 'dash)
 (require 'dash)
@@ -113,12 +114,12 @@
 (require-package 'smooth-scrolling)
 (require 'smooth-scrolling)
 
-(require-package 'rainbow-delimiters)
-(require 'rainbow-delimiters)
-(rainbow-delimiters-mode 1)
+;; (require-package 'rainbow-delimiters)
+;; (require 'rainbow-delimiters)
+;; (rainbow-delimiters-mode 1)
 
-(when *is-a-mac*
-  (require-package 'osx-location))
+;; (when *is-a-mac*
+;;   (require-package 'osx-location))
 
 (setq custom-file "~/.emacs.d/lge/custom.el")
 (load custom-file)

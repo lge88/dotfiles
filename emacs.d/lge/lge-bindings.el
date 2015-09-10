@@ -138,6 +138,8 @@
 ;; (define-key js2-mode-map (kbd "C-u C-x C-e") 'js-send-region-and-go)
 
 (require 'lge-web)
+(define-key js2-mode-map (kbd "<f11>") 'lge-toggle-web-js2-mode)
+(define-key web-mode-map (kbd "<f11>") 'lge-toggle-web-js2-mode)
 (define-key web-mode-map (kbd "<f12>") 'emmet-mode)
 
 (require-package 'flycheck)
