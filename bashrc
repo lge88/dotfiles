@@ -88,7 +88,7 @@ function __init_nvm() {
   [[ -r ~/.nvm/nvm.sh ]] || exit
   . ~/.nvm/nvm.sh || exit
   # FIXME: why this is slow?
-  # nvm use stable > /dev/null 2>&1
+  nvm use stable > /dev/null 2>&1
 }
 __init_nvm
 

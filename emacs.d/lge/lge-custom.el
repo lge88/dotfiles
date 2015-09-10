@@ -8,11 +8,11 @@
 (add-auto-mode 'tcl-mode "\\.ops$")
 (add-auto-mode 'markdown-mode "\\.md")
 (add-auto-mode 'c++-mode "\\.h$")
-(add-auto-mode 'js-mode "\\.json\\'")
-(add-auto-mode 'js2-mode "\\.js\\'")
-(add-auto-mode 'web-mode "\\.jsx\\'")
+(add-auto-mode 'json-mode "\\.json\\'")
+;; (add-auto-mode 'js2-mode "\\.js\\'")
+(add-auto-mode 'web-mode "\\.html\\'" "\\.js\\'" "\\.jsx\\'")
 (add-auto-mode 'octave-mode "\\.m\\'")
-(add-auto-mode 'web-mode "\\.html\\'")
+;; (add-auto-mode 'web-mode "\\.html\\'")
 (add-auto-mode 'sass-mode "\\.scss\\'")
 
 (put 'downcase-region 'disabled nil)
@@ -42,13 +42,14 @@
 (setq cursor-type 'bar)
 (blink-cursor-mode 0)
 
-
 (defun font-existsp (font)
-    (if (null (x-list-fonts font))
-        nil t))
+  (if (null (x-list-fonts font))
+      nil t))
 (set-face-attribute 'default nil :height 140)
 (when (font-existsp "Source Code Pro")
-      (set-default-font "Source Code Pro 14"))
+  (add-to-list 'default-frame-alist
+               '(font . "Source Code Pro 14")))
+
 
 ;; (setq shell-command-switch "-ic")
 
@@ -70,8 +71,8 @@
 (setq ring-bell-function 'my-bell-function)
 (defun my-bell-function ()
   (unless (memq this-command
-    	'(mwheel-scroll down up next-line previous-line
-              backward-char forward-char))
+                '(mwheel-scroll down up next-line previous-line
+                                backward-char forward-char))
     (ding)))
 
 (provide 'lge-custom)

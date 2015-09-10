@@ -52,9 +52,10 @@
 
 (require 'lge-git)
 
-(require 'lge-js)
+;;(require 'lge-js)
+;; (require 'lge-emmet)
+(require 'lge-web)
 (require 'lge-tss)
-(require 'lge-emmet)
 (require 'lge-white-board)
 (require 'lge-c)
 (require 'lge-tcl)

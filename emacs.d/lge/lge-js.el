@@ -244,14 +244,38 @@ insert to current position."
 
 (require-package 'web-mode)
 (require 'web-mode)
+
 (defun lge-cycle-web-js-js2-mode ()
   (interactive)
   (cond
-   ((string= major-mode "web-mode") (js-mode))
-   ((string= major-mode "js-mode") (js2-mode))
+   ((string= major-mode "web-mode") (js2-mode))
+   ;; ((string= major-mode "js-mode") (js2-mode))
    ((string= major-mode "js2-mode") (web-mode))
    (t (js2-mode))))
 
 (require 'typescript)
 
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; disable json-jsonlist checking for json files
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(json-jsonlist)))
+
+(add-hook 'web-mode-hook
+  (lambda ()
+  (if (equal web-mode-content-type "javascript")
+  (web-mode-set-content-type "jsx")
+  (message "now set to: %s" web-mode-content-type))))
+
 (provide 'lge-js)
+;;; lge-js.el ends here
