@@ -1,14 +1,6 @@
 {
-  "parser": "babel-eslint",
-  "plugins": [ "react" ],
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "extends": "eslint:recommended",
+  "extends": "airbnb",
   "rules": {
-    "no-console": [0],
     "no-unused-vars": [1]
   }
 }

@@ -88,9 +88,15 @@ function __init_nvm() {
   [[ -r ~/.nvm/nvm.sh ]] || exit
   . ~/.nvm/nvm.sh || exit
   # FIXME: why this is slow?
-  nvm use stable > /dev/null 2>&1
+  nvm use v0.12 > /dev/null 2>&1
 }
 __init_nvm
+
+# NPM util:
+alias npmlg="npm ls -g --depth=0 | cut -d' ' -f2 | tail -n +2 | sed '/^$/d'"
+
+# Speedtest
+alias sptest='speedtest-cli'
 
 # pyenv
 function __init_pyenv() {

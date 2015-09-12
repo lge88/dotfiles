@@ -32,7 +32,7 @@
 (setq markdown-command "marked --gfm")
 (setq next-screen-context-lines 10)
 (setq vc-follow-symlinks t)
-(setq visible-bell t)
+(setq visible-bell nil)
 (setq x-select-enable-clipboard t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
@@ -48,7 +48,7 @@
 (set-face-attribute 'default nil :height 140)
 (when (font-existsp "Source Code Pro")
   (add-to-list 'default-frame-alist
-               '(font . "Source Code Pro 14")))
+               '(font . "Source Code Pro-14:weight=light")))
 
 
 ;; (setq shell-command-switch "-ic")

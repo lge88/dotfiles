@@ -18,6 +18,8 @@
  '(fci-rule-color "#073642")
  '(js-indent-level 2)
  '(js2-skip-preprocessor-directives t)
+ '(js2-strict-inconsistent-return-warning nil)
+ '(js2-strict-trailing-comma-warning nil)
  '(json-reformat:indent-width 2)
  '(jsx-indent-level 2)
  '(python-indent-offset 4)

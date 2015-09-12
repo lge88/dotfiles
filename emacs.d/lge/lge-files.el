@@ -4,6 +4,6 @@
 
 (defun lge-find-file-from-scratch ()
   (interactive)
-  (find-file (read-file-name "Path: " "~/" "~/" nil "" nil)))
+  (find-file (read-file-name "Path: ")))
 
 (provide 'lge-files)
