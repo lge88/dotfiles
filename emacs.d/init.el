@@ -125,7 +125,6 @@
 (load custom-file)
 
 (require 'lge-custom)
-(require 'lge-theme)
 
 (require 'lge-bindings)
 (server-start)
