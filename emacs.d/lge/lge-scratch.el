@@ -27,6 +27,11 @@
     (make-directory folder t)
     (dired folder)))
 
+(defun lge-goto-doing-file ()
+  "Jump to ~/doing.md"
+  (interactive)
+  (find-file "~/doing.md"))
+
 (defun lge-switch-to-scratch-buffer (&optional arg)
   "Preserve the current directory"
   (interactive "p")

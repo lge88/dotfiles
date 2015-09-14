@@ -92,6 +92,7 @@
 (global-set-key (kbd "C-c C-s") 'lge-switch-to-scratch-buffer)
 (defalias 'tmp 'lge-create-tmp-here)
 (defalias 'td 'lge-goto-today-folder)
+(defalias 'doing 'lge-goto-doing-file)
 
 (require 'lge-org)
 (global-set-key (kbd "C-c c") 'org-capture)

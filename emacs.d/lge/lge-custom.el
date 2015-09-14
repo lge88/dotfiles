@@ -8,7 +8,7 @@
 (add-auto-mode 'tcl-mode "\\.ops$")
 (add-auto-mode 'markdown-mode "\\.md")
 (add-auto-mode 'c++-mode "\\.h$")
-(add-auto-mode 'json-mode "\\.json\\'")
+(add-auto-mode 'json-mode "\\.json\\'" "\\.eslintrc\\'")
 ;; (add-auto-mode 'js2-mode "\\.js\\'")
 (add-auto-mode 'web-mode "\\.html\\'" "\\.js\\'" "\\.jsx\\'")
 (add-auto-mode 'octave-mode "\\.m\\'")
