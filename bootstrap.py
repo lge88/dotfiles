@@ -6,6 +6,7 @@ dot_files = [
   ('bash_profile', '.bash_profile'),
   ('git/gitconfig', '.gitconfig'),
   ('git/git-completion.sh', '.git-completion.sh'),
+  ('git/git-completion.bash', '.git-completion.bash'),
   ('emacs.d', '.emacs.d'),
 ]
 

@@ -1,76 +1,53 @@
 # .bashrc
 export SYSTEM=`uname`
 HISTFILESIZE=2500
-
 PS1="(\u@\h \W) > "
-if [[ $SYSTEM == 'Darwin' ]]; then
-  TERM=xterm-256color
-  # PROMPT_COMMAND='echo -ne "\033]0;`command pwd`\007"'
-fi
-
+TERM=xterm-256color
 umask 022
 
+# Paths
 function pathadd() { [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]] && export PATH=${1}:$PATH; }
-
-# Set up my paths
-pathadd ~/bin
 pathadd ~/dotfiles/bin
-
-if [[ $SYSTEM == 'Darwin' ]]; then
-  export LD_LIBRARY_PATH=/opt/local/lib
-  pathadd /opt/local/bin
-  pathadd /opt/local/sbin
-fi
+pathadd /opt/local/bin
+pathadd /opt/local/sbin
+export LD_LIBRARY_PATH=/opt/local/lib
+# Pretty-print of some PATH variables:
+alias path='echo ${PATH//:/\\n}'
+alias ldpath='echo ${LD_LIBRARY_PATH//:/\\n}'
 
 # Emacs
-[[ $SYSTEM == 'Darwin' ]] && alias emacs='~/Applications/Emacs.app/Contents/MacOS/Emacs'
-[[ $SYSTEM == 'Darwin' ]] && alias emacsclient='~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+alias emacs='~/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias emacsclient='~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+alias e='emacsclient -n'
+alias e.='emacsclient -n .'
+alias et='emacsclient -t'
+alias et.='emacsclient -t .'
 export EDITOR='emacsclient -t'
-alias e='emacsclient -n' e.='emacsclient -n .'
-alias et='emacsclient -t' et.='emacsclient -t .'
 
-# Atom
-alias a='atom'
+# Git
+alias gst='git status'
+alias gdf='git diff --color'
+alias gdfc='git diff --color --cached'
 
-# Visual Studio Code
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-# paste board, osx pbcopy/pbpaste equivalent
-[[ $SYSTEM == 'Linux' ]] && alias pbcopy='xclip -selection clipboard'
-alias pb='pbcopy'
-
+# Gist
 alias gist='gist -c'
 
-# copy and print working directory
-# [[ $SYSTEM == 'Darwin' ]] && alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
+# Utils
+alias now='date "+%Y/%m/%d %H:%M:%S"'
+# alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
+alias ip='ipconfig getifaddr en0'
+# alias ip='ipconfig getifaddr en0 | tee >(tr -d "\n" | pbcopy)'
+# alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
+function sanitize() { chmod -R u=rwX,g=rX,o= "$@"; }
 
-# System open command:
-[[ ${SYSTEM} == Linux ]] && alias open='gnome-open'
-alias o='open'
-
-# git shortcuts:
-alias gst='git status' gdf='git diff --color' gdfc='git diff --color --cached'
-
-# utils
-alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
-alias ip='ipconfig getifaddr en0 | tee >(tr -d "\n" | pbcopy)'
-
-# Easy to try something out:
+# Make it easy to try something out:
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias t="mkdircd ~/tmp/`date +%Y%m%d`"
 alias mkdir='mkdir -p'
 alias j='jobs -l'
 
-# Pretty-print of some PATH variables:
-alias path='echo -e ${PATH//:/\\n}' ldpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
-
-if [[ $SYSTEM == 'Darwin' ]]; then
-  alias ls='ls -G' la='ls -lGa' ll='ls -l'
-else
-  alias ls='ls -h --color=auto' ll='ls -l' la='ll -A'
-fi
-
-function sanitize() { chmod -R u=rwX,g=rX,o= "$@"; }
+# ls colors:
+alias ls='ls -G' la='ls -lGa' ll='ls -l'
 
 # Completion
 __ac_cmds="sudo man which type gdb help"
@@ -79,17 +56,16 @@ for __ac_cmd in ${__ac_cmds}; do
 done
 
 # Git auto-complete
-# [[ -f ~/.git-completion.sh ]] && . ~/.git-completion.sh
+[[ -f ~/.git-completion.bash ]] && . ~/.git-completion.bash
 
 # z
 [[ -f ~/z/z.sh ]] && . ~/z/z.sh && alias zt='z -t'
 
-# NVM settings:
+# NVM:
 function __init_nvm() {
   [[ -r ~/.nvm/nvm.sh ]] || exit
   . ~/.nvm/nvm.sh || exit
-  # FIXME: why this is slow?
-  nvm use v0.12 > /dev/null 2>&1
+  nvm use stable > /dev/null 2>&1
 }
 __init_nvm
 
@@ -98,11 +74,3 @@ alias npmlg="npm ls -g --depth=0 | cut -d' ' -f2 | tail -n +2 | sed '/^$/d'"
 
 # Speedtest
 alias sptest='speedtest-cli'
-
-# pyenv
-function __init_pyenv() {
-  export PYENV_ROOT="$HOME/.pyenv"
-  pathadd $PYENV_ROOT/bin
-  eval "$(pyenv init -)"
-}
-# __init_pyenv
