@@ -11,6 +11,10 @@ pathadd ~/dotfiles/bin
 pathadd /opt/local/bin
 pathadd /opt/local/sbin
 export LD_LIBRARY_PATH=/opt/local/lib
+
+# Y! only
+pathadd ~/projects/ygrid-utils
+
 # Pretty-print of some PATH variables:
 alias path='echo ${PATH//:/\\n}'
 alias ldpath='echo ${LD_LIBRARY_PATH//:/\\n}'
