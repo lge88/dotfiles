@@ -12,9 +12,6 @@ pathadd /opt/local/bin
 pathadd /opt/local/sbin
 export LD_LIBRARY_PATH=/opt/local/lib
 
-# Y! only
-pathadd ~/projects/ygrid-utils
-
 # Pretty-print of some PATH variables:
 alias path='echo ${PATH//:/\\n}'
 alias ldpath='echo ${LD_LIBRARY_PATH//:/\\n}'
@@ -38,10 +35,7 @@ alias gist='gist -c'
 
 # Utils
 alias now='date "+%Y/%m/%d %H:%M:%S"'
-# alias now='date "+%Y/%m/%d %H:%M:%S" | tee >(tr -d "\n" | pbcopy)'
 alias ip='ipconfig getifaddr en0'
-# alias ip='ipconfig getifaddr en0 | tee >(tr -d "\n" | pbcopy)'
-# alias pwd='command pwd | tee >(tr -d "\n" | pbcopy)'
 function sanitize() { chmod -R u=rwX,g=rX,o= "$@"; }
 
 # Make it easy to try something out:
@@ -78,3 +72,7 @@ alias npmlg="npm ls -g --depth=0 | cut -d' ' -f2 | tail -n +2 | sed '/^$/d'"
 
 # Speedtest
 alias sptest='speedtest-cli'
+
+# Y! only
+pathadd ~/projects/ygrid-utils
+pathadd ~/projects/qbert-server-devtools
